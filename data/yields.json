@@ -1,4 +1,30 @@
 {
-  "generatedAt": "1970-01-01T00:00:00Z",
-  "curves": { "JP": [], "US": [], "DE": [] }
+  "generatedAt": "2026-04-23T12:03:48.752589+00:00",
+  "curves": {
+    "JP": [],
+    "US": [
+      {
+        "tenor": 5,
+        "yield": 3.915,
+        "prevYield": 3.908,
+        "diffBp": 0.7,
+        "asOf": "2026-04-22"
+      },
+      {
+        "tenor": 10,
+        "yield": 4.294,
+        "prevYield": 4.292,
+        "diffBp": 0.2,
+        "asOf": "2026-04-22"
+      },
+      {
+        "tenor": 30,
+        "yield": 4.902,
+        "prevYield": 4.898,
+        "diffBp": 0.4,
+        "asOf": "2026-04-22"
+      }
+    ],
+    "DE": []
+  }
 }
