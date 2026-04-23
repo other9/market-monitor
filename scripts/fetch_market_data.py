@@ -19,7 +19,6 @@ import yfinance as yf
 
 # ─────────────────────────────────────────────────────────
 # 1. 取得する銘柄
-#    yfinance のティッカー、表示名、グループ、説明、利回り扱いか
 # ─────────────────────────────────────────────────────────
 INSTRUMENTS: list[dict[str, Any]] = [
     # 株式
@@ -35,9 +34,6 @@ INSTRUMENTS: list[dict[str, Any]] = [
     {"ticker": "EURUSD=X","group": "為替",   "name": "EUR/USD",       "sub": "ユーロドル"},
     # 金利
     {"ticker": "^TNX",    "group": "金利",   "name": "米10年債",      "sub": "利回り",        "unit": "%", "is_yield": True},
-    # 日10年債は yfinance に安定したシンボルがないので、
-    # 簡易的に Investing.com 由来の参考値を使う場合は別途RSS化するか手動更新。
-    # ここでは省略 (必要なら別途データソース追加)。
     # コモディティ
     {"ticker": "CL=F",    "group": "コモディティ", "name": "WTI原油",   "sub": "NY先物 $/bbl"},
     {"ticker": "BZ=F",    "group": "コモディティ", "name": "Brent原油", "sub": "北海先物 $/bbl"},
@@ -47,7 +43,6 @@ INSTRUMENTS: list[dict[str, Any]] = [
     {"ticker": "^VIX",    "group": "ボラティリティ", "name": "VIX",     "sub": "恐怖指数"},
 ]
 
-# 5年チャート用 (キー -> ティッカー)
 CHART_TICKERS = {
     "nikkei":  "^N225",
     "sp500":   "^GSPC",
@@ -63,35 +58,60 @@ OUTPUT_PATH = Path("data/market.json")
 # ─────────────────────────────────────────────────────────
 # 2. ヘルパー関数
 # ─────────────────────────────────────────────────────────
-def pct_change(now: float, then: float, *, is_yield: bool = False) -> float | None:
-    """利回りは bp 差分風 (% pt change) ではなく、ベース変化率を返す。
-    ※ 利回りは通常絶対変化(bp)で表示する流儀もあるが、ここでは率で統一。
+def extract_close_series(df: pd.DataFrame) -> pd.Series:
+    """yfinance が返す DataFrame から Close 列を Series として取り出す。
+
+    - 単一ティッカーでも新しい yfinance は MultiIndex カラムで返すことがある
+    - その場合 df["Close"] は DataFrame (列: ticker) になる
+    - どちらでも最終的に 1 次元の Series になるよう正規化する
     """
+    if df is None or df.empty:
+        return pd.Series(dtype="float64")
+
+    # MultiIndex カラム (例: ("Close", "^N225")) のケース
+    if isinstance(df.columns, pd.MultiIndex):
+        # "Close" レベルを選ぶ
+        if "Close" in df.columns.get_level_values(0):
+            close_df = df.xs("Close", axis=1, level=0)
+        else:
+            # 最後のレベルに Close が来る形式も一応保険
+            close_df = df.iloc[:, [-1]]
+        # DataFrame のはず → 最初の列を Series に
+        if isinstance(close_df, pd.DataFrame):
+            if close_df.shape[1] == 0:
+                return pd.Series(dtype="float64")
+            return close_df.iloc[:, 0].dropna()
+        return close_df.dropna()
+
+    # フラットなカラムのケース
+    if "Close" in df.columns:
+        s = df["Close"]
+        if isinstance(s, pd.DataFrame):
+            # 念のため
+            if s.shape[1] == 0:
+                return pd.Series(dtype="float64")
+            return s.iloc[:, 0].dropna()
+        return s.dropna()
+
+    # 最悪のフォールバック: 4番目の列を使う (OHLC の C)
+    if df.shape[1] >= 4:
+        return df.iloc[:, 3].dropna()
+    return pd.Series(dtype="float64")
+
+
+def pct_change(now: float, then: float, *, is_yield: bool = False) -> float | None:
     if then == 0 or pd.isna(then) or pd.isna(now):
         return None
     if is_yield:
-        # 利回りは「%pt差」を返す方が直感的
+        # 利回りは %pt 差を返す
         return round(now - then, 3)
     return round((now / then - 1) * 100, 2)
 
 
-def get_close_at_or_before(history: pd.DataFrame, target_date: datetime) -> tuple[float, datetime] | None:
-    """指定日以前で最も近い営業日の終値を返す。"""
-    # tz-aware にそろえる
-    if history.index.tz is not None:
-        target_date = target_date.replace(tzinfo=history.index.tz)
-    sliced = history.loc[history.index <= target_date]
-    if sliced.empty:
-        return None
-    last = sliced.iloc[-1]
-    return float(last["Close"]), sliced.index[-1].to_pydatetime()
-
-
-def fetch_one(ticker: str) -> pd.DataFrame:
-    """6ヶ月+1ヶ月のバッファを持って日次データを取得。"""
+def fetch_daily(ticker: str) -> pd.DataFrame:
     return yf.download(
         ticker,
-        period="2y",          # 6ヶ月比較に余裕を持って2年取る
+        period="2y",
         interval="1d",
         progress=False,
         auto_adjust=False,
@@ -99,7 +119,6 @@ def fetch_one(ticker: str) -> pd.DataFrame:
 
 
 def fetch_monthly(ticker: str) -> list[dict[str, Any]]:
-    """5年月次データを返す。"""
     df = yf.download(
         ticker,
         period="5y",
@@ -107,14 +126,13 @@ def fetch_monthly(ticker: str) -> list[dict[str, Any]]:
         progress=False,
         auto_adjust=False,
     )
-    if df.empty:
+    close = extract_close_series(df)
+    if close.empty:
         return []
-    # マルチカラムだった場合の対応
-    close_col = df["Close"] if "Close" in df.columns else df.iloc[:, 3]
-    out = []
-    for ts, val in close_col.dropna().items():
-        out.append({"d": ts.strftime("%Y-%m"), "v": round(float(val), 2)})
-    return out
+    return [
+        {"d": ts.strftime("%Y-%m"), "v": round(float(val), 2)}
+        for ts, val in close.items()
+    ]
 
 
 # ─────────────────────────────────────────────────────────
@@ -122,7 +140,6 @@ def fetch_monthly(ticker: str) -> list[dict[str, Any]]:
 # ─────────────────────────────────────────────────────────
 def main() -> None:
     today = datetime.now(timezone.utc)
-
     indices_out: list[dict[str, Any]] = []
 
     for inst in INSTRUMENTS:
@@ -130,38 +147,32 @@ def main() -> None:
         is_yield = inst.get("is_yield", False)
 
         try:
-            df = fetch_one(ticker)
+            df = fetch_daily(ticker)
         except Exception as e:
             print(f"[WARN] {ticker} fetch failed: {e}")
             continue
 
-        if df.empty:
-            print(f"[WARN] {ticker} empty.")
-            continue
-
-        # 終値シリーズ
-        if "Close" in df.columns:
-            close = df["Close"]
-        else:
-            close = df.iloc[:, 3]
-        close = close.dropna()
+        close = extract_close_series(df)
         if close.empty:
+            print(f"[WARN] {ticker} empty after extract.")
             continue
 
         last_date = close.index[-1].to_pydatetime()
         last_close = float(close.iloc[-1])
 
-        # 各期間の参照終値
         def _at(days_back: int) -> float | None:
             target = last_date - timedelta(days=days_back)
+            # index の tz に合わせる
+            if close.index.tz is not None and target.tzinfo is None:
+                target = target.replace(tzinfo=close.index.tz)
             sliced = close.loc[close.index <= target]
             if sliced.empty:
                 return None
             return float(sliced.iloc[-1])
 
-        prev_d = _at(1)
-        prev_w = _at(7)
-        prev_m = _at(30)
+        prev_d  = _at(1)
+        prev_w  = _at(7)
+        prev_m  = _at(30)
         prev_6m = _at(182)
 
         row = {
@@ -170,10 +181,10 @@ def main() -> None:
             "sub":     inst["sub"],
             "close":   round(last_close, 4 if last_close < 10 else 2),
             "asOf":    last_date.strftime("%Y-%m-%d"),
-            "day":   pct_change(last_close, prev_d,  is_yield=is_yield) if prev_d  else None,
-            "week":  pct_change(last_close, prev_w,  is_yield=is_yield) if prev_w  else None,
-            "month": pct_change(last_close, prev_m,  is_yield=is_yield) if prev_m  else None,
-            "sixM":  pct_change(last_close, prev_6m, is_yield=is_yield) if prev_6m else None,
+            "day":   pct_change(last_close, prev_d,  is_yield=is_yield) if prev_d  is not None else None,
+            "week":  pct_change(last_close, prev_w,  is_yield=is_yield) if prev_w  is not None else None,
+            "month": pct_change(last_close, prev_m,  is_yield=is_yield) if prev_m  is not None else None,
+            "sixM":  pct_change(last_close, prev_6m, is_yield=is_yield) if prev_6m is not None else None,
         }
         if "unit" in inst:
             row["unit"] = inst["unit"]
