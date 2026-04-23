@@ -1,0 +1,90 @@
+name: Daily Market Update
+
+# 毎日 22:00 UTC (= 日本時間 07:00) に実行
+# 加えて、main への push と手動実行（workflow_dispatch）でも動かせる
+on:
+  schedule:
+    - cron: "0 22 * * *"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write       # data/*.json をコミットして戻すため
+  pages: write          # GitHub Pages デプロイ用
+  id-token: write       # GitHub Pages OIDC
+
+# 同時実行を1つに制限（前のジョブが走っていたらキャンセル）
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # ────────── Python: market data + news ──────────
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Python deps
+        run: |
+          pip install -r requirements.txt
+
+      - name: Fetch market data (yfinance)
+        run: python scripts/fetch_market_data.py
+
+      - name: Fetch & summarize news (Claude API)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/fetch_news.py
+
+      # ────────── Commit data back to repo ──────────
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          # 差分があるときだけコミット（連休など値が変わらない時の空コミット防止）
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: update market data $(date -u +'%Y-%m-%d')"
+            git push
+          else
+            echo "No data changes; skipping commit."
+          fi
+
+      # ────────── Build the React app ──────────
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install npm deps
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          # GitHub Pages のサブパス対応（user/org page の場合は '/' のままでOK）
+          # project page (https://<user>.github.io/market-monitor/) は '/market-monitor/' に
+          BASE_URL: "/market-monitor/"
+
+      # ────────── Deploy to GitHub Pages ──────────
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
