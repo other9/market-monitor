@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-23T14:05:55.869259+00:00",
+  "generatedAt": "2026-04-23T22:20:37.476675+00:00",
   "curves": {
     "JP": [
       {
@@ -22,38 +22,46 @@
     "US": [
       {
         "tenor": 2,
-        "yield": 3.78,
-        "prevYield": 3.72,
-        "diffBp": 6.0,
-        "asOf": "2026-04-21",
+        "yield": 3.79,
+        "prevYield": 3.78,
+        "diffBp": 1.0,
+        "asOf": "2026-04-22",
         "seriesId": "DGS2"
       },
       {
         "tenor": 5,
         "yield": 3.91,
-        "prevYield": 3.86,
-        "diffBp": 5.0,
-        "asOf": "2026-04-21",
+        "prevYield": 3.91,
+        "diffBp": 0.0,
+        "asOf": "2026-04-22",
         "seriesId": "DGS5"
       },
       {
         "tenor": 10,
         "yield": 4.3,
-        "prevYield": 4.26,
-        "diffBp": 4.0,
-        "asOf": "2026-04-21",
+        "prevYield": 4.3,
+        "diffBp": 0.0,
+        "asOf": "2026-04-22",
         "seriesId": "DGS10"
       },
       {
         "tenor": 30,
-        "yield": 4.89,
-        "prevYield": 4.88,
+        "yield": 4.9,
+        "prevYield": 4.89,
         "diffBp": 1.0,
-        "asOf": "2026-04-21",
+        "asOf": "2026-04-22",
         "seriesId": "DGS30"
       }
     ],
     "DE": [
+      {
+        "tenor": 1,
+        "yield": 1.932,
+        "prevYield": 1.931,
+        "diffBp": 0.2,
+        "asOf": "2026-03-01",
+        "seriesId": "IRSTCI01DEM156N"
+      },
       {
         "tenor": 10,
         "yield": 2.905,
