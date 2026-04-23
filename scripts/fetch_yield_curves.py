@@ -1,138 +1,116 @@
 """
-fetch_yield_curves.py  (v2 — uses direct stooq CSV download)
+fetch_yield_curves.py  (v3 — FRED API)
 
-日・米・独の主要年限の国債利回りを取得し data/yields.json に書き出す。
+日・米・独の主要年限の国債利回りを FRED API から取得し data/yields.json に書き出す。
 
-- 米: yfinance 経由
-- 日・独: stooq CSV ダウンロード (pandas.read_csv を直接使用)
+- FRED (Federal Reserve Economic Data) 無料API
+- 環境変数 FRED_API_KEY が必要 (https://fredaccount.stlouisfed.org/apikeys)
+- 米: 日次データ (2Y/5Y/10Y/30Y)
+- 日: 月次データ (短期近似/10Y)
+- 独: 月次データ (短期近似/10Y)
 
-GitHub Actions で毎朝7時(JST)に実行される想定。
+※ 日独の FRED 系列は月次のみ。直近月末値を当日値として扱う。
+   日次データが必要な場合は ECB API 等への拡張が必要。
 """
 
 from __future__ import annotations
 
-import io
 import json
+import os
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 import requests
-import yfinance as yf
 
 
 OUTPUT_PATH = Path("data/yields.json")
+FRED_BASE = "https://api.stlouisfed.org/fred/series/observations"
 
 
 # ─────────────────────────────────────────────────────────
-# 取得する年限とソース
-#   source == "yf"    → yfinance
-#   source == "stooq" → stooq CSV を直接 HTTP 取得
+# FRED シリーズ ID
 # ─────────────────────────────────────────────────────────
-TENORS: list[dict[str, Any]] = [
-    # --- United States (yfinance) ---
-    {"country": "US", "tenor": 2,  "source": "yf",    "symbol": "^UST2YR"},
-    {"country": "US", "tenor": 5,  "source": "yf",    "symbol": "^FVX"},
-    {"country": "US", "tenor": 10, "source": "yf",    "symbol": "^TNX"},
-    {"country": "US", "tenor": 30, "source": "yf",    "symbol": "^TYX"},
+SERIES: list[dict[str, Any]] = [
+    # --- United States (daily, Treasury CMT) ---
+    {"country": "US", "tenor": 2,  "id": "DGS2"},
+    {"country": "US", "tenor": 5,  "id": "DGS5"},
+    {"country": "US", "tenor": 10, "id": "DGS10"},
+    {"country": "US", "tenor": 30, "id": "DGS30"},
 
-    # --- Japan (stooq) ---
-    {"country": "JP", "tenor": 2,  "source": "stooq", "symbol": "2yjpy.b"},
-    {"country": "JP", "tenor": 5,  "source": "stooq", "symbol": "5yjpy.b"},
-    {"country": "JP", "tenor": 10, "source": "stooq", "symbol": "10yjpy.b"},
-    {"country": "JP", "tenor": 20, "source": "stooq", "symbol": "20yjpy.b"},
-    {"country": "JP", "tenor": 30, "source": "stooq", "symbol": "30yjpy.b"},
+    # --- Japan (monthly, IMF/OECD 経由) ---
+    {"country": "JP", "tenor": 1,  "id": "IRSTCI01JPM156N"},   # 3ヶ月マネーマーケット (≈短期)
+    {"country": "JP", "tenor": 10, "id": "IRLTLT01JPM156N"},   # 10年
 
-    # --- Germany (stooq) ---
-    {"country": "DE", "tenor": 2,  "source": "stooq", "symbol": "2yde.b"},
-    {"country": "DE", "tenor": 5,  "source": "stooq", "symbol": "5yde.b"},
-    {"country": "DE", "tenor": 10, "source": "stooq", "symbol": "10yde.b"},
-    {"country": "DE", "tenor": 30, "source": "stooq", "symbol": "30yde.b"},
+    # --- Germany (monthly, 同上) ---
+    {"country": "DE", "tenor": 1,  "id": "IRSTCI01DEM156N"},   # 3ヶ月マネーマーケット
+    {"country": "DE", "tenor": 10, "id": "IRLTLT01DEM156N"},   # 10年
 ]
 
 
-# ─────────────────────────────────────────────────────────
-# yfinance 取得
-# ─────────────────────────────────────────────────────────
-def fetch_yf(symbol: str) -> pd.Series:
-    df = yf.download(symbol, period="10d", interval="1d", progress=False, auto_adjust=False)
-    if df is None or df.empty:
-        return pd.Series(dtype="float64")
-
-    if isinstance(df.columns, pd.MultiIndex):
-        if "Close" in df.columns.get_level_values(0):
-            close_df = df.xs("Close", axis=1, level=0)
-            if isinstance(close_df, pd.DataFrame) and close_df.shape[1] > 0:
-                return close_df.iloc[:, 0].dropna()
-        return pd.Series(dtype="float64")
-
-    if "Close" in df.columns:
-        s = df["Close"]
-        if isinstance(s, pd.DataFrame):
-            return s.iloc[:, 0].dropna() if s.shape[1] > 0 else pd.Series(dtype="float64")
-        return s.dropna()
-
-    return pd.Series(dtype="float64")
-
-
-# ─────────────────────────────────────────────────────────
-# stooq 取得 (CSV 直接ダウンロード)
-#   URL 仕様: https://stooq.com/q/d/l/?s=SYMBOL&i=d
-# ─────────────────────────────────────────────────────────
-STOOQ_URL = "https://stooq.com/q/d/l/"
-
-
-def fetch_stooq(symbol: str) -> pd.Series:
+def fetch_fred_series(series_id: str, api_key: str) -> pd.Series:
+    """FRED API から系列を取得して Series で返す。直近2年分。"""
+    params = {
+        "series_id":          series_id,
+        "api_key":            api_key,
+        "file_type":          "json",
+        "observation_start":  (datetime.now() - pd.DateOffset(years=2)).strftime("%Y-%m-%d"),
+    }
     try:
-        resp = requests.get(
-            STOOQ_URL,
-            params={"s": symbol, "i": "d"},
-            timeout=15,
-            headers={"User-Agent": "Mozilla/5.0 (MarketMonitor GitHub Action)"},
-        )
-        resp.raise_for_status()
-        text = resp.text
-
-        # stooq はデータがないときに "No data" などを返すことがある
-        if not text or text.startswith("No data") or "Date,Open,High,Low,Close" not in text.split("\n")[0]:
-            print(f"[WARN] stooq {symbol}: no data returned")
-            return pd.Series(dtype="float64")
-
-        df = pd.read_csv(io.StringIO(text), parse_dates=["Date"])
-        if df.empty or "Close" not in df.columns:
-            return pd.Series(dtype="float64")
-
-        df = df.sort_values("Date").set_index("Date")
-        return df["Close"].dropna()
-
+        r = requests.get(FRED_BASE, params=params, timeout=15)
+        r.raise_for_status()
+        data = r.json()
     except Exception as e:
-        print(f"[WARN] stooq {symbol}: {e}")
+        print(f"[WARN] FRED {series_id}: {e}", file=sys.stderr)
         return pd.Series(dtype="float64")
 
+    obs = data.get("observations", [])
+    if not obs:
+        return pd.Series(dtype="float64")
 
-# ─────────────────────────────────────────────────────────
-# メイン
-# ─────────────────────────────────────────────────────────
+    rows = []
+    for o in obs:
+        if o.get("value") in (".", "", None):
+            continue
+        try:
+            rows.append((pd.Timestamp(o["date"]), float(o["value"])))
+        except (ValueError, TypeError):
+            continue
+
+    if not rows:
+        return pd.Series(dtype="float64")
+
+    s = pd.Series(dict(rows)).sort_index()
+    return s.dropna()
+
+
 def main() -> None:
+    api_key = os.environ.get("FRED_API_KEY")
+    if not api_key:
+        print("[ERROR] FRED_API_KEY is not set", file=sys.stderr)
+        OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+        OUTPUT_PATH.write_text(json.dumps({
+            "generatedAt": datetime.now(timezone.utc).isoformat(),
+            "curves": {"JP": [], "US": [], "DE": []},
+            "error": "FRED_API_KEY not set",
+        }, ensure_ascii=False, indent=2), encoding="utf-8")
+        return
+
     now = datetime.now(timezone.utc)
     curves: dict[str, list[dict[str, Any]]] = {"JP": [], "US": [], "DE": []}
 
-    for t in TENORS:
-        if t["source"] == "yf":
-            s = fetch_yf(t["symbol"])
-        else:
-            s = fetch_stooq(t["symbol"])
+    for t in SERIES:
+        s = fetch_fred_series(t["id"], api_key)
 
         if s.empty or len(s) < 2:
-            print(f"[WARN] {t['country']}-{t['tenor']}Y ({t['symbol']}): insufficient data")
+            print(f"[WARN] {t['country']}-{t['tenor']}Y ({t['id']}): insufficient data")
             continue
 
         last = float(s.iloc[-1])
         prev = float(s.iloc[-2])
-        last_date = s.index[-1]
-        if hasattr(last_date, "to_pydatetime"):
-            last_date = last_date.to_pydatetime()
+        last_date = s.index[-1].to_pydatetime()
 
         diff_bp = round((last - prev) * 100, 1)
 
@@ -141,9 +119,10 @@ def main() -> None:
             "yield":     round(last, 3),
             "prevYield": round(prev, 3),
             "diffBp":    diff_bp,
-            "asOf":      last_date.strftime("%Y-%m-%d") if hasattr(last_date, "strftime") else str(last_date),
+            "asOf":      last_date.strftime("%Y-%m-%d"),
+            "seriesId":  t["id"],
         })
-        print(f"[OK]  {t['country']}-{t['tenor']:>2d}Y  {last:>6.3f}%  ({diff_bp:+.1f} bp)")
+        print(f"[OK]  {t['country']}-{t['tenor']:>2d}Y  {last:>6.3f}%  ({diff_bp:+.1f} bp)  [{t['id']}]")
 
     for k in curves:
         curves[k].sort(key=lambda x: x["tenor"])
