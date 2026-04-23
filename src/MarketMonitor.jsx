@@ -8,11 +8,16 @@ import {
   ResponsiveContainer,
   ReferenceLine,
   CartesianGrid,
+  BarChart,
+  Bar,
+  Legend,
+  Cell,
 } from "recharts";
 
 // =====================================================
-// MARKET MONITOR — reads live JSON from /data/
-// LIGHT THEME — cream paper · navy ink · editorial newspaper style
+// MARKET MONITOR — v2
+// Adds: epigraph, yield curves (JP/US/DE), per-indicator asOf
+//       timestamps, and a "Market Muse" humor column
 // =====================================================
 
 const PALETTE = {
@@ -29,6 +34,11 @@ const PALETTE = {
   up: "#2D6A4F",
   down: "#C0392B",
   flat: "#5C6373",
+
+  // Country colors for yield curves
+  jp: "#8B2635",  // burgundy
+  us: "#1E3A5F",  // navy
+  de: "#B87333",  // copper
 };
 
 const fmt = (n, d = 2) =>
@@ -42,18 +52,45 @@ const fmtPct = (n) => {
   return `${sign}${n.toFixed(2)}%`;
 };
 
+const fmtBp = (n) => {
+  if (n == null) return "—";
+  const sign = n > 0 ? "+" : "";
+  return `${sign}${n.toFixed(1)} bp`;
+};
+
 const tone = (n) =>
   n == null ? PALETTE.flat : n > 0 ? PALETTE.up : n < 0 ? PALETTE.down : PALETTE.flat;
 
-// ─── Data paths (Vite will resolve relative to BASE_URL) ───
+const fmtDate = (iso) => {
+  if (!iso) return "—";
+  try {
+    return new Date(iso).toLocaleString("ja-JP", {
+      timeZone: "Asia/Tokyo",
+      year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit",
+    });
+  } catch {
+    return iso;
+  }
+};
+
+const fmtDay = (ymd) => {
+  if (!ymd) return "—";
+  // "YYYY-MM-DD" -> "MM/DD"
+  const parts = ymd.split("-");
+  if (parts.length === 3) return `${parts[1]}/${parts[2]}`;
+  return ymd;
+};
+
+// ─── Data paths ───
 const MARKET_URL = `${import.meta.env.BASE_URL}data/market.json`;
 const NEWS_URL   = `${import.meta.env.BASE_URL}data/news.json`;
+const YIELDS_URL = `${import.meta.env.BASE_URL}data/yields.json`;
 
 const FONT_DISPLAY = `'Fraunces', 'Noto Serif JP', ui-serif, Georgia, serif`;
 const FONT_MONO = `'JetBrains Mono', 'Menlo', ui-monospace, monospace`;
 const FONT_SANS = `'IBM Plex Sans', 'IBM Plex Sans JP', -apple-system, sans-serif`;
 
-// Styles are hoisted outside the component to avoid re-creating the string.
 const STYLES = `
   @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
   * { box-sizing: border-box; }
@@ -65,6 +102,56 @@ const STYLES = `
   .mm-title { font-family: ${FONT_DISPLAY}; font-size: 72px; line-height: 0.9; margin: 0; font-weight: 500; letter-spacing: -0.02em; color: ${PALETTE.fg}; }
   .mm-title em { font-style: italic; font-weight: 400; }
   .mm-lede { max-width: 460px; font-size: 13px; line-height: 1.6; color: ${PALETTE.muted}; margin: 0; padding-bottom: 8px; }
+
+  /* ─── Epigraph ─── */
+  .mm-epigraph {
+    margin: 32px 0 40px 0;
+    padding: 36px 40px;
+    background: ${PALETTE.panel};
+    border-top: 1px solid ${PALETTE.borderStrong};
+    border-bottom: 1px solid ${PALETTE.borderStrong};
+    position: relative;
+  }
+  .mm-epigraph::before {
+    content: """;
+    position: absolute;
+    top: 4px;
+    left: 16px;
+    font-family: ${FONT_DISPLAY};
+    font-size: 88px;
+    line-height: 1;
+    color: ${PALETTE.accent};
+    opacity: 0.25;
+  }
+  .mm-epigraph-quote {
+    font-family: ${FONT_DISPLAY};
+    font-size: 22px;
+    line-height: 1.45;
+    font-style: italic;
+    color: ${PALETTE.fg};
+    font-weight: 400;
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+  }
+  .mm-epigraph-source {
+    font-family: ${FONT_MONO};
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: ${PALETTE.muted};
+    margin-top: 12px;
+  }
+  .mm-epigraph-source::before { content: "— "; }
+  .mm-epigraph-connection {
+    font-size: 11.5px;
+    color: ${PALETTE.accent};
+    font-style: italic;
+    margin-top: 16px;
+    padding-top: 10px;
+    border-top: 1px dashed ${PALETTE.border};
+    max-width: 680px;
+  }
 
   .mm-ticker { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid ${PALETTE.borderStrong}; margin-bottom: 36px; background: ${PALETTE.panel}; }
   .mm-ticker-cell { padding: 16px 18px; border-right: 1px solid ${PALETTE.border}; }
@@ -83,16 +170,18 @@ const STYLES = `
   .mm-group-title { font-family: ${FONT_DISPLAY}; font-size: 22px; color: ${PALETTE.fg}; font-style: italic; font-weight: 500; }
   .mm-group-marker { font-family: ${FONT_MONO}; font-size: 9.5px; color: ${PALETTE.muted}; letter-spacing: 0.15em; text-transform: uppercase; }
 
-  .mm-table-row { display: grid; grid-template-columns: minmax(180px, 2.2fr) 1.1fr 0.7fr 0.7fr 0.7fr 0.7fr; border-bottom: 1px solid ${PALETTE.border}; }
+  .mm-table-row { display: grid; grid-template-columns: minmax(180px, 2.2fr) 1.1fr 0.7fr 0.7fr 0.7fr 0.7fr 0.9fr; border-bottom: 1px solid ${PALETTE.border}; }
   .mm-table-header { font-family: ${FONT_MONO}; font-size: 9.5px; color: ${PALETTE.muted}; letter-spacing: 0.1em; text-transform: uppercase; }
   .mm-table-row .cell { padding: 11px 14px; }
   .mm-table-row .cell.r { text-align: right; }
+  .mm-asof { font-family: ${FONT_MONO}; font-size: 10px; color: ${PALETTE.muted}; white-space: nowrap; }
 
   .mm-cards { display: none; }
   .mm-card { border: 1px solid ${PALETTE.border}; background: ${PALETTE.panel}; padding: 14px 16px; margin-bottom: 8px; }
   .mm-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
   .mm-card-name { font-family: ${FONT_DISPLAY}; font-size: 18px; color: ${PALETTE.fg}; font-weight: 500; line-height: 1.15; }
   .mm-card-sub { font-size: 10.5px; color: ${PALETTE.muted}; margin-top: 2px; }
+  .mm-card-asof { font-family: ${FONT_MONO}; font-size: 9.5px; color: ${PALETTE.muted}; margin-top: 4px; letter-spacing: 0.05em; }
   .mm-card-close { font-family: ${FONT_MONO}; font-size: 18px; color: ${PALETTE.fg}; font-weight: 500; text-align: right; white-space: nowrap; }
   .mm-card-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; border-top: 1px solid ${PALETTE.border}; padding-top: 12px; }
   .mm-card-cell { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
@@ -107,9 +196,50 @@ const STYLES = `
   .mm-chart-cur { font-family: ${FONT_MONO}; font-size: 18px; color: ${PALETTE.accent}; font-weight: 500; text-align: right; }
   .mm-chart-range { font-family: ${FONT_MONO}; font-size: 9.5px; color: ${PALETTE.muted}; text-align: right; }
 
+  /* ─── Yield curve panel ─── */
+  .mm-yc-wrap { border: 1px solid ${PALETTE.border}; background: ${PALETTE.panel}; padding: 20px; margin-bottom: 40px; }
+  .mm-yc-title { font-family: ${FONT_DISPLAY}; font-size: 20px; font-weight: 500; margin-bottom: 4px; }
+  .mm-yc-sub { font-size: 11px; color: ${PALETTE.muted}; margin-bottom: 18px; }
+  .mm-yc-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; }
+  .mm-yc-legend { display: flex; gap: 18px; font-family: ${FONT_MONO}; font-size: 11px; margin-top: 8px; flex-wrap: wrap; }
+  .mm-yc-swatch { display: inline-block; width: 14px; height: 3px; margin-right: 6px; vertical-align: middle; }
+
   .mm-news-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid ${PALETTE.borderStrong}; background: ${PALETTE.panel}; }
   .mm-news-cell { padding: 20px 22px; border-bottom: 1px solid ${PALETTE.border}; border-right: 1px solid ${PALETTE.border}; }
   .mm-news-cell:nth-child(2n) { border-right: none; }
+
+  /* ─── Market Muse (funny story) ─── */
+  .mm-muse {
+    margin: 40px 0;
+    padding: 28px 32px;
+    background: linear-gradient(135deg, #FBF3E0 0%, ${PALETTE.panel} 100%);
+    border: 1px solid ${PALETTE.border};
+    border-left: 4px solid ${PALETTE.accent2};
+    position: relative;
+  }
+  .mm-muse-tag {
+    font-family: ${FONT_MONO};
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: ${PALETTE.accent2};
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .mm-muse-title {
+    font-family: ${FONT_DISPLAY};
+    font-size: 22px;
+    color: ${PALETTE.fg};
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  .mm-muse-body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: ${PALETTE.fg};
+    max-width: 780px;
+  }
 
   .mm-footer { display: flex; justify-content: space-between; font-family: ${FONT_MONO}; font-size: 10px; color: ${PALETTE.muted}; letter-spacing: 0.12em; flex-wrap: wrap; gap: 8px; }
 
@@ -123,6 +253,7 @@ const STYLES = `
     .mm-chart-grid { grid-template-columns: 1fr; }
     .mm-news-grid { grid-template-columns: 1fr; }
     .mm-news-cell { border-right: none; }
+    .mm-yc-grid { grid-template-columns: 1fr; gap: 24px; }
   }
 
   @media (max-width: 640px) {
@@ -132,6 +263,9 @@ const STYLES = `
     .mm-masthead-main { flex-direction: column; align-items: flex-start; gap: 12px; }
     .mm-title { font-size: 46px; line-height: 0.88; }
     .mm-lede { font-size: 13px; max-width: 100%; padding-bottom: 0; }
+    .mm-epigraph { padding: 24px 20px; margin: 24px 0 32px 0; }
+    .mm-epigraph-quote { font-size: 17px; }
+    .mm-epigraph::before { font-size: 64px; top: -2px; left: 10px; }
     .mm-ticker { grid-template-columns: 1fr 1fr; margin-bottom: 28px; }
     .mm-ticker-cell { padding: 12px 14px; }
     .mm-ticker-cell:nth-child(2n) { border-right: none; }
@@ -149,10 +283,17 @@ const STYLES = `
     .mm-chart-cur { font-size: 16px; }
     .mm-chart-head { gap: 8px; }
     .mm-news-cell { padding: 16px 14px; }
+    .mm-muse { padding: 20px 18px; }
+    .mm-muse-title { font-size: 18px; }
+    .mm-muse-body { font-size: 13px; }
+    .mm-yc-wrap { padding: 14px; }
     .mm-footer { flex-direction: column; font-size: 9.5px; letter-spacing: 0.08em; }
   }
 `;
 
+// ─────────────────────────────────────────────────
+// Small primitives
+// ─────────────────────────────────────────────────
 const Pct = ({ n, big = false }) => (
   <span
     style={{
@@ -168,6 +309,9 @@ const Pct = ({ n, big = false }) => (
   </span>
 );
 
+// ─────────────────────────────────────────────────
+// Mini trend chart (5Y monthly)
+// ─────────────────────────────────────────────────
 function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlight }) {
   if (!data || data.length === 0) {
     return (
@@ -235,6 +379,142 @@ function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlig
   );
 }
 
+// ─────────────────────────────────────────────────
+// Yield curve panel: 3 countries overlay + diff bar chart
+// ─────────────────────────────────────────────────
+function YieldCurvePanel({ yields }) {
+  if (!yields || !yields.curves) {
+    return (
+      <div className="mm-yc-wrap">
+        <div className="mm-yc-title">イールドカーブ</div>
+        <div style={{ color: PALETTE.muted, fontSize: 12 }}>データ未取得</div>
+      </div>
+    );
+  }
+
+  const { JP = [], US = [], DE = [] } = yields.curves;
+
+  // Merge into a single series keyed by tenor
+  const allTenors = Array.from(new Set([
+    ...JP.map((x) => x.tenor),
+    ...US.map((x) => x.tenor),
+    ...DE.map((x) => x.tenor),
+  ])).sort((a, b) => a - b);
+
+  const curveData = allTenors.map((tenor) => {
+    const jp = JP.find((x) => x.tenor === tenor);
+    const us = US.find((x) => x.tenor === tenor);
+    const de = DE.find((x) => x.tenor === tenor);
+    return {
+      tenor: `${tenor}Y`,
+      tenorNum: tenor,
+      JP: jp?.yield ?? null,
+      US: us?.yield ?? null,
+      DE: de?.yield ?? null,
+    };
+  });
+
+  // Diff bars: key tenors only (2/5/10/30)
+  const keyTenors = [2, 5, 10, 30];
+  const diffData = keyTenors.map((tenor) => {
+    const jp = JP.find((x) => x.tenor === tenor);
+    const us = US.find((x) => x.tenor === tenor);
+    const de = DE.find((x) => x.tenor === tenor);
+    return {
+      tenor: `${tenor}Y`,
+      JP: jp?.diffBp ?? 0,
+      US: us?.diffBp ?? 0,
+      DE: de?.diffBp ?? 0,
+    };
+  });
+
+  // Latest asOf per country for timestamps
+  const latestAsOf = (arr) => {
+    if (!arr || arr.length === 0) return "—";
+    return arr.map((x) => x.asOf).sort().at(-1);
+  };
+
+  return (
+    <div className="mm-yc-wrap">
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: 4, flexWrap: "wrap", gap: 8 }}>
+        <div className="mm-yc-title">イールドカーブ <em style={{ fontStyle: "italic", color: PALETTE.muted, fontSize: 14, marginLeft: 8 }}>JP · US · DE</em></div>
+        <div style={{ fontFamily: FONT_MONO, fontSize: 10, color: PALETTE.muted, letterSpacing: "0.1em" }}>
+          JP {latestAsOf(JP)} · US {latestAsOf(US)} · DE {latestAsOf(DE)}
+        </div>
+      </div>
+      <div className="mm-yc-sub">
+        左: 当日終値ベースの利回り曲線を3カ国重ね描き。右: 主要年限 (2Y/5Y/10Y/30Y) の前日差分 (bp)。
+      </div>
+
+      <div className="mm-yc-grid">
+        {/* Curve overlay */}
+        <div>
+          <div style={{ height: 280 }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={curveData} margin={{ top: 16, right: 12, left: 0, bottom: 0 }}>
+                <CartesianGrid stroke={PALETTE.border} strokeDasharray="2 4" vertical={false} />
+                <XAxis dataKey="tenor" tick={{ fontSize: 11, fill: PALETTE.muted, fontFamily: FONT_MONO }} stroke={PALETTE.dim} />
+                <YAxis
+                  tick={{ fontSize: 10, fill: PALETTE.muted, fontFamily: FONT_MONO }}
+                  stroke={PALETTE.dim}
+                  tickFormatter={(v) => `${v.toFixed(1)}%`}
+                  width={52}
+                />
+                <Tooltip
+                  contentStyle={{ background: PALETTE.panel, border: `1px solid ${PALETTE.borderStrong}`, fontFamily: FONT_MONO, fontSize: 11, color: PALETTE.fg }}
+                  labelStyle={{ color: PALETTE.muted }}
+                  formatter={(v, name) => [v != null ? `${v.toFixed(3)}%` : "—", name]}
+                />
+                <Line type="monotone" dataKey="JP" stroke={PALETTE.jp} strokeWidth={2.2} dot={{ r: 3, fill: PALETTE.jp }} connectNulls />
+                <Line type="monotone" dataKey="US" stroke={PALETTE.us} strokeWidth={2.2} dot={{ r: 3, fill: PALETTE.us }} connectNulls />
+                <Line type="monotone" dataKey="DE" stroke={PALETTE.de} strokeWidth={2.2} dot={{ r: 3, fill: PALETTE.de }} connectNulls />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="mm-yc-legend">
+            <span><span className="mm-yc-swatch" style={{ background: PALETTE.jp }}></span>日本</span>
+            <span><span className="mm-yc-swatch" style={{ background: PALETTE.us }}></span>米国</span>
+            <span><span className="mm-yc-swatch" style={{ background: PALETTE.de }}></span>ドイツ</span>
+          </div>
+        </div>
+
+        {/* Diff bars */}
+        <div>
+          <div style={{ height: 280 }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={diffData} margin={{ top: 16, right: 12, left: 0, bottom: 0 }}>
+                <CartesianGrid stroke={PALETTE.border} strokeDasharray="2 4" vertical={false} />
+                <XAxis dataKey="tenor" tick={{ fontSize: 11, fill: PALETTE.muted, fontFamily: FONT_MONO }} stroke={PALETTE.dim} />
+                <YAxis
+                  tick={{ fontSize: 10, fill: PALETTE.muted, fontFamily: FONT_MONO }}
+                  stroke={PALETTE.dim}
+                  tickFormatter={(v) => `${v}bp`}
+                  width={48}
+                />
+                <Tooltip
+                  contentStyle={{ background: PALETTE.panel, border: `1px solid ${PALETTE.borderStrong}`, fontFamily: FONT_MONO, fontSize: 11, color: PALETTE.fg }}
+                  labelStyle={{ color: PALETTE.muted }}
+                  formatter={(v) => [`${v > 0 ? "+" : ""}${v.toFixed(1)} bp`, ""]}
+                />
+                <ReferenceLine y={0} stroke={PALETTE.borderStrong} />
+                <Bar dataKey="JP" fill={PALETTE.jp} />
+                <Bar dataKey="US" fill={PALETTE.us} />
+                <Bar dataKey="DE" fill={PALETTE.de} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="mm-yc-legend">
+            <span style={{ color: PALETTE.muted }}>前日比 (bp)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────
+// Indices group table / cards
+// ─────────────────────────────────────────────────
 function IndicesGroup({ title, rows }) {
   return (
     <div style={{ marginBottom: 28 }}>
@@ -250,6 +530,7 @@ function IndicesGroup({ title, rows }) {
           <div className="cell r">1W</div>
           <div className="cell r">1M</div>
           <div className="cell r">6M</div>
+          <div className="cell r">As of</div>
         </div>
         {rows.map((r, i) => {
           const priceDecimals = r.isYield ? 3 : r.close > 1000 ? 2 : 4;
@@ -269,6 +550,7 @@ function IndicesGroup({ title, rows }) {
               <div className="cell r"><Pct n={r.week} /></div>
               <div className="cell r"><Pct n={r.month} /></div>
               <div className="cell r"><Pct n={r.sixM} /></div>
+              <div className="cell r"><span className="mm-asof">{fmtDay(r.asOf)}</span></div>
             </div>
           );
         })}
@@ -282,6 +564,7 @@ function IndicesGroup({ title, rows }) {
                 <div style={{ minWidth: 0, flex: 1 }}>
                   <div className="mm-card-name">{r.name}</div>
                   <div className="mm-card-sub">{r.sub}</div>
+                  <div className="mm-card-asof">As of {fmtDay(r.asOf)}</div>
                 </div>
                 <div className="mm-card-close">{fmt(r.close, priceDecimals)}{r.unit || ""}</div>
               </div>
@@ -307,17 +590,23 @@ function IndicesGroup({ title, rows }) {
   );
 }
 
+// ─────────────────────────────────────────────────
+// Main
+// ─────────────────────────────────────────────────
 export default function MarketMonitor() {
   const [market, setMarket] = useState(null);
   const [news,   setNews]   = useState(null);
+  const [yields, setYields] = useState(null);
   const [error,  setError]  = useState(null);
 
   useEffect(() => {
+    const safe = (p) => p.catch((e) => { console.warn(e); return null; });
     Promise.all([
       fetch(MARKET_URL).then((r) => { if (!r.ok) throw new Error(`market.json: ${r.status}`); return r.json(); }),
       fetch(NEWS_URL).then((r)   => { if (!r.ok) throw new Error(`news.json: ${r.status}`);   return r.json(); }),
+      safe(fetch(YIELDS_URL).then((r) => { if (!r.ok) throw new Error(`yields.json: ${r.status}`); return r.json(); })),
     ])
-      .then(([m, n]) => { setMarket(m); setNews(n); })
+      .then(([m, n, y]) => { setMarket(m); setNews(n); setYields(y); })
       .catch((e) => setError(e.message));
   }, []);
 
@@ -339,7 +628,6 @@ export default function MarketMonitor() {
     );
   }
 
-  // ─── Top4 tickers for the masthead strip ───
   const pickTicker = (name) => market.indices.find((r) => r.name === name);
   const tickerCells = [
     { n: "日経平均",  data: pickTicker("日経平均") },
@@ -354,9 +642,9 @@ export default function MarketMonitor() {
     rows: market.indices.filter((r) => r.group === g),
   })).filter((g) => g.rows.length > 0);
 
-  const asOf = market.indices[0]?.asOf || "—";
+  const asOfList = market.indices.map((i) => i.asOf).filter(Boolean).sort();
+  const latestAsOf = asOfList.at(-1) || "—";
 
-  // JST local time for the masthead
   const nowJst = new Date().toLocaleDateString("ja-JP", {
     timeZone: "Asia/Tokyo",
     year: "numeric", month: "long", day: "numeric", weekday: "long"
@@ -371,7 +659,7 @@ export default function MarketMonitor() {
         <div className="mm-masthead-meta">
           <span>Market Monitor · 東京版</span>
           <span>{nowJst}</span>
-          <span>As of {asOf} close</span>
+          <span>As of {latestAsOf} close</span>
         </div>
 
         <div style={{ borderTop: `1px solid ${PALETTE.borderStrong}`, margin: "12px 0 14px 0" }} />
@@ -384,12 +672,23 @@ export default function MarketMonitor() {
           <p className="mm-lede">
             {news.headline_of_the_day || "本日のマーケット総括"}。
             <br />
-            引値ベースの主要指標・5年チャート・昨日の市場を動かしたニュース7本を掲載。
+            引値ベースの主要指標・イールドカーブ・5年チャート・昨日の市場を動かしたニュース7本を掲載。
           </p>
         </div>
 
-        <div style={{ borderTop: `3px double ${PALETTE.borderStrong}`, margin: "18px 0" }} />
+        <div style={{ borderTop: `3px double ${PALETTE.borderStrong}`, margin: "18px 0 0 0" }} />
       </header>
+
+      {/* ─── EPIGRAPH ─── */}
+      {news.epigraph && (
+        <div className="mm-epigraph">
+          <div className="mm-epigraph-quote">{news.epigraph.quote}</div>
+          <div className="mm-epigraph-source">{news.epigraph.source}</div>
+          {news.epigraph.connection && (
+            <div className="mm-epigraph-connection">— {news.epigraph.connection}</div>
+          )}
+        </div>
+      )}
 
       {/* ─── TICKER ─── */}
       <div className="mm-ticker">
@@ -414,8 +713,7 @@ export default function MarketMonitor() {
         </div>
         <div className="mm-section-lede">
           株式・為替・金利・コモディティ・ボラティリティの引値と、1日/1週/1ヶ月/6ヶ月のリターン。
-          <br />
-          データ取得: {new Date(market.generatedAt).toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}
+          最新データ取得: {fmtDate(market.generatedAt)}
         </div>
       </div>
 
@@ -423,9 +721,23 @@ export default function MarketMonitor() {
         <IndicesGroup key={i} title={g.title} rows={g.rows} />
       ))}
 
-      {/* ─── SECTION II: CHARTS ─── */}
+      {/* ─── SECTION II: YIELD CURVES ─── */}
       <div style={{ marginTop: 48, marginBottom: 24 }}>
-        <div className="mm-section-tag">II. 重要指標・5年チャート</div>
+        <div className="mm-section-tag">II. イールドカーブ</div>
+        <div className="mm-section-head">
+          <em>金利の地図、</em> 日米独で読む。
+        </div>
+        <div className="mm-section-lede">
+          日本・米国・ドイツの主要年限利回り。曲線の傾き（スティープかフラットか）と、
+          主要年限の前日差分でその日のトレンドの転換点を捉える。
+          {yields?.generatedAt && <>{" "}取得: {fmtDate(yields.generatedAt)}</>}
+        </div>
+        <YieldCurvePanel yields={yields} />
+      </div>
+
+      {/* ─── SECTION III: 5Y CHARTS ─── */}
+      <div style={{ marginTop: 48, marginBottom: 24 }}>
+        <div className="mm-section-tag">III. 重要指標・5年チャート</div>
         <div className="mm-section-head">
           <em>俯瞰で見る、</em> 5年の地殻変動。
         </div>
@@ -448,9 +760,9 @@ export default function MarketMonitor() {
         </div>
       </div>
 
-      {/* ─── SECTION III: NEWS ─── */}
+      {/* ─── SECTION IV: NEWS ─── */}
       <div style={{ marginTop: 56 }}>
-        <div className="mm-section-tag">III. 市場を動かしたニュース</div>
+        <div className="mm-section-tag">IV. 市場を動かしたニュース</div>
         <div className="mm-section-head">
           <em>Claude AIが選ぶ、</em> 本日の7本。
         </div>
@@ -484,12 +796,21 @@ export default function MarketMonitor() {
         </div>
       </div>
 
+      {/* ─── MARKET MUSE (funny story) ─── */}
+      {news.funny_story && (
+        <div className="mm-muse">
+          <div className="mm-muse-tag">♔ Market Muse · 今日のひとひら</div>
+          <div className="mm-muse-title">{news.funny_story.title}</div>
+          <div className="mm-muse-body">{news.funny_story.body}</div>
+        </div>
+      )}
+
       {/* ─── FOOTER ─── */}
       <div style={{ borderTop: `3px double ${PALETTE.borderStrong}`, margin: "48px 0 20px 0" }} />
       <div className="mm-footer">
-        <span>DATA: yfinance / Yahoo Finance · NEWS: Claude API summarized from RSS feeds</span>
+        <span>DATA: yfinance · stooq · NEWS: Claude API summarized from RSS</span>
         <span>Auto-updated daily 07:00 JST · GitHub Actions</span>
-        <span>EOD · {asOf}</span>
+        <span>EOD · {latestAsOf}</span>
       </div>
     </div>
   );

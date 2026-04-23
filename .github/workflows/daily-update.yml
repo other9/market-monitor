@@ -40,6 +40,9 @@ jobs:
       - name: Fetch market data (yfinance)
         run: python scripts/fetch_market_data.py
 
+      - name: Fetch yield curves (JP/US/DE)
+        run: python scripts/fetch_yield_curves.py
+
       - name: Fetch & summarize news (Claude API)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
