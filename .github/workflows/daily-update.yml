@@ -46,19 +46,15 @@ jobs:
       - name: Fetch & summarize news (Claude API)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        working-directory: .
-        run: |
-          cd scripts
-          python fetch_news.py
-        # scripts/ 配下に chart_universe.py があるので import のため cd している
+          PYTHONPATH: scripts
+        run: python scripts/fetch_news.py
 
       # ── 4. 注目チャート3本の1年日次データ ──
       - name: Fetch featured charts (1Y daily)
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
-        run: |
-          cd scripts
-          python fetch_featured_charts.py
+          PYTHONPATH: scripts
+        run: python scripts/fetch_featured_charts.py
 
       # ── 5. data/ をリポジトリに戻す ──
       - name: Commit updated data

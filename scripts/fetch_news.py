@@ -37,7 +37,7 @@ RSS_FEEDS: list[dict[str, str]] = [
 
 OUTPUT_PATH = Path("data/news.json")
 
-MODEL = "claude-opus-4-5"
+MODEL = "claude-haiku-4-5"
 MAX_TOKENS = 7000
 
 
