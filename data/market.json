@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T16:36:53.625731+00:00",
+  "generatedAt": "2026-04-24T22:33:52.774114+00:00",
   "indices": [
     {
       "group": "株式",
@@ -16,89 +16,89 @@
       "group": "株式",
       "name": "S&P 500",
       "sub": "米国 500大企業",
-      "close": 7158.26,
+      "close": 7165.08,
       "asOf": "2026-04-24",
-      "day": 0.7,
-      "week": 0.45,
-      "month": 8.59,
-      "sixM": 5.4
+      "day": 0.8,
+      "week": 0.55,
+      "month": 8.7,
+      "sixM": 5.5
     },
     {
       "group": "株式",
       "name": "NASDAQ",
       "sub": "米ハイテク総合",
-      "close": 24814.37,
+      "close": 24836.6,
       "asOf": "2026-04-24",
-      "day": 1.54,
-      "week": 1.41,
-      "month": 13.15,
-      "sixM": 6.94
+      "day": 1.63,
+      "week": 1.5,
+      "month": 13.25,
+      "sixM": 7.03
     },
     {
       "group": "株式",
       "name": "Dow Jones",
       "sub": "米ダウ30種",
-      "close": 49143.23,
+      "close": 49230.71,
       "asOf": "2026-04-24",
-      "day": -0.34,
-      "week": -0.62,
-      "month": 5.84,
-      "sixM": 4.1
+      "day": -0.16,
+      "week": -0.44,
+      "month": 6.03,
+      "sixM": 4.29
     },
     {
       "group": "株式",
       "name": "Russell 2000",
       "sub": "米小型株",
-      "close": 2791.76,
+      "close": 2787.0,
       "asOf": "2026-04-24",
-      "day": 0.6,
-      "week": 0.54,
-      "month": 10.07,
-      "sixM": 11.07
+      "day": 0.43,
+      "week": 0.36,
+      "month": 9.88,
+      "sixM": 10.88
     },
     {
       "group": "為替",
       "name": "USD/JPY",
       "sub": "ドル円",
-      "close": 159.37,
+      "close": 159.33,
       "asOf": "2026-04-24",
-      "day": -0.08,
-      "week": 0.11,
-      "month": 0.41,
-      "sixM": 4.43
+      "day": -0.1,
+      "week": 0.09,
+      "month": 0.39,
+      "sixM": 4.41
     },
     {
       "group": "為替",
       "name": "EUR/JPY",
       "sub": "ユーロ円",
-      "close": 186.72,
+      "close": 186.81,
       "asOf": "2026-04-24",
-      "day": 0.02,
-      "week": -0.45,
-      "month": 1.29,
-      "sixM": 5.32
+      "day": 0.07,
+      "week": -0.4,
+      "month": 1.34,
+      "sixM": 5.37
     },
     {
       "group": "為替",
       "name": "EUR/USD",
       "sub": "ユーロドル",
-      "close": 1.1719,
+      "close": 1.1726,
       "asOf": "2026-04-24",
-      "day": 0.11,
-      "week": -0.54,
-      "month": 0.9,
-      "sixM": 0.87
+      "day": 0.17,
+      "week": -0.48,
+      "month": 0.96,
+      "sixM": 0.93
     },
     {
       "group": "金利",
       "name": "米10年債",
       "sub": "利回り",
-      "close": 4.306,
+      "close": 4.31,
       "asOf": "2026-04-24",
-      "day": -0.017,
-      "week": 0.06,
-      "month": -0.022,
-      "sixM": 0.309,
+      "day": -0.013,
+      "week": 0.064,
+      "month": -0.018,
+      "sixM": 0.313,
       "unit": "%",
       "isYield": true
     },
@@ -106,56 +106,56 @@
       "group": "コモディティ",
       "name": "WTI原油",
       "sub": "NY先物 $/bbl",
-      "close": 93.84,
+      "close": 94.88,
       "asOf": "2026-04-24",
-      "day": -2.1,
-      "week": 11.91,
-      "month": 3.9,
-      "sixM": 52.59
+      "day": -1.01,
+      "week": 13.15,
+      "month": 5.05,
+      "sixM": 54.28
     },
     {
       "group": "コモディティ",
       "name": "Brent原油",
       "sub": "北海先物 $/bbl",
-      "close": 98.79,
+      "close": 99.78,
       "asOf": "2026-04-24",
-      "day": -5.98,
-      "week": 9.31,
-      "month": -3.36,
-      "sixM": 49.82
+      "day": -5.03,
+      "week": 10.4,
+      "month": -2.39,
+      "sixM": 51.32
     },
     {
       "group": "コモディティ",
       "name": "金",
       "sub": "COMEX $/oz",
-      "close": 4741.5,
+      "close": 4725.4,
       "asOf": "2026-04-24",
-      "day": 0.77,
-      "week": -2.39,
-      "month": 4.21,
-      "sixM": 15.13
+      "day": 0.43,
+      "week": -2.72,
+      "month": 3.86,
+      "sixM": 14.74
     },
     {
       "group": "コモディティ",
       "name": "ビットコイン",
       "sub": "BTC/USD",
-      "close": 77859.9,
+      "close": 77502.91,
       "asOf": "2026-04-24",
-      "day": -0.52,
-      "week": 0.95,
-      "month": 9.19,
-      "sixM": -29.88
+      "day": -0.98,
+      "week": 0.49,
+      "month": 8.68,
+      "sixM": -30.2
     },
     {
       "group": "ボラティリティ",
       "name": "VIX",
       "sub": "恐怖指数",
-      "close": 18.75,
+      "close": 18.71,
       "asOf": "2026-04-24",
-      "day": -2.9,
-      "week": 7.27,
-      "month": -25.98,
-      "sixM": 14.54
+      "day": -3.11,
+      "week": 7.04,
+      "month": -26.14,
+      "sixM": 14.29
     }
   ],
   "history": {
@@ -10068,7 +10068,7 @@
       },
       {
         "d": "2026-04-24",
-        "v": 7158.01
+        "v": 7165.08
       }
     ],
     "usdjpy": [
@@ -15270,7 +15270,7 @@
       },
       {
         "d": "2026-04-24",
-        "v": 159.38
+        "v": 159.33
       }
     ],
     "us10y": [
@@ -25330,7 +25330,7 @@
       },
       {
         "d": "2026-04-24",
-        "v": 93.84
+        "v": 94.88
       }
     ],
     "gold": [
@@ -30364,7 +30364,7 @@
       },
       {
         "d": "2026-04-24",
-        "v": 4741.5
+        "v": 4725.4
       }
     ]
   },
@@ -30373,86 +30373,86 @@
       "ticker": "XLK",
       "name": "Technology",
       "short": "IT",
-      "close": 160.15,
-      "day": 2.77,
-      "week": 3.76,
-      "month": 17.11,
-      "ytd": 10.99,
+      "close": 160.22,
+      "day": 2.81,
+      "week": 3.8,
+      "month": 17.15,
+      "ytd": 11.03,
       "asOf": "2026-04-24"
     },
     {
       "ticker": "XLC",
       "name": "Communication",
       "short": "通信",
-      "close": 115.97,
-      "day": -1.21,
-      "week": -2.63,
-      "month": 4.06,
-      "ytd": -0.8,
+      "close": 115.54,
+      "day": -1.58,
+      "week": -2.99,
+      "month": 3.68,
+      "ytd": -1.16,
       "asOf": "2026-04-24"
     },
     {
       "ticker": "XLY",
       "name": "Cons. Discretionary",
       "short": "消費関連",
-      "close": 118.5,
-      "day": 0.65,
-      "week": -1.59,
-      "month": 7.02,
-      "ytd": 0.13,
+      "close": 118.69,
+      "day": 0.81,
+      "week": -1.43,
+      "month": 7.19,
+      "ytd": 0.29,
       "asOf": "2026-04-24"
     },
     {
       "ticker": "XLP",
       "name": "Cons. Staples",
       "short": "生活必需品",
-      "close": 83.25,
-      "day": -0.27,
-      "week": 0.96,
-      "month": 2.14,
-      "ytd": 7.16,
+      "close": 83.23,
+      "day": -0.3,
+      "week": 0.93,
+      "month": 2.11,
+      "ytd": 7.13,
       "asOf": "2026-04-24"
     },
     {
       "ticker": "XLE",
       "name": "Energy",
       "short": "エネルギー",
-      "close": 56.39,
-      "day": -1.04,
-      "week": 2.49,
-      "month": -6.9,
-      "ytd": 23.53,
+      "close": 56.87,
+      "day": -0.19,
+      "week": 3.36,
+      "month": -6.11,
+      "ytd": 24.58,
       "asOf": "2026-04-24"
     },
     {
       "ticker": "XLF",
       "name": "Financials",
       "short": "金融",
-      "close": 51.46,
-      "day": -0.66,
-      "week": -1.85,
-      "month": 4.3,
-      "ytd": -6.32,
+      "close": 51.42,
+      "day": -0.73,
+      "week": -1.93,
+      "month": 4.22,
+      "ytd": -6.39,
       "asOf": "2026-04-24"
     },
     {
       "ticker": "XLV",
       "name": "Health Care",
       "short": "ヘルスケア",
-      "close": 143.93,
-      "day": -1.58,
-      "week": -3.28,
-      "month": -1.58,
-      "ytd": -7.45,
+      "close": 144.18,
+      "day": -1.41,
+      "week": -3.1,
+      "month": -1.41,
+      "ytd": -7.29,
       "asOf": "2026-04-24"
     },
     {
       "ticker": "XLI",
       "name": "Industrials",
       "short": "資本財",
-      "close": 172.46,
+      "close": 172.47,
       "day": -0.92,
-      "week": -0.61,
+      "week": -0.6,
       "month": 4.46,
       "ytd": 9.17,
       "asOf": "2026-04-24"
@@ -30461,33 +30461,33 @@
       "ticker": "XLB",
       "name": "Materials",
       "short": "素材",
-      "close": 51.86,
-      "day": 0.1,
-      "week": -0.04,
-      "month": 4.96,
-      "ytd": 12.45,
+      "close": 51.92,
+      "day": 0.21,
+      "week": 0.08,
+      "month": 5.08,
+      "ytd": 12.58,
       "asOf": "2026-04-24"
     },
     {
       "ticker": "XLRE",
       "name": "Real Estate",
       "short": "不動産",
-      "close": 43.96,
-      "day": -0.01,
-      "week": -1.18,
-      "month": 9.15,
-      "ytd": 8.85,
+      "close": 43.83,
+      "day": -0.3,
+      "week": -1.46,
+      "month": 8.84,
+      "ytd": 8.54,
       "asOf": "2026-04-24"
     },
     {
       "ticker": "XLU",
       "name": "Utilities",
       "short": "公益",
-      "close": 46.13,
-      "day": 0.1,
-      "week": -0.05,
-      "month": 1.96,
-      "ytd": 6.84,
+      "close": 46.18,
+      "day": 0.2,
+      "week": 0.04,
+      "month": 2.06,
+      "ytd": 6.95,
       "asOf": "2026-04-24"
     }
   ]
