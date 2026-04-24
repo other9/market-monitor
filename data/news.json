@@ -1,10 +1,216 @@
 {
-  "generatedAt": "1970-01-01T00:00:00Z",
-  "epigraph": { "quote": "—", "source": "初回起動中", "connection": "" },
-  "headline_of_the_day": "初回起動 — データ取得待ち",
-  "news": [],
-  "funny_stories": [],
-  "charts_of_the_day": [],
-  "deep_dive": null,
-  "economic_chart_of_the_day": null
+  "generatedAt": "2026-04-24T16:38:07.685527+00:00",
+  "epigraph": {
+    "quote": "市場は、あなたが支払い能力を維持できる期間よりも長く、不合理であり続けることができる。",
+    "source": "ジョン・メイナード・ケインズ",
+    "connection": "イラン情勢・関税懸念・AI破壊論が渦巻く中、日経平均が史上最高値を更新する「不合理」な強さ。"
+  },
+  "headline_of_the_day": "日経平均が史上最高値更新、地政学リスクを横目に",
+  "news": [
+    {
+      "tag": "日本株",
+      "headline": "日経平均が史上最高値を更新、反発で終値ベース新高値",
+      "body": "日経平均株価は反発し、終値で史上最高値を更新した。ただし物色には偏りがあり、一部の大型株が指数を牽引する形となった。",
+      "impact": [
+        "日本株への資金流入継続",
+        "円安・インバウンド銘柄への物色"
+      ],
+      "source_index": 9,
+      "link": "https://jp.reuters.com/markets/japan/6CTRATLWLZKWFMJBOSJ7ED5ZDI-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "米金融政策",
+      "headline": "米司法省がパウエルFRB議長への調査を取り下げ、ウォーシュ承認への道開く",
+      "body": "トランプ政権の司法省がFRBパウエル議長に対する調査を終了。5月15日のパウエル任期満了後、ウォーシュ次期議長の承認手続きが円滑に進む見通しとなった。",
+      "impact": [
+        "FRB人事の不透明感解消",
+        "金融政策の継続性へ安心感"
+      ],
+      "source_index": 22,
+      "link": "https://www.marketwatch.com/story/pirro-drops-probe-into-feds-powell-paving-way-for-warsh-confirmation-b77bc126?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "tag": "地政学",
+      "headline": "イラン情勢、ホルムズ海峡の正常化は7月以降との見方",
+      "body": "米イラン停戦延長にもかかわらず、予測市場Kalshiではホルムズ海峡の通行正常化確率が50%を下回った。原油供給リスクへの警戒が続く。",
+      "impact": [
+        "原油価格の高止まり",
+        "エネルギー株・海運株への影響"
+      ],
+      "source_index": 36,
+      "link": "https://www.cnbc.com/2026/04/23/kalshi-bettors-see-strait-of-hormuz-traffic-normal-by-july.html",
+      "source": "CNBC Markets"
+    },
+    {
+      "tag": "消費者信頼感",
+      "headline": "米ミシガン大消費者信頼感、4月確報値が過去最低の49.8",
+      "body": "インフレ懸念を反映し、ミシガン大消費者信頼感指数が統計開始以来最低を記録。米国消費の先行きに暗雲が垂れ込める。",
+      "impact": [
+        "米個人消費の減速懸念",
+        "リセッション議論再燃の可能性"
+      ],
+      "source_index": 17,
+      "link": "https://jp.reuters.com/markets/japan/O3JQCOLTJFIJRAZNKTFSJWA72I-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "欧州経済",
+      "headline": "独IFO業況指数、4月は2020年以来の低水準",
+      "body": "ドイツのIFO業況指数がイラン情勢への悲観的見方から急落。欧州最大の経済大国の景気減速懸念が強まっている。",
+      "impact": [
+        "欧州株への下押し圧力",
+        "ECBの利下げ観測維持"
+      ],
+      "source_index": 16,
+      "link": "https://jp.reuters.com/markets/japan/5DSKMLBFARNVLIQWURMYOGPDHE-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "半導体",
+      "headline": "Intel決算控え、オプション市場が大幅変動を予想",
+      "body": "半導体株が米株市場を牽引する中、本日引け後のIntel決算に向けてトレーダーは大きな株価変動を織り込んでいる。",
+      "impact": [
+        "半導体セクターのボラティリティ上昇",
+        "SOX指数への波及"
+      ],
+      "source_index": 34,
+      "link": "https://www.cnbc.com/2026/04/23/traders-are-betting-on-big-moves-in-intel-on-earnings.html",
+      "source": "CNBC Markets"
+    },
+    {
+      "tag": "クラウド・AI",
+      "headline": "AmazonがMeta向けにAIチップ大量供給、株価は最高値圏へ",
+      "body": "AmazonはMetaがエージェントAI向けに数千万個のGravitonチップを採用すると発表。AWS以外のAI収益源として期待が高まる。",
+      "impact": [
+        "Amazonのクラウド事業再評価",
+        "自社チップ戦略の競争力証明"
+      ],
+      "source_index": 28,
+      "link": "https://www.marketwatch.com/story/amazons-chip-business-scores-another-major-win-6b65f2db?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    }
+  ],
+  "funny_stories": [
+    {
+      "kind": "皮肉・風刺系",
+      "title": "AI恐怖症の転職相談",
+      "body": "「年収1500万の仕事から2200万への転職、受けるべき？」という相談。理由は「AIが怖いから」。AIに仕事を奪われる心配をしながら、AIが分析するデータ職に就こうとするこの矛盾。通勤50分より、論理的整合性の方がよほど心配だ。",
+      "source_index": 20,
+      "link": "https://www.marketwatch.com/story/ai-genuinely-freaks-me-out-do-i-leave-my-150-000-job-for-a-215-000-role-in-data-analytics-with-a-50-minute-commute-440b4c36?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "kind": "人間味・哀愁系",
+      "title": "親子丼の物価高、うな丼は値下げ",
+      "body": "卵高騰で親子丼が値上げされる一方、ウナギは値下げという逆転現象。庶民の味方だった親子丼が高嶺の花となり、かつての贅沢品・うな丼に手が届く時代。インフレの波は、食卓の常識すら書き換えていく。",
+      "source_index": 5,
+      "link": "https://news.yahoo.co.jp/pickup/6577493?source=rss",
+      "source": "Yahoo!ファイナンス"
+    },
+    {
+      "kind": "観察・再発見系",
+      "title": "ミーム株トレーディング復活の予兆",
+      "body": "規制変更でラピッドファイア取引の障壁が下がり、ミーム株フィーバー再燃の可能性が報じられた。2021年のGameStop騒動から5年、市場参加者は懲りないのか学習したのか。答えは「どちらでもない、ただ楽しいから」かもしれない。",
+      "source_index": 35,
+      "link": "https://www.cnbc.com/2026/04/23/risky-meme-trading-is-back-a-trading-rule-change-may-have-lit-the-fuse.html",
+      "source": "CNBC Markets"
+    }
+  ],
+  "charts_of_the_day": [
+    {
+      "source": "yf",
+      "ticker": "^N225",
+      "title": "日経平均株価",
+      "name": "日経平均",
+      "sub": "INDEX · JPY",
+      "rationale": "史上最高値更新。原油高・地政学リスクの中での強さを確認。"
+    },
+    {
+      "source": "yf",
+      "ticker": "CL=F",
+      "title": "WTI原油",
+      "name": "WTI原油",
+      "sub": "$ / bbl",
+      "rationale": "ホルムズ海峡リスク継続。原油高が日経6万円超でも続く背景を可視化。"
+    },
+    {
+      "source": "yf",
+      "ticker": "INTC",
+      "title": "Intel",
+      "name": "Intel",
+      "sub": "",
+      "rationale": "本日決算発表。オプション市場が大幅変動を織り込み、半導体セクターの試金石。"
+    },
+    {
+      "source": "yf",
+      "ticker": "AMZN",
+      "title": "Amazon",
+      "name": "Amazon",
+      "sub": "",
+      "rationale": "Meta向けGravitonチップ供給発表で株価最高値圏。AI半導体内製化の評価。"
+    },
+    {
+      "source": "yf",
+      "ticker": "^TNX",
+      "title": "米10年債利回り",
+      "name": "米10年債利回り",
+      "sub": "%",
+      "rationale": "FRB人事の不透明感解消、消費者信頼感最低の相反する材料下での金利動向。"
+    },
+    {
+      "source": "yf",
+      "ticker": "^VIX",
+      "title": "VIX",
+      "name": "VIX (恐怖指数)",
+      "sub": "INDEX",
+      "rationale": "地政学リスク・経済指標悪化の中、市場のリスク認識を確認。"
+    },
+    {
+      "source": "yf",
+      "ticker": "^STOXX50E",
+      "title": "ユーロ・ストックス50",
+      "name": "ユーロ・ストックス50",
+      "sub": "",
+      "rationale": "独IFO指数急落。欧州経済への悲観が株価に反映されているか確認。"
+    },
+    {
+      "source": "yf",
+      "ticker": "JPY=X",
+      "title": "ドル円",
+      "name": "USD/JPY",
+      "sub": "ドル円",
+      "rationale": "日本株最高値の背景にある円安。来週の主要中銀会合前のポジション動向。"
+    }
+  ],
+  "deep_dive": {
+    "title": "パウエル後のFRB：ウォーシュ体制への移行が意味するもの",
+    "lede": "司法省がパウエル議長への調査を取り下げ、ウォーシュ次期議長の承認が事実上確定した。5月15日以降、米金融政策の舵取りは新たな局面に入る。",
+    "background": "トランプ政権はFRBの独立性を巡りパウエル議長と対立してきた。司法省による異例の調査開始は市場に動揺を与えたが、本日の調査終了発表でこの不確実性は解消された。予測市場Kalshiではウォーシュ承認確率が86%に上昇。ウォーシュ元FRB理事はタカ派寄りとされ、金融危機時の量的緩和に批判的だった経歴を持つ。ただし近年はインフレ抑制の重要性を強調しつつも、過度な引き締めへの警戒も示している。",
+    "implications": "短期的には人事の不透明感解消が市場の安心材料となる。中期的には、ウォーシュ体制下での政策運営スタイルの変化に注目が集まる。パウエル時代の「データ依存」路線が継続するか、より先行的な政策判断に移行するかが焦点。長期的には、政権とFRBの関係性が今後の金融政策の独立性にどう影響するか、市場参加者は慎重に見極める必要がある。利下げペースへの影響は限定的との見方が多いが、コミュニケーション手法の変化には備えが必要だ。",
+    "what_to_watch": [
+      "5月15日：パウエル議長任期満了、ウォーシュ就任",
+      "上院の承認投票プロセスと質疑内容",
+      "ウォーシュ初のFOMC会見（6月予定）での政策スタンス表明",
+      "FF金利先物に織り込まれる利下げパス",
+      "ドル・米国債市場の反応"
+    ],
+    "related_keys": [
+      "us10y",
+      "us02y",
+      "dxy",
+      "sp500"
+    ],
+    "source_index": 22,
+    "link": "https://www.marketwatch.com/story/pirro-drops-probe-into-feds-powell-paving-way-for-warsh-confirmation-b77bc126?mod=mw_rss_topstories",
+    "source": "MarketWatch Top"
+  },
+  "economic_chart_of_the_day": {
+    "series_id": "UMCSENT",
+    "title": "ミシガン大学消費者信頼感指数",
+    "subtitle": "月次, 1966年Q1=100",
+    "rationale": "4月確報値が過去最低の49.8を記録。インフレ懸念が消費者心理を圧迫しており、今後の個人消費動向を占う上で重要な先行指標。",
+    "period_years": 5
+  }
 }
