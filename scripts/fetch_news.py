@@ -1,14 +1,13 @@
 """
-fetch_news.py  (enhanced)
+fetch_news.py
+RSSから直近ニュースを集め、Claude API で以下を一括生成:
+  1. epigraph                : 冒頭引用
+  2. headline_of_the_day     : 本日の一言サマリ
+  3. news (7本)              : 市場を動かしたニュース（各ソースURL付き）
+  4. funny_stories (3本)     : 市場関係者向けの小話（各ソースURL付き）
+  5. charts_of_the_day (3本) : 注目チャート選定
 
-主要メディアの RSS から直近のマーケットニュースを集め、
-Claude API で以下を一括生成：
-  1. epigraph         : 市場の空気に合う名言・書籍からの引用
-  2. headline_of_the_day : 本日の一言サマリ
-  3. news (7本)       : 市場を動かしたニュース
-  4. funny_story      : 市場関係者がクスッとくる小話
-
-data/news.json に書き出す。環境変数 ANTHROPIC_API_KEY が必要。
+data/news.json に書き出す。ANTHROPIC_API_KEY が必要。
 """
 
 from __future__ import annotations
@@ -23,21 +22,23 @@ from typing import Any
 import feedparser
 from anthropic import Anthropic
 
+from chart_universe import CHART_UNIVERSE, prompt_list as chart_prompt_list, get_by_key
+
 
 RSS_FEEDS: list[dict[str, str]] = [
-    {"name": "Yahoo!ファイナンス",  "url": "https://news.yahoo.co.jp/rss/topics/business.xml"},
+    {"name": "Yahoo!ファイナンス",   "url": "https://news.yahoo.co.jp/rss/topics/business.xml"},
     {"name": "Reuters Japan Markets", "url": "https://assets.wor.jp/rss/rdf/reuters/markets.rdf"},
-    {"name": "マネクリ",            "url": "https://media.monex.co.jp/list/feed"},
-    {"name": "Reuters Business",    "url": "https://feeds.reuters.com/reuters/businessNews"},
-    {"name": "MarketWatch Top",     "url": "https://feeds.marketwatch.com/marketwatch/topstories/"},
-    {"name": "CNBC Markets",        "url": "https://www.cnbc.com/id/10000664/device/rss/rss.html"},
-    {"name": "Yahoo Finance US",    "url": "https://finance.yahoo.com/news/rssindex"},
+    {"name": "マネクリ",              "url": "https://media.monex.co.jp/list/feed"},
+    {"name": "Reuters Business",     "url": "https://feeds.reuters.com/reuters/businessNews"},
+    {"name": "MarketWatch Top",      "url": "https://feeds.marketwatch.com/marketwatch/topstories/"},
+    {"name": "CNBC Markets",         "url": "https://www.cnbc.com/id/10000664/device/rss/rss.html"},
+    {"name": "Yahoo Finance US",     "url": "https://finance.yahoo.com/news/rssindex"},
 ]
 
 OUTPUT_PATH = Path("data/news.json")
 
 MODEL = "claude-opus-4-5"
-MAX_TOKENS = 5000
+MAX_TOKENS = 7000
 
 
 def fetch_rss_items(max_per_feed: int = 20, hours_window: int = 36) -> list[dict[str, str]]:
@@ -83,57 +84,95 @@ def fetch_rss_items(max_per_feed: int = 20, hours_window: int = 36) -> list[dict
     return items
 
 
-SYSTEM_PROMPT = """あなたは金融市場のアナリスト兼エディターです。
-直近24時間のニュース見出しを元に、マーケット日報の以下4要素を日本語で作成します。
+def build_system_prompt() -> str:
+    universe = chart_prompt_list()
+    return f"""あなたは金融市場のアナリスト兼エディターです。
+直近24時間のニュース見出しを元に、マーケット日報の以下5要素を日本語で作成します。
 
-【要素1: epigraph (冒頭引用)】
-過去24時間の市場の空気（高揚・不安・混迷・楽観など）に合う、実在の名言または書籍からの引用を選ぶ。
+ニュース一覧はインデックス番号 [N] 付きで提供されます。news と funny_stories では、
+参照した元記事のインデックス番号を source_index で返してください (元記事URLの紐付けに使います)。
+
+【要素1: epigraph】
+過去24時間の市場の空気に合う、実在の名言または書籍からの引用。
 - 出典は実在するものに限る（捏造禁止）
-- 文学・哲学・経済学・投資家の言葉など、ジャンルは自由
-- 今日の市場にピタリとくる選定を心がける
-- 引用文は原文が英語等でも、日本語訳で提示する
+- 日本語訳で提示
 
 【要素2: headline_of_the_day】
 本日の一言サマリ。30字以内、絵文字禁止。
 
 【要素3: news (7本)】
-マーケットに影響を与えた／与えうる重要ニュース7本。選定基準：
+マーケットに影響を与えた／与えうる重要ニュース7本。
 - 中央銀行・金融政策・主要経済指標を最優先
-- 地政学（戦争・制裁・外交）で市場が反応したもの
+- 地政学（戦争・制裁・外交）
 - Magnificent 7 / メガバンク / 重要セクターの決算
 - 原油・金・為替の大きな動き
 - 純粋な個別企業ゴシップや企画記事は除外
+- **各ニュースには元記事のインデックス番号 source_index を必ず付けること**
+  (記事一覧の先頭の [N] の数字をそのまま入れる)
 
-【要素4: funny_story】
-市場関係者がクスッとなるような、皮肉・ユーモア・人間味のある小話を1つ。
-- ニュースそのものをネタにしたウィットに富んだ観察、市場の珍事件、人間の不合理な行動、
-  トレーダー／エコノミスト／CEOの迷言、奇妙な指標、業界の内輪ネタなど
-- 実在のニュースから膨らませる場合は事実に基づく範囲で
-- 毒舌すぎず、特定個人や属性への攻撃にはしない
-- 120〜200字程度
+【要素4: funny_stories (3本)】
+市場関係者がクスッとなるような、皮肉・ユーモア・人間味のある小話を3本。
+**トーンを変えて3本**:
+  ① 皮肉・風刺系: 市場の矛盾や「お決まりの光景」を斜めから突く一言
+  ② 人間味・哀愁系: トレーダーや投資家の不合理さ、滑稽なリアクション
+  ③ 観察・再発見系: 市場の珍現象、奇妙な統計、意外なパターンなど
+- 特定個人・属性への攻撃にはしない
+- 各話 100〜180字
+- **ニュース記事をネタに膨らませる場合は source_index を付ける**
+  (完全にオリジナルな観察であれば source_index は null)
 
-出力は必ず以下の JSON 形式で、コードブロックや説明文なしで返してください：
+【要素5: charts_of_the_day (3本)】
+候補リストから "key" をちょうど 3 本選ぶ。着眼点は多様に。
 
-{
-  "epigraph": {
-    "quote": "引用文（日本語）",
-    "source": "著者名・書籍名・発言年など",
-    "connection": "なぜこの引用が今日の市場に合うのか（40〜60字で）"
-  },
-  "headline_of_the_day": "本日の一言サマリ",
+候補リスト:
+{universe}
+
+出力は必ず以下の JSON 形式で、コードブロックや説明文なしで返してください:
+
+{{
+  "epigraph": {{
+    "quote": "...",
+    "source": "...",
+    "connection": "..."
+  }},
+  "headline_of_the_day": "...",
   "news": [
-    {
+    {{
       "tag": "GEOPOLITICS | EQUITY | RATES/FED | MONETARY POLICY | CORPORATE | COMMODITIES | FX | MACRO | OTHER",
-      "headline": "日本語の見出し（30〜45字）",
-      "body": "日本語の本文（80〜130字）。具体的な数値・銘柄名・固有名詞を含める。",
-      "impact": ["影響した指標の例 最大3つ"]
-    }
+      "headline": "...",
+      "body": "...",
+      "impact": ["..."],
+      "source_index": 12
+    }}
   ],
-  "funny_story": {
-    "title": "小話のタイトル（15〜25字）",
-    "body": "本文（120〜200字）"
-  }
-}
+  "funny_stories": [
+    {{
+      "kind": "皮肉 | 人間味 | 観察",
+      "title": "...",
+      "body": "...",
+      "source_index": 7
+    }},
+    {{
+      "kind": "人間味",
+      "title": "...",
+      "body": "...",
+      "source_index": null
+    }},
+    {{
+      "kind": "観察",
+      "title": "...",
+      "body": "...",
+      "source_index": 23
+    }}
+  ],
+  "charts_of_the_day": [
+    {{
+      "key": "...",
+      "title": "...",
+      "rationale": "..."
+    }}
+  ]
+}}
 """
 
 
@@ -152,20 +191,19 @@ def summarize_with_claude(items: list[dict[str, str]]) -> dict[str, Any]:
 
     user_msg = (
         f"以下は直近24時間に配信された市場関連ニュースの見出し一覧です "
-        f"（計{len(items)}件）。システムプロンプトに従って JSON を返してください。\n\n"
+        f"（計{len(items)}件）。先頭の [N] がインデックス番号です。"
+        f"システムプロンプトに従って JSON を返してください。\n\n"
         + "\n".join(lines)
     )
 
     msg = client.messages.create(
         model=MODEL,
         max_tokens=MAX_TOKENS,
-        system=SYSTEM_PROMPT,
+        system=build_system_prompt(),
         messages=[{"role": "user", "content": user_msg}],
     )
 
-    text = "".join(
-        block.text for block in msg.content if hasattr(block, "text")
-    ).strip()
+    text = "".join(b.text for b in msg.content if hasattr(b, "text")).strip()
 
     if text.startswith("```"):
         text = text.split("```", 2)[1]
@@ -181,11 +219,67 @@ def summarize_with_claude(items: list[dict[str, str]]) -> dict[str, Any]:
         raise
 
 
+def attach_source_urls(payload: dict[str, Any], items: list[dict[str, str]]) -> dict[str, Any]:
+    """source_index を見て news / funny_stories に link と source を付与。"""
+    def _get(idx):
+        if idx is None:
+            return None, None
+        try:
+            i = int(idx)
+            if 0 <= i < len(items):
+                return items[i].get("link", ""), items[i].get("source", "")
+        except (ValueError, TypeError):
+            pass
+        return None, None
+
+    for n in payload.get("news", []):
+        link, src = _get(n.get("source_index"))
+        if link:
+            n["link"] = link
+            n["source"] = src
+
+    for f in payload.get("funny_stories", []):
+        link, src = _get(f.get("source_index"))
+        if link:
+            f["link"] = link
+            f["source"] = src
+
+    return payload
+
+
+def validate_charts(payload: dict[str, Any]) -> dict[str, Any]:
+    valid_keys = {c["key"] for c in CHART_UNIVERSE}
+    charts = payload.get("charts_of_the_day", [])
+    cleaned = []
+    seen = set()
+    for c in charts:
+        k = c.get("key")
+        if k in valid_keys and k not in seen:
+            cleaned.append(c)
+            seen.add(k)
+
+    defaults = ["sp500", "usdjpy", "wti"]
+    for k in defaults:
+        if len(cleaned) >= 3:
+            break
+        if k not in seen:
+            uni = get_by_key(k)
+            cleaned.append({
+                "key": k,
+                "title": uni["name"],
+                "rationale": "フォールバック（Claude の選定が不正）",
+            })
+            seen.add(k)
+
+    payload["charts_of_the_day"] = cleaned[:3]
+    return payload
+
+
 def main() -> None:
     items = fetch_rss_items()
 
     if not items:
-        print("[WARN] No items fetched. Writing fallback news.")
+        print("[WARN] No items fetched. Writing fallback.")
         payload = {
             "generatedAt": datetime.now(timezone.utc).isoformat(),
             "epigraph": {
@@ -195,13 +289,27 @@ def main() -> None:
             },
             "headline_of_the_day": "データ取得失敗",
             "news": [],
-            "funny_story": {
-                "title": "ニュースがない日の沈黙",
-                "body": "RSSが一本も拾えない日、トレーダーは早朝のコーヒーを二杯飲み直す。チャートだけが雄弁で、記者クラブは眠り、Bloombergだけが健気に点滅している。",
-            },
+            "funny_stories": [
+                {"kind": "皮肉", "title": "ニュースなき朝",
+                 "body": "RSSが沈黙した日、ダッシュボードはかえって雄弁になる。空っぽの一覧を前に、トレーダーは『何も起きなかった』という最大級の事件を目撃する。",
+                 "link": None, "source": None},
+                {"kind": "人間味", "title": "データ失踪事件",
+                 "body": "見出しが一本も来ない朝、スクリーンの前で人は一番落ち着かない。コーヒーを二杯注いで、結局自分のPFをリフレッシュし続けてしまう。",
+                 "link": None, "source": None},
+                {"kind": "観察", "title": "沈黙の指標",
+                 "body": "ニュースフローの欠如もまた情報である、と経済学者は言う。しかしチャートだけを見続けた夜、人は何も言わない市場に話しかけ始めるのだ。",
+                 "link": None, "source": None},
+            ],
+            "charts_of_the_day": [
+                {"key": "sp500",  "title": "S&P 500",  "rationale": "デフォルト選定"},
+                {"key": "usdjpy", "title": "USD/JPY",  "rationale": "デフォルト選定"},
+                {"key": "wti",    "title": "WTI原油",   "rationale": "デフォルト選定"},
+            ],
         }
     else:
         summary = summarize_with_claude(items)
+        summary = attach_source_urls(summary, items)
+        summary = validate_charts(summary)
         payload = {
             "generatedAt": datetime.now(timezone.utc).isoformat(),
             **summary,
@@ -212,7 +320,10 @@ def main() -> None:
         json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"\nWrote {OUTPUT_PATH} ({len(payload.get('news', []))} news items + epigraph + funny_story)")
+    print(f"\nWrote {OUTPUT_PATH}: "
+          f"{len(payload.get('news', []))} news + "
+          f"{len(payload.get('funny_stories', []))} muse + "
+          f"{len(payload.get('charts_of_the_day', []))} charts")
 
 
 if __name__ == "__main__":

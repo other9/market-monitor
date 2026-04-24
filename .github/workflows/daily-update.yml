@@ -1,6 +1,5 @@
 name: Daily Market Update
 
-# 毎日 22:00 UTC (= 日本時間 07:00) に実行
 on:
   schedule:
     - cron: "0 22 * * *"
@@ -31,22 +30,37 @@ jobs:
           cache: "pip"
 
       - name: Install Python deps
-        run: |
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
+      # ── 1. 既存の市場データ ──
       - name: Fetch market data (yfinance)
         run: python scripts/fetch_market_data.py
 
-      - name: Fetch yield curves (FRED)
+      # ── 2. FRED マクロ指標 ──
+      - name: Fetch macro indicators (FRED)
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
-        run: python scripts/fetch_yield_curves.py
+        run: python scripts/fetch_macro_indicators.py
 
+      # ── 3. ニュース + 注目チャート3本選定 ──
       - name: Fetch & summarize news (Claude API)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python scripts/fetch_news.py
+        working-directory: .
+        run: |
+          cd scripts
+          python fetch_news.py
+        # scripts/ 配下に chart_universe.py があるので import のため cd している
 
+      # ── 4. 注目チャート3本の1年日次データ ──
+      - name: Fetch featured charts (1Y daily)
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: |
+          cd scripts
+          python fetch_featured_charts.py
+
+      # ── 5. data/ をリポジトリに戻す ──
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
@@ -59,6 +73,7 @@ jobs:
             echo "No data changes; skipping commit."
           fi
 
+      # ── 6. Viteビルド ──
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
