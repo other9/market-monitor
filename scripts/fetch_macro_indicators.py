@@ -1,11 +1,8 @@
 """
-fetch_macro_indicators.py
-FRED API から 10 指標を取得し、data/macro.json に書き出す。
+fetch_macro_indicators.py  (v2 — expanded)
 
-- 日次 / 週次を明示して UI 側で「頻度バッジ」表示できるようにする
-- 各指標について: 最新値・前日差分・1週間差分・1ヶ月差分・asOf を保存
-
-環境変数 FRED_API_KEY が必要。
+FRED API から 17 指標を取得し、data/macro.json に書き出す。
+金利・信用・金融環境・為替/EM・エネルギーをカバー。
 """
 
 from __future__ import annotations
@@ -25,35 +22,35 @@ OUTPUT_PATH = Path("data/macro.json")
 FRED_BASE = "https://api.stlouisfed.org/fred/series/observations"
 
 
-# ─────────────────────────────────────────────────────────
-# 取得対象 10 指標
-#   group: UI の表示順グループ分け
-#   unit:  画面表示の単位。"%"=そのまま, "bp"=bp換算, "index"=指数, "$"=ドル
-#   desc:  一行解説（画面に出す）
-# ─────────────────────────────────────────────────────────
 INDICATORS: list[dict[str, Any]] = [
-    # 金利・期待
-    {"id": "T10Y2Y",       "name": "10Y-2Y スプレッド",     "group": "金利・期待",  "freq": "日次", "unit": "%", "desc": "景気指標。マイナスで逆イールド警戒"},
-    {"id": "T10YIE",       "name": "10年ブレークイーブン",   "group": "金利・期待",  "freq": "日次", "unit": "%", "desc": "市場が織り込む期待インフレ率"},
-    {"id": "DFII10",       "name": "10年実質金利 (TIPS)",    "group": "金利・期待",  "freq": "日次", "unit": "%", "desc": "名目-期待インフレ。金と逆相関"},
-    {"id": "SOFR",         "name": "SOFR (担保付翌日物)",    "group": "金利・期待",  "freq": "日次", "unit": "%", "desc": "米短期金利のベンチマーク"},
+    # ─── 金利・期待 ───
+    {"id": "DGS2",         "name": "米2年国債利回り",       "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "政策金利に近い短中期金利、Fed予想の温度計"},
+    {"id": "DGS10",        "name": "米10年国債利回り",      "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "世界金利のベンチマーク"},
+    {"id": "DGS30",        "name": "米30年国債利回り",      "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "超長期、年金・インフラ投資の基準"},
+    {"id": "T10Y2Y",       "name": "10Y-2Y スプレッド",     "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "景気指標。マイナスで逆イールド警戒"},
+    {"id": "T10YIE",       "name": "10年ブレークイーブン",   "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "市場が織り込む期待インフレ率"},
+    {"id": "DFII10",       "name": "10年実質金利 (TIPS)",    "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "名目-期待インフレ。金と逆相関"},
+    {"id": "SOFR",         "name": "SOFR (担保付翌日物)",    "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "米短期金利のベンチマーク"},
+    {"id": "MORTGAGE30US", "name": "米30年住宅ローン金利",  "group": "金利・期待",  "freq": "週次", "unit": "%",  "desc": "家計への金利伝達チャネル"},
 
-    # 信用
-    {"id": "BAMLH0A0HYM2", "name": "HY社債スプレッド (OAS)", "group": "信用市場",    "freq": "日次", "unit": "%", "desc": "信用ストレスの王様。4%超で警戒"},
-    {"id": "BAMLC0A0CM",   "name": "IG社債スプレッド (OAS)", "group": "信用市場",    "freq": "日次", "unit": "%", "desc": "投資適格債の信用状況"},
+    # ─── 信用市場 ───
+    {"id": "BAMLH0A0HYM2", "name": "HY社債スプレッド (OAS)", "group": "信用市場",    "freq": "日次", "unit": "%",  "desc": "信用ストレスの王様。4%超で警戒"},
+    {"id": "BAMLC0A0CM",   "name": "IG社債スプレッド (OAS)", "group": "信用市場",    "freq": "日次", "unit": "%",  "desc": "投資適格債の信用状況"},
+    {"id": "BAMLEMCBPIOAS","name": "EM社債スプレッド (OAS)", "group": "信用市場",    "freq": "日次", "unit": "%",  "desc": "新興国クレジット、ドル流動性指標"},
 
-    # 金融環境
+    # ─── 金融環境 ───
     {"id": "NFCI",         "name": "Chicago Fed金融環境",    "group": "金融環境",    "freq": "週次", "unit": "z",  "desc": "+で引き締まり、-で緩和"},
     {"id": "STLFSI4",      "name": "St. Louis金融ストレス",  "group": "金融環境",    "freq": "週次", "unit": "z",  "desc": "18系列統合ストレス指標"},
 
-    # 為替・エネルギー
-    {"id": "DTWEXBGS",     "name": "ドル指数 (広義)",        "group": "為替・実物",  "freq": "日次", "unit": "idx", "desc": "貿易加重、新興国通貨含む"},
-    {"id": "DHHNGSP",      "name": "天然ガス (Henry Hub)",   "group": "為替・実物",  "freq": "日次", "unit": "$",  "desc": "米国エネルギー価格の基準"},
+    # ─── 為替・EM・エネルギー ───
+    {"id": "DTWEXBGS",     "name": "ドル指数 (広義)",        "group": "為替・EM",    "freq": "日次", "unit": "idx","desc": "貿易加重、新興国通貨含む"},
+    {"id": "DEXBZUS",      "name": "USD/BRL (ブラジル)",     "group": "為替・EM",    "freq": "日次", "unit": "fx", "desc": "中南米EMのベンチマーク"},
+    {"id": "DEXMXUS",      "name": "USD/MXN (メキシコ)",     "group": "為替・EM",    "freq": "日次", "unit": "fx", "desc": "北米サプライチェーン連動"},
+    {"id": "DHHNGSP",      "name": "天然ガス (Henry Hub)",   "group": "為替・EM",    "freq": "日次", "unit": "$",  "desc": "米国エネルギー価格の基準"},
 ]
 
 
 def fetch_fred_series(series_id: str, api_key: str) -> pd.Series:
-    """FRED API から直近2年分を取得。"""
     params = {
         "series_id":         series_id,
         "api_key":           api_key,
@@ -80,12 +77,10 @@ def fetch_fred_series(series_id: str, api_key: str) -> pd.Series:
 
     if not rows:
         return pd.Series(dtype="float64")
-
     return pd.Series(dict(rows)).sort_index().dropna()
 
 
 def diff_at(series: pd.Series, days_back: int) -> float | None:
-    """last_date - days_back 以前の最も新しい値を返す。"""
     if series.empty:
         return None
     last_date = series.index[-1]
@@ -117,8 +112,8 @@ def main() -> None:
             print(f"[WARN] {ind['id']}: insufficient data")
             continue
 
-        last  = float(s.iloc[-1])
-        prev  = diff_at(s, 1)
+        last = float(s.iloc[-1])
+        prev = diff_at(s, 1)
         prev7 = diff_at(s, 7)
         prev30 = diff_at(s, 30)
 

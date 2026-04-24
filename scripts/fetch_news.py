@@ -152,6 +152,27 @@ deep_dive の構成:
   - related_keys   : 関連する市場指標の key (候補リストから2〜4個)
   - source_index   : 元記事のインデックス番号
 
+【要素7: economic_chart_of_the_day】
+今日のニュース文脈や経済カレンダーを踏まえ、**経済指標や政治関連の時系列データ**を1つ選び、
+FREDで取得可能な系列IDを指定する。これは「市場を動かしうる経済指標」や「政治情勢を数値で追える指標」を
+グラフで見せるための枠。
+
+選び方の例:
+- 雇用統計が発表される週なら ICSA (初失業保険申請件数、週次) や PAYEMS (非農業部門雇用者数、月次)
+- CPI発表週なら CPIAUCSL (CPI、月次) や CORESTICKM159SFRBATL (コアCPI)
+- 大統領選・重要選挙の近くなら UMCSENT (ミシガン消費者信頼感、月次) や USPCE (個人消費支出)
+- 地政学なら DCOILWTICO (WTI、日次、ヘッジ指標として) や DHHNGSP (天然ガス)
+- 景気後退懸念が強まっているなら USREC (リセッション判定、月次) や INDPRO (鉱工業生産)
+- ドル高環境なら DTWEXBGS (ドル広義指数、日次)
+- 金融ストレスなら NFCI や STLFSI4 (週次)
+
+返す内容:
+  - series_id    : FREDシリーズID (例: "ICSA", "CPIAUCSL", "UMCSENT")
+  - title        : グラフタイトル (20〜30字、日本語)
+  - subtitle     : 副題/単位説明 (例: "週次, 千人", "前年比, %")
+  - rationale    : なぜ今日この指標を見るべきか (60〜100字)
+  - period_years : 時系列の期間 (整数、1〜10年、典型は3〜5年)
+
 出力は必ず以下の JSON 形式で、コードブロックや説明文なしで返してください:
 
 {{
@@ -172,6 +193,13 @@ deep_dive の構成:
     "what_to_watch": ["...", "...", "..."],
     "related_keys": ["sp500", "vix"],
     "source_index": 3
+  }},
+  "economic_chart_of_the_day": {{
+    "series_id": "ICSA",
+    "title": "...",
+    "subtitle": "...",
+    "rationale": "...",
+    "period_years": 3
   }}
 }}
 

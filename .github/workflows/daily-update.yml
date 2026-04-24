@@ -56,6 +56,12 @@ jobs:
           PYTHONPATH: scripts
         run: python scripts/fetch_featured_charts.py
 
+      # ── 4b. 経済指標チャート (日替わり) ──
+      - name: Fetch economic indicator chart
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python scripts/fetch_economic_chart.py
+
       # ── 5. data/ をリポジトリに戻す ──
       - name: Commit updated data
         run: |

@@ -654,6 +654,155 @@
 .mm-deepdive-source a::after { content: " \2197"; }
 .mm-deepdive-source a:hover { opacity: 0.65; }
 
+/* ── Sector Heatmap ── */
+.mm-heatmap-wrap {
+  margin-top: 18px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: 18px 20px;
+}
+.mm-heatmap-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.mm-heatmap-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--fg);
+}
+.mm-heatmap-legend {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+.mm-heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  gap: 3px;
+}
+.mm-heatmap-cell {
+  padding: 10px 8px;
+  text-align: center;
+  border-radius: 2px;
+  color: var(--fg);
+  font-family: var(--font-mono);
+  min-height: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.mm-heatmap-cell-name {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 3px;
+}
+.mm-heatmap-cell-val {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.mm-heatmap-tabs {
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+.mm-heatmap-tab {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.15em;
+  padding: 6px 4px;
+  cursor: pointer;
+  color: var(--muted);
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.15s;
+  user-select: none;
+}
+.mm-heatmap-tab:hover { color: var(--fg); }
+.mm-heatmap-tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Economic Chart of the Day ── */
+.mm-econ-wrap {
+  margin: 48px 0;
+  padding: 32px 36px;
+  background: var(--panel);
+  border: 1px solid var(--border-strong);
+  border-left: 5px solid var(--accent2);
+}
+.mm-econ-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--accent2);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.mm-econ-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: var(--fg);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+.mm-econ-subtitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+.mm-econ-rationale {
+  font-size: 13px;
+  color: var(--fg);
+  line-height: 1.6;
+  font-style: italic;
+  border-left: 2px solid var(--accent2);
+  padding-left: 12px;
+  margin-bottom: 20px;
+  max-width: 780px;
+}
+.mm-econ-last {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 14px 0 20px 0;
+  font-family: var(--font-mono);
+}
+.mm-econ-last-val {
+  font-size: 28px;
+  color: var(--fg);
+  font-weight: 600;
+}
+.mm-econ-last-diff {
+  font-size: 14px;
+  font-weight: 600;
+}
+.mm-econ-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-top: 12px;
+  text-transform: uppercase;
+}
+
 /* ============= Responsive ============= */
 @media (max-width: 1100px) {
   .mm-featured-grid { grid-template-columns: 1fr; }
@@ -673,6 +822,10 @@
   .mm-deepdive { padding: 28px 24px; }
   .mm-deepdive-title { font-size: 27px; }
   .mm-deepdive-grid { grid-template-columns: 1fr; gap: 20px; }
+  .mm-heatmap-grid { grid-template-columns: repeat(4, 1fr); }
+  .mm-econ-wrap { padding: 24px 20px; }
+  .mm-econ-title { font-size: 22px; }
+  .mm-econ-last-val { font-size: 22px; }
 }
 
 @media (max-width: 760px) {
@@ -710,5 +863,12 @@
   .mm-muse-body { font-size: 13px; }
   .mm-featured-card { padding: 16px 14px; }
   .mm-featured-title { font-size: 18px; }
+  .mm-heatmap-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .mm-heatmap-cell { padding: 8px 4px; min-height: 58px; }
+  .mm-heatmap-cell-name { font-size: 9px; }
+  .mm-heatmap-cell-val { font-size: 11.5px; }
+  .mm-econ-wrap { padding: 20px 16px; }
+  .mm-econ-title { font-size: 19px; }
+  .mm-econ-rationale { font-size: 12px; }
   .mm-footer { flex-direction: column; font-size: 9.5px; letter-spacing: 0.08em; }
 }

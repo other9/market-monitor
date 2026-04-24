@@ -116,6 +116,7 @@ const MARKET_URL = `${import.meta.env.BASE_URL}data/market.json`;
 const NEWS_URL = `${import.meta.env.BASE_URL}data/news.json`;
 const MACRO_URL = `${import.meta.env.BASE_URL}data/macro.json`;
 const FEATURED_URL = `${import.meta.env.BASE_URL}data/featured.json`;
+const ECONOMIC_URL = `${import.meta.env.BASE_URL}data/economic.json`;
 
 // ─── Primitives ───
 const Pct = ({ n, big = false }) => (
@@ -147,7 +148,7 @@ const Signed = ({ n, d = 3 }) => (
   </span>
 );
 
-// ─── 5Y mini chart ───
+// ─── 5Y daily chart (downsamples for smooth rendering) ───
 function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlight }) {
   if (!data || data.length === 0) {
     return (
@@ -159,16 +160,30 @@ function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlig
       </div>
     );
   }
-  const vals = data.map((d) => d.v);
+  // データ量が多ければダウンサンプル (5Y 日次 = 約1260点 → 200点程度に)
+  const MAX_POINTS = 250;
+  const stride = Math.max(1, Math.floor(data.length / MAX_POINTS));
+  const sampled = data.length > MAX_POINTS
+    ? data.filter((_, i) => i % stride === 0 || i === data.length - 1)
+    : data;
+
+  const vals = sampled.map((d) => d.v);
   const min = Math.min(...vals);
   const max = Math.max(...vals);
   const pad = (max - min) * 0.1;
+
+  // X軸ラベル "YYYY-MM-DD" → "YY/MM"
+  const tickFormat = (v) => {
+    const p = v.split("-");
+    return p.length >= 2 ? p[0].slice(2) + "/" + p[1] : v;
+  };
+
   return (
     <div className="mm-chart-card">
       <div className="mm-chart-head">
         <div>
           <div className="mm-chart-title">{title}</div>
-          <div className="mm-chart-sub">{sub} · 5Y Monthly</div>
+          <div className="mm-chart-sub">{sub} · 5Y Daily</div>
         </div>
         <div>
           <div className="mm-chart-cur">{unit}{fmt(current, decimals)}</div>
@@ -177,14 +192,14 @@ function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlig
       </div>
       <div style={{ height: 140, marginLeft: -8 }}>
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 8, right: 8, left: 8, bottom: 0 }}>
+          <LineChart data={sampled} margin={{ top: 8, right: 8, left: 8, bottom: 0 }}>
             <CartesianGrid stroke={PALETTE.border} strokeDasharray="2 4" vertical={false} />
             <XAxis
               dataKey="d"
               tick={{ fontSize: 9, fill: PALETTE.muted, fontFamily: FONT_MONO }}
               stroke={PALETTE.dim}
-              tickFormatter={(v) => v.slice(2, 4) + "/" + v.slice(5, 7)}
-              interval={Math.floor(data.length / 6)}
+              tickFormatter={tickFormat}
+              interval={Math.max(1, Math.floor(sampled.length / 6))}
             />
             <YAxis
               tick={{ fontSize: 9, fill: PALETTE.muted, fontFamily: FONT_MONO }}
@@ -204,6 +219,7 @@ function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlig
                 stroke={PALETTE.accent}
                 strokeDasharray="3 3"
                 strokeWidth={1}
+                ifOverflow="visible"
                 label={{ value: "イラン紛争", position: "top", fill: PALETTE.accent, fontSize: 9, fontFamily: FONT_MONO }}
               />
             )}
@@ -211,7 +227,7 @@ function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlig
               type="monotone"
               dataKey="v"
               stroke={PALETTE.accent}
-              strokeWidth={2}
+              strokeWidth={1.8}
               dot={false}
               activeDot={{ r: 3, fill: PALETTE.accent, stroke: PALETTE.panel }}
             />
@@ -455,6 +471,164 @@ function MacroBarometer({ macro }) {
   );
 }
 
+// ─── Sector Heatmap ───
+function SectorHeatmap({ sectors }) {
+  const [period, setPeriod] = useState("day");
+  if (!sectors || sectors.length === 0) {
+    return <div style={{ color: PALETTE.muted, fontFamily: FONT_MONO, fontSize: 12, padding: "12px 0" }}>sector data unavailable</div>;
+  }
+
+  // Claude API (Opus) は rechart 非依存のカスタムグリッドで描画
+  // 値に応じて色をマッピング (最大値基準の±)
+  const vals = sectors.map((s) => s[period]).filter((v) => v != null);
+  const absMax = Math.max(...vals.map(Math.abs), 1);
+
+  const colorFor = (v) => {
+    if (v == null) return "#EEE";
+    const t = Math.min(Math.abs(v) / absMax, 1);  // 0〜1
+    if (v >= 0) {
+      // 薄緑 → 濃緑
+      const r = Math.round(230 - t * 180);
+      const g = Math.round(240 - t * 70);
+      const b = Math.round(230 - t * 180);
+      return `rgb(${r}, ${g}, ${b})`;
+    } else {
+      // 薄赤 → 濃赤
+      const r = Math.round(240 - t * 60);
+      const g = Math.round(230 - t * 170);
+      const b = Math.round(230 - t * 170);
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+  };
+
+  const textFor = (v) => {
+    if (v == null) return PALETTE.muted;
+    return Math.abs(v) / absMax > 0.55 ? "#FFF" : PALETTE.fg;
+  };
+
+  return (
+    <div className="mm-heatmap-wrap">
+      <div className="mm-heatmap-head">
+        <div className="mm-heatmap-title">米セクター・ヒートマップ</div>
+        <div className="mm-heatmap-legend">SPDRセクターETF · {sectors[0]?.asOf || "—"}</div>
+      </div>
+      <div className="mm-heatmap-tabs">
+        {[
+          { k: "day",   l: "1日" },
+          { k: "week",  l: "1週" },
+          { k: "month", l: "1ヶ月" },
+          { k: "ytd",   l: "年初来" },
+        ].map((x) => (
+          <div
+            key={x.k}
+            className={`mm-heatmap-tab ${period === x.k ? "active" : ""}`}
+            onClick={() => setPeriod(x.k)}
+          >
+            {x.l}
+          </div>
+        ))}
+      </div>
+      <div className="mm-heatmap-grid">
+        {sectors.map((s, i) => {
+          const v = s[period];
+          return (
+            <div
+              key={i}
+              className="mm-heatmap-cell"
+              style={{ background: colorFor(v), color: textFor(v) }}
+              title={`${s.name} (${s.ticker}): ${fmtPct(v)}`}
+            >
+              <span className="mm-heatmap-cell-name">{s.short}</span>
+              <span className="mm-heatmap-cell-val">{fmtPct(v)}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─── Economic Chart of the Day ───
+function EconomicChart({ econ }) {
+  if (!econ || !econ.chart || !econ.chart.history || econ.chart.history.length === 0) return null;
+  const c = econ.chart;
+
+  // ダウンサンプル (経済指標は系列によって膨大になりうる)
+  const MAX_POINTS = 400;
+  const stride = Math.max(1, Math.floor(c.history.length / MAX_POINTS));
+  const sampled = c.history.length > MAX_POINTS
+    ? c.history.filter((_, i) => i % stride === 0 || i === c.history.length - 1)
+    : c.history;
+
+  const vals = sampled.map((d) => d.v);
+  const min = Math.min(...vals);
+  const max = Math.max(...vals);
+  const pad = (max - min) * 0.08;
+
+  const tickFormat = (v) => {
+    const p = v.split("-");
+    return p.length >= 2 ? p[0].slice(2) + "/" + p[1] : v;
+  };
+
+  return (
+    <div className="mm-econ-wrap">
+      <div className="mm-econ-kicker">▲ Economic Indicator · 今日の経済指標</div>
+      <div className="mm-econ-title">{c.title}</div>
+      <div className="mm-econ-subtitle">
+        {c.subtitle || c.units} · {c.frequency} · FRED: {c.series_id}
+      </div>
+      {c.rationale && <div className="mm-econ-rationale">{c.rationale}</div>}
+
+      <div className="mm-econ-last">
+        <span className="mm-econ-last-val">{fmt(c.last, 3)}</span>
+        {c.diff != null && (
+          <span className="mm-econ-last-diff" style={{ color: tone(c.diff) }}>
+            {fmtSigned(c.diff, 3)} (前回比)
+          </span>
+        )}
+      </div>
+
+      <div style={{ height: 240, marginLeft: -8 }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={sampled} margin={{ top: 8, right: 8, left: 8, bottom: 0 }}>
+            <CartesianGrid stroke={PALETTE.border} strokeDasharray="2 4" vertical={false} />
+            <XAxis
+              dataKey="d"
+              tick={{ fontSize: 10, fill: PALETTE.muted, fontFamily: FONT_MONO }}
+              stroke={PALETTE.dim}
+              tickFormatter={tickFormat}
+              interval={Math.max(1, Math.floor(sampled.length / 8))}
+            />
+            <YAxis
+              tick={{ fontSize: 10, fill: PALETTE.muted, fontFamily: FONT_MONO }}
+              stroke={PALETTE.dim}
+              domain={[min - pad, max + pad]}
+              width={52}
+            />
+            <Tooltip
+              contentStyle={{ background: PALETTE.panel, border: `1px solid ${PALETTE.borderStrong}`, fontFamily: FONT_MONO, fontSize: 11, color: PALETTE.fg }}
+              labelStyle={{ color: PALETTE.muted }}
+              formatter={(v) => [fmt(v, 3), c.title]}
+            />
+            <Line
+              type="monotone"
+              dataKey="v"
+              stroke={PALETTE.accent2}
+              strokeWidth={2}
+              dot={false}
+              activeDot={{ r: 3, fill: PALETTE.accent2, stroke: PALETTE.panel }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
+
+      <div className="mm-econ-meta">
+        期間 {c.period_years}年 · 取得 {c.asOf} · {c.official_title || "FRED"}
+      </div>
+    </div>
+  );
+}
+
 // ─── Deep Dive article ───
 function DeepDive({ article, chartUniverse }) {
   if (!article) return null;
@@ -515,6 +689,7 @@ export default function MarketMonitor() {
   const [news, setNews] = useState(null);
   const [macro, setMacro] = useState(null);
   const [featured, setFeatured] = useState(null);
+  const [economic, setEconomic] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -524,8 +699,9 @@ export default function MarketMonitor() {
       fetch(NEWS_URL).then((r) => { if (!r.ok) throw new Error(`news.json: ${r.status}`); return r.json(); }),
       safe(fetch(MACRO_URL).then((r) => { if (!r.ok) throw new Error(`macro.json: ${r.status}`); return r.json(); })),
       safe(fetch(FEATURED_URL).then((r) => { if (!r.ok) throw new Error(`featured.json: ${r.status}`); return r.json(); })),
+      safe(fetch(ECONOMIC_URL).then((r) => { if (!r.ok) throw new Error(`economic.json: ${r.status}`); return r.json(); })),
     ])
-      .then(([m, n, ma, f]) => { setMarket(m); setNews(n); setMacro(ma); setFeatured(f); })
+      .then(([m, n, ma, f, e]) => { setMarket(m); setNews(n); setMacro(ma); setFeatured(f); setEconomic(e); })
       .catch((e) => setError(e.message));
   }, []);
 
@@ -627,6 +803,17 @@ export default function MarketMonitor() {
       </div>
       {byGroup.map((g, i) => <IndicesGroup key={i} title={g.title} rows={g.rows} />)}
 
+      {/* Sector heatmap */}
+      {market.sectors && market.sectors.length > 0 && (
+        <div style={{ marginTop: 28 }}>
+          <div className="mm-group-head">
+            <div className="mm-group-title">米セクター・ヒートマップ</div>
+            <div className="mm-group-marker">▽ SPDR Sectors</div>
+          </div>
+          <SectorHeatmap sectors={market.sectors} />
+        </div>
+      )}
+
       {/* III. Macro barometer */}
       <div style={{ marginTop: 48, marginBottom: 24 }}>
         <div className="mm-section-tag">III. マクロ・バロメーター</div>
@@ -647,16 +834,16 @@ export default function MarketMonitor() {
           は2026年2月末の米・イラン紛争開始点。
         </div>
         <div className="mm-chart-grid">
-          <MiniChart title="日経平均"      sub="¥ · JPY"     data={market.history.nikkei} current={market.history.nikkei?.at(-1)?.v} decimals={0} highlight="2026-02" />
-          <MiniChart title="S&P 500"       sub="INDEX · USD" data={market.history.sp500}  current={market.history.sp500?.at(-1)?.v}  decimals={0} highlight="2026-02" />
+          <MiniChart title="日経平均"      sub="¥ · JPY"     data={market.history.nikkei} current={market.history.nikkei?.at(-1)?.v} decimals={0} highlight="2026-02-27" />
+          <MiniChart title="S&P 500"       sub="INDEX · USD" data={market.history.sp500}  current={market.history.sp500?.at(-1)?.v}  decimals={0} highlight="2026-02-27" />
         </div>
         <div className="mm-chart-grid">
-          <MiniChart title="USD/JPY"       sub="ドル円"       data={market.history.usdjpy} current={market.history.usdjpy?.at(-1)?.v} decimals={1} highlight="2026-02" />
-          <MiniChart title="米10年債利回り" sub="%"           data={market.history.us10y}  current={market.history.us10y?.at(-1)?.v}  decimals={2} highlight="2026-02" />
+          <MiniChart title="USD/JPY"       sub="ドル円"       data={market.history.usdjpy} current={market.history.usdjpy?.at(-1)?.v} decimals={1} highlight="2026-02-27" />
+          <MiniChart title="米10年債利回り" sub="%"           data={market.history.us10y}  current={market.history.us10y?.at(-1)?.v}  decimals={2} highlight="2026-02-27" />
         </div>
         <div className="mm-chart-grid">
-          <MiniChart title="WTI原油"       sub="$ / bbl"     data={market.history.wti}    current={market.history.wti?.at(-1)?.v}    decimals={0} unit="$" highlight="2026-02" />
-          <MiniChart title="金 (COMEX)"    sub="$ / oz"      data={market.history.gold}   current={market.history.gold?.at(-1)?.v}   decimals={0} unit="$" highlight="2026-02" />
+          <MiniChart title="WTI原油"       sub="$ / bbl"     data={market.history.wti}    current={market.history.wti?.at(-1)?.v}    decimals={0} unit="$" highlight="2026-02-27" />
+          <MiniChart title="金 (COMEX)"    sub="$ / oz"      data={market.history.gold}   current={market.history.gold?.at(-1)?.v}   decimals={0} unit="$" highlight="2026-02-27" />
         </div>
       </div>
 
@@ -711,6 +898,9 @@ export default function MarketMonitor() {
 
       {/* Deep Dive article */}
       <DeepDive article={news.deep_dive} chartUniverse={CHART_UNIVERSE_LABELS} />
+
+      {/* Economic indicator chart (daily pick) */}
+      <EconomicChart econ={economic} />
 
       {/* Market Muse (3 cards) */}
       {museStories.length > 0 && (
