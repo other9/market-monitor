@@ -1,147 +1,131 @@
 {
-  "generatedAt": "2026-04-24T14:50:59.963388+00:00",
+  "generatedAt": "2026-04-24T15:49:51.645196+00:00",
   "epigraph": {
-    "quote": "市場は短期的には投票機だが、長期的には計量器である。",
-    "source": "ベンジャミン・グレアム『賢明なる投資家』",
-    "connection": "半導体株の熱狂的な上昇が続く中、パラボリック相場への警告が出始めている。短期の熱狂と長期の価値、その乖離を今一度見つめ直す時。"
+    "quote": "恐怖と欲望、この二つの感情が金融市場を支配している。だが、最も危険なのは両者が同時に存在する時だ。",
+    "source": "ハワード・マークス『投資で一番大切な20の教え』",
+    "connection": "イラン情勢という恐怖と、史上最高値という欲望が同居する今日の市場を映し出す"
   },
-  "headline_of_the_day": "日経平均史上最高値更新、米半導体株は歴史的急騰",
+  "headline_of_the_day": "日経平均が史上最高値更新、DOJ撤退でFed人事に道筋",
   "news": [
     {
       "tag": "金融政策",
-      "headline": "米司法省、パウエルFRB議長への調査を取り下げ　ウォーシュ承認に道筋",
-      "body": "トランプ政権の司法省がパウエルFRB議長に対する調査姿勢を軟化。5月15日の議長任期切れを前に、次期議長候補ケビン・ウォーシュの承認手続きが加速する見通し。金融政策の独立性を巡る緊張は一段落したが、市場は新体制への移行を注視。",
+      "headline": "米司法省がパウエル議長への捜査を取り下げ、ウォーシュ次期議長指名に道筋",
+      "body": "トランプ政権の司法省がFRB議長パウエル氏に対する調査を取り下げた。5月15日の任期満了に向け、ケビン・ウォーシュ氏の議長就任承認プロセスが前進する見通し。市場は政策継続性への懸念が後退し、株式市場は上昇で反応。",
       "impact": [
-        "米金利のボラティリティ上昇可能性",
-        "ウォーシュ体制下での政策スタンス不透明感"
+        "短期:FRBリーダーシップの不確実性低下で米株にプラス",
+        "中期:ウォーシュ氏の政策スタンス次第で金利見通しに変化"
       ],
-      "source_index": 21,
+      "source_index": 20,
       "link": "https://www.marketwatch.com/story/pirro-drops-probe-into-feds-powell-paving-way-for-warsh-confirmation-b77bc126?mod=mw_rss_topstories",
       "source": "MarketWatch Top"
     },
     {
-      "tag": "株式市場",
-      "headline": "日経平均が終値で史上最高値更新　一方で物色偏り顕著",
-      "body": "日経平均株価は反発し、終値ベースで史上最高値を更新した。原油高環境下でも資源・エネルギー関連や半導体株への買いが相場を牽引。ただし物色の偏りが指摘されており、相場の裾野拡大が課題として残る。",
+      "tag": "日本株",
+      "headline": "日経平均が史上最高値を更新、終値で6万円台乗せ視野",
+      "body": "日経平均株価が反発し、終値ベースで史上最高値を更新した。ただし物色には偏りがあり、一部の大型株主導の上昇。原油高環境下でも円安と企業業績期待が株価を押し上げている。",
       "impact": [
-        "海外投資家の日本株選好継続",
-        "バリュー株への循環物色期待"
+        "短期:海外勢の買い継続がカギ",
+        "中期:物色の裾野拡大なければ持続性に疑問"
       ],
       "source_index": 9,
       "link": "https://jp.reuters.com/markets/japan/6CTRATLWLZKWFMJBOSJ7ED5ZDI-2026-04-24/",
       "source": "Reuters Japan Markets"
     },
     {
-      "tag": "半導体",
-      "headline": "Intel決算が市場予想を大幅上回り株価急騰　40年ぶりの上昇率も視野",
-      "body": "Intelが発表した四半期決算が予想を大きく上回り、株価は急騰。一時40年ぶりの日中上昇率に迫る勢い。AI需要を背景にサーバー向けCPUが好調で、モルガン・スタンレーはAMDと並んでIntelの恩恵を予測。半導体セクター全体に追い風。",
-      "impact": [
-        "SOX指数の続伸",
-        "半導体サプライチェーン全体への波及"
-      ],
-      "source_index": 54,
-      "link": "https://finance.yahoo.com/markets/stocks/articles/intel-soars-earnings-blowout-did-143110069.html",
-      "source": "Yahoo Finance US"
-    },
-    {
-      "tag": "半導体",
-      "headline": "TSMC株急伸、台湾当局が地元投資家向け規制を緩和",
-      "body": "台湾半導体製造（TSMC）の株価が急騰。台湾金融当局が国内投資家のTSMC株保有上限を緩和したことが材料視された。AI半導体需要の中心にいる同社への資金流入が加速し、時価総額は過去最高を更新。",
-      "impact": [
-        "台湾株市場への海外資金流入期待",
-        "グローバル半導体覇権の地政学"
-      ],
-      "source_index": 27,
-      "link": "https://www.marketwatch.com/story/taiwan-semiconductors-stock-heads-for-a-record-after-regulator-rewrites-rules-for-local-investors-c1daf742?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
-    },
-    {
       "tag": "地政学",
-      "headline": "ホルムズ海峡の正常化は7月まで困難との見方　予測市場Kalshi",
-      "body": "米イラン間の停戦延長にもかかわらず、予測市場Kalshiではホルムズ海峡の通行正常化確率が50%を下回った。市場参加者は7月までの長期化を織り込み始めており、原油・LNG市場への影響が継続する見込み。",
+      "headline": "イラン情勢で独IFO業況指数が2020年以来の低水準に沈む",
+      "body": "4月のドイツIFO業況指数がコロナ禍以来の低水準を記録。イラン情勢の緊迫化による先行き不透明感が企業心理を急速に悪化させている。欧州経済の牽引役であるドイツの失速は域内全体への波及リスク。",
       "impact": [
-        "原油価格の高止まり",
-        "海運・保険コストの上昇継続"
-      ],
-      "source_index": 35,
-      "link": "https://www.cnbc.com/2026/04/23/kalshi-bettors-see-strait-of-hormuz-traffic-normal-by-july.html",
-      "source": "CNBC Markets"
-    },
-    {
-      "tag": "欧州経済",
-      "headline": "独IFO景況指数が2020年以来の低水準に　イラン情勢が重石",
-      "body": "4月のドイツIFO業況指数が2020年以来の低水準に落ち込んだ。イラン情勢の緊迫化を受けて企業の先行き見通しが急速に悪化。欧州最大の経済大国の減速懸念が、ECBの利下げ継続観測を強めている。",
-      "impact": [
-        "ユーロ軟調継続",
-        "欧州株のアンダーパフォーム"
+        "短期:欧州株・ユーロに下押し圧力",
+        "中期:ECBの利下げ期待再燃の可能性"
       ],
       "source_index": 16,
       "link": "https://jp.reuters.com/markets/japan/5DSKMLBFARNVLIQWURMYOGPDHE-2026-04-24/",
       "source": "Reuters Japan Markets"
     },
     {
-      "tag": "運用戦略",
-      "headline": "かんぽ生命、円債「買い目線」継続　2兆円弱を全額再投資",
-      "body": "かんぽ生命が2026年度運用計画を発表。約2兆円弱の償還分を全額円債に再投資し、残高を横ばいで維持する方針。国内金利上昇局面でも慎重な姿勢を維持しつつ、円債を「買い目線」でアプローチ。",
+      "tag": "半導体",
+      "headline": "Intel株が急騰、サーバーCPU好調と製造改善で過去最高値圏",
+      "body": "Intel決算がサーバー向けCPUの強さと製造部門の改善を示し、株価が記録的な急騰。4つの転換イベントが同社のターンアラウンドを後押ししているとアナリストは分析。SOX指数も連れ高。",
       "impact": [
-        "超長期金利の安定要因",
-        "国内機関投資家の運用姿勢示唆"
+        "短期:半導体セクター全体にセンチメント改善",
+        "中期:AMDやNVIDIAとの競争激化に注目"
       ],
-      "source_index": 8,
-      "link": "https://jp.reuters.com/opinion/ITWXXKTN55MY7EYFID5NZVUVRM-2026-04-24/",
+      "source_index": 47,
+      "link": "https://finance.yahoo.com/markets/stocks/article/intel-stock-surges-to-record-highs-these-4-events-have-powered-the-companys-turnaround-152804240.html",
+      "source": "Yahoo Finance US"
+    },
+    {
+      "tag": "エネルギー",
+      "headline": "ホルムズ海峡正常化は7月以降か、予測市場で悲観見通し",
+      "body": "Kalshiの予測市場で、ホルムズ海峡の交通正常化確率が50%を下回った。米イラン停戦延長にもかかわらず、市場参加者は7月まで混乱継続を織り込む。原油価格の高止まり要因として警戒。",
+      "impact": [
+        "短期:原油・天然ガス価格の上方圧力継続",
+        "中期:世界経済のスタグフレーション懸念"
+      ],
+      "source_index": 35,
+      "link": "https://www.cnbc.com/2026/04/23/kalshi-bettors-see-strait-of-hormuz-traffic-normal-by-july.html",
+      "source": "CNBC Markets"
+    },
+    {
+      "tag": "中国市場",
+      "headline": "中国、外国人投資家に国債先物取引を解禁",
+      "body": "中国当局が適格外国機関投資家に対し国債先物取引を解禁。リスク管理手段の拡充により、海外資金の中国債券市場への流入促進を狙う。資本市場開放の一環として注目される。",
+      "impact": [
+        "短期:中国国債への外国人投資フロー増加期待",
+        "中期:人民元国際化の進展度合いに影響"
+      ],
+      "source_index": 15,
+      "link": "https://jp.reuters.com/markets/japan/IXL2HCDL5NOMJK4ETX523NHPUU-2026-04-24/",
       "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "クラウド・AI",
+      "headline": "AmazonのGravitonチップにMeta大口採用、AI競争で存在感",
+      "body": "AmazonがMetaからエージェントAI向けに数千万個規模のGravitonチップ採用を獲得。自社開発半導体がNVIDIA依存軽減の選択肢として評価され、Amazon株は過去最高値に接近。",
+      "impact": [
+        "短期:Amazon株・クラウドセクターに追い風",
+        "中期:半導体サプライチェーンの多様化進展"
+      ],
+      "source_index": 26,
+      "link": "https://www.marketwatch.com/story/amazons-chip-business-scores-another-major-win-6b65f2db?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
     }
   ],
   "funny_stories": [
     {
-      "kind": "ironic",
-      "title": "パラボリック相場の終わり方",
-      "body": "「史上類を見ない半導体ラリー」という見出しが躍る中、BTIGのアナリストは冷静に一言。「パラボリック（放物線的）な動きの終わり方は、歴史上ただ一つしかない」。上がったものは落ちる、万有引力の法則は株式市場にも適用されるらしい。ただし、いつ落ちるかは誰も教えてくれない。",
-      "source_index": 28,
-      "link": "https://www.marketwatch.com/story/theres-never-been-a-semiconductor-rally-like-this-one-and-thats-triggering-a-number-of-warnings-bf622cfa?mod=mw_rss_topstories",
+      "kind": "皮肉",
+      "title": "パウエル捜査の顛末",
+      "body": "「FRB議長を追い詰めろ」と息巻いていた司法省が、結局は静かに矛を収めた。市場は「政治と金融政策の緊張」というドラマを期待していたが、最終回はあっけない和解エンド。次期議長ウォーシュ氏も「まあ、後任が決まってよかったね」という顔をしているに違いない。",
+      "source_index": 20,
+      "link": "https://www.marketwatch.com/story/pirro-drops-probe-into-feds-powell-paving-way-for-warsh-confirmation-b77bc126?mod=mw_rss_topstories",
       "source": "MarketWatch Top"
     },
     {
-      "kind": "human",
-      "title": "AIが怖い、でも給料は魅力的",
-      "body": "年収1500万円の安定した非営利団体勤務者からの相談：「年収2150万円のデータ分析職に転職すべきか迷っています。ただ、AIが本当に怖いんです」。650万円の昇給と引き換えに、自分の仕事を奪うかもしれない技術の最前線へ。現代のファウスト的取引、結末やいかに。",
-      "source_index": 23,
-      "link": "https://www.marketwatch.com/story/ai-genuinely-freaks-me-out-do-i-leave-my-150-000-job-for-a-215-000-role-in-data-analytics-with-a-50-minute-commute-440b4c36?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
+      "kind": "哀愁",
+      "title": "マツダ2、静かに幕を閉じる",
+      "body": "名車と呼ばれたマツダ2の国内生産が8月で終了する。かつて「デミオ」として愛されたあの車。「走る歓び」を小さなボディに詰め込み、初めてのマイカーとして多くの人の青春を乗せた。工場のラインが止まる日、誰かがそっとハンドルを握り締めるのだろう。",
+      "source_index": 1,
+      "link": "https://news.yahoo.co.jp/pickup/6577511?source=rss",
+      "source": "Yahoo!ファイナンス"
     },
     {
-      "kind": "observation",
-      "title": "1933年以来最高の年",
-      "body": "株式・債券・現金・コモディティを25%ずつ均等配分する「オールウェザー的」戦略が、1933年以来最高のパフォーマンスを記録する勢い。大恐慌からの回復期と2026年に共通点があるとすれば、それは「何が起きるか誰にも分からない」という不確実性だけかもしれない。",
-      "source_index": 29,
-      "link": "https://www.marketwatch.com/story/this-alternative-to-the-balanced-portfolio-is-on-track-for-its-best-year-since-1933-16505a08?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
+      "kind": "観察",
+      "title": "うな丼は下がり、親子丼は上がる",
+      "body": "物価高の波が親子丼を直撃する一方、うな丼は値下げ。卵高騰と鰻の豊漁という需給のいたずらが、丼ものの価格序列を逆転させた。牛丼チェーンのメニュー表が、実は最もリアルタイムな物価指標かもしれない。",
+      "source_index": 5,
+      "link": "https://news.yahoo.co.jp/pickup/6577493?source=rss",
+      "source": "Yahoo!ファイナンス"
     }
   ],
   "charts_of_the_day": [
-    {
-      "source": "yf",
-      "ticker": "^SOX",
-      "title": "SOX半導体指数",
-      "name": "SOX (半導体)",
-      "sub": "INDEX · USD",
-      "rationale": "史上類を見ない半導体ラリーの象徴。Intel・TSMCの急騰でパラボリック警告も出る中、今日最も注目すべきチャート。"
-    },
     {
       "source": "yf",
       "ticker": "INTC",
       "title": "Intel",
       "name": "Intel",
       "sub": "",
-      "rationale": "決算サプライズで40年ぶりの上昇率を記録する可能性。レガシー企業のAI銘柄への変身を市場が評価。"
-    },
-    {
-      "source": "yf",
-      "ticker": "TSM",
-      "title": "TSMC (ADR)",
-      "name": "TSMC (ADR)",
-      "sub": "",
-      "rationale": "台湾当局の投資規制緩和で過去最高値更新。AI半導体の心臓部としての地位を再確認。"
+      "rationale": "決算急騰で過去最高値圏、半導体ターンアラウンドの象徴として本日の主役"
     },
     {
       "source": "yf",
@@ -149,7 +133,7 @@
       "title": "日経平均",
       "name": "日経平均",
       "sub": "INDEX · JPY",
-      "rationale": "終値で史上最高値更新。原油高でもなぜ上昇できるのか、物色の偏りと共に検証が必要。"
+      "rationale": "史上最高値更新、原油高でも上昇継続する日本株の強さを確認"
     },
     {
       "source": "yf",
@@ -157,45 +141,69 @@
       "title": "WTI原油",
       "name": "WTI原油",
       "sub": "$ / bbl",
-      "rationale": "ホルムズ海峡の正常化が7月まで困難との見方。地政学プレミアムの継続を確認。"
+      "rationale": "ホルムズ海峡リスクで高止まり、地政学プレミアムの行方"
+    },
+    {
+      "source": "yf",
+      "ticker": "^SOX",
+      "title": "SOX半導体指数",
+      "name": "SOX (半導体)",
+      "sub": "INDEX · USD",
+      "rationale": "Intel急騰がセクター全体に波及、半導体サイクル転換の兆候"
     },
     {
       "source": "yf",
       "ticker": "^GDAXI",
-      "title": "DAX指数",
-      "name": "DAX指数",
+      "title": "ドイツDAX",
+      "name": "ドイツDAX",
       "sub": "",
-      "rationale": "IFO景況指数が2020年以来の低水準。欧州最大経済の減速懸念を株価が織り込んでいるか。"
+      "rationale": "IFO急落でも株価の反応を確認、欧州景気懸念の織り込み度合い"
     },
     {
       "source": "yf",
-      "ticker": "EURUSD=X",
-      "title": "EUR/USD",
-      "name": "EUR/USD",
-      "sub": "ユーロドル",
-      "rationale": "独IFOの悪化とECB利下げ観測強化。ユーロの下落圧力を確認。"
+      "ticker": "JPY=X",
+      "title": "ドル円",
+      "name": "USD/JPY",
+      "sub": "ドル円",
+      "rationale": "Fed人事進展と日本株最高値、円安トレンド継続か要確認"
+    },
+    {
+      "source": "yf",
+      "ticker": "^VIX",
+      "title": "VIX",
+      "name": "VIX (恐怖指数)",
+      "sub": "INDEX",
+      "rationale": "株高とイラン情勢の綱引き、恐怖指数の位置を確認"
+    },
+    {
+      "source": "yf",
+      "ticker": "AMZN",
+      "title": "Amazon",
+      "name": "Amazon",
+      "sub": "",
+      "rationale": "Gravitonチップ大型受注で過去最高値接近、AI競争での立ち位置"
     }
   ],
   "deep_dive": {
-    "title": "半導体株の「パラボリック・ラリー」は何を意味するのか",
-    "lede": "Intel、TSMC、AMDが軒並み急騰し、SOX指数は史上最高値圏へ。しかし市場の一部からは「放物線的上昇の終わり方は一つしかない」との警告も。AI半導体バブルの臨界点を探る。",
-    "background": "2026年に入り、半導体セクターは歴史的な上昇を続けている。生成AI需要の爆発的拡大を背景に、TSMCやNVIDIAが牽引してきたラリーは、ここに来て「オールドテック」の代名詞だったIntelにまで波及した。同社の四半期決算は市場予想を大幅に上回り、サーバー向けCPU需要がAI時代においても健在であることを示した。台湾では当局がTSMC株への国内投資規制を緩和し、マネーの流入が加速。SOX指数は連日で最高値を更新し、BTIGのアナリストは「史上類を見ないラリー」と評した。",
-    "implications": "短期的には、決算シーズンを通じてモメンタムが継続する可能性が高い。Apple、Meta、Amazonなど大手テック決算が控えており、AI投資継続の確認が追い風となる。しかし中期的には警戒が必要だ。「パラボリック（放物線的）な動きの終わり方は歴史上一つしかない」というアナリストの指摘は、2000年のITバブル崩壊を想起させる。バリュエーションは既に割高な水準にあり、FRB議長交代による金融政策の不確実性も加わる。長期的には、AI需要の実需とバブル的期待の分離が進むことで、勝者と敗者の選別が始まるだろう。",
+    "title": "DOJのパウエル捜査撤回が意味するもの—Fed人事の行方と金融政策の転換点",
+    "lede": "トランプ政権の司法省がFRB議長への調査を取り下げたことで、5月15日に予定されるウォーシュ新議長就任への道が開けた。これは単なる人事の話ではなく、米国金融政策の方向性を左右する歴史的転換点となりうる。",
+    "background": "トランプ大統領は就任以来、パウエル議長の金融政策運営を「インフレを助長した」と批判し続けてきた。司法省による異例の調査開始は、中央銀行の独立性に対する挑戦と市場で受け止められ、一時は米国債とドルへの信認低下懸念まで浮上した。今回の調査撤回は、次期議長候補ケビン・ウォーシュ氏の承認プロセスを円滑に進めるための「手打ち」との見方が強い。ウォーシュ氏は2006-2011年にFRB理事を務め、金融危機対応に携わった経験を持つ。",
+    "implications": "短期的にはFedリーダーシップの不確実性解消で株式市場にプラス。だが中期的な焦点はウォーシュ氏の政策スタンスだ。同氏はパウエル氏より「タカ派寄り」との評価がある一方、トランプ政権との距離感も注目される。FRBの独立性がどこまで維持されるかは、米国債の信認、ドルの基軸通貨としての地位に直結する。市場は当面、5月15日の就任と最初のFOMC声明を固唾を呑んで見守ることになる。長期的には、インフレ目標や金融緩和の出口戦略に関する路線変更の有無がカギを握る。",
     "what_to_watch": [
-      "来週のApple・Meta・Amazon決算でのAI投資・需要コメント",
-      "5月15日のFRBパウエル議長任期切れとウォーシュ新体制への移行",
-      "SOX指数の対S&P500相対パフォーマンス（乖離拡大は要警戒）",
-      "台湾・中国の地政学リスクと半導体サプライチェーン",
-      "VIXと半導体株のボラティリティ乖離"
+      "5月15日のウォーシュ議長就任と初の公式発言",
+      "6月FOMCでの政策声明と金利見通し(ドットプロット)",
+      "トランプ大統領とウォーシュ氏の公の関係性",
+      "米国債利回りと長短金利差の動向",
+      "ドル指数(DXY)の反応—Fed独立性への信認バロメーター"
     ],
     "related_keys": [
-      "sox",
-      "nasdaq",
-      "vix",
-      "us10y"
+      "us10y",
+      "dxy",
+      "sp500",
+      "vix"
     ],
-    "source_index": 28,
-    "link": "https://www.marketwatch.com/story/theres-never-been-a-semiconductor-rally-like-this-one-and-thats-triggering-a-number-of-warnings-bf622cfa?mod=mw_rss_topstories",
+    "source_index": 20,
+    "link": "https://www.marketwatch.com/story/pirro-drops-probe-into-feds-powell-paving-way-for-warsh-confirmation-b77bc126?mod=mw_rss_topstories",
     "source": "MarketWatch Top"
   }
 }
