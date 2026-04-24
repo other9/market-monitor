@@ -1,0 +1,587 @@
+/* ================================================================
+   MarketMonitor.css — component styles
+   Uses CSS variables defined in index.css (--bg, --fg, --accent, etc.)
+   ================================================================ */
+
+.mm-root {
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  padding: 28px 32px 60px 32px;
+}
+
+/* ── Masthead ── */
+.mm-masthead-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.mm-masthead-main {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+.mm-title {
+  font-family: var(--font-display);
+  font-size: 72px;
+  line-height: 0.9;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+.mm-title em { font-style: italic; font-weight: 400; }
+.mm-lede {
+  max-width: 460px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+  padding-bottom: 8px;
+}
+
+/* ── Epigraph ── */
+.mm-epigraph {
+  margin: 32px 0 40px 0;
+  padding: 36px 40px;
+  background: var(--panel);
+  border-top: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--border-strong);
+  position: relative;
+}
+.mm-epigraph::before {
+  content: "\201C";
+  position: absolute;
+  top: 4px;
+  left: 16px;
+  font-family: var(--font-display);
+  font-size: 88px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.25;
+}
+.mm-epigraph-quote {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.45;
+  font-style: italic;
+  color: var(--fg);
+  font-weight: 400;
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
+}
+.mm-epigraph-source {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.mm-epigraph-source::before { content: "— "; }
+.mm-epigraph-connection {
+  font-size: 11.5px;
+  color: var(--accent);
+  font-style: italic;
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  max-width: 680px;
+}
+
+/* ── Ticker ── */
+.mm-ticker {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border-strong);
+  margin-bottom: 36px;
+  background: var(--panel);
+}
+.mm-ticker-cell {
+  padding: 16px 18px;
+  border-right: 1px solid var(--border);
+}
+.mm-ticker-cell:last-child { border-right: none; }
+.mm-ticker-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.mm-ticker-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 4px;
+  gap: 6px;
+}
+.mm-ticker-val {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* ── Section headers ── */
+.mm-section-tag {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--accent);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.mm-section-head {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--fg);
+  line-height: 1.05;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.mm-section-head em { font-style: italic; font-weight: 400; }
+.mm-section-lede {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.65;
+  max-width: 820px;
+}
+.mm-section-lede strong { color: var(--fg); font-weight: 600; }
+
+/* ── Group head (株式 / 為替 / ...) ── */
+.mm-group-head {
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 6px;
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.mm-group-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--fg);
+  font-style: italic;
+  font-weight: 500;
+}
+.mm-group-marker {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ── Indices table ── */
+.mm-table { display: block; width: 100%; }
+.mm-table-row {
+  display: grid;
+  grid-template-columns: minmax(170px, 2.2fr) 1.1fr 0.7fr 0.7fr 0.7fr 0.7fr 0.9fr;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.mm-table-header {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.mm-table-row .cell { padding: 11px 12px; min-width: 0; overflow-wrap: anywhere; }
+.mm-table-row .cell.r { text-align: right; }
+.mm-asof { font-family: var(--font-mono); font-size: 10px; color: var(--muted); white-space: nowrap; }
+
+/* ── Macro table ── */
+.mm-macro-table { display: block; width: 100%; }
+.mm-macro-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 1.6fr) minmax(140px, 1.8fr) 0.9fr 0.7fr 0.7fr 0.8fr;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.mm-macro-row .cell {
+  padding: 11px 12px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.mm-macro-row .cell.r { text-align: right; }
+.mm-freq-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 2px;
+  margin-left: 6px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── Mobile cards ── */
+.mm-cards { display: none; }
+.mm-card {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: 14px 16px;
+  margin-bottom: 8px;
+}
+.mm-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.mm-card-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--fg);
+  font-weight: 500;
+  line-height: 1.15;
+}
+.mm-card-sub {
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.mm-card-asof {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--muted);
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+}
+.mm-card-close {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--fg);
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+.mm-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+.mm-card-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+.mm-card-cell-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.mm-note-inline {
+  font-size: 11.5px;
+  color: var(--accent);
+  border-left: 2px solid var(--accent);
+  padding-left: 10px;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+/* ── Featured charts (3 big) ── */
+.mm-featured-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+.mm-featured-card {
+  border: 1px solid var(--border-strong);
+  background: var(--panel);
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.mm-featured-head { margin-bottom: 10px; }
+.mm-featured-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--fg);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.mm-featured-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+.mm-featured-rationale {
+  font-size: 11.5px;
+  color: var(--accent);
+  font-style: italic;
+  border-left: 2px solid var(--accent);
+  padding-left: 10px;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+.mm-featured-last {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.mm-featured-last strong { color: var(--fg); font-size: 15px; font-weight: 600; }
+
+/* ── 5Y mini charts ── */
+.mm-chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.mm-chart-card {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: 18px 18px 10px 18px;
+}
+.mm-chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+.mm-chart-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--fg);
+  font-weight: 500;
+  line-height: 1;
+}
+.mm-chart-sub {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+.mm-chart-cur {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--accent);
+  font-weight: 500;
+  text-align: right;
+}
+.mm-chart-range {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* ── News grid ── */
+.mm-news-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--border-strong);
+  background: var(--panel);
+}
+.mm-news-cell {
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+.mm-news-cell:nth-child(2n) { border-right: none; }
+
+.mm-news-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  margin-top: 10px;
+  border-bottom: 1px dotted var(--accent);
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
+}
+.mm-news-link:hover { opacity: 0.65; }
+.mm-news-link::after { content: "\2197"; font-size: 11px; }
+
+/* ── Market Muse (3-column) ── */
+.mm-muse-header { margin: 40px 0 18px 0; }
+.mm-muse-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+.mm-muse-card {
+  padding: 24px 26px;
+  background: linear-gradient(135deg, #FBF3E0 0%, var(--panel) 100%);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent2);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.mm-muse-kind {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.25em;
+  color: var(--accent2);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.mm-muse-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--fg);
+  font-weight: 500;
+  font-style: italic;
+  margin-bottom: 10px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+.mm-muse-body {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--fg);
+  flex: 1;
+  overflow-wrap: anywhere;
+}
+.mm-muse-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent2);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  margin-top: 14px;
+  border-bottom: 1px dotted var(--accent2);
+  padding-bottom: 1px;
+  align-self: flex-start;
+  transition: opacity 0.2s;
+}
+.mm-muse-link:hover { opacity: 0.65; }
+.mm-muse-link::after { content: "\2197"; font-size: 10px; }
+
+/* ── Footer ── */
+.mm-footer {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ── Loading / Error ── */
+.mm-loading {
+  padding: 120px 20px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--muted);
+  font-size: 22px;
+}
+.mm-error {
+  padding: 24px;
+  border: 1px solid var(--down);
+  background: #FFF5F5;
+  color: var(--down);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  margin-bottom: 24px;
+}
+
+/* ============= Responsive ============= */
+@media (max-width: 1100px) {
+  .mm-featured-grid { grid-template-columns: 1fr; }
+  .mm-muse-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 960px) {
+  .mm-root { padding: 24px 22px 50px 22px; }
+  .mm-title { font-size: 56px; }
+  .mm-section-head { font-size: 28px; }
+  .mm-chart-grid { grid-template-columns: 1fr; }
+  .mm-news-grid { grid-template-columns: 1fr; }
+  .mm-news-cell { border-right: none; }
+  .mm-featured-grid { grid-template-columns: 1fr; }
+  .mm-muse-grid { grid-template-columns: 1fr; }
+  .mm-table, .mm-macro-table { overflow-x: auto; }
+}
+
+@media (max-width: 760px) {
+  .mm-table, .mm-macro-table { display: none; }
+  .mm-cards { display: block; }
+}
+
+@media (max-width: 640px) {
+  .mm-root { padding: 18px 14px 40px 14px; }
+  .mm-masthead-meta { font-size: 9px; letter-spacing: 0.1em; }
+  .mm-masthead-meta span:nth-child(3) { display: none; }
+  .mm-masthead-main { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .mm-title { font-size: 46px; line-height: 0.88; }
+  .mm-lede { font-size: 13px; max-width: 100%; padding-bottom: 0; }
+  .mm-epigraph { padding: 24px 20px; margin: 24px 0 32px 0; }
+  .mm-epigraph-quote { font-size: 17px; }
+  .mm-epigraph::before { font-size: 64px; top: -2px; left: 10px; }
+  .mm-ticker { grid-template-columns: 1fr 1fr; margin-bottom: 28px; }
+  .mm-ticker-cell { padding: 12px 14px; }
+  .mm-ticker-cell:nth-child(2n) { border-right: none; }
+  .mm-ticker-cell:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+  .mm-ticker-val { font-size: 17px; }
+  .mm-ticker-label { font-size: 9px; }
+  .mm-section-tag { font-size: 10.5px; letter-spacing: 0.22em; }
+  .mm-section-head { font-size: 23px; }
+  .mm-section-lede { font-size: 12.5px; }
+  .mm-group-title { font-size: 18px; }
+  .mm-chart-card { padding: 14px 12px 6px 12px; }
+  .mm-chart-title { font-size: 17px; }
+  .mm-chart-cur { font-size: 16px; }
+  .mm-chart-head { gap: 8px; }
+  .mm-news-cell { padding: 16px 14px; }
+  .mm-muse-card { padding: 18px 18px; }
+  .mm-muse-title { font-size: 17px; }
+  .mm-muse-body { font-size: 13px; }
+  .mm-featured-card { padding: 16px 14px; }
+  .mm-featured-title { font-size: 18px; }
+  .mm-footer { flex-direction: column; font-size: 9.5px; letter-spacing: 0.08em; }
+}

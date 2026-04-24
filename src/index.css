@@ -1,0 +1,28 @@
+/* ===== Global tokens (CSS variables) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root {
+  /* Palette */
+  --bg: #F5F1E8;
+  --bg-alt: #FBF8F0;
+  --panel: #FFFFFF;
+  --fg: #1A1F2E;
+  --muted: #5C6373;
+  --dim: #9BA0AB;
+  --accent: #8B2635;
+  --accent2: #B87333;
+  --border: #D4CDB8;
+  --border-strong: #1A1F2E;
+  --up: #2D6A4F;
+  --down: #C0392B;
+  --flat: #5C6373;
+
+  /* Typography */
+  --font-display: 'Fraunces', 'Noto Serif JP', ui-serif, Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Menlo', ui-monospace, monospace;
+  --font-sans: 'IBM Plex Sans', 'IBM Plex Sans JP', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); }
+body { font-family: var(--font-sans); color: var(--fg); }
