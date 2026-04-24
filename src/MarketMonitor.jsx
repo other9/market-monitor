@@ -113,17 +113,19 @@ const STYLES = `
   .mm-group-title { font-family: ${FONT_DISPLAY}; font-size: 22px; color: ${PALETTE.fg}; font-style: italic; font-weight: 500; }
   .mm-group-marker { font-family: ${FONT_MONO}; font-size: 9.5px; color: ${PALETTE.muted}; letter-spacing: 0.15em; text-transform: uppercase; }
 
-  .mm-table-row { display: grid; grid-template-columns: minmax(180px, 2.2fr) 1.1fr 0.7fr 0.7fr 0.7fr 0.7fr 0.9fr; border-bottom: 1px solid ${PALETTE.border}; }
+  .mm-table { display: block; width: 100%; }
+  .mm-table-row { display: grid; grid-template-columns: minmax(170px, 2.2fr) 1.1fr 0.7fr 0.7fr 0.7fr 0.7fr 0.9fr; border-bottom: 1px solid ${PALETTE.border}; align-items: start; }
   .mm-table-header { font-family: ${FONT_MONO}; font-size: 9.5px; color: ${PALETTE.muted}; letter-spacing: 0.1em; text-transform: uppercase; }
-  .mm-table-row .cell { padding: 11px 14px; }
+  .mm-table-row .cell { padding: 11px 12px; min-width: 0; overflow-wrap: anywhere; }
   .mm-table-row .cell.r { text-align: right; }
   .mm-asof { font-family: ${FONT_MONO}; font-size: 10px; color: ${PALETTE.muted}; white-space: nowrap; }
 
-  /* ── Macro table (slightly wider to hold desc) ── */
-  .mm-macro-row { display: grid; grid-template-columns: minmax(180px, 1.8fr) minmax(160px, 2fr) 1fr 0.9fr 0.9fr 0.9fr; border-bottom: 1px solid ${PALETTE.border}; }
-  .mm-macro-row .cell { padding: 11px 14px; }
+  /* ── Macro table (adjusted widths to avoid overflow) ── */
+  .mm-macro-table { display: block; width: 100%; }
+  .mm-macro-row { display: grid; grid-template-columns: minmax(160px, 1.6fr) minmax(140px, 1.8fr) 0.9fr 0.7fr 0.7fr 0.8fr; border-bottom: 1px solid ${PALETTE.border}; align-items: start; }
+  .mm-macro-row .cell { padding: 11px 12px; min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
   .mm-macro-row .cell.r { text-align: right; }
-  .mm-freq-badge { display: inline-block; font-family: ${FONT_MONO}; font-size: 9px; letter-spacing: 0.1em; padding: 2px 6px; border: 1px solid ${PALETTE.border}; color: ${PALETTE.muted}; border-radius: 2px; margin-left: 6px; vertical-align: middle; text-transform: uppercase; }
+  .mm-freq-badge { display: inline-block; font-family: ${FONT_MONO}; font-size: 9px; letter-spacing: 0.1em; padding: 2px 6px; border: 1px solid ${PALETTE.border}; color: ${PALETTE.muted}; border-radius: 2px; margin-left: 6px; vertical-align: middle; text-transform: uppercase; white-space: nowrap; }
 
   .mm-cards { display: none; }
   .mm-card { border: 1px solid ${PALETTE.border}; background: ${PALETTE.panel}; padding: 14px 16px; margin-bottom: 8px; }
@@ -139,13 +141,13 @@ const STYLES = `
 
   /* ── Featured charts (3 big) ── */
   .mm-featured-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 18px; }
-  .mm-featured-card { border: 1px solid ${PALETTE.borderStrong}; background: ${PALETTE.panel}; padding: 20px 22px; display: flex; flex-direction: column; }
+  .mm-featured-card { border: 1px solid ${PALETTE.borderStrong}; background: ${PALETTE.panel}; padding: 20px 22px; display: flex; flex-direction: column; min-width: 0; }
   .mm-featured-head { margin-bottom: 10px; }
-  .mm-featured-title { font-family: ${FONT_DISPLAY}; font-size: 22px; font-weight: 500; color: ${PALETTE.fg}; line-height: 1.15; }
-  .mm-featured-sub { font-family: ${FONT_MONO}; font-size: 10px; color: ${PALETTE.muted}; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+  .mm-featured-title { font-family: ${FONT_DISPLAY}; font-size: 20px; font-weight: 500; color: ${PALETTE.fg}; line-height: 1.2; overflow-wrap: anywhere; }
+  .mm-featured-sub { font-family: ${FONT_MONO}; font-size: 10px; color: ${PALETTE.muted}; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; overflow-wrap: anywhere; }
   .mm-featured-rationale { font-size: 11.5px; color: ${PALETTE.accent}; font-style: italic; border-left: 2px solid ${PALETTE.accent}; padding-left: 10px; margin-top: 10px; line-height: 1.5; }
-  .mm-featured-last { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; font-family: ${FONT_MONO}; font-size: 12px; color: ${PALETTE.muted}; }
-  .mm-featured-last strong { color: ${PALETTE.fg}; font-size: 16px; font-weight: 600; }
+  .mm-featured-last { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; font-family: ${FONT_MONO}; font-size: 12px; color: ${PALETTE.muted}; gap: 10px; flex-wrap: wrap; }
+  .mm-featured-last strong { color: ${PALETTE.fg}; font-size: 15px; font-weight: 600; }
 
   /* ── 5Y small charts ── */
   .mm-chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
@@ -168,10 +170,10 @@ const STYLES = `
   /* ── Muse (3-column) ── */
   .mm-muse-header { margin: 40px 0 18px 0; }
   .mm-muse-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-  .mm-muse-card { padding: 24px 26px; background: linear-gradient(135deg, #FBF3E0 0%, ${PALETTE.panel} 100%); border: 1px solid ${PALETTE.border}; border-left: 4px solid ${PALETTE.accent2}; position: relative; display: flex; flex-direction: column; }
+  .mm-muse-card { padding: 24px 26px; background: linear-gradient(135deg, #FBF3E0 0%, ${PALETTE.panel} 100%); border: 1px solid ${PALETTE.border}; border-left: 4px solid ${PALETTE.accent2}; position: relative; display: flex; flex-direction: column; min-width: 0; }
   .mm-muse-kind { font-family: ${FONT_MONO}; font-size: 9.5px; letter-spacing: 0.25em; color: ${PALETTE.accent2}; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; }
-  .mm-muse-title { font-family: ${FONT_DISPLAY}; font-size: 20px; color: ${PALETTE.fg}; font-weight: 500; font-style: italic; margin-bottom: 10px; line-height: 1.2; }
-  .mm-muse-body { font-size: 13px; line-height: 1.65; color: ${PALETTE.fg}; flex: 1; }
+  .mm-muse-title { font-family: ${FONT_DISPLAY}; font-size: 20px; color: ${PALETTE.fg}; font-weight: 500; font-style: italic; margin-bottom: 10px; line-height: 1.25; overflow-wrap: anywhere; }
+  .mm-muse-body { font-size: 13px; line-height: 1.65; color: ${PALETTE.fg}; flex: 1; overflow-wrap: anywhere; }
   .mm-muse-link { display: inline-flex; align-items: center; gap: 5px; font-family: ${FONT_MONO}; font-size: 10px; color: ${PALETTE.accent2}; text-decoration: none; letter-spacing: 0.05em; margin-top: 14px; border-bottom: 1px dotted ${PALETTE.accent2}; padding-bottom: 1px; align-self: flex-start; transition: opacity 0.2s; }
   .mm-muse-link:hover { opacity: 0.65; }
   .mm-muse-link::after { content: "↗"; font-size: 10px; }
@@ -180,6 +182,12 @@ const STYLES = `
 
   .mm-loading { padding: 120px 20px; text-align: center; font-family: ${FONT_DISPLAY}; font-style: italic; color: ${PALETTE.muted}; font-size: 22px; }
   .mm-error { padding: 24px; border: 1px solid ${PALETTE.down}; background: #FFF5F5; color: ${PALETTE.down}; font-family: ${FONT_MONO}; font-size: 12px; margin-bottom: 24px; }
+
+  @media (max-width: 1100px) {
+    /* Featured 3-col → 1-col earlier so each chart stays legible */
+    .mm-featured-grid { grid-template-columns: 1fr; }
+    .mm-muse-grid { grid-template-columns: 1fr 1fr; }
+  }
 
   @media (max-width: 960px) {
     .mm-root { padding: 24px 22px 50px 22px; }
@@ -190,6 +198,14 @@ const STYLES = `
     .mm-news-cell { border-right: none; }
     .mm-featured-grid { grid-template-columns: 1fr; }
     .mm-muse-grid { grid-template-columns: 1fr; }
+    /* Tables: show horizontal scroll if still cramped at this width */
+    .mm-table, .mm-macro-table { overflow-x: auto; }
+  }
+
+  @media (max-width: 760px) {
+    /* Switch all data tables to card mode earlier (was 640px) */
+    .mm-table, .mm-macro-table { display: none; }
+    .mm-cards { display: block; }
   }
 
   @media (max-width: 640px) {
@@ -212,8 +228,6 @@ const STYLES = `
     .mm-section-head { font-size: 23px; }
     .mm-section-lede { font-size: 12.5px; }
     .mm-group-title { font-size: 18px; }
-    .mm-table, .mm-macro-table { display: none; }
-    .mm-cards { display: block; }
     .mm-chart-card { padding: 14px 12px 6px 12px; }
     .mm-chart-title { font-size: 17px; }
     .mm-chart-cur { font-size: 16px; }
