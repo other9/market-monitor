@@ -33,6 +33,43 @@ const PALETTE = {
 
 const FONT_MONO = "'JetBrains Mono', 'Menlo', ui-monospace, monospace";
 
+// Deep Dive の related_keys 表示用: よく出るキーの日本語名マップ
+// (chart_universe.py と対応、完全一致でなくて良いので必要なぶんだけ)
+const CHART_UNIVERSE_LABELS = [
+  { key: "nikkei",  name: "日経平均" },
+  { key: "topix",   name: "TOPIX" },
+  { key: "sp500",   name: "S&P 500" },
+  { key: "nasdaq",  name: "NASDAQ" },
+  { key: "dow",     name: "Dow Jones" },
+  { key: "russell", name: "Russell 2000" },
+  { key: "sox",     name: "SOX (半導体)" },
+  { key: "hsi",     name: "ハンセン" },
+  { key: "usdjpy",  name: "USD/JPY" },
+  { key: "eurjpy",  name: "EUR/JPY" },
+  { key: "eurusd",  name: "EUR/USD" },
+  { key: "dxy",     name: "ドル指数 (DXY)" },
+  { key: "wti",     name: "WTI原油" },
+  { key: "brent",   name: "Brent原油" },
+  { key: "gold",    name: "金" },
+  { key: "silver",  name: "銀" },
+  { key: "copper",  name: "銅" },
+  { key: "btc",     name: "ビットコイン" },
+  { key: "us10y",   name: "米10年債" },
+  { key: "us02y",   name: "米3ヶ月T-Bill" },
+  { key: "us30y",   name: "米30年債" },
+  { key: "vix",     name: "VIX" },
+  { key: "t10y2y",  name: "10Y-2Yスプレッド" },
+  { key: "t10yie",  name: "10年ブレークイーブン" },
+  { key: "dfii10",  name: "10年実質金利" },
+  { key: "hyoas",   name: "HY社債スプレッド" },
+  { key: "igoas",   name: "IG社債スプレッド" },
+  { key: "nfci",    name: "Chicago Fed金融環境" },
+  { key: "stlfsi",  name: "St. Louis金融ストレス" },
+  { key: "sofr",    name: "SOFR" },
+  { key: "dxy_bgs", name: "ドル指数 (広義)" },
+  { key: "natgas",  name: "天然ガス" },
+];
+
 const fmt = (n, d = 2) =>
   n == null
     ? "—"
@@ -418,6 +455,60 @@ function MacroBarometer({ macro }) {
   );
 }
 
+// ─── Deep Dive article ───
+function DeepDive({ article, chartUniverse }) {
+  if (!article) return null;
+  // relatedKeys に含まれるkeyの表示名を解決 (universeを参照)
+  const relatedLabels = (article.related_keys || [])
+    .map((k) => {
+      const item = chartUniverse?.find((c) => c.key === k);
+      return item ? item.name : k;
+    });
+
+  return (
+    <div className="mm-deepdive">
+      <div className="mm-deepdive-kicker">▨ Deep Dive · 今日の深掘り</div>
+      <h2 className="mm-deepdive-title">{article.title}</h2>
+      {article.lede && <p className="mm-deepdive-lede">{article.lede}</p>}
+
+      <div className="mm-deepdive-grid">
+        <div>
+          <div className="mm-deepdive-section-head">— 背景</div>
+          <div className="mm-deepdive-body">{article.background}</div>
+        </div>
+        <div>
+          <div className="mm-deepdive-section-head">— 市場への含意</div>
+          <div className="mm-deepdive-body">{article.implications}</div>
+        </div>
+      </div>
+
+      {article.what_to_watch && article.what_to_watch.length > 0 && (
+        <div>
+          <div className="mm-deepdive-section-head">— 注視すべきポイント</div>
+          <ul className="mm-deepdive-watch">
+            {article.what_to_watch.map((w, i) => <li key={i}>{w}</li>)}
+          </ul>
+        </div>
+      )}
+
+      {relatedLabels.length > 0 && (
+        <div className="mm-deepdive-related">
+          <span className="mm-deepdive-related-label">関連指標</span>
+          {relatedLabels.map((label, i) => (
+            <span key={i} className="mm-deepdive-related-chip">{label}</span>
+          ))}
+        </div>
+      )}
+
+      {article.link && (
+        <div className="mm-deepdive-source">
+          ソース: <a href={article.link} target="_blank" rel="noopener noreferrer">{article.source || "元記事"}</a>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Main component ───
 export default function MarketMonitor() {
   const [market, setMarket] = useState(null);
@@ -617,6 +708,9 @@ export default function MarketMonitor() {
           ))}
         </div>
       </div>
+
+      {/* Deep Dive article */}
+      <DeepDive article={news.deep_dive} chartUniverse={CHART_UNIVERSE_LABELS} />
 
       {/* Market Muse (3 cards) */}
       {museStories.length > 0 && (

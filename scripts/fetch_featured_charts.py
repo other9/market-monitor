@@ -1,10 +1,14 @@
 """
-fetch_featured_charts.py
-news.json の charts_of_the_day (3本) で指定された銘柄の
-1年日次データを取得し、data/featured.json に書き出す。
+fetch_featured_charts.py  (v2 — retry-based)
 
-- yfinance / FRED 両方に対応
-- fetch_news.py の後に実行されること
+news.json の charts_of_the_day (5〜10候補、優先度順) を上から順に試し、
+**最初に取得に成功した3本**の1年日次データを取得して data/featured.json に書き出す。
+
+- ticker は Claude が自由に指定できる (個別株・指数・FRED系列 OK)
+- source="yf" / source="fred" で分岐
+- 存在しないティッカー、データが薄い銘柄は自動スキップ
+
+fetch_news.py の後に実行されること。
 """
 
 from __future__ import annotations
@@ -20,32 +24,41 @@ import pandas as pd
 import requests
 import yfinance as yf
 
-from chart_universe import CHART_UNIVERSE, get_by_key
-
 
 NEWS_PATH    = Path("data/news.json")
 OUTPUT_PATH  = Path("data/featured.json")
 FRED_BASE    = "https://api.stlouisfed.org/fred/series/observations"
 
+MIN_POINTS   = 30   # 1年日次で最低これくらいあれば採用
+TARGET_COUNT = 3    # ダッシュボードに出す最終チャート数
+
 
 def fetch_yf_daily(ticker: str) -> list[dict[str, Any]]:
-    df = yf.download(ticker, period="1y", interval="1d", progress=False, auto_adjust=False)
+    """yfinance で 1年日次を取得。取れなければ空リスト。"""
+    try:
+        df = yf.download(ticker, period="1y", interval="1d",
+                         progress=False, auto_adjust=False)
+    except Exception as e:
+        print(f"[WARN] yf {ticker}: exception {e}", file=sys.stderr)
+        return []
+
     if df is None or df.empty:
         return []
 
+    # MultiIndex対応
     if isinstance(df.columns, pd.MultiIndex):
         if "Close" in df.columns.get_level_values(0):
             close_df = df.xs("Close", axis=1, level=0)
-            if isinstance(close_df, pd.DataFrame) and close_df.shape[1] > 0:
-                close = close_df.iloc[:, 0].dropna()
-            else:
-                return []
+            close = close_df.iloc[:, 0].dropna() if isinstance(close_df, pd.DataFrame) and close_df.shape[1] > 0 else pd.Series(dtype="float64")
         else:
             return []
     elif "Close" in df.columns:
         s = df["Close"]
         close = s.iloc[:, 0].dropna() if isinstance(s, pd.DataFrame) else s.dropna()
     else:
+        return []
+
+    if close.empty:
         return []
 
     return [
@@ -55,6 +68,8 @@ def fetch_yf_daily(ticker: str) -> list[dict[str, Any]]:
 
 
 def fetch_fred_daily(series_id: str, api_key: str) -> list[dict[str, Any]]:
+    if not api_key:
+        return []
     params = {
         "series_id":         series_id,
         "api_key":           api_key,
@@ -66,7 +81,7 @@ def fetch_fred_daily(series_id: str, api_key: str) -> list[dict[str, Any]]:
         r.raise_for_status()
         data = r.json()
     except Exception as e:
-        print(f"[WARN] FRED {series_id}: {e}", file=sys.stderr)
+        print(f"[WARN] fred {series_id}: {e}", file=sys.stderr)
         return []
 
     out = []
@@ -80,15 +95,31 @@ def fetch_fred_daily(series_id: str, api_key: str) -> list[dict[str, Any]]:
     return out
 
 
+def try_fetch(candidate: dict[str, Any], fred_key: str) -> list[dict[str, Any]]:
+    src    = candidate.get("source", "yf")
+    ticker = candidate.get("ticker", "")
+    if not ticker:
+        return []
+
+    if src == "fred":
+        series = fetch_fred_daily(ticker, fred_key)
+    else:
+        series = fetch_yf_daily(ticker)
+
+    if len(series) < MIN_POINTS:
+        return []
+    return series
+
+
 def main() -> None:
     if not NEWS_PATH.exists():
         print(f"[ERROR] {NEWS_PATH} not found. Run fetch_news.py first.", file=sys.stderr)
         return
 
     news = json.loads(NEWS_PATH.read_text(encoding="utf-8"))
-    picks = news.get("charts_of_the_day", [])
-    if not picks:
-        print("[WARN] No charts_of_the_day in news.json")
+    candidates = news.get("charts_of_the_day", [])
+    if not candidates:
+        print("[WARN] No chart candidates in news.json")
         OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
         OUTPUT_PATH.write_text(json.dumps({
             "generatedAt": datetime.now(timezone.utc).isoformat(),
@@ -99,42 +130,32 @@ def main() -> None:
     fred_key = os.environ.get("FRED_API_KEY", "")
 
     featured = []
-    for pick in picks:
-        key = pick.get("key")
-        uni = get_by_key(key)
-        if not uni:
-            print(f"[WARN] Unknown chart key: {key}")
-            continue
+    for cand in candidates:
+        if len(featured) >= TARGET_COUNT:
+            break
 
-        if uni["source"] == "fred":
-            if not fred_key:
-                print(f"[WARN] FRED_API_KEY not set; skipping {key}")
-                continue
-            series = fetch_fred_daily(uni["id"], fred_key)
-        else:
-            series = fetch_yf_daily(uni["id"])
-
+        series = try_fetch(cand, fred_key)
         if not series:
-            print(f"[WARN] {key} ({uni['id']}): no data")
+            print(f"[SKIP] {cand.get('source'):4s} {cand.get('ticker'):15s}  (insufficient data)")
             continue
 
-        last_val = series[-1]["v"]
-        first_val = series[0]["v"]
-        pct_1y = round((last_val / first_val - 1) * 100, 2) if first_val else None
+        last = series[-1]["v"]
+        first = series[0]["v"]
+        pct_1y = round((last / first - 1) * 100, 2) if first else None
 
         featured.append({
-            "key":       key,
-            "title":     pick.get("title") or uni["name"],
-            "rationale": pick.get("rationale", ""),
-            "name":      uni["name"],
-            "sub":       uni["sub"],
-            "source":    uni["source"],
-            "last":      last_val,
+            "source":    cand["source"],
+            "ticker":    cand["ticker"],
+            "title":     cand.get("title") or cand["ticker"],
+            "name":      cand.get("name") or cand.get("title") or cand["ticker"],
+            "sub":       cand.get("sub", ""),
+            "rationale": cand.get("rationale", ""),
+            "last":      last,
             "pct1y":     pct_1y,
             "asOf":      series[-1]["d"],
             "history":   series,
         })
-        print(f"[OK]  {key:12s} {len(series):>4d} points, last={last_val}  ({pct_1y:+}% 1Y)")
+        print(f"[OK]   {cand['source']:4s} {cand['ticker']:15s}  {len(series):>4d}pts, last={last}  ({pct_1y:+}% 1Y)")
 
     payload = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
@@ -146,7 +167,7 @@ def main() -> None:
         json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"\nWrote {OUTPUT_PATH}: {len(featured)} featured charts")
+    print(f"\nWrote {OUTPUT_PATH}: {len(featured)}/{TARGET_COUNT} charts from {len(candidates)} candidates")
 
 
 if __name__ == "__main__":
