@@ -1,8 +1,144 @@
 {
-  "generatedAt": "1970-01-01T00:00:00Z",
-  "epigraph": { "quote": "—", "source": "初回起動中", "connection": "" },
-  "headline_of_the_day": "初回起動 — データ取得待ち",
-  "news": [],
-  "funny_stories": [],
-  "charts_of_the_day": []
+  "generatedAt": "2026-04-24T13:35:27.704593+00:00",
+  "epigraph": {
+    "quote": "市場は投票機であり、体重計ではない。短期的には投票機として機能し、長期的には体重計として機能する。",
+    "source": "ベンジャミン・グレアム『賢明なる投資家』",
+    "connection": "日経平均が史上最高値を更新する中、イラン情勢やインフレ期待など複数の不確実性が絡み合い、市場の短期的な値動きと長期的な経済ファンダメンタルズのズレが顕著になっている局面を反映している。"
+  },
+  "headline_of_the_day": "日経平均史上最高値更新、地政学リスク台頭下で選別買い強まる",
+  "news": [
+    {
+      "tag": "EQUITY",
+      "headline": "日経平均が史上最高値を更新、終値ベース",
+      "body": "日本株式市場で日経平均が反発し、終値ベースで史上最高値を更新した。市場では銘柄の物色に偏りが出ており、特定セクターへの選別的な買いが強まっている状況。原油高や海外経済減速懸念がある中でも、日本企業利益への期待値が支えになっている。",
+      "impact": [
+        "日本株が新高値圏、機関投資家のポジション積み増し続く可能性",
+        "個別銘柄の物色による変動性上昇"
+      ],
+      "source_index": 9,
+      "link": "https://jp.reuters.com/markets/japan/6CTRATLWLZKWFMJBOSJ7ED5ZDI-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "GEOPOLITICS",
+      "headline": "イラン情勢の進展で主要中銀の会合にも注目、来週の外為市場を左右する可能性",
+      "body": "イラン戦争リスクが市場心理を圧迫する中、主要中銀会合の開催予定が外為市場の重要なイベントとして浮上。英小売売上高ではイラン関連の燃料販売急増が統計に反映され、地政学リスクが実経済に波及している兆候が見られている。",
+      "impact": [
+        "リスクオフムード一時的に強まる可能性",
+        "ポンド・ユーロなど主要通貨の変動性上昇",
+        "エネルギー市場への上値圧力"
+      ],
+      "source_index": 13,
+      "link": "https://jp.reuters.com/markets/japan/UXTYKM44YRN3RPU33GWGAWK3WY-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "MACRO",
+      "headline": "独IFO業況指数が20年以来の低水準、イラン情勢で欧州経済減速懸念が増幅",
+      "body": "ドイツの4月IFO業況指数が2020年以来の低水準に落ち込み、イラン情勢による悲観的見方が企業マインドを圧迫している。ユーロ圏ではギリシャからイタリアへ最高公的債務水準が交代するなど、周辺国リスクも浮上。英企業の価格見通しは1月以来の高水準で上昇圧力が残存。",
+      "impact": [
+        "ECBの金利引き下げ観測が強まる可能性",
+        "ユーロ圏周辺国債スプレッドの拡大リスク",
+        "ユーロ売り圧力"
+      ],
+      "source_index": 16,
+      "link": "https://jp.reuters.com/markets/japan/5DSKMLBFARNVLIQWURMYOGPDHE-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "RATES/FED",
+      "headline": "日本の機関投資家、26年度の円債運用で買い目線を強化、償還分を全て再投資へ",
+      "body": "かんぽ生命、住友生命などの大型機関投資家が2026年度の国債運用計画を発表。かんぽは2兆円弱の償還分を全て再投資し買い目線を示す一方、キャピタル益狙いはやや慎重姿勢。円債市場では長期金利の下限サポートが意識される環境。",
+      "impact": [
+        "円債市場への買い圧力が継続",
+        "10年債利回りの上昇余地が限定的",
+        "機関投資家のリスク資産への向かい風"
+      ],
+      "source_index": 8,
+      "link": "https://jp.reuters.com/opinion/ITWXXKTN55MY7EYFID5NZVUVRM-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "COMMODITIES",
+      "headline": "イラン情勢で燃料販売が急増、エネルギー価格への上値圧力が継続",
+      "body": "英国の3月小売売上高が前月比0.7%増となったが、背景にはイラン関連の燃料販売の急増が寄与。トランプ政権はイラン情勢での譲歩に慎重で、ガソリン価格が高止まりする可能性が指摘されている。WTI原油相場への支援材料。",
+      "impact": [
+        "原油価格の高止まり継続",
+        "ガソリン価格上昇による消費圧迫",
+        "インフレ再燃リスク"
+      ],
+      "source_index": 12,
+      "link": "https://jp.reuters.com/markets/japan/M46ITSIJ6BPZZNJDFX3RJWZ2I4-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "EQUITY",
+      "headline": "台湾セミコンダクター、現地投資規制の緩和で急騰。AI関連半導体銘柄の買い優位が継続",
+      "body": "台湾当局が現地投資家のTSMC投資規制を緩和し、同社株は大幅上昇。セミコンダクター相場の上昇継続で市場には警告信号も出始めており、BTIG等のアナリストは「パラボリックな上昇は必ず一つの方向でしか終わらない」との懸念を表明。インテルも決算控えで高ボラティリティが予想。",
+      "impact": [
+        "AI半導体バリュエーション調整リスク",
+        "VIXの上昇可能性",
+        "テック系セクターの売却圧力"
+      ],
+      "source_index": 20,
+      "link": "https://www.marketwatch.com/story/taiwan-semiconductors-stock-heads-for-a-record-after-regulator-rewrites-rules-for-local-investors-c1daf742?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "tag": "OTHER",
+      "headline": "中国、適格外国投資家に国債先物を解禁。資本市場のさらなる開放を推進",
+      "body": "中国が適格外国投資家（QFII）に対して国債先物取引を解禁し、リスク管理手段の拡充を図る。中国市場の対外開放が加速する中、海外投資家の中国資産へのアクセス改善が進行。",
+      "impact": [
+        "中国国債への海外からの買い流入の可能性",
+        "人民元の上値支援",
+        "新興国資産への回帰トレンド強化"
+      ],
+      "source_index": 15,
+      "link": "https://jp.reuters.com/markets/japan/IXL2HCDL5NOMJK4ETX523NHPUU-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    }
+  ],
+  "funny_stories": [
+    {
+      "kind": "皮肉",
+      "title": "「原油高でもなぜ日経平均6万円超か？」という問い自体がアメリカ株至上主義の終焉を示唆",
+      "body": "以前なら「原油高＝ガソリン代上昇＝消費減＝株安」という単純な連立方程式が通用した。だが今、日本市場は「エネルギー源の多角化」「企業の利益成長」「為替要因」を複合的に織り込み、かつての「悪い円安＝日本株安」という常識まで塗り替えている。市場は意外と合理的なのか、それとも単に先行き不透明だからギャンブル化しているのか。",
+      "source_index": 0,
+      "link": "https://news.yahoo.co.jp/pickup/6577469?source=rss",
+      "source": "Yahoo!ファイナンス"
+    },
+    {
+      "kind": "人間味",
+      "title": "地政学リスクで欧州企業マインド最悪、日本機関投資家は買い増し",
+      "body": "独IFO指数が20年ぶりの底に沈み、欧州企業は悲観一色。同じタイミングで日本の大型機関投資家たちは「買い目線です」と涼しい顔で償還分を全額再投資。まるで教室全体がテスト対策に必死な中で、一人だけ参考書を手に取らない学生のような余裕。実は先見の明なのか、鈍感なのか、あるいは単に日本の低金利で選択肢がないのか。",
+      "source_index": 16,
+      "link": "https://jp.reuters.com/markets/japan/5DSKMLBFARNVLIQWURMYOGPDHE-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "kind": "観察",
+      "title": "セミコンダクター相場の「パラボリック警告」が3年ぶりに浮上した、その象徴はインテル",
+      "body": "AI旋風で半導体セクターは右肩上がり、TSMC規制緩和で一層加速。だが警告が再び聞こえ始めた。興味深いのは、かつてのテック恐怖の中心地・インテルが今度は「決算で大勝ちしたら逆転の王様になる可能性」を秘めていること。パラボリック相場では、誰が笑うかは最後の5分で決まる。",
+      "source_index": 21,
+      "link": "https://www.marketwatch.com/story/theres-never-been-a-semiconductor-rally-like-this-one-and-thats-triggering-a-number-of-warnings-bf622cfa?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    }
+  ],
+  "charts_of_the_day": [
+    {
+      "key": "nikkei",
+      "title": "日経平均（日本株）",
+      "rationale": "史上最高値更新という節目を刻んだ本日の最大のニュースを視覚的に確認。地政学リスクや金利環境の中での選別買いの強さを示すチャート。"
+    },
+    {
+      "key": "wti",
+      "title": "WTI原油",
+      "rationale": "イラン情勢による燃料販売増加、ガソリン価格高止まりの懸念が端的に表れるチャート。トランプ政権の譲歩姿勢がない中での上値圧力を確認。"
+    },
+    {
+      "key": "sox",
+      "title": "SOX（半導体指数）",
+      "rationale": "TSMC規制緩和とインテル決算控えで高ボラティリティが予想される中、セミコンダクター相場の「パラボリック警告」が本物かどうかを判定する最重要チャート。"
+    }
+  ]
 }
