@@ -1,9 +1,209 @@
 {
-  "generatedAt": "1970-01-01T00:00:00Z",
-  "epigraph": { "quote": "—", "source": "初回起動中", "connection": "" },
-  "headline_of_the_day": "初回起動 — データ取得待ち",
-  "news": [],
-  "funny_stories": [],
-  "charts_of_the_day": [],
-  "deep_dive": null
+  "generatedAt": "2026-04-24T14:41:06.864289+00:00",
+  "epigraph": {
+    "quote": "市場は、あなたが支払い能力を維持できる期間よりも長く、非合理的でいられる。",
+    "source": "ジョン・メイナード・ケインズ",
+    "connection": "半導体株の放物線的上昇に「これはバブルか」と問いながらも、誰もが置いていかれまいと買い進む今の市場心理を映す"
+  },
+  "headline_of_the_day": "日経平均が史上最高値を更新、半導体株が世界で狂騒",
+  "news": [
+    {
+      "tag": "金融政策",
+      "headline": "トランプ政権がパウエルFRB議長への捜査を撤回、ウォーシュ次期議長承認へ道",
+      "body": "司法省がパウエル議長への捜査を取り下げ、5月15日の任期満了後にケビン・ウォーシュ氏がFRB議長に就任する道筋が整った。市場は政治的混乱リスクの後退を好感。",
+      "impact": [
+        "金融政策の継続性への安心感",
+        "6月FOMC前の不透明感が一部払拭"
+      ],
+      "source_index": 20,
+      "link": "https://www.marketwatch.com/story/pirro-drops-probe-into-feds-powell-paving-way-for-warsh-confirmation-b77bc126?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "tag": "株式",
+      "headline": "日経平均が史上最高値更新、終値で4万円台後半に",
+      "body": "日経平均株価が反発し、終値ベースで史上最高値を更新。ただし物色は半導体など一部セクターに偏り、全体的な広がりには欠ける展開。",
+      "impact": [
+        "海外投資家の日本株買い継続",
+        "バリュー株への波及が焦点"
+      ],
+      "source_index": 9,
+      "link": "https://jp.reuters.com/markets/japan/6CTRATLWLZKWFMJBOSJ7ED5ZDI-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "半導体",
+      "headline": "Intel株が急騰、半導体セクターが史上最高値圏でさらに加速",
+      "body": "Intelが決算を受けて数十年ぶりの上昇率を記録し、SOX指数を牽引。TSMCやAMDも連れ高し、半導体株全体が記録的なラリーを演じている。",
+      "impact": [
+        "AI投資期待の過熱感",
+        "放物線相場への警戒も台頭"
+      ],
+      "source_index": 25,
+      "link": "https://www.marketwatch.com/story/intels-stock-extends-its-spectacular-run-and-could-see-its-best-daily-gain-on-record-6e6ef0de?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "tag": "地政学",
+      "headline": "ホルムズ海峡の正常化は7月以降か、予測市場で悲観強まる",
+      "body": "Kalshiの予測市場では、米イラン停戦延長にもかかわらずホルムズ海峡の通行正常化確率が50%を割り込んだ。原油輸送リスクへの警戒が継続。",
+      "impact": [
+        "原油価格の高止まり要因",
+        "海運・エネルギー株のボラティリティ"
+      ],
+      "source_index": 35,
+      "link": "https://www.cnbc.com/2026/04/23/kalshi-bettors-see-strait-of-hormuz-traffic-normal-by-july.html",
+      "source": "CNBC Markets"
+    },
+    {
+      "tag": "欧州経済",
+      "headline": "独IFO景況指数が2020年以来の低水準、イラン情勢が重し",
+      "body": "ドイツの4月IFO業況指数が大幅悪化。イラン情勢による地政学リスクが企業マインドを冷やし、欧州経済の先行きに暗雲。",
+      "impact": [
+        "ECBの利下げ期待再燃",
+        "ユーロ安圧力"
+      ],
+      "source_index": 16,
+      "link": "https://jp.reuters.com/markets/japan/5DSKMLBFARNVLIQWURMYOGPDHE-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "規制・制度",
+      "headline": "TSMC株が史上最高値、台湾当局が国内投資家向け規制を緩和",
+      "body": "台湾の金融当局がTSMCへの個人投資上限を緩和したことで、同社株が急騰。AI半導体需要への強気見通しも追い風。",
+      "impact": [
+        "アジア半導体株への資金流入加速",
+        "指数への寄与度拡大"
+      ],
+      "source_index": 26,
+      "link": "https://www.marketwatch.com/story/taiwan-semiconductors-stock-heads-for-a-record-after-regulator-rewrites-rules-for-local-investors-c1daf742?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "tag": "債券",
+      "headline": "かんぽ生命、26年度も円債「買い目線」維持—2兆円弱を再投資",
+      "body": "かんぽ生命が2026年度運用計画で円債への積極姿勢を継続。償還分の全額再投資で残高横ばいを維持する方針を示した。",
+      "impact": [
+        "日本国債需要の下支え",
+        "超長期金利の上昇抑制要因"
+      ],
+      "source_index": 8,
+      "link": "https://jp.reuters.com/opinion/ITWXXKTN55MY7EYFID5NZVUVRM-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    }
+  ],
+  "funny_stories": [
+    {
+      "kind": "irony",
+      "title": "予言者か、それとも",
+      "body": "「放物線相場は一つの結末しかない」とアナリストが警告を発した同じ日に、半導体株は史上最高値を更新した。警告が出るたびに株価が上がるなら、いっそ毎日警告を出してもらえないだろうか。ベアの雄叫びは今やブルの号砲である。",
+      "source_index": 27,
+      "link": "https://www.marketwatch.com/story/theres-never-been-a-semiconductor-rally-like-this-one-and-thats-triggering-a-number-of-warnings-bf622cfa?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "kind": "human",
+      "title": "AIに怯える15万ドルの憂鬱",
+      "body": "「AIが本当に怖い」と告白しながら年収21万5000ドルのデータ分析職への転職を悩む人がいる。昇進の道がないNPOに留まるか、恐怖の源に飛び込むか。AIを恐れつつAI関連職を検討する矛盾に、現代人の実存的不安が透けて見える。",
+      "source_index": 22,
+      "link": "https://www.marketwatch.com/story/ai-genuinely-freaks-me-out-do-i-leave-my-150-000-job-for-a-215-000-role-in-data-analytics-with-a-50-minute-commute-440b4c36?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "kind": "observation",
+      "title": "4分割ポートフォリオの静かな勝利",
+      "body": "株・債券・現金・商品を均等に持つだけの古典的戦略が、1933年以来最高のリターンを記録中という。複雑な量子AIアルゴを駆使するヘッジファンドの横で、おじいちゃんの「4等分」が黙々と勝っている。投資の世界で最も過小評価されているのは退屈かもしれない。",
+      "source_index": 28,
+      "link": "https://www.marketwatch.com/story/this-alternative-to-the-balanced-portfolio-is-on-track-for-its-best-year-since-1933-16505a08?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    }
+  ],
+  "charts_of_the_day": [
+    {
+      "source": "yf",
+      "ticker": "^SOX",
+      "title": "SOX（半導体指数）",
+      "name": "SOX (半導体)",
+      "sub": "INDEX · USD",
+      "rationale": "Intel・TSMC・AMDの急騰で史上最高値圏、放物線相場の過熱度を確認"
+    },
+    {
+      "source": "yf",
+      "ticker": "INTC",
+      "title": "Intel",
+      "name": "Intel",
+      "sub": "",
+      "rationale": "数十年ぶりの急騰、ファンダメンタルズ改善への期待と懐疑の分岐点"
+    },
+    {
+      "source": "yf",
+      "ticker": "^N225",
+      "title": "日経平均",
+      "name": "日経平均",
+      "sub": "INDEX · JPY",
+      "rationale": "史上最高値更新、海外投資家の日本株選好を映す"
+    },
+    {
+      "source": "yf",
+      "ticker": "CL=F",
+      "title": "WTI原油",
+      "name": "WTI原油",
+      "sub": "$ / bbl",
+      "rationale": "ホルムズ海峡リスク継続で高止まり、地政学プレミアムを観察"
+    },
+    {
+      "source": "yf",
+      "ticker": "TSM",
+      "title": "TSMC (ADR)",
+      "name": "TSMC (ADR)",
+      "sub": "",
+      "rationale": "台湾規制緩和で史上最高値、AI半導体需要の象徴銘柄"
+    },
+    {
+      "source": "yf",
+      "ticker": "DX-Y.NYB",
+      "title": "ドル指数",
+      "name": "ドル指数 (DXY)",
+      "sub": "INDEX",
+      "rationale": "FRB議長交代への道筋確定後のドルの反応を確認"
+    },
+    {
+      "source": "yf",
+      "ticker": "^VIX",
+      "title": "VIX（恐怖指数）",
+      "name": "VIX (恐怖指数)",
+      "sub": "INDEX",
+      "rationale": "株高継続下でのコンプレイセンシー水準をチェック"
+    },
+    {
+      "source": "fred",
+      "ticker": "IFOVALUE",
+      "title": "IFO景況指数",
+      "name": "IFO景況指数",
+      "sub": "",
+      "rationale": "ドイツ経済の悪化度合いを長期時系列で確認"
+    }
+  ],
+  "deep_dive": {
+    "title": "パウエル時代の終焉とウォーシュFRB体制の幕開け",
+    "lede": "トランプ政権による司法省捜査の撤回で、ケビン・ウォーシュ氏のFRB議長就任が事実上確定した。2年に及ぶ政治的攻防の終結は、米金融政策の新章の始まりを告げる。",
+    "background": "パウエル議長は2022年以降、インフレ抑制のための積極的な利上げを断行し、トランプ大統領との対立が深まった。2025年の大統領選後、司法省は議長の「利下げ遅延」を巡る調査を開始し、中央銀行の独立性への懸念が国際的に広がっていた。ウォーシュ氏は2006-2018年にFRB理事を務めた経験を持ち、金融危機時の政策対応に関与。市場志向の姿勢で知られるが、具体的な政策スタンスは不透明な部分も残る。",
+    "implications": "短期的には、政治リスクの後退が株式・債券市場の安心材料となる。しかし中期的には、ウォーシュ新議長の下でFOMCの構成が変わり、金融政策の方向性に不確実性が生じる。市場はすでに6月の利下げを織り込んでいるが、新体制下での政策継続性が問われる。長期的には、中央銀行の独立性を巡る前例が作られたことで、将来の政権交代時に同様の圧力が繰り返されるリスクが意識される。",
+    "what_to_watch": [
+      "5月15日のパウエル議長任期満了と引継ぎ",
+      "ウォーシュ氏の上院承認公聴会での発言",
+      "6月FOMC（新議長初の会合）での政策判断",
+      "トランプ政権による他のFRB理事人事の動向",
+      "ドル指数・米国債利回りの反応"
+    ],
+    "related_keys": [
+      "us10y",
+      "dxy",
+      "sp500",
+      "vix"
+    ],
+    "source_index": 20,
+    "link": "https://www.marketwatch.com/story/pirro-drops-probe-into-feds-powell-paving-way-for-warsh-confirmation-b77bc126?mod=mw_rss_topstories",
+    "source": "MarketWatch Top"
+  }
 }
