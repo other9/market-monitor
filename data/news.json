@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-04-24T22:35:04.391860+00:00",
+  "generatedAt": "2026-04-25T01:22:05.164922+00:00",
   "epigraph": {
-    "quote": "強気相場は悲観の中で生まれ、懐疑の中で育ち、楽観の中で成熟し、陶酔の中で消えていく。",
-    "source": "ジョン・テンプルトン",
-    "connection": "日経平均が史上最高値を更新し、米半導体株も最高値圏で推移する中、市場は楽観と警戒の狭間にある"
+    "quote": "市場は、あなたが支払い能力を維持できる期間よりも長く、不合理でいられる。",
+    "source": "ジョン・メイナード・ケインズ",
+    "connection": "消費者信頼感が過去最低を記録する中、株式市場は史上最高値を更新。乖離する心理と市場の皮肉な共存。"
   },
-  "headline_of_the_day": "日経平均が史上最高値更新、米半導体株も記録更新続く",
+  "headline_of_the_day": "日米株が史上最高値更新、インテル急伸が半導体に火",
   "news": [
     {
-      "tag": "日本株",
-      "headline": "日経平均が終値で史上最高値を更新、物色は偏り",
-      "body": "日経平均株価が反発し、終値ベースで史上最高値を更新した。ただし物色には偏りがあり、一部の銘柄に買いが集中する構図が続いている。原油高の環境下でも6万円超えを達成した背景には、円安や企業業績改善期待がある。",
+      "tag": "株式",
+      "headline": "S&P500・ナスダック・日経平均が揃って史上最高値を更新",
+      "body": "米株市場ではS&P500とナスダックが最高値を更新。東京市場でも日経平均が終値で史上最高値を記録した。イラン情勢への楽観と半導体株の急伸が買いを牽引。",
       "impact": [
-        "日本株全体のセンチメント改善",
-        "海外投資家の日本株見直し加速の可能性"
+        "リスクオン継続",
+        "物色偏りに警戒"
       ],
       "source_index": 9,
       "link": "https://jp.reuters.com/markets/japan/6CTRATLWLZKWFMJBOSJ7ED5ZDI-2026-04-24/",
@@ -21,135 +21,119 @@
     },
     {
       "tag": "半導体",
-      "headline": "インテル株が約40年ぶりの上昇率、AMDも時価総額5000億ドル達成",
-      "body": "インテルが好決算見通しを受けて急伸し、1987年以来最大の日次上昇率を記録。NVIDIAも6カ月ぶりに終値で最高値を更新し、時価総額5兆ドル圏に復帰。AMDは時価総額5000億ドルの大台に乗せた。",
+      "headline": "インテル株が約40年ぶりの大幅高、決算受け急伸",
+      "body": "インテルが決算発表後に1986年以来の上昇率を記録。NVIDIAも6ヶ月ぶりに最高値更新、AMDは時価総額5000億ドル到達。半導体セクター全体が牽引役に。",
       "impact": [
-        "AI投資継続への強い確信",
-        "半導体セクター全体への資金流入"
+        "SOX指数上昇加速",
+        "AI投資期待の再燃"
       ],
       "source_index": 25,
       "link": "https://www.marketwatch.com/story/intels-stock-extends-its-spectacular-run-and-could-see-its-best-daily-gain-on-record-6e6ef0de?mod=mw_rss_topstories",
       "source": "MarketWatch Top"
     },
     {
-      "tag": "地政学",
-      "headline": "イラン戦争継続でホルムズ海峡正常化は7月以降か",
-      "body": "Kalshiの予測市場によると、ホルムズ海峡の交通が正常に戻る確率は50%を下回った。米イラン間の停戦延長にもかかわらず、市場参加者は正常化を7月以降と見込んでいる。",
+      "tag": "消費者",
+      "headline": "ミシガン大消費者信頼感が過去最低の49.8に急落",
+      "body": "4月確報値は過去最低を記録。インフレ懸念が消費者心理を直撃。株高と実体経済の心理の乖離が鮮明に。",
       "impact": [
-        "原油価格の高止まり継続",
-        "海運・物流コストへの上昇圧力"
+        "個人消費への下押しリスク",
+        "FRB政策判断に影響"
       ],
-      "source_index": 38,
-      "link": "https://www.cnbc.com/2026/04/23/kalshi-bettors-see-strait-of-hormuz-traffic-normal-by-july.html",
-      "source": "CNBC Markets"
+      "source_index": 19,
+      "link": "https://jp.reuters.com/markets/japan/O3JQCOLTJFIJRAZNKTFSJWA72I-2026-04-24/",
+      "source": "Reuters Japan Markets"
     },
     {
-      "tag": "消費者心理",
-      "headline": "ミシガン大消費者信頼感が過去最低の49.8に急落",
-      "body": "4月確報値が49.8と過去最低を記録。インフレ懸念が消費者マインドを大きく圧迫している。原油高の影響がガソリン価格を通じて家計を直撃していることが背景。",
+      "tag": "地政学",
+      "headline": "イラン核協議の進展期待でドル下落、中東リスク後退",
+      "body": "米イラン間で停戦延長の動き。中東和平協議の進展期待からドルが下落し、リスク資産に資金が流入。ただしホルムズ海峡正常化は7月以降との見方も。",
       "impact": [
-        "個人消費への下押し懸念",
-        "FRBの政策判断への影響"
+        "原油価格の上値抑制",
+        "ドル安継続の可能性"
       ],
-      "source_index": 18,
-      "link": "https://jp.reuters.com/markets/japan/O3JQCOLTJFIJRAZNKTFSJWA72I-2026-04-24/",
+      "source_index": 12,
+      "link": "https://jp.reuters.com/markets/japan/6DMDGSFSNBMS3HCYY22VMONDX4-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "エネルギー",
+      "headline": "原油高が長期化の見通し、P&Gは約10億ドルの業績下押し",
+      "body": "SLBとハリバートンは原油価格が高止まりすると予測。P&Gは27年6月期に約10億ドルの下押し影響を見込む。消費財メーカーへのコスト転嫁圧力が継続。",
+      "impact": [
+        "インフレ持続リスク",
+        "消費財セクター圧迫"
+      ],
+      "source_index": 16,
+      "link": "https://jp.reuters.com/markets/world-indices/VYG7XDQC7FJMLN4DV7PR3N4P5A-2026-04-24/",
       "source": "Reuters Japan Markets"
     },
     {
       "tag": "AI投資",
       "headline": "アルファベット、アンソロピックに最大400億ドル追加投資検討",
-      "body": "グーグル親会社のアルファベットが、AI企業アンソロピックへの追加投資を検討していると報じられた。AI覇権争いが激化する中、巨額資金が引き続きAIセクターに流入している。",
+      "body": "グーグル親会社がAIスタートアップへの大型投資を検討中と報道。AI覇権争いが一段と激化、ビッグテックの投資競争が加速。",
       "impact": [
-        "AI関連銘柄への追い風",
-        "ビッグテック間の競争激化"
+        "AI関連株への資金流入",
+        "競争激化で収益化遅延リスク"
       ],
-      "source_index": 17,
+      "source_index": 18,
       "link": "https://jp.reuters.com/markets/bonds/GLK7TE6NAVPSLIUZHYSOMCUXBE-2026-04-24/",
       "source": "Reuters Japan Markets"
     },
     {
-      "tag": "金融政策",
-      "headline": "ウォーシュFRB議長候補、5月中旬までの承認確率86%に",
-      "body": "DOJがパウエル議長に対する調査を取り下げたことを受け、Kalshiではウォーシュ氏の5月15日までの上院承認確率が86%に上昇。政権の金融政策への介入懸念が後退。",
+      "tag": "人員削減",
+      "headline": "メタが全社員の10%削減、AI投資原資を確保",
+      "body": "メタがAI関連支出をオフセットするため大規模リストラを発表。ビッグテック各社でコスト削減とAI投資のバランス調整が進む。",
       "impact": [
-        "FRB人事を巡る不透明感の低下",
-        "金融政策の予見可能性改善"
+        "テック企業の利益率改善期待",
+        "雇用市場への影響"
       ],
-      "source_index": 32,
-      "link": "https://www.cnbc.com/2026/04/24/kalshi-bettors-see-warsh-confirmed-in-may-after-doj-drops-powell-probe.html",
-      "source": "CNBC Markets"
-    },
-    {
-      "tag": "原油",
-      "headline": "原油高は長期化、P&Gは27年度に約10億ドルの業績下押し",
-      "body": "SLBとハリバートンは原油価格が高止まりすると予測。P&Gは原油高が27年6月期に約10億ドルの業績圧迫要因になると警告。ガソリン価格への波及が消費者の懸念材料に。",
-      "impact": [
-        "消費財企業のマージン圧迫",
-        "インフレ長期化リスク"
-      ],
-      "source_index": 29,
-      "link": "https://www.marketwatch.com/story/why-crude-prices-wont-fall-back-to-levels-seen-before-the-iran-war-anytime-soon-9bdceed1?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
+      "source_index": 58,
+      "link": "https://www.investors.com/news/technology/meta-stock-ai-layoffs/?src=A00220&yptr=yahoo",
+      "source": "Yahoo Finance US"
     }
   ],
   "funny_stories": [
     {
-      "kind": "irony",
-      "title": "AIに怯える年収2200万円の転職相談",
-      "body": "「AIが本当に怖い」と訴える相談者。現在の年収1500万円を捨てて2150万円のデータ分析職に転職すべきか悩んでいる。通勤50分が嫌だという。AIに仕事を奪われる恐怖を語りながら、年収650万円アップの好条件に二の足を踏む。贅沢な悩みとはこのことか。",
-      "source_index": 22,
-      "link": "https://www.marketwatch.com/story/ai-genuinely-freaks-me-out-do-i-leave-my-150-000-job-for-a-215-000-role-in-data-analytics-with-a-50-minute-commute-440b4c36?mod=mw_rss_topstories",
+      "kind": "皮肉・風刺系",
+      "title": "消費者は絶望、市場は祝杯",
+      "body": "ミシガン大学の消費者信頼感指数が「過去最低」を記録した同じ日に、S&P500とナスダックは「史上最高値」を更新。どちらが現実を見ているのか。たぶん、どちらも自分の現実を見ている。中央銀行が作った流動性という名の平行世界で。",
+      "source_index": 19,
+      "link": "https://jp.reuters.com/markets/japan/O3JQCOLTJFIJRAZNKTFSJWA72I-2026-04-24/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "kind": "人間味・哀愁系",
+      "title": "40年ぶりの輝き、その裏側",
+      "body": "インテル株が1986年以来の大幅高。40年前といえばペンティアムもなく、創業者ムーアが現役だった頃。「復活」と沸く投資家の横で、あるアナリストは冷静に呟いた。「財務見通しが本質的に変わったかは、別の話だ」と。",
+      "source_index": 25,
+      "link": "https://www.marketwatch.com/story/intels-stock-extends-its-spectacular-run-and-could-see-its-best-daily-gain-on-record-6e6ef0de?mod=mw_rss_topstories",
       "source": "MarketWatch Top"
     },
     {
-      "kind": "pathos",
-      "title": "親子丼とうな丼の逆転劇",
-      "body": "物価高の波が親子丼を直撃し、鶏肉と卵の高騰で値上げが相次ぐ。一方でうなぎは養殖技術の進歩で値下げに成功。かつて庶民の味方だった親子丼が高級品に、贅沢品だったうな丼が手頃になる逆転現象。デフレの象徴と言われた牛丼チェーンも時代の変化に翻弄されている。",
+      "kind": "観察・再発見系",
+      "title": "栽培禁止のケシがJAで売られる",
+      "body": "JAの直売所で「栽培禁止」のケシが堂々と販売されていたというニュース。金融市場でも時々、規制で禁止されているはずのリスクが、知らぬ間に店頭に並んでいることがある。ただし、こちらは誰も撤去しない。",
       "source_index": 5,
-      "link": "https://news.yahoo.co.jp/pickup/6577493?source=rss",
-      "source": "Yahoo!ファイナンス"
-    },
-    {
-      "kind": "observation",
-      "title": "ホワイトからブルーへ、静かな大移動",
-      "body": "オフィスワーカーからブルーカラー職への転職が増えているという。リモートワークの孤独、AIによる代替リスク、そして何より「手を動かす仕事の充実感」を求める人々。ホワイトカラーの特権だった空調の効いたオフィスより、汗をかく現場を選ぶ若者たち。価値観の地殻変動が静かに進んでいる。",
-      "source_index": 4,
-      "link": "https://news.yahoo.co.jp/pickup/6577495?source=rss",
+      "link": "https://news.yahoo.co.jp/pickup/6577528?source=rss",
       "source": "Yahoo!ファイナンス"
     }
   ],
   "charts_of_the_day": [
     {
       "source": "yf",
-      "ticker": "INTC",
-      "title": "インテル",
-      "name": "インテル",
-      "sub": "",
-      "rationale": "約40年ぶりの大幅上昇。半導体復活の象徴として市場の注目を集める"
-    },
-    {
-      "source": "yf",
-      "ticker": "^N225",
-      "title": "日経平均株価",
-      "name": "日経平均",
-      "sub": "INDEX · JPY",
-      "rationale": "終値で史上最高値更新。原油高環境下での強さを確認"
-    },
-    {
-      "source": "yf",
       "ticker": "^SOX",
       "title": "SOX半導体指数",
       "name": "SOX (半導体)",
       "sub": "INDEX · USD",
-      "rationale": "NVIDIA、AMD、インテル揃い踏みで最高値更新。AI相場の温度計"
+      "rationale": "インテル40年ぶり急伸、NVIDIA最高値、AMD時価総額5000億ドル到達。半導体セクターの歴史的な週を確認。"
     },
     {
       "source": "yf",
-      "ticker": "CL=F",
-      "title": "WTI原油",
-      "name": "WTI原油",
-      "sub": "$ / bbl",
-      "rationale": "イラン情勢でホルムズ海峡正常化が遠のく。価格高止まりの背景を確認"
+      "ticker": "INTC",
+      "title": "インテル",
+      "name": "インテル",
+      "sub": "",
+      "rationale": "1986年以来の上昇率を記録。復活の本気度をチャートで検証。"
     },
     {
       "source": "yf",
@@ -157,60 +141,75 @@
       "title": "NVIDIA",
       "name": "NVIDIA",
       "sub": "",
-      "rationale": "6カ月ぶりに終値で最高値更新、時価総額5兆ドル圏に復帰"
+      "rationale": "6ヶ月ぶりの最高値更新、時価総額5兆ドル圏に復帰。AI相場の象徴。"
+    },
+    {
+      "source": "fred",
+      "ticker": "UMCSENT",
+      "title": "ミシガン大消費者信頼感",
+      "name": "ミシガン大消費者信頼感",
+      "sub": "",
+      "rationale": "過去最低49.8を記録。株高との乖離を長期チャートで確認。"
     },
     {
       "source": "yf",
-      "ticker": "AMD",
-      "title": "AMD",
-      "name": "AMD",
-      "sub": "",
-      "rationale": "時価総額5000億ドルの大台達成。インテル好決算の波及効果"
+      "ticker": "CL=F",
+      "title": "WTI原油",
+      "name": "WTI原油",
+      "sub": "$ / bbl",
+      "rationale": "イラン情勢と原油高長期化見通し。P&Gへの10億ドル下押しの元凶。"
     },
     {
       "source": "yf",
-      "ticker": "PG",
-      "title": "P&G",
-      "name": "P&G",
-      "sub": "",
-      "rationale": "原油高による業績圧迫警告。消費財セクターへの影響を示す"
+      "ticker": "JPY=X",
+      "title": "ドル円",
+      "name": "USD/JPY",
+      "sub": "ドル円",
+      "rationale": "中東協議進展期待でドル安。円債投資計画との関連でも注目。"
     },
     {
       "source": "yf",
-      "ticker": "XE=F",
-      "title": "X-energy",
-      "name": "X-energy",
+      "ticker": "^N225",
+      "title": "日経平均",
+      "name": "日経平均",
+      "sub": "INDEX · JPY",
+      "rationale": "終値ベースで史上最高値更新。物色偏りの中での到達。"
+    },
+    {
+      "source": "yf",
+      "ticker": "META",
+      "title": "メタ・プラットフォームズ",
+      "name": "メタ・プラットフォームズ",
       "sub": "",
-      "rationale": "原子力IPOが27%急騰。AI電力需要テーマの新たなプレイヤー"
+      "rationale": "10%人員削減発表。AI投資とコスト削減のトレードオフを株価で確認。"
     }
   ],
   "deep_dive": {
-    "title": "半導体株「完全復活」の真相とインテル40年ぶり急騰の意味",
-    "lede": "インテルが1987年以来最大の上昇率を記録し、NVIDIA・AMDも揃って最高値圏へ。AI投資への楽観論が半導体セクター全体を押し上げているが、その持続性には議論が分かれる。",
-    "background": "2024年後半から調整局面にあった半導体株が劇的な復活を遂げている。きっかけはインテルの好決算見通し。同社は長年AMDやNVIDIAに後塵を拝してきたが、ファウンドリ事業の再建とAIアクセラレーター分野への参入が評価された。ウォール街ではインテルの財務見通しが実質的に改善したかどうかで意見が割れているが、センチメントの好転は明らかだ。NVIDIAは時価総額5兆ドル圏に復帰し、AMDも5000億ドルの大台に乗せた。",
-    "implications": "短期的には、半導体株への資金流入がS&P500とナスダックの最高値更新を牽引している。中期的には、AI投資が実際の収益に結びつくかが焦点となる。アルファベットのアンソロピック追加投資報道が示すように、ビッグテックのAI軍拡競争は続いており、半導体需要の底堅さを示唆する。ただし、ミシガン大消費者信頼感の過去最低更新は、AI楽観論と実体経済の乖離を警告している。原油高によるインフレ長期化が消費を冷やせば、企業のIT投資にも波及しかねない。",
+    "title": "消費者心理「過去最低」と株価「史上最高」の危険な乖離",
+    "lede": "ミシガン大学消費者信頼感指数が観測史上最低を記録した同日、S&P500とナスダックは最高値を更新した。この乖離は何を意味し、投資家は何に備えるべきか。",
+    "background": "4月のミシガン大学消費者信頼感指数確報値は49.8と、1952年の調査開始以来の最低水準に落ち込んだ。インフレ懸念が主因だが、関税政策への不透明感や雇用への不安も背景にある。一方、株式市場はAI関連投資への期待、半導体株の急伸、そしてイラン情勢の緩和期待を材料に記録的な上昇を続けている。流動性が潤沢な市場と、インフレに苦しむ実体経済という「二つのアメリカ」が併存している状態だ。",
+    "implications": "短期的には、株式市場は金融環境と企業業績に連動するため、消費者心理の悪化が即座に株価下落につながるわけではない。しかし中期的には、消費者心理の悪化は個人消費の減速を予兆する。米国GDPの約7割を占める個人消費が失速すれば、企業業績の下方修正が現実味を帯びる。特にP&Gが示した原油高による業績圧迫は、消費財セクター全般への警告だ。さらに、FRBは株高とインフレ懸念の板挟みで政策判断が一層難しくなる。",
     "what_to_watch": [
-      "来週以降の主要半導体企業の決算とガイダンス",
-      "ビッグテック各社のAI関連設備投資計画",
-      "消費者物価指数（CPI）と個人消費支出の動向",
-      "ホルムズ海峡の正常化時期と原油価格の推移",
-      "FRB議長人事の進展と金融政策への影響"
+      "5月の雇用統計（消費者心理悪化が雇用に波及するか）",
+      "小売売上高の推移（消費行動への実際の影響）",
+      "企業決算での消費者向けセクターのガイダンス",
+      "FRB高官の発言（インフレと景気のバランス認識）",
+      "クレジットカード延滞率の推移"
     ],
     "related_keys": [
-      "sox",
-      "nasdaq",
+      "sp500",
       "vix",
-      "us10y"
+      "hyoas"
     ],
-    "source_index": 16,
-    "link": "https://jp.reuters.com/markets/world-indices/VGWQIS7OTZID7MJAJT7PK2E6SM-2026-04-24/",
+    "source_index": 19,
+    "link": "https://jp.reuters.com/markets/japan/O3JQCOLTJFIJRAZNKTFSJWA72I-2026-04-24/",
     "source": "Reuters Japan Markets"
   },
   "economic_chart_of_the_day": {
     "series_id": "UMCSENT",
-    "title": "ミシガン大消費者信頼感指数",
-    "subtitle": "月次, 1966=100基準",
-    "rationale": "4月確報値が過去最低の49.8を記録。原油高によるインフレ懸念が消費者心理を直撃しており、今後の個人消費動向を占う重要指標",
+    "title": "ミシガン大学消費者信頼感指数",
+    "subtitle": "月次, 1966=100",
+    "rationale": "過去最低の49.8を記録。株高との歴史的乖離を長期時系列で確認し、過去の乖離局面との比較が重要。",
     "period_years": 5
   }
 }
