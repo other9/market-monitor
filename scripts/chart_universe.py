@@ -19,7 +19,7 @@ from __future__ import annotations
 CHART_UNIVERSE: list[dict] = [
     # ── 株式 ──
     {"key": "nikkei",   "id": "^N225",    "source": "yf",   "name": "日経平均",         "sub": "INDEX · JPY",    "tags": ["日本株", "equity"]},
-    {"key": "topix",    "id": "^TOPX",    "source": "yf",   "name": "TOPIX",           "sub": "INDEX · JPY",    "tags": ["日本株", "equity"]},
+    {"key": "topix",    "id": "1306.T",   "source": "yf",   "name": "TOPIX (ETF)",       "sub": "NEXT FUNDS · 東証",    "tags": ["日本株", "equity"]},
     {"key": "sp500",    "id": "^GSPC",    "source": "yf",   "name": "S&P 500",         "sub": "INDEX · USD",    "tags": ["米国株", "equity"]},
     {"key": "nasdaq",   "id": "^IXIC",    "source": "yf",   "name": "NASDAQ",          "sub": "INDEX · USD",    "tags": ["米国株", "equity", "ハイテク"]},
     {"key": "dow",      "id": "^DJI",     "source": "yf",   "name": "Dow Jones",       "sub": "INDEX · USD",    "tags": ["米国株", "equity"]},

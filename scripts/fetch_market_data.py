@@ -21,7 +21,7 @@ import yfinance as yf
 # ─── メイン指標 ───
 INSTRUMENTS: list[dict[str, Any]] = [
     {"ticker": "^N225",   "group": "株式",       "name": "日経平均",       "sub": "Nikkei 225 · 東証"},
-    {"ticker": "^TOPX",   "group": "株式",       "name": "TOPIX",         "sub": "東証株価指数"},
+    {"ticker": "1306.T",  "group": "株式",       "name": "TOPIX (ETF)",    "sub": "NEXT FUNDS · 東証"},
     {"ticker": "^GSPC",   "group": "株式",       "name": "S&P 500",       "sub": "米国 500大企業"},
     {"ticker": "^IXIC",   "group": "株式",       "name": "NASDAQ",        "sub": "米ハイテク総合"},
     {"ticker": "^DJI",    "group": "株式",       "name": "Dow Jones",     "sub": "米ダウ30種"},

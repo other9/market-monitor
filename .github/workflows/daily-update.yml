@@ -2,7 +2,7 @@ name: Daily Market Update
 
 on:
   schedule:
-    - cron: "0 22 * * *"
+    - cron: "0 23 * * *"   # 日本時間 08:00 (UTC 23:00)。yfinance の日経データ更新を確実に待つため
   push:
     branches: [main]
   workflow_dispatch:
@@ -41,6 +41,12 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python scripts/fetch_macro_indicators.py
+
+      # ── 2b. バリュエーション指標 (FRED + Shiller + yfinance) ──
+      - name: Fetch valuation indicators
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python scripts/fetch_valuations.py
 
       # ── 3. ニュース + 注目チャート3本選定 ──
       - name: Fetch & summarize news (Claude API)

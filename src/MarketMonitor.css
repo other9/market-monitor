@@ -803,6 +803,64 @@
   text-transform: uppercase;
 }
 
+/* ── Valuation Gauges ── */
+.mm-val-wrap { margin-top: 18px; }
+.mm-val-stance {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  padding: 4px 12px;
+  border: 1px solid var(--border-strong);
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.mm-val-stance.overvalued    { background: var(--down); color: #FFF; border-color: var(--down); }
+.mm-val-stance.somewhat-over { background: #F5D0CF; color: var(--down); border-color: var(--down); }
+.mm-val-stance.neutral       { background: var(--bg-alt); color: var(--fg); }
+.mm-val-stance.somewhat-under{ background: #D4E8DC; color: var(--up); border-color: var(--up); }
+.mm-val-stance.undervalued   { background: var(--up); color: #FFF; border-color: var(--up); }
+
+.mm-val-comment {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-style: italic;
+  margin-bottom: 26px;
+  padding: 16px 20px;
+  background: var(--bg-alt);
+  border-left: 3px solid var(--accent2);
+  max-width: 880px;
+}
+
+.mm-val-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.6fr) minmax(160px, 2fr) 0.9fr 0.7fr 0.7fr 0.9fr 0.8fr;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.mm-val-row .cell { padding: 11px 12px; min-width: 0; overflow-wrap: anywhere; }
+.mm-val-row .cell.r { text-align: right; }
+.mm-val-deviation {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+.mm-val-deviation.high { background: rgba(192,57,43,0.12); color: var(--down); }
+.mm-val-deviation.low  { background: rgba(45,106,79,0.12);  color: var(--up); }
+
+.mm-val-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 28px;
+}
+
 /* ============= Responsive ============= */
 @media (max-width: 1100px) {
   .mm-featured-grid { grid-template-columns: 1fr; }
@@ -826,6 +884,7 @@
   .mm-econ-wrap { padding: 24px 20px; }
   .mm-econ-title { font-size: 22px; }
   .mm-econ-last-val { font-size: 22px; }
+  .mm-val-charts { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {

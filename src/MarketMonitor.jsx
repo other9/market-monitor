@@ -117,6 +117,7 @@ const NEWS_URL = `${import.meta.env.BASE_URL}data/news.json`;
 const MACRO_URL = `${import.meta.env.BASE_URL}data/macro.json`;
 const FEATURED_URL = `${import.meta.env.BASE_URL}data/featured.json`;
 const ECONOMIC_URL = `${import.meta.env.BASE_URL}data/economic.json`;
+const VALUATIONS_URL = `${import.meta.env.BASE_URL}data/valuations.json`;
 
 // ─── Primitives ───
 const Pct = ({ n, big = false }) => (
@@ -683,6 +684,158 @@ function DeepDive({ article, chartUniverse }) {
   );
 }
 
+// ─── Valuation Section ───
+const VAL_STANCE_CLASS = {
+  "割高 (overvalued)": "overvalued",
+  "やや割高": "somewhat-over",
+  "中立": "neutral",
+  "やや割安": "somewhat-under",
+  "割安 (undervalued)": "undervalued",
+  // 英語キーも許容
+  "overvalued": "overvalued",
+  "somewhat-over": "somewhat-over",
+  "neutral": "neutral",
+  "somewhat-under": "somewhat-under",
+  "undervalued": "undervalued",
+};
+
+function ValuationSection({ valuations, valuationView }) {
+  if (!valuations || !valuations.indicators || valuations.indicators.length === 0) {
+    return null;
+  }
+
+  const indicators = valuations.indicators;
+  // Macro Barometer 風にグループ分け
+  const groups = ["米国バリュエーション", "ボラティリティ"];
+  const byGroup = groups
+    .map((g) => ({ title: g, rows: indicators.filter((r) => r.group === g) }))
+    .filter((g) => g.rows.length > 0);
+
+  // 長期チャート用: 履歴がある指標を最大4つピックアップ
+  const chartCandidates = indicators.filter((i) => i.history && i.history.length >= 12).slice(0, 4);
+
+  const stanceClass = valuationView?.stance ? VAL_STANCE_CLASS[valuationView.stance] || "neutral" : "neutral";
+
+  return (
+    <div style={{ marginTop: 48, marginBottom: 24 }}>
+      <div className="mm-section-tag">VI. バリュエーション・ゲージ</div>
+      <div className="mm-section-head"><em>割高 / 割安、</em> 株式市場の体温。</div>
+      <div className="mm-section-lede">
+        Shiller CAPE、Buffett Indicator、Fed Model など、長期視点の<strong>バリュエーション指標</strong>。
+        5年中央値からの乖離で割高度を測る。
+        {valuations.generatedAt && <>{" "}取得: {fmtDate(valuations.generatedAt)}</>}
+      </div>
+
+      {/* Claude のバリュエーション観 */}
+      {valuationView && (
+        <>
+          <div className={`mm-val-stance ${stanceClass}`}>
+            ▣ Claude AI 評価: {valuationView.stance}
+          </div>
+          <div className="mm-val-comment">{valuationView.body}</div>
+        </>
+      )}
+
+      {/* テーブル形式で各指標 */}
+      <div className="mm-val-wrap">
+        {byGroup.map((g, gi) => (
+          <div key={gi} style={{ marginBottom: 22 }}>
+            <div className="mm-group-head">
+              <div className="mm-group-title">{g.title}</div>
+              <div className="mm-group-marker">▽ {g.rows.length} indicators</div>
+            </div>
+            <div className="mm-macro-table">
+              <div className="mm-val-row mm-table-header">
+                <div className="cell">Indicator</div>
+                <div className="cell">Description</div>
+                <div className="cell r">Value</div>
+                <div className="cell r">1M</div>
+                <div className="cell r">1Y</div>
+                <div className="cell r">5Y中央値</div>
+                <div className="cell r">乖離</div>
+              </div>
+              {g.rows.map((r, i) => (
+                <div
+                  key={i}
+                  className="mm-val-row"
+                  style={{ background: i % 2 === 0 ? "transparent" : "rgba(26, 31, 46, 0.025)" }}
+                >
+                  <div className="cell">
+                    <div style={{ fontFamily: "var(--font-display)", fontSize: 16, fontWeight: 500, lineHeight: 1.2 }}>
+                      {r.name}
+                      <span className="mm-freq-badge">{r.freq}</span>
+                    </div>
+                    <div style={{ fontFamily: FONT_MONO, fontSize: 9.5, color: PALETTE.muted, marginTop: 3 }}>{r.unit}</div>
+                  </div>
+                  <div className="cell" style={{ fontSize: 11.5, color: PALETTE.muted, lineHeight: 1.4 }}>{r.desc}</div>
+                  <div className="cell r">
+                    <div style={{ fontFamily: FONT_MONO, fontSize: 16, fontWeight: 500 }}>
+                      {fmt(r.value, 2)}
+                    </div>
+                  </div>
+                  <div className="cell r"><Signed n={r.diff1m} d={2} /></div>
+                  <div className="cell r"><Signed n={r.diff1y} d={2} /></div>
+                  <div className="cell r" style={{ fontFamily: FONT_MONO, fontSize: 12 }}>{fmt(r.median5y, 2)}</div>
+                  <div className="cell r">
+                    {r.deviation != null && (
+                      <span className={`mm-val-deviation ${r.deviation > 0 ? "high" : "low"}`}>
+                        {fmtSigned(r.deviation, 2)}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+            {/* Mobile cards */}
+            <div className="mm-cards">
+              {g.rows.map((r, i) => (
+                <div key={i} className="mm-card">
+                  <div className="mm-card-head">
+                    <div style={{ minWidth: 0, flex: 1 }}>
+                      <div className="mm-card-name">{r.name}<span className="mm-freq-badge">{r.freq}</span></div>
+                      <div className="mm-card-sub">{r.desc}</div>
+                      <div className="mm-card-asof">{r.unit} · As of {fmtDay(r.asOf)}</div>
+                    </div>
+                    <div className="mm-card-close">{fmt(r.value, 2)}</div>
+                  </div>
+                  <div className="mm-card-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+                    <div className="mm-card-cell"><span className="mm-card-cell-label">1M</span><Signed n={r.diff1m} d={2} /></div>
+                    <div className="mm-card-cell"><span className="mm-card-cell-label">1Y</span><Signed n={r.diff1y} d={2} /></div>
+                    <div className="mm-card-cell">
+                      <span className="mm-card-cell-label">乖離</span>
+                      {r.deviation != null && (
+                        <span className={`mm-val-deviation ${r.deviation > 0 ? "high" : "low"}`}>
+                          {fmtSigned(r.deviation, 2)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* 長期チャート */}
+      {chartCandidates.length > 0 && (
+        <div className="mm-val-charts">
+          {chartCandidates.map((ind, i) => (
+            <MiniChart
+              key={i}
+              title={ind.name}
+              sub={`${ind.unit} · 過去 ${ind.history.length} ヶ月`}
+              data={ind.history}
+              current={ind.value}
+              decimals={2}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Main component ───
 export default function MarketMonitor() {
   const [market, setMarket] = useState(null);
@@ -690,6 +843,7 @@ export default function MarketMonitor() {
   const [macro, setMacro] = useState(null);
   const [featured, setFeatured] = useState(null);
   const [economic, setEconomic] = useState(null);
+  const [valuations, setValuations] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -700,8 +854,9 @@ export default function MarketMonitor() {
       safe(fetch(MACRO_URL).then((r) => { if (!r.ok) throw new Error(`macro.json: ${r.status}`); return r.json(); })),
       safe(fetch(FEATURED_URL).then((r) => { if (!r.ok) throw new Error(`featured.json: ${r.status}`); return r.json(); })),
       safe(fetch(ECONOMIC_URL).then((r) => { if (!r.ok) throw new Error(`economic.json: ${r.status}`); return r.json(); })),
+      safe(fetch(VALUATIONS_URL).then((r) => { if (!r.ok) throw new Error(`valuations.json: ${r.status}`); return r.json(); })),
     ])
-      .then(([m, n, ma, f, e]) => { setMarket(m); setNews(n); setMacro(ma); setFeatured(f); setEconomic(e); })
+      .then(([m, n, ma, f, e, v]) => { setMarket(m); setNews(n); setMacro(ma); setFeatured(f); setEconomic(e); setValuations(v); })
       .catch((e) => setError(e.message));
   }, []);
 
@@ -825,6 +980,9 @@ export default function MarketMonitor() {
         <MacroBarometer macro={macro} />
       </div>
 
+      {/* VI. Valuation gauges */}
+      <ValuationSection valuations={valuations} valuationView={news.valuation_view} />
+
       {/* IV. 5Y charts */}
       <div style={{ marginTop: 48, marginBottom: 24 }}>
         <div className="mm-section-tag">IV. 重要指標・5年チャート</div>
@@ -931,7 +1089,7 @@ export default function MarketMonitor() {
       <div style={{ borderTop: `3px double ${PALETTE.borderStrong}`, margin: "48px 0 20px 0" }} />
       <div className="mm-footer">
         <span>DATA: yfinance · FRED · NEWS: Claude API summarized from RSS</span>
-        <span>Auto-updated daily 07:00 JST · GitHub Actions</span>
+        <span>Auto-updated daily 08:00 JST · GitHub Actions</span>
         <span>EOD · {latestAsOf}</span>
       </div>
     </div>
