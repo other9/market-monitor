@@ -1,11 +1,219 @@
 {
-  "generatedAt": "1970-01-01T00:00:00Z",
-  "epigraph": { "quote": "—", "source": "初回起動中", "connection": "" },
-  "headline_of_the_day": "初回起動 — データ取得待ち",
-  "news": [],
-  "funny_stories": [],
-  "charts_of_the_day": [],
-  "deep_dive": null,
-  "economic_chart_of_the_day": null,
-  "valuation_view": null
+  "generatedAt": "2026-04-27T14:33:05.508530+00:00",
+  "epigraph": {
+    "quote": "強気相場は悲観の中で生まれ、懐疑の中で育ち、楽観の中で成熟し、陶酔の中で消えていく。",
+    "source": "ジョン・テンプルトン（伝説的投資家）",
+    "connection": "日経平均が史上最高値を更新する中、市場参加者は今がどの段階にあるのか自問している。"
+  },
+  "headline_of_the_day": "日経平均が史上最高値更新、米AI株高が世界に波及",
+  "news": [
+    {
+      "tag": "日本株",
+      "headline": "日経平均が続伸し史上最高値を更新、米AI・半導体株高が追い風",
+      "body": "日経平均株価は米国のAI・半導体関連株の上昇を受けて続伸し、史上最高値を更新した。NVIDIAなど米ハイテク株の強さが東京市場にも波及し、半導体関連を中心に買いが広がった。",
+      "impact": [
+        "日本株全体のセンチメント改善",
+        "外国人投資家の買い継続期待"
+      ],
+      "source_index": 8,
+      "link": "https://jp.reuters.com/markets/japan/AS3OHNIFWVNXBE3GRVW724O5E4-2026-04-27/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "中国",
+      "headline": "ムーディーズが中国の見通しを「安定的」に引き上げ、経済の底堅さ評価",
+      "body": "格付け会社ムーディーズは中国の格付け見通しを「ネガティブ」から「安定的」に変更。不動産セクターの懸念が和らぎ、経済政策の効果が評価された形。",
+      "impact": [
+        "中国関連資産への投資家心理改善",
+        "新興国債券市場への波及"
+      ],
+      "source_index": 17,
+      "link": "https://jp.reuters.com/markets/japan/KUK4RIMV2FOHFBNLJTST5NTB4Y-2026-04-27/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "M&A",
+      "headline": "シェルがカナダのシェール企業を140億ドルで買収へ、10年ぶり大型案件",
+      "body": "英シェルはカナダのシェールガス企業を140億ドルで買収すると発表。同社にとって過去10年で最大の買収案件となり、北米のエネルギー生産能力を大幅に強化する。",
+      "impact": [
+        "エネルギーセクターのM&A活発化",
+        "カナダ資源株への注目"
+      ],
+      "source_index": 27,
+      "link": "https://www.marketwatch.com/story/shell-to-buy-canadian-shale-company-for-14-billion-in-what-would-be-oil-giants-biggest-acquisition-in-10-years-7db50c85?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "tag": "AI",
+      "headline": "マイクロソフトとOpenAIがパートナーシップを再編、独占アクセス解消へ",
+      "body": "マイクロソフトとOpenAIは提携関係を見直し、モデルへの独占的アクセスを撤廃。収益分配も変更され、OpenAIの他社との協業が可能になる構造に移行する。",
+      "impact": [
+        "AI業界の競争構造変化",
+        "他のクラウド事業者への恩恵可能性"
+      ],
+      "source_index": 45,
+      "link": "https://finance.yahoo.com/sectors/technology/article/microsoft-openai-rewrite-partnership-to-eliminate-exclusive-model-access-change-revenue-sharing-140522820.html",
+      "source": "Yahoo Finance US"
+    },
+    {
+      "tag": "中国規制",
+      "headline": "中国がMetaによるAI企業Manus買収を阻止、20億ドル案件が白紙に",
+      "body": "中国当局はMetaによるAI企業Manusの20億ドル買収をブロック。米中テック対立の新たな火種となり、AI分野での地政学リスクが改めて浮き彫りに。",
+      "impact": [
+        "米中テック分断の深刻化",
+        "AI企業のM&A戦略見直し"
+      ],
+      "source_index": 49,
+      "link": "https://finance.yahoo.com/sectors/technology/articles/china-blocks-meta-2-billion-095700004.html",
+      "source": "Yahoo Finance US"
+    },
+    {
+      "tag": "半導体",
+      "headline": "クアルコム株が急騰、OpenAI向けチップ開発の報道でAI需要期待",
+      "body": "クアルコムがOpenAI向けにAIチップを開発中との報道を受け、株価が急騰。エッジAI市場での新たな成長機会として投資家の期待が高まっている。",
+      "impact": [
+        "半導体セクター全体への買い波及",
+        "NVIDIA以外のAI受益銘柄物色"
+      ],
+      "source_index": 29,
+      "link": "https://www.marketwatch.com/story/qualcomms-stock-soars-as-an-ai-opportunity-emerges-14a6ed98?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "tag": "日本企業",
+      "headline": "日産自動車が営業黒字500億円に転換、構造改革が奏功",
+      "body": "日産自動車は営業損益が500億円の黒字に転換する見通しを発表。コスト削減と為替効果が寄与し、厳しい事業環境下でも収益改善を実現した。",
+      "impact": [
+        "自動車セクターへの見直し買い",
+        "円安メリット銘柄として注目継続"
+      ],
+      "source_index": 1,
+      "link": "https://news.yahoo.co.jp/pickup/6577862?source=rss",
+      "source": "Yahoo!ファイナンス"
+    }
+  ],
+  "funny_stories": [
+    {
+      "kind": "皮肉・風刺系",
+      "title": "AI時代のCEO、まずは分身から",
+      "body": "米地銀のCEOが決算説明会をAIクローンに任せたところ好評だったため、正式にOpenAIと契約。株主からは「本物より話がうまい」との声も。CEOの仕事で最も代替困難と思われた『しゃべる』機能すら外注される時代。次は取締役会もAIに任せてはいかがか。",
+      "source_index": 30,
+      "link": "https://www.cnbc.com/2026/04/27/openai-partners-with-customers-bank-in-push-to-automate-finance.html",
+      "source": "CNBC Markets"
+    },
+    {
+      "kind": "人間味・哀愁系",
+      "title": "皿洗いの人手不足という現実",
+      "body": "アメリカのレストランが深刻な人手不足に直面している。足りないのはシェフでもウェイターでもなく、皿洗い担当。移民規制強化と若年層の労働参加率低下が重なった結果だ。自動化が進んでも、最後に残るのは『誰もやりたがらない仕事』という皮肉。",
+      "source_index": 47,
+      "link": "https://finance.yahoo.com/economy/articles/restaurants-struggle-hire-dishwashers-immigration-140500565.html",
+      "source": "Yahoo Finance US"
+    },
+    {
+      "kind": "観察・再発見系",
+      "title": "世界記録の靴、でも買えません",
+      "body": "マラソンで史上初の2時間切りを達成したランナーが履いていたのはアディダスのシューズ。世界中のランナーが同じモデルを求めたが、販売予定なし。「勝利を祝うなら買わせてくれ」という消費者心理を見事にスルーするスポーツマーケティングの謎。",
+      "source_index": 26,
+      "link": "https://www.marketwatch.com/story/adidas-claims-the-first-sub-2-hour-marathon-winner-but-good-luck-getting-the-winners-sneakers-3aa995ef?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    }
+  ],
+  "charts_of_the_day": [
+    {
+      "source": "yf",
+      "ticker": "^N225",
+      "title": "日経平均株価",
+      "name": "日経平均",
+      "sub": "INDEX · JPY",
+      "rationale": "史上最高値更新が本日の主役。どこまで上値を伸ばすか、節目を確認したい。"
+    },
+    {
+      "source": "yf",
+      "ticker": "NVDA",
+      "title": "NVIDIA",
+      "name": "NVIDIA",
+      "sub": "",
+      "rationale": "日経高値更新の原動力となった米AI・半導体株の象徴。グローバルなリスクオン連鎖の起点。"
+    },
+    {
+      "source": "yf",
+      "ticker": "^SOX",
+      "title": "SOX半導体指数",
+      "name": "SOX (半導体)",
+      "sub": "INDEX · USD",
+      "rationale": "クアルコム急騰など半導体セクター全体の勢いを俯瞰するのに最適。"
+    },
+    {
+      "source": "yf",
+      "ticker": "SHEL",
+      "title": "シェル",
+      "name": "シェル",
+      "sub": "",
+      "rationale": "140億ドルの大型買収発表。エネルギーM&Aの温度感を測る。"
+    },
+    {
+      "source": "yf",
+      "ticker": "JPY=X",
+      "title": "ドル円",
+      "name": "USD/JPY",
+      "sub": "ドル円",
+      "rationale": "159円台半ばで推移。円安が日本株高を支える構図が続くか注視。"
+    },
+    {
+      "source": "yf",
+      "ticker": "7201.T",
+      "title": "日産自動車",
+      "name": "日産自動車",
+      "sub": "",
+      "rationale": "黒字転換発表。自動車セクターの復活を象徴する動きとして確認。"
+    },
+    {
+      "source": "yf",
+      "ticker": "^HSI",
+      "title": "ハンセン指数",
+      "name": "ハンセン指数",
+      "sub": "INDEX · HKD",
+      "rationale": "ムーディーズの中国見通し引き上げを受けた反応を確認。"
+    },
+    {
+      "source": "yf",
+      "ticker": "META",
+      "title": "Meta",
+      "name": "Meta",
+      "sub": "",
+      "rationale": "中国によるManus買収阻止の影響。AI戦略への逆風を株価がどう織り込むか。"
+    }
+  ],
+  "deep_dive": {
+    "title": "マイクロソフト×OpenAI提携再編が意味するAI覇権の地殻変動",
+    "lede": "両社のパートナーシップ見直しは、AI業界の独占構造に風穴を開け、競争環境を一変させる可能性がある。市場はこの変化をまだ十分に織り込んでいない。",
+    "background": "2019年以来、マイクロソフトはOpenAIに累計130億ドル超を投資し、GPTシリーズへの独占的アクセス権と引き換えにAzureでのクラウド提供権を獲得してきた。この排他的関係がマイクロソフトのAI競争力を支え、株価を押し上げる原動力となった。しかし今回の再編でモデルの独占アクセスが解消され、収益分配も変更。OpenAIは他のクラウド事業者やハードウェア企業との協業が可能になり、クアルコムとのチップ開発報道もこの文脈で理解できる。",
+    "implications": "短期的にはマイクロソフトの『AIプレミアム』が問い直される可能性がある。一方、Google CloudやAmazon AWSにはOpenAIモデル採用のチャンスが生まれ、クラウド競争が再活性化する。中長期的には、AI基盤モデルのコモディティ化が加速し、差別化要因がインフラからアプリケーション層へシフトする構造転換が進むだろう。エンタープライズAI投資の意思決定も複雑化する。",
+    "what_to_watch": [
+      "OpenAIの他クラウド事業者との提携発表の有無",
+      "マイクロソフト次回決算でのAI売上高とAzure成長率",
+      "クアルコム×OpenAIチップ開発の詳細と出荷時期",
+      "GoogleやAmazonのAI戦略対抗策発表",
+      "オープンソースAI（Llama等）の採用拡大ペース"
+    ],
+    "related_keys": [
+      "nasdaq",
+      "sp500",
+      "sox"
+    ],
+    "source_index": 45,
+    "link": "https://finance.yahoo.com/sectors/technology/article/microsoft-openai-rewrite-partnership-to-eliminate-exclusive-model-access-change-revenue-sharing-140522820.html",
+    "source": "Yahoo Finance US"
+  },
+  "economic_chart_of_the_day": {
+    "series_id": "DGS10",
+    "title": "米10年国債利回りの推移",
+    "subtitle": "日次, %",
+    "rationale": "日経最高値更新の背景には米金利安定がある。今週のビッグテック決算を前に、金利動向が株式バリュエーションを左右する局面が続く。",
+    "period_years": 3
+  },
+  "valuation_view": {
+    "stance": "やや割高",
+    "body": "S&P500のフォワードPERは21倍台で過去10年平均を上回り、Shiller CAPEも33倍前後と歴史的高水準を維持。ただしAI関連の利益成長期待が正当化要因として働いている。日経平均はPER16倍台とグローバル比較では割安感があるが、円安による業績上振れがどこまで持続するかが焦点。米10年金利が4.2%近辺で安定していることがマルチプル拡大を許容しているが、金利上昇再開なら調整リスクが意識される局面。"
+  }
 }
