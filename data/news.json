@@ -1,120 +1,120 @@
 {
-  "generatedAt": "2026-04-27T14:33:05.508530+00:00",
+  "generatedAt": "2026-04-27T23:38:01.346665+00:00",
   "epigraph": {
-    "quote": "強気相場は悲観の中で生まれ、懐疑の中で育ち、楽観の中で成熟し、陶酔の中で消えていく。",
-    "source": "ジョン・テンプルトン（伝説的投資家）",
-    "connection": "日経平均が史上最高値を更新する中、市場参加者は今がどの段階にあるのか自問している。"
+    "quote": "市場は短期的には投票機であるが、長期的には計量機である。",
+    "source": "ベンジャミン・グレアム『賢明なる投資家』",
+    "connection": "日経平均が史上最高値を更新する中、AI・半導体への熱狂と実態価値のギャップを問い直す一日"
   },
-  "headline_of_the_day": "日経平均が史上最高値更新、米AI株高が世界に波及",
+  "headline_of_the_day": "日経平均が最高値更新、FOMC・日銀決定を前に様子見",
   "news": [
     {
       "tag": "日本株",
       "headline": "日経平均が続伸し史上最高値を更新、米AI・半導体株高が追い風",
-      "body": "日経平均株価は米国のAI・半導体関連株の上昇を受けて続伸し、史上最高値を更新した。NVIDIAなど米ハイテク株の強さが東京市場にも波及し、半導体関連を中心に買いが広がった。",
+      "body": "28日の東京株式市場で日経平均は続伸し、史上最高値を更新した。前週末の米国市場でAI・半導体関連株が堅調だったことを受け、国内ハイテク株に買いが広がった。",
       "impact": [
-        "日本株全体のセンチメント改善",
-        "外国人投資家の買い継続期待"
+        "半導体・AI関連の物色継続",
+        "円安基調も輸出株を下支え"
       ],
       "source_index": 8,
       "link": "https://jp.reuters.com/markets/japan/AS3OHNIFWVNXBE3GRVW724O5E4-2026-04-27/",
       "source": "Reuters Japan Markets"
     },
     {
-      "tag": "中国",
-      "headline": "ムーディーズが中国の見通しを「安定的」に引き上げ、経済の底堅さ評価",
-      "body": "格付け会社ムーディーズは中国の格付け見通しを「ネガティブ」から「安定的」に変更。不動産セクターの懸念が和らぎ、経済政策の効果が評価された形。",
+      "tag": "金融政策",
+      "headline": "米上院銀行委、ウォーシュ氏のFRB議長指名を29日採決へ",
+      "body": "米上院銀行委員会は、トランプ大統領が指名したケビン・ウォーシュ氏の次期FRB議長人事を29日に採決し、本会議に送付する見通し。パウエル議長退任後の金融政策運営に注目が集まる。",
       "impact": [
-        "中国関連資産への投資家心理改善",
-        "新興国債券市場への波及"
+        "FRBの政策継続性への不透明感",
+        "利下げ期待の再評価"
       ],
-      "source_index": 17,
-      "link": "https://jp.reuters.com/markets/japan/KUK4RIMV2FOHFBNLJTST5NTB4Y-2026-04-27/",
+      "source_index": 18,
+      "link": "https://jp.reuters.com/markets/japan/7ASZ264AXVLG7AQAKQGQB7MDWY-2026-04-27/",
       "source": "Reuters Japan Markets"
     },
     {
-      "tag": "M&A",
-      "headline": "シェルがカナダのシェール企業を140億ドルで買収へ、10年ぶり大型案件",
-      "body": "英シェルはカナダのシェールガス企業を140億ドルで買収すると発表。同社にとって過去10年で最大の買収案件となり、北米のエネルギー生産能力を大幅に強化する。",
+      "tag": "金融政策",
+      "headline": "レイ・ダリオ氏「スタグフレーション下での利下げは中銀の信認を損なう」",
+      "body": "ブリッジウォーター創業者のレイ・ダリオ氏は、ウォーシュ氏が議長就任後に利下げに踏み切れば、FRBの信認を損なうリスクがあると警告。インフレ再燃への懸念を示した。",
+      "impact": [
+        "タカ派スタンス維持の可能性",
+        "長期金利の高止まりリスク"
+      ],
+      "source_index": 31,
+      "link": "https://www.cnbc.com/2026/04/27/ray-dalio-says-kevin-warsh-shouldnt-cut-interest-rates-in-a-stagflation-era.html",
+      "source": "CNBC Markets"
+    },
+    {
+      "tag": "エネルギー",
+      "headline": "英シェル、カナダ同業を164億ドルで買収へ　生産体制を拡充",
+      "body": "英シェルはカナダのエネルギー企業を164億ドルで買収すると発表。北米での生産体制を強化し、エネルギー安全保障への対応を進める狙い。",
       "impact": [
         "エネルギーセクターのM&A活発化",
-        "カナダ資源株への注目"
+        "原油・ガス供給安定への期待"
       ],
-      "source_index": 27,
-      "link": "https://www.marketwatch.com/story/shell-to-buy-canadian-shale-company-for-14-billion-in-what-would-be-oil-giants-biggest-acquisition-in-10-years-7db50c85?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
+      "source_index": 19,
+      "link": "https://jp.reuters.com/markets/commodities/X7F3LZLUPBLZ3G3OYCGKISVYPU-2026-04-27/",
+      "source": "Reuters Japan Markets"
     },
     {
-      "tag": "AI",
-      "headline": "マイクロソフトとOpenAIがパートナーシップを再編、独占アクセス解消へ",
-      "body": "マイクロソフトとOpenAIは提携関係を見直し、モデルへの独占的アクセスを撤廃。収益分配も変更され、OpenAIの他社との協業が可能になる構造に移行する。",
+      "tag": "為替",
+      "headline": "ドル円159円半ば、日銀・FOMCを控え様子見ムード",
+      "body": "東京外為市場でドル円は159円台半ばで推移。今週の日銀金融政策決定会合とFOMCを控え、積極的な売買は手控えられた。",
       "impact": [
-        "AI業界の競争構造変化",
-        "他のクラウド事業者への恩恵可能性"
+        "日銀の追加利上げ観測がカギ",
+        "米金利動向との綱引き継続"
       ],
-      "source_index": 45,
-      "link": "https://finance.yahoo.com/sectors/technology/article/microsoft-openai-rewrite-partnership-to-eliminate-exclusive-model-access-change-revenue-sharing-140522820.html",
-      "source": "Yahoo Finance US"
+      "source_index": 13,
+      "link": "https://jp.reuters.com/markets/japan/C377H44L3RIZVKVAZQTMZOQYGA-2026-04-27/",
+      "source": "Reuters Japan Markets"
     },
     {
-      "tag": "中国規制",
-      "headline": "中国がMetaによるAI企業Manus買収を阻止、20億ドル案件が白紙に",
-      "body": "中国当局はMetaによるAI企業Manusの20億ドル買収をブロック。米中テック対立の新たな火種となり、AI分野での地政学リスクが改めて浮き彫りに。",
+      "tag": "自動車",
+      "headline": "日産、2025年度営業損益500億円の黒字見通しに改善",
+      "body": "日産自動車は2025年度の営業損益見通しを500億円の黒字に上方修正した。コスト削減と北米販売の回復が寄与。ただし構造改革の継続が課題として残る。",
       "impact": [
-        "米中テック分断の深刻化",
-        "AI企業のM&A戦略見直し"
-      ],
-      "source_index": 49,
-      "link": "https://finance.yahoo.com/sectors/technology/articles/china-blocks-meta-2-billion-095700004.html",
-      "source": "Yahoo Finance US"
-    },
-    {
-      "tag": "半導体",
-      "headline": "クアルコム株が急騰、OpenAI向けチップ開発の報道でAI需要期待",
-      "body": "クアルコムがOpenAI向けにAIチップを開発中との報道を受け、株価が急騰。エッジAI市場での新たな成長機会として投資家の期待が高まっている。",
-      "impact": [
-        "半導体セクター全体への買い波及",
-        "NVIDIA以外のAI受益銘柄物色"
-      ],
-      "source_index": 29,
-      "link": "https://www.marketwatch.com/story/qualcomms-stock-soars-as-an-ai-opportunity-emerges-14a6ed98?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
-    },
-    {
-      "tag": "日本企業",
-      "headline": "日産自動車が営業黒字500億円に転換、構造改革が奏功",
-      "body": "日産自動車は営業損益が500億円の黒字に転換する見通しを発表。コスト削減と為替効果が寄与し、厳しい事業環境下でも収益改善を実現した。",
-      "impact": [
-        "自動車セクターへの見直し買い",
-        "円安メリット銘柄として注目継続"
+        "日本自動車株への安心感",
+        "EV投資戦略の見直しに注目"
       ],
       "source_index": 1,
       "link": "https://news.yahoo.co.jp/pickup/6577862?source=rss",
       "source": "Yahoo!ファイナンス"
+    },
+    {
+      "tag": "AI・半導体",
+      "headline": "Arm株が7日続伸後に反落、Qualcomm-OpenAI提携観測で明暗",
+      "body": "Arm株はNasdaq100で下落率トップ。QualcommがOpenAI向けチップ開発に参画との報道を受け、Armの役割縮小懸念が浮上。一方Qualcomm株は上昇した。",
+      "impact": [
+        "AI半導体勢力図の変化",
+        "Arm依存度の高い銘柄に波及リスク"
+      ],
+      "source_index": 21,
+      "link": "https://www.marketwatch.com/story/arms-stock-snaps-a-seven-day-winning-streak-as-it-loses-some-of-its-ai-glow-8d390975?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
     }
   ],
   "funny_stories": [
     {
       "kind": "皮肉・風刺系",
-      "title": "AI時代のCEO、まずは分身から",
-      "body": "米地銀のCEOが決算説明会をAIクローンに任せたところ好評だったため、正式にOpenAIと契約。株主からは「本物より話がうまい」との声も。CEOの仕事で最も代替困難と思われた『しゃべる』機能すら外注される時代。次は取締役会もAIに任せてはいかがか。",
-      "source_index": 30,
+      "title": "AIクローンがCEOの代わりに決算説明会を担当",
+      "body": "Customers Bank CEOのサム・シドゥ氏は、自身のAIクローンに決算説明会を任せた。投資家は「質問への回答が明瞭すぎる」と違和感を覚えたとか。次はAIアナリストがAI CEOに質問する時代が来るのだろうか。人間は傍観者になる日も近い。",
+      "source_index": 32,
       "link": "https://www.cnbc.com/2026/04/27/openai-partners-with-customers-bank-in-push-to-automate-finance.html",
       "source": "CNBC Markets"
     },
     {
       "kind": "人間味・哀愁系",
-      "title": "皿洗いの人手不足という現実",
-      "body": "アメリカのレストランが深刻な人手不足に直面している。足りないのはシェフでもウェイターでもなく、皿洗い担当。移民規制強化と若年層の労働参加率低下が重なった結果だ。自動化が進んでも、最後に残るのは『誰もやりたがらない仕事』という皮肉。",
-      "source_index": 47,
-      "link": "https://finance.yahoo.com/economy/articles/restaurants-struggle-hire-dishwashers-immigration-140500565.html",
-      "source": "Yahoo Finance US"
+      "title": "集団訴訟の和解金小切手が不渡りに",
+      "body": "ある読者の母親が集団訴訟の和解金として小切手を受け取ったが、銀行で不渡りとなり、逆に口座から引き落とされてしまった。「本物だと思ったのに」という嘆き。訴訟で勝っても、最後は銀行手数料に負けるのがアメリカン・ドリームの現実か。",
+      "source_index": 20,
+      "link": "https://www.marketwatch.com/story/we-believe-its-real-my-mom-received-a-check-from-a-class-action-lawsuit-it-bounced-could-this-be-a-scam-cffa7bdb?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
     },
     {
       "kind": "観察・再発見系",
-      "title": "世界記録の靴、でも買えません",
-      "body": "マラソンで史上初の2時間切りを達成したランナーが履いていたのはアディダスのシューズ。世界中のランナーが同じモデルを求めたが、販売予定なし。「勝利を祝うなら買わせてくれ」という消費者心理を見事にスルーするスポーツマーケティングの謎。",
-      "source_index": 26,
-      "link": "https://www.marketwatch.com/story/adidas-claims-the-first-sub-2-hour-marathon-winner-but-good-luck-getting-the-winners-sneakers-3aa995ef?mod=mw_rss_topstories",
+      "title": "ピザ価格戦争の最前線で傷つくドミノ",
+      "body": "米国でピザチェーン各社が値下げ合戦を繰り広げる中、ドミノ・ピザは「ピザ・イノベーション」で対抗すると宣言。しかし市場の反応は冷ややかで、株価は軟調。結局、消費者が求めているのは革新的なトッピングではなく、単に安いピザなのかもしれない。",
+      "source_index": 29,
+      "link": "https://www.marketwatch.com/story/theres-a-pizza-price-war-going-on-and-dominos-is-feeling-the-pain-99487d92?mod=mw_rss_topstories",
       "source": "MarketWatch Top"
     }
   ],
@@ -125,15 +125,7 @@
       "title": "日経平均株価",
       "name": "日経平均",
       "sub": "INDEX · JPY",
-      "rationale": "史上最高値更新が本日の主役。どこまで上値を伸ばすか、節目を確認したい。"
-    },
-    {
-      "source": "yf",
-      "ticker": "NVDA",
-      "title": "NVIDIA",
-      "name": "NVIDIA",
-      "sub": "",
-      "rationale": "日経高値更新の原動力となった米AI・半導体株の象徴。グローバルなリスクオン連鎖の起点。"
+      "rationale": "史上最高値更新。AI・半導体主導の上昇がどこまで続くか"
     },
     {
       "source": "yf",
@@ -141,15 +133,7 @@
       "title": "SOX半導体指数",
       "name": "SOX (半導体)",
       "sub": "INDEX · USD",
-      "rationale": "クアルコム急騰など半導体セクター全体の勢いを俯瞰するのに最適。"
-    },
-    {
-      "source": "yf",
-      "ticker": "SHEL",
-      "title": "シェル",
-      "name": "シェル",
-      "sub": "",
-      "rationale": "140億ドルの大型買収発表。エネルギーM&Aの温度感を測る。"
+      "rationale": "Arm反落・Qualcomm上昇など半導体セクター内の明暗を確認"
     },
     {
       "source": "yf",
@@ -157,7 +141,31 @@
       "title": "ドル円",
       "name": "USD/JPY",
       "sub": "ドル円",
-      "rationale": "159円台半ばで推移。円安が日本株高を支える構図が続くか注視。"
+      "rationale": "日銀・FOMC前の159円台、政策決定後の方向性を占う"
+    },
+    {
+      "source": "yf",
+      "ticker": "^TNX",
+      "title": "米10年債利回り",
+      "name": "米10年債利回り",
+      "sub": "%",
+      "rationale": "ウォーシュ議長指名採決を控え、金利見通しの手がかりに"
+    },
+    {
+      "source": "yf",
+      "ticker": "NVDA",
+      "title": "NVIDIA",
+      "name": "NVIDIA",
+      "sub": "",
+      "rationale": "今週のビッグテック決算の前哨戦、AI相場の温度計"
+    },
+    {
+      "source": "yf",
+      "ticker": "QCOM",
+      "title": "Qualcomm",
+      "name": "Qualcomm",
+      "sub": "",
+      "rationale": "OpenAI向けチップ開発報道で急騰、AI半導体の新たな勝者候補"
     },
     {
       "source": "yf",
@@ -165,55 +173,48 @@
       "title": "日産自動車",
       "name": "日産自動車",
       "sub": "",
-      "rationale": "黒字転換発表。自動車セクターの復活を象徴する動きとして確認。"
+      "rationale": "営業黒字見通し上方修正、日本自動車セクターの試金石"
     },
     {
       "source": "yf",
-      "ticker": "^HSI",
-      "title": "ハンセン指数",
-      "name": "ハンセン指数",
-      "sub": "INDEX · HKD",
-      "rationale": "ムーディーズの中国見通し引き上げを受けた反応を確認。"
-    },
-    {
-      "source": "yf",
-      "ticker": "META",
-      "title": "Meta",
-      "name": "Meta",
+      "ticker": "SHEL",
+      "title": "シェル",
+      "name": "シェル",
       "sub": "",
-      "rationale": "中国によるManus買収阻止の影響。AI戦略への逆風を株価がどう織り込むか。"
+      "rationale": "カナダ企業164億ドル買収発表、エネルギーM&Aの動向"
     }
   ],
   "deep_dive": {
-    "title": "マイクロソフト×OpenAI提携再編が意味するAI覇権の地殻変動",
-    "lede": "両社のパートナーシップ見直しは、AI業界の独占構造に風穴を開け、競争環境を一変させる可能性がある。市場はこの変化をまだ十分に織り込んでいない。",
-    "background": "2019年以来、マイクロソフトはOpenAIに累計130億ドル超を投資し、GPTシリーズへの独占的アクセス権と引き換えにAzureでのクラウド提供権を獲得してきた。この排他的関係がマイクロソフトのAI競争力を支え、株価を押し上げる原動力となった。しかし今回の再編でモデルの独占アクセスが解消され、収益分配も変更。OpenAIは他のクラウド事業者やハードウェア企業との協業が可能になり、クアルコムとのチップ開発報道もこの文脈で理解できる。",
-    "implications": "短期的にはマイクロソフトの『AIプレミアム』が問い直される可能性がある。一方、Google CloudやAmazon AWSにはOpenAIモデル採用のチャンスが生まれ、クラウド競争が再活性化する。中長期的には、AI基盤モデルのコモディティ化が加速し、差別化要因がインフラからアプリケーション層へシフトする構造転換が進むだろう。エンタープライズAI投資の意思決定も複雑化する。",
+    "title": "ウォーシュ氏FRB議長指名採決へ、金融政策の転換点となるか",
+    "lede": "米上院銀行委員会が29日にウォーシュ氏の議長指名を採決。パウエル路線からの転換可能性と、スタグフレーション懸念下での金融政策運営に市場の関心が集中している。",
+    "background": "ケビン・ウォーシュ氏は2006〜11年にFRB理事を務めた経験を持ち、金融危機対応に関与した実績がある。トランプ大統領は、よりタカ派的な姿勢でインフレ抑制を優先する人物として同氏を指名した。現議長パウエル氏の任期は2026年5月まで残るが、政権交代に伴う路線転換への思惑が早くも市場を揺らしている。著名投資家レイ・ダリオ氏は「スタグフレーション環境下での利下げは中銀の信認を損なう」と警告を発している。",
+    "implications": "短期的には、採決通過後の承認プロセスに注目が集まる。市場が織り込む利下げ期待は後退する可能性があり、長期金利の高止まりや株式バリュエーションへの逆風となりうる。中期的には、ウォーシュ氏がパウエル路線の「ソフトランディング」志向を継続するか、よりインフレ抑制重視に舵を切るかが焦点。後者の場合、リスク資産全般に再評価圧力がかかる。日銀との政策格差が円安を助長する展開も想定される。",
     "what_to_watch": [
-      "OpenAIの他クラウド事業者との提携発表の有無",
-      "マイクロソフト次回決算でのAI売上高とAzure成長率",
-      "クアルコム×OpenAIチップ開発の詳細と出荷時期",
-      "GoogleやAmazonのAI戦略対抗策発表",
-      "オープンソースAI（Llama等）の採用拡大ペース"
+      "29日の上院銀行委採決と本会議での承認票読み",
+      "今週のFOMC声明文でのフォワードガイダンス",
+      "ウォーシュ氏の議会証言での政策スタンス発言",
+      "米10年債利回りと2年債利回りの動向",
+      "ドル円の160円突破の有無"
     ],
     "related_keys": [
-      "nasdaq",
-      "sp500",
-      "sox"
+      "us10y",
+      "us02y",
+      "usdjpy",
+      "vix"
     ],
-    "source_index": 45,
-    "link": "https://finance.yahoo.com/sectors/technology/article/microsoft-openai-rewrite-partnership-to-eliminate-exclusive-model-access-change-revenue-sharing-140522820.html",
-    "source": "Yahoo Finance US"
+    "source_index": 18,
+    "link": "https://jp.reuters.com/markets/japan/7ASZ264AXVLG7AQAKQGQB7MDWY-2026-04-27/",
+    "source": "Reuters Japan Markets"
   },
   "economic_chart_of_the_day": {
-    "series_id": "DGS10",
-    "title": "米10年国債利回りの推移",
+    "series_id": "DFF",
+    "title": "FF金利（実効レート）の推移",
     "subtitle": "日次, %",
-    "rationale": "日経最高値更新の背景には米金利安定がある。今週のビッグテック決算を前に、金利動向が株式バリュエーションを左右する局面が続く。",
-    "period_years": 3
+    "rationale": "FOMC・ウォーシュ氏採決を控え、政策金利の軌跡と今後の方向性を確認。利下げ期待の後退を可視化する",
+    "period_years": 5
   },
   "valuation_view": {
     "stance": "やや割高",
-    "body": "S&P500のフォワードPERは21倍台で過去10年平均を上回り、Shiller CAPEも33倍前後と歴史的高水準を維持。ただしAI関連の利益成長期待が正当化要因として働いている。日経平均はPER16倍台とグローバル比較では割安感があるが、円安による業績上振れがどこまで持続するかが焦点。米10年金利が4.2%近辺で安定していることがマルチプル拡大を許容しているが、金利上昇再開なら調整リスクが意識される局面。"
+    "body": "S&P500のShiller CAPEは依然として35倍前後と歴史的高水準を維持。日経平均も最高値圏にあり、PERは17倍台後半。AI関連株への期待先行でマルチプル拡大が続くが、米10年債利回りが4.2%台で推移する中、Fed Modelでの株式魅力度は低下傾向。今週のビッグテック決算とFOMCで、成長期待と金利見通しの両面から再評価を迫られる局面。"
   }
 }
