@@ -686,21 +686,7 @@ function DeepDive({ article, chartUniverse }) {
 }
 
 // ─── Valuation Section ───
-const VAL_STANCE_CLASS = {
-  "割高 (overvalued)": "overvalued",
-  "やや割高": "somewhat-over",
-  "中立": "neutral",
-  "やや割安": "somewhat-under",
-  "割安 (undervalued)": "undervalued",
-  // 英語キーも許容
-  "overvalued": "overvalued",
-  "somewhat-over": "somewhat-over",
-  "neutral": "neutral",
-  "somewhat-under": "somewhat-under",
-  "undervalued": "undervalued",
-};
-
-function ValuationSection({ valuations, valuationView }) {
+function ValuationSection({ valuations }) {
   if (!valuations || !valuations.indicators || valuations.indicators.length === 0) {
     return null;
   }
@@ -715,8 +701,6 @@ function ValuationSection({ valuations, valuationView }) {
   // 長期チャート用: 履歴がある指標を最大4つピックアップ
   const chartCandidates = indicators.filter((i) => i.history && i.history.length >= 12).slice(0, 4);
 
-  const stanceClass = valuationView?.stance ? VAL_STANCE_CLASS[valuationView.stance] || "neutral" : "neutral";
-
   return (
     <div style={{ marginTop: 48, marginBottom: 24 }}>
       <div className="mm-section-tag">VI. バリュエーション・ゲージ</div>
@@ -726,16 +710,6 @@ function ValuationSection({ valuations, valuationView }) {
         5年中央値からの乖離で割高度を測る。
         {valuations.generatedAt && <>{" "}取得: {fmtDate(valuations.generatedAt)}</>}
       </div>
-
-      {/* Claude のバリュエーション観 */}
-      {valuationView && (
-        <>
-          <div className={`mm-val-stance ${stanceClass}`}>
-            ▣ Claude AI 評価: {valuationView.stance}
-          </div>
-          <div className="mm-val-comment">{valuationView.body}</div>
-        </>
-      )}
 
       {/* テーブル形式で各指標 */}
       <div className="mm-val-wrap">
@@ -848,7 +822,7 @@ function CentralBankWatch({ watch, factsByCode }) {
       <div className="mm-section-head"><em>Fed・ECB・BOJ + α、</em> 政策の今を読む。</div>
       <div className="mm-section-lede">
         主要3中銀 (Fed, ECB, BOJ) は常設、4枚目は<strong>その日のニュース文脈で日替わり</strong>に選定。
-        各カードは政策金利・直近決定・要人発言・市場見方をAIが整理。
+        各カードの解説はAIが直近の決定・要人発言・市場の見方を織り込んで一文で整理。
       </div>
 
       <div className="mm-cb-grid">
@@ -871,40 +845,45 @@ function CentralBankWatch({ watch, factsByCode }) {
                 )}
               </div>
 
-              {cb.last_decision && (
-                <div className="mm-cb-section">
-                  <div className="mm-cb-section-label">— 直近の決定</div>
-                  <div className="mm-cb-section-body">{cb.last_decision}</div>
-                </div>
-              )}
-
-              {cb.official_quotes && (
-                <div className="mm-cb-section">
-                  <div className="mm-cb-section-label">— 要人発言</div>
-                  <div className="mm-cb-section-body">{cb.official_quotes}</div>
-                </div>
-              )}
-
-              {cb.market_view && (
-                <div className="mm-cb-section">
-                  <div className="mm-cb-section-label">— 市場の見方</div>
-                  <div className="mm-cb-section-body">{cb.market_view}</div>
-                </div>
+              {cb.comment && (
+                <div className="mm-cb-comment">{cb.comment}</div>
               )}
 
               <div className="mm-cb-meta">
-                {cb.next_meeting && (
-                  <span className="mm-cb-meta-item">次回: <strong>{cb.next_meeting}</strong></span>
+                {facts.next_meeting_hint && (
+                  <span className="mm-cb-meta-item">頻度: <strong>{facts.next_meeting_hint}</strong></span>
                 )}
                 {facts.last_change && facts.last_change_date && (
                   <span className="mm-cb-meta-item">
-                    直近: <strong>{facts.last_change}</strong> ({facts.last_change_amount > 0 ? "+" : ""}{facts.last_change_amount}%, {facts.last_change_date})
+                    直近の変更: <strong>{facts.last_change}</strong> ({facts.last_change_amount > 0 ? "+" : ""}{facts.last_change_amount}%, {facts.last_change_date})
                   </span>
                 )}
               </div>
             </div>
           );
         })}
+      </div>
+    </div>
+  );
+}
+
+// ─── Alternatives Section ───
+function AlternativesSection({ view }) {
+  if (!view || !view.body) return null;
+
+  // body はバックスラッシュn または 改行を段落区切りに
+  const paragraphs = view.body.split(/\n\n+|\n/).map((p) => p.trim()).filter(Boolean);
+
+  return (
+    <div className="mm-alt-wrap">
+      <div className="mm-alt-kicker">◆ Alternatives Spotlight · オルタナティブ資産</div>
+      <div className="mm-alt-title">PE・PD・不動産・インフラ、初心者向けに読み解く</div>
+      <div className="mm-alt-lede">
+        プライベート・エクイティ (PE)、プライベート・デット (PD)、不動産、インフラといった
+        非上場資産クラスの直近の動きを、AIが平易な日本語で解説。
+      </div>
+      <div className="mm-alt-body">
+        {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
       </div>
     </div>
   );
@@ -1057,7 +1036,7 @@ export default function MarketMonitor() {
       </div>
 
       {/* VI. Valuation gauges */}
-      <ValuationSection valuations={valuations} valuationView={news.valuation_view} />
+      <ValuationSection valuations={valuations} />
 
       {/* VII. Central Bank Watch */}
       <CentralBankWatch
@@ -1141,6 +1120,9 @@ export default function MarketMonitor() {
 
       {/* Economic indicator chart (daily pick) */}
       <EconomicChart econ={economic} />
+
+      {/* Alternatives Spotlight */}
+      <AlternativesSection view={news.alternatives_view} />
 
       {/* Market Muse (3 cards) */}
       {museStories.length > 0 && (

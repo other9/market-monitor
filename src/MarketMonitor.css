@@ -954,6 +954,12 @@
   line-height: 1.55;
   color: var(--fg);
 }
+.mm-cb-comment {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--fg);
+}
 .mm-cb-meta {
   display: flex;
   gap: 14px;
@@ -971,6 +977,57 @@
 .mm-cb-meta-item strong {
   color: var(--fg);
   font-weight: 600;
+}
+
+/* ── Alternatives Spotlight (PE/PD/Real Estate/Infra) ── */
+.mm-alt-wrap {
+  margin: 48px 0;
+  padding: 36px 40px;
+  background: var(--panel);
+  border: 1px solid var(--border-strong);
+  border-left: 6px solid var(--accent2);
+  position: relative;
+}
+.mm-alt-kicker {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  color: var(--accent2);
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+.mm-alt-title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--fg);
+  font-weight: 500;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  max-width: 820px;
+}
+.mm-alt-lede {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 760px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--border);
+}
+.mm-alt-body {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--fg);
+  max-width: 820px;
+}
+.mm-alt-body p {
+  margin: 0 0 16px 0;
+}
+.mm-alt-body p:last-child {
+  margin-bottom: 0;
 }
 
 /* ============= Responsive ============= */
@@ -998,6 +1055,8 @@
   .mm-econ-last-val { font-size: 22px; }
   .mm-val-charts { grid-template-columns: 1fr; }
   .mm-cb-grid { grid-template-columns: 1fr; }
+  .mm-alt-wrap { padding: 28px 22px; }
+  .mm-alt-title { font-size: 22px; }
 }
 
 @media (max-width: 760px) {
@@ -1042,5 +1101,9 @@
   .mm-econ-wrap { padding: 20px 16px; }
   .mm-econ-title { font-size: 19px; }
   .mm-econ-rationale { font-size: 12px; }
+  .mm-alt-wrap { padding: 22px 18px; }
+  .mm-alt-title { font-size: 19px; }
+  .mm-alt-lede { font-size: 13px; }
+  .mm-alt-body { font-size: 13px; line-height: 1.75; }
   .mm-footer { flex-direction: column; font-size: 9.5px; letter-spacing: 0.08em; }
 }

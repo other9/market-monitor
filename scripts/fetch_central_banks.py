@@ -43,33 +43,33 @@ CENTRAL_BANKS: list[dict[str, Any]] = [
      "next_meeting_hint": "ECB理事会は約6週間ごと"},
 
     {"code": "BOJ",   "name": "BOJ (日本銀行)",                "country": "日本",      "always_show": True,
-     "rate_id": "IRSTCI01JPM156N",                                                            # JP 3M money market (近似)
-     "rate_name": "短期金利",
+     "rate_id": "IRSTCB01JPM156N",                                                            # JP central bank rate (短期政策金利)
+     "rate_name": "無担保コール翌日物 (誘導目標)",
      "next_meeting_hint": "金融政策決定会合は年8回"},
 
     # ── ローテ候補 (Claude が選択) ──
     {"code": "BOE",   "name": "BOE (イングランド銀行)",        "country": "英国",      "always_show": False,
-     "rate_id": "BOERUKM",                                                                    # Bank Rate
+     "rate_id": "IRSTCB01GBM156N",
      "rate_name": "Bank Rate",
      "next_meeting_hint": "MPC は約6週間ごと"},
 
     {"code": "BOC",   "name": "BOC (カナダ銀行)",              "country": "カナダ",    "always_show": False,
-     "rate_id": "IRSTCI01CAM156N",
+     "rate_id": "IRSTCB01CAM156N",
      "rate_name": "翌日物金利目標",
      "next_meeting_hint": "8回/年"},
 
     {"code": "SNB",   "name": "SNB (スイス国立銀行)",          "country": "スイス",    "always_show": False,
-     "rate_id": "IRSTCI01CHM156N",
+     "rate_id": "IRSTCB01CHM156N",
      "rate_name": "政策金利",
      "next_meeting_hint": "四半期ごと"},
 
     {"code": "RBA",   "name": "RBA (豪州準備銀行)",            "country": "豪州",      "always_show": False,
-     "rate_id": "IRSTCI01AUM156N",
+     "rate_id": "IRSTCB01AUM156N",
      "rate_name": "キャッシュレート",
      "next_meeting_hint": "8回/年"},
 
     {"code": "RBNZ",  "name": "RBNZ (ニュージーランド準備銀行)","country": "ニュージーランド", "always_show": False,
-     "rate_id": "IRSTCI01NZM156N",
+     "rate_id": "IRSTCB01NZM156N",
      "rate_name": "Official Cash Rate",
      "next_meeting_hint": "7回/年"},
 ]
