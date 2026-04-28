@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-04-28T11:44:02.700931+00:00",
+  "generatedAt": "2026-04-28T11:51:29.756040+00:00",
   "chart": {
     "series_id": "DCOILBRENTEU",
     "title": "Brent原油価格の推移",
     "subtitle": "日次, ドル/バレル",
-    "rationale": "中東紛争の長期化で原油が110ドル突破。過去のエネルギー危機との比較でインフレ圧力の深刻度を可視化する局面。",
+    "rationale": "イラン情勢緊迫で原油が110ドル突破。過去数年の価格推移から現在の水準を歴史的文脈で把握する。",
     "period_years": 5,
     "units": "Dollars per Barrel",
     "frequency": "Daily",
