@@ -48,6 +48,12 @@ jobs:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python scripts/fetch_valuations.py
 
+      # ── 2c. 中央銀行の政策金利ファクト (Claudeの中銀ウォッチ生成用) ──
+      - name: Fetch central bank rates
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+        run: python scripts/fetch_central_banks.py
+
       # ── 3. ニュース + 注目チャート3本選定 ──
       - name: Fetch & summarize news (Claude API)
         env:

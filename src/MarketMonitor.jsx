@@ -118,6 +118,7 @@ const MACRO_URL = `${import.meta.env.BASE_URL}data/macro.json`;
 const FEATURED_URL = `${import.meta.env.BASE_URL}data/featured.json`;
 const ECONOMIC_URL = `${import.meta.env.BASE_URL}data/economic.json`;
 const VALUATIONS_URL = `${import.meta.env.BASE_URL}data/valuations.json`;
+const CB_URL = `${import.meta.env.BASE_URL}data/central_banks.json`;
 
 // ─── Primitives ───
 const Pct = ({ n, big = false }) => (
@@ -150,7 +151,7 @@ const Signed = ({ n, d = 3 }) => (
 );
 
 // ─── 5Y daily chart (downsamples for smooth rendering) ───
-function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlight }) {
+function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlight, freqLabel = "5Y Daily" }) {
   if (!data || data.length === 0) {
     return (
       <div className="mm-chart-card">
@@ -173,7 +174,7 @@ function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlig
   const max = Math.max(...vals);
   const pad = (max - min) * 0.1;
 
-  // X軸ラベル "YYYY-MM-DD" → "YY/MM"
+  // X軸ラベル: "YYYY-MM-DD" または "YYYY-MM" → "YY/MM"
   const tickFormat = (v) => {
     const p = v.split("-");
     return p.length >= 2 ? p[0].slice(2) + "/" + p[1] : v;
@@ -184,7 +185,7 @@ function MiniChart({ data, title, sub, current, unit = "", decimals = 0, highlig
       <div className="mm-chart-head">
         <div>
           <div className="mm-chart-title">{title}</div>
-          <div className="mm-chart-sub">{sub} · 5Y Daily</div>
+          <div className="mm-chart-sub">{sub} · {freqLabel}</div>
         </div>
         <div>
           <div className="mm-chart-cur">{unit}{fmt(current, decimals)}</div>
@@ -828,10 +829,83 @@ function ValuationSection({ valuations, valuationView }) {
               data={ind.history}
               current={ind.value}
               decimals={2}
+              freqLabel="5Y Monthly"
             />
           ))}
         </div>
       )}
+    </div>
+  );
+}
+
+// ─── Central Bank Watch ───
+function CentralBankWatch({ watch, factsByCode }) {
+  if (!watch || watch.length === 0) return null;
+
+  return (
+    <div style={{ marginTop: 48, marginBottom: 24 }}>
+      <div className="mm-section-tag">VII. 中央銀行ウォッチ</div>
+      <div className="mm-section-head"><em>Fed・ECB・BOJ + α、</em> 政策の今を読む。</div>
+      <div className="mm-section-lede">
+        主要3中銀 (Fed, ECB, BOJ) は常設、4枚目は<strong>その日のニュース文脈で日替わり</strong>に選定。
+        各カードは政策金利・直近決定・要人発言・市場見方をAIが整理。
+      </div>
+
+      <div className="mm-cb-grid">
+        {watch.map((cb, i) => {
+          const facts = factsByCode[cb.code] || {};
+          const isRotating = facts.always_show === false;
+          return (
+            <div key={i} className={`mm-cb-card ${isRotating ? "rotating" : ""}`}>
+              {isRotating && <span className="mm-cb-rotating-badge">▲ 日替わり</span>}
+              <div className="mm-cb-head">
+                <div style={{ minWidth: 0, flex: 1 }}>
+                  <div className="mm-cb-name">{facts.name || cb.code}</div>
+                  <div className="mm-cb-country">{facts.country || ""}</div>
+                </div>
+                {facts.rate_value != null && (
+                  <div className="mm-cb-rate">
+                    <div className="mm-cb-rate-val">{fmt(facts.rate_value, 2)}%</div>
+                    <div className="mm-cb-rate-name">{facts.rate_name || "Policy Rate"}</div>
+                  </div>
+                )}
+              </div>
+
+              {cb.last_decision && (
+                <div className="mm-cb-section">
+                  <div className="mm-cb-section-label">— 直近の決定</div>
+                  <div className="mm-cb-section-body">{cb.last_decision}</div>
+                </div>
+              )}
+
+              {cb.official_quotes && (
+                <div className="mm-cb-section">
+                  <div className="mm-cb-section-label">— 要人発言</div>
+                  <div className="mm-cb-section-body">{cb.official_quotes}</div>
+                </div>
+              )}
+
+              {cb.market_view && (
+                <div className="mm-cb-section">
+                  <div className="mm-cb-section-label">— 市場の見方</div>
+                  <div className="mm-cb-section-body">{cb.market_view}</div>
+                </div>
+              )}
+
+              <div className="mm-cb-meta">
+                {cb.next_meeting && (
+                  <span className="mm-cb-meta-item">次回: <strong>{cb.next_meeting}</strong></span>
+                )}
+                {facts.last_change && facts.last_change_date && (
+                  <span className="mm-cb-meta-item">
+                    直近: <strong>{facts.last_change}</strong> ({facts.last_change_amount > 0 ? "+" : ""}{facts.last_change_amount}%, {facts.last_change_date})
+                  </span>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -844,6 +918,7 @@ export default function MarketMonitor() {
   const [featured, setFeatured] = useState(null);
   const [economic, setEconomic] = useState(null);
   const [valuations, setValuations] = useState(null);
+  const [centralBanks, setCentralBanks] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -855,8 +930,9 @@ export default function MarketMonitor() {
       safe(fetch(FEATURED_URL).then((r) => { if (!r.ok) throw new Error(`featured.json: ${r.status}`); return r.json(); })),
       safe(fetch(ECONOMIC_URL).then((r) => { if (!r.ok) throw new Error(`economic.json: ${r.status}`); return r.json(); })),
       safe(fetch(VALUATIONS_URL).then((r) => { if (!r.ok) throw new Error(`valuations.json: ${r.status}`); return r.json(); })),
+      safe(fetch(CB_URL).then((r) => { if (!r.ok) throw new Error(`central_banks.json: ${r.status}`); return r.json(); })),
     ])
-      .then(([m, n, ma, f, e, v]) => { setMarket(m); setNews(n); setMacro(ma); setFeatured(f); setEconomic(e); setValuations(v); })
+      .then(([m, n, ma, f, e, v, cb]) => { setMarket(m); setNews(n); setMacro(ma); setFeatured(f); setEconomic(e); setValuations(v); setCentralBanks(cb); })
       .catch((e) => setError(e.message));
   }, []);
 
@@ -982,6 +1058,12 @@ export default function MarketMonitor() {
 
       {/* VI. Valuation gauges */}
       <ValuationSection valuations={valuations} valuationView={news.valuation_view} />
+
+      {/* VII. Central Bank Watch */}
+      <CentralBankWatch
+        watch={news.central_bank_watch || []}
+        factsByCode={Object.fromEntries((centralBanks?.central_banks || []).map((c) => [c.code, c]))}
+      />
 
       {/* IV. 5Y charts */}
       <div style={{ marginTop: 48, marginBottom: 24 }}>

@@ -861,6 +861,118 @@
   margin-top: 28px;
 }
 
+/* ── Central Bank Watch ── */
+.mm-cb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 18px;
+}
+.mm-cb-card {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-top: 4px solid var(--accent);
+  min-width: 0;
+}
+.mm-cb-card.rotating {
+  border-top-color: var(--accent2);
+  background: linear-gradient(180deg, #FEFAF0 0%, var(--panel) 30%);
+}
+.mm-cb-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.mm-cb-name {
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--fg);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.mm-cb-country {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.mm-cb-rate {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-align: right;
+  white-space: nowrap;
+}
+.mm-cb-rate-val {
+  font-size: 22px;
+  color: var(--fg);
+}
+.mm-cb-rate-name {
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2px;
+  font-weight: 400;
+}
+.mm-cb-rotating-badge {
+  position: absolute;
+  top: -1px;
+  right: 12px;
+  background: var(--accent2);
+  color: #FFF;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  padding: 3px 8px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.mm-cb-section {
+  margin-top: 12px;
+}
+.mm-cb-section-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.mm-cb-section-body {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--fg);
+}
+.mm-cb-meta {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+.mm-cb-meta-item {
+  white-space: nowrap;
+}
+.mm-cb-meta-item strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
 /* ============= Responsive ============= */
 @media (max-width: 1100px) {
   .mm-featured-grid { grid-template-columns: 1fr; }
@@ -885,6 +997,7 @@
   .mm-econ-title { font-size: 22px; }
   .mm-econ-last-val { font-size: 22px; }
   .mm-val-charts { grid-template-columns: 1fr; }
+  .mm-cb-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {
