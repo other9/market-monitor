@@ -1,12 +1,237 @@
 {
-  "generatedAt": "1970-01-01T00:00:00Z",
-  "epigraph": { "quote": "—", "source": "初回起動中", "connection": "" },
-  "headline_of_the_day": "初回起動 — データ取得待ち",
-  "news": [],
-  "funny_stories": [],
-  "charts_of_the_day": [],
-  "deep_dive": null,
-  "economic_chart_of_the_day": null,
-  "central_bank_watch": [],
-  "alternatives_view": null
+  "generatedAt": "2026-04-28T12:31:20.588293+00:00",
+  "epigraph": {
+    "quote": "歴史は繰り返さないが、韻を踏む。",
+    "source": "マーク・トウェイン（作家）",
+    "connection": "イラン情勢と原油高騰、日銀のタカ派姿勢──過去の危機と重なるパターンが市場を支配する一日"
+  },
+  "headline_of_the_day": "日銀タカ派分裂、原油110ドル突破で円高・株安",
+  "news": [
+    {
+      "tag": "中央銀行",
+      "headline": "日銀、金利据え置きも委員3人が利上げ主張──植田体制で最もタカ派的な分裂",
+      "body": "日銀は政策金利を据え置いたが、審議委員9人中3人が利上げを主張する異例の展開。植田総裁は会見で「物価上振れリスクに留意」と発言し、市場はタカ派的と受け止めた。円は対ドルで159円前半に上昇。",
+      "impact": [
+        "円高進行で輸出企業に逆風",
+        "7月会合での利上げ観測が浮上"
+      ],
+      "source_index": 97,
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPc3MxbWJhTGpkVmpabHpyUmhkTEZOU1JpMmRXUS0ydUtHZ2ZjcE9WZU5tUkoyY1djamNxbThtakJRRTNQckxLZEZPY3RvV0lrLWduY3loXzVjY1FlX18tLVE0dWxLYTV5aGpoNkZFLU9MajJHaFVXaGgzNlJUQ09FZ19xSGZXQTBPMjZlREtxRk9WS05lQ0pKYl9PODdic0hic3hzRWJWNi1JbFp5Q3A5ZXFYbw?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "地政学",
+      "headline": "ブレント原油、3週間ぶりに110ドル突破──トランプ氏「イラン提案に近く対応」",
+      "body": "ホルムズ海峡封鎖が続く中、イランの和平提案にトランプ大統領が不満を示したとの報道で原油が急騰。イランの未使用貯蔵容量は22日分以下に縮小。日本のタンカーが戦争開始後初めてホルムズ通過を試みている。",
+      "impact": [
+        "エネルギーコスト上昇で世界的インフレ圧力",
+        "日本のエネルギー安全保障に直結"
+      ],
+      "source_index": 125,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPY1h5OGI5My1Ndl80VGZvOEhIdGpuUzJxaW9UM3d0Wm1DU0hPbkF2S1A0dkVTNmlsSHF1Vmp5Q21jQVhrRW4xV1FSeVllUm1nb0p6X3BhTTg2V2I4S19PeFpUd1NSeEZuUWdwaFFxVW51YTVhY3ZCYnZNeGNCUHZrbTg5RkQ?oc=5",
+      "source": "Financial Times (via Google)"
+    },
+    {
+      "tag": "決算",
+      "headline": "BP、四半期利益が2倍に急増──イラン戦争下の原油トレーディングが奏功",
+      "body": "英石油大手BPは1-3月期の利益が前年同期比2倍に拡大。ホルムズ危機による原油価格変動を活かしたトレーディング部門が牽引。エネルギー株への追い風が続く。",
+      "impact": [
+        "石油メジャーの業績期待上昇",
+        "トレーディング収益の重要性が再認識"
+      ],
+      "source_index": 123,
+      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOR0JETEhXamRQVmFZelZfRTgwX0x5WWtPLUh2QTRxTkE2NnVKOTRiQmhmN3N0LW1DSTBETDYwSW5LcDlwZEd0blBCX1FDdllfc1locHZmVEx2bWloeW0ySHk2QzhieWdlX2Rjdy1xQW1xd2VVdTg0aVV4c1Q2cG1nUkRDUFcwcVAxMEFlRnlyOVJsMnlnN202eXRvMlNnQm9IckZyY0tiNk1GWktvNFo4SHNWMngtUExYWlZ3OQ?oc=5",
+      "source": "WSJ Markets (via Google)"
+    },
+    {
+      "tag": "AI・テック",
+      "headline": "OpenAI、売上・ユーザー目標を下回る──IPO前の重要局面で競争激化が影響",
+      "body": "WSJ報道によると、OpenAIが自社設定の収益・ユーザー成長目標を達成できず。ライバルAI企業との競争激化が背景。ソフトバンク株は6カ月ぶりの大幅安、オラクルなど関連株も下落。",
+      "impact": [
+        "AI関連株のバリュエーション見直し",
+        "ソフトバンクのポートフォリオリスク顕在化"
+      ],
+      "source_index": 115,
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOeDhJdk5kS0ZjcEV1MDF6U2piMWlUMzFYbGl2Y0hoQVEyajFzWDRLazF4U1p0alhaTWNnU0NKckM5c1dxVEc2WWZ4MDRsY19NR0Z3NGZYX3ZpV0E2XzB4RXpRRU1EcmltaEczcDJ4VzB6bGt6VUxzWENlcTh5NndmcFc5N2FuVzlvUHNfU3JTWHlJSllSNVJiRmhLSEhpNTdpSGhuRUxRNE9zQ2Np?oc=5",
+      "source": "WSJ Markets (via Google)"
+    },
+    {
+      "tag": "中央銀行",
+      "headline": "英中銀、30日は金利据え置きへ──中東紛争のインフレ影響を見極め",
+      "body": "ロイター報道によると、イングランド銀行は今週のMPCで政策金利を据え置く見通し。イラン戦争によるエネルギー価格高騰がインフレに与える影響を慎重に評価する構え。",
+      "impact": [
+        "ポンドは地方選挙前に下落リスク",
+        "利下げ時期の後ずれ観測"
+      ],
+      "source_index": 148,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQd0RJOTRtMmVuUFZjdFJDcTd5Yjhub3FoclhGQ0lOS1lIQWpRZzJDaC1HVDVEajkxSmdiNVNEdmlVd0c2U3pfcmJjV0tCdzFjQTViVWpNZ29TSFpvTDNEdEdNQmVjam83LUd4T05Pd09neGxGcGdnV2lWdUJJbDhTdFc3Q2M?oc=5",
+      "source": "Financial Times (via Google)"
+    },
+    {
+      "tag": "中国",
+      "headline": "CATL、香港で50億ドル調達──世界最大の電池メーカーがグリーンエネ需要を追い風に",
+      "body": "中国の車載電池最大手CATLが香港市場で大型増資を実施。EV・再生可能エネルギー向け電池需要の拡大を見込み、成長投資に充当。BYDは価格競争で数年ぶりの低利益率。",
+      "impact": [
+        "EV電池サプライチェーンへの資金流入",
+        "中国グリーンテック銘柄への関心継続"
+      ],
+      "source_index": 126,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdkg5OUlFdGI3Smg4WjNiMWlOMlJpN1FHMEYxZmJ2elFYRVBEbnRSUUJrMTJwMUI0c0F0ZExLcnQ3VXBwX0o0alRLREhaMzlyb3o2SEdtUXI2aEN6NUNnS1lvVTNyck54TGFzZDJyZF9FX2U0ODZjYVFoS3djR0hhUGJWNjk?oc=5",
+      "source": "Financial Times (via Google)"
+    },
+    {
+      "tag": "クレジット",
+      "headline": "ウォール街、国債保有を2007年以来最高水準に積み増し",
+      "body": "FT報道によると、米大手銀行が国債保有を大幅に拡大。金利高止まり環境下での安全資産需要と、トレーディング在庫の両面が背景。BlackRockは「高金利は定着する」との見解を示した。",
+      "impact": [
+        "銀行の金利感応度上昇",
+        "国債市場の流動性改善期待"
+      ],
+      "source_index": 127,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPd1M2MHE2MkhsYlJFLTlnYUg4S1BQWFBLQkU5a0pTQ3ZpeEdZeHFrVFkzRzZIRXVDWmllOGRZWkhHTkpMbVNqVWxRYkR3anktVzhUVHh5TnZvOWdBY0k3ME8xZnJSREE4SWhIcHphUEQ1ZlFqTVE4YmJuLWNaOFBRbzBZTkQ?oc=5",
+      "source": "Financial Times (via Google)"
+    }
+  ],
+  "funny_stories": [
+    {
+      "kind": "皮肉・風刺系",
+      "title": "予測市場の皮肉な結末",
+      "body": "Bloombergによると、予測市場で実際に儲けているのは人間ではなくボット。「集合知」を謳う市場で、アルゴリズムが人間の予測を刈り取る構図。次は「AIが予測するAIの未来」を賭ける市場ができるのだろうか。民主化されたはずの金融の、美しい自己言及。",
+      "source_index": 87,
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNejk0WkhiMnBlU2ZmVlFETTZpbzhXdHdmMDMyX0xSZW5mdHhTZzkwa3h6eUI4SHpHNUZiaUZOczQwaW5LTGRBMnZGUTNVOTRMSkVlUmYycXJKY0wtZi0wSmpOOVVESmRMWFZuZHF0TFk5bEZZMEJvVGFNd1ptajZ5UTZuVzMtR0tSU3h0cE4xQTd5bW5WLWxJOV95LUlVdGRRcTFYb2RsQXFmVmsyTkJmd04tQU13dU5YTXVVdERxN2w?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "kind": "人間味・哀愁系",
+      "title": "うなぎ屋の隣にうなぎ屋",
+      "body": "老舗のうなぎ店主が困惑している。隣に同業者が出店したのだ。「土用の丑の日」に向けて共存か競争か──。資本市場では毎日繰り広げられる弱肉強食が、下町の一角では静かなドラマとして進行中。煙の香りは二軒分、客の財布は一つ。",
+      "source_index": 7,
+      "link": "https://news.yahoo.co.jp/pickup/6577984?source=rss",
+      "source": "Yahoo!ファイナンス"
+    },
+    {
+      "kind": "観察・再発見系",
+      "title": "銀行CEOのAI分身が決算説明会に登壇",
+      "body": "Customers BankのCEOが、自身のAIクローンに決算説明会を任せた。投資家からの質問に淀みなく回答し、OpenAIとの提携も発表。本人は何をしていたのか？　おそらく次の四半期に備えて「分身の素材撮影」だろう。",
+      "source_index": 34,
+      "link": "https://www.cnbc.com/2026/04/27/openai-partners-with-customers-bank-in-push-to-automate-finance.html",
+      "source": "CNBC Markets"
+    }
+  ],
+  "charts_of_the_day": [
+    {
+      "source": "yf",
+      "ticker": "BZ=F",
+      "title": "Brent原油",
+      "name": "Brent原油",
+      "sub": "$ / bbl",
+      "rationale": "ホルムズ海峡封鎖継続と米イラン交渉難航で110ドル突破。エネルギー危機の温度計"
+    },
+    {
+      "source": "yf",
+      "ticker": "JPY=X",
+      "title": "ドル円",
+      "name": "USD/JPY",
+      "sub": "ドル円",
+      "rationale": "日銀タカ派分裂を受けて円高進行。159円前半で推移、利上げ観測の織り込み度合いを確認"
+    },
+    {
+      "source": "yf",
+      "ticker": "9984.T",
+      "title": "ソフトバンクグループ",
+      "name": "ソフトバンクグループ",
+      "sub": "",
+      "rationale": "OpenAI目標未達報道で6カ月ぶり大幅安。AI投資ポートフォリオへの懸念"
+    },
+    {
+      "source": "yf",
+      "ticker": "BP",
+      "title": "BP",
+      "name": "BP",
+      "sub": "",
+      "rationale": "原油トレーディング好調で利益2倍。石油メジャーの戦時恩恵を確認"
+    },
+    {
+      "source": "yf",
+      "ticker": "^TNX",
+      "title": "米10年債利回り",
+      "name": "米10年債利回り",
+      "sub": "%",
+      "rationale": "BlackRockが高金利定着を予測。銀行の国債保有増との関連でも注目"
+    },
+    {
+      "source": "yf",
+      "ticker": "^N225",
+      "title": "日経平均",
+      "name": "日経平均",
+      "sub": "INDEX · JPY",
+      "rationale": "日銀タカ派姿勢と円高で3日ぶり反落。利益確定売りの深度を確認"
+    },
+    {
+      "source": "yf",
+      "ticker": "GC=F",
+      "title": "金（COMEX）",
+      "name": "金 (COMEX)",
+      "sub": "$ / oz",
+      "rationale": "原油高によるインフレ懸念で4700ドル割れ。安全資産としての地位に変化？"
+    },
+    {
+      "source": "yf",
+      "ticker": "300750.SZ",
+      "title": "CATL（寧徳時代）",
+      "name": "CATL（寧徳時代）",
+      "sub": "",
+      "rationale": "50億ドル香港増資を発表。EV電池最大手の資金調達動向"
+    }
+  ],
+  "deep_dive": {
+    "title": "日銀「タカ派的据え置き」が示す政策正常化への静かな転換点",
+    "lede": "金利は動かなかった。だが9人中3人が利上げを主張した事実は、植田日銀の新たな局面入りを告げている。市場は「次」を織り込み始めた。",
+    "background": "日銀は4月会合で政策金利を据え置いたが、審議委員の田村・野口・安達の3氏が0.25%への利上げを主張した。植田体制発足以来、これほど明確な意見分裂は初めてだ。植田総裁は会見で「物価の上振れリスクに引き続き留意する」と述べ、タカ派的なトーンを維持。背景にはイラン戦争によるエネルギー価格高騰と、それに伴う輸入インフレ圧力がある。日本のCPIは2%を上回る水準で推移しており、「一時的」との説明は苦しくなりつつある。",
+    "implications": "短期的には円高が輸出企業の業績見通しを圧迫し、日経平均は3日ぶりに反落した。しかし中期的には、日銀の正常化姿勢が海外投資家の日本株選好を支える可能性がある。円キャリートレードの巻き戻しリスクも意識され始めた。長期的には、30年続いた超低金利からの脱却が進めば、銀行セクターの収益構造や不動産市場に構造変化をもたらす。ただし、原油高によるスタグフレーション懸念が強まれば、利上げと景気減速の板挟みに陥るリスクもある。",
+    "what_to_watch": [
+      "次回7月会合での委員投票の動向",
+      "5月・6月のCPI（エネルギー転嫁の進展度合い）",
+      "ドル円の155円割れの有無（キャリー巻き戻しの兆候）",
+      "春闘後の賃金データと企業の価格転嫁姿勢",
+      "イラン情勢の進展と原油価格の動向"
+    ],
+    "related_keys": [
+      "usdjpy",
+      "nikkei",
+      "us10y",
+      "wti"
+    ],
+    "source_index": 97,
+    "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPc3MxbWJhTGpkVmpabHpyUmhkTEZOU1JpMmRXUS0ydUtHZ2ZjcE9WZU5tUkoyY1djamNxbThtakJRRTNQckxLZEZPY3RvV0lrLWduY3loXzVjY1FlX18tLVE0dWxLYTV5aGpoNkZFLU9MajJHaFVXaGgzNlJUQ09FZ19xSGZXQTBPMjZlREtxRk9WS05lQ0pKYl9PODdic0hic3hzRWJWNi1JbFp5Q3A5ZXFYbw?oc=5",
+    "source": "Bloomberg (via Google)"
+  },
+  "economic_chart_of_the_day": {
+    "series_id": "DCOILBRENTEU",
+    "title": "ブレント原油価格の推移",
+    "subtitle": "日次, ドル/バレル",
+    "rationale": "イラン戦争とホルムズ封鎖で原油が110ドル突破。各国のインフレ・金融政策に直結するエネルギー価格の動きを長期視点で確認する",
+    "period_years": 3
+  },
+  "central_bank_watch": [
+    {
+      "code": "FED",
+      "comment": "FRBは次回FOMC（5月）を前に静観姿勢を維持している。FF金利は3.75%で据え置かれているが、イラン戦争による原油高騰がインフレ期待を押し上げる中、レイ・ダリオ氏は「スタグフレーション環境下での利下げは中銀の信認を損なう」と警告。市場は年内の追加利下げ織り込みを縮小させている。一方、ウォール街の国債保有が2007年以来の高水準に達したことは、金利高止まりを前提としたポジション構築が進んでいることを示唆。次回FOMCでは原油高の物価への波及をどう評価するかが焦点となる。"
+    },
+    {
+      "code": "ECB",
+      "comment": "ECBは預金ファシリティ金利を2.0%で維持している。欧州ではイラン戦争の影響がより深刻で、航空各社がジェット燃料危機を理由に旅客サービス削減を示唆するなど、エネルギーコスト上昇が実体経済を直撃。FT報道によると39カ国がエネルギー減税に踏み切っており、財政と金融政策の綱引きが激化している。メルツ独首相が「米国はイランに屈辱を受けている」と発言するなど、地政学的緊張が欧州のマクロ環境を複雑化させている。6月理事会では成長下振れとインフレ上振れの両にらみが続く。"
+    },
+    {
+      "code": "BOJ",
+      "comment": "本日の金融政策決定会合で日銀は金利据え置きを決定したが、田村・野口・安達の3委員が利上げを主張し、植田体制下で最もタカ派的な分裂となった。植田総裁は「物価上振れリスクに留意」と発言し、市場は7月会合での利上げ可能性を意識し始めた。ドル円は159円前半に円高が進行。出光系タンカーがホルムズ海峡通過を試みるなど、日本のエネルギー調達リスクが顕在化する中、輸入インフレと円安是正の狭間で政策判断の難度は上がっている。"
+    },
+    {
+      "code": "BOE",
+      "comment": "イングランド銀行は4月30日のMPCで政策金利を据え置く見通し。中東紛争によるインフレ影響を見極める姿勢だ。BOEは先日「株式市場の急落リスク」を警告しており、金融安定への懸念も滲む。ポンドは5月1日の地方選挙を前に下落リスクが指摘されている。バークレイズが英住宅ローン会社MFSの破綻で2.28億ポンドの損失を計上したことも、英国金融セクターの脆弱性を示す材料。利下げ再開は早くても夏以降との見方が優勢だ。"
+    }
+  ],
+  "alternatives_view": {
+    "body": "オルタナティブ資産では、インフラ投資に大型案件が相次いでいる。StonePeakとBernhard Capitalが米電力会社Clecoを買収することで合意。売り手はMacquarie、BC州投資管理公社、Manulife傘下のコンソーシアムで、インフラ資産の「セカンダリー取引」（既存ファンドから別のファンドへの持分売却）が活発化している証左だ。\n\nプライベート・クレジット分野では興味深い動きがあった。著名投資家ボアズ・ワインスタイン率いるSaba Capitalが、Blue OwlやStarwoodの非上場BDC（事業開発会社）株式を割安価格で買い取る「テンダー・オファー」を実施したが、投資家の応募は低調だった。BDCとは中小企業向け融資を行うファンドの一種で、通常は流動性が低い。大幅なディスカウントでも売りたくないという投資家心理は、プライベート・クレジットへの根強い信頼を示している。\n\n一方、AllianzGIがアジア太平洋地域のインフラ・クレジット・ファンドで2.7億ドルのファーストクローズを達成。日本では三井住友信託銀行がHPCと提携し、オルタナティブ投資の個人向け拡販を進める。機関投資家から個人へ、オルタナ投資の裾野は確実に広がりつつある。"
+  }
 }
