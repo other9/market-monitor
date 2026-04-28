@@ -1,12 +1,257 @@
 {
-  "generatedAt": "1970-01-01T00:00:00Z",
-  "epigraph": { "quote": "—", "source": "初回起動中", "connection": "" },
-  "headline_of_the_day": "初回起動 — データ取得待ち",
-  "news": [],
-  "funny_stories": [],
-  "charts_of_the_day": [],
-  "deep_dive": null,
-  "economic_chart_of_the_day": null,
-  "valuation_view": null,
-  "central_bank_watch": []
+  "generatedAt": "2026-04-28T12:09:25.258492+00:00",
+  "epigraph": {
+    "quote": "市場は、あなたが支払い能力を維持できる期間よりも長く、不合理であり続けることができる。",
+    "source": "ジョン・メイナード・ケインズ",
+    "connection": "日銀の利上げ見送りと物価上振れリスク、原油110ドル突破という矛盾した環境で、市場参加者は合理的判断と現実の乖離に直面している"
+  },
+  "headline_of_the_day": "日銀据え置きもタカ派色、原油111ドル突破",
+  "news": [
+    {
+      "tag": "金融政策",
+      "headline": "日銀、利上げ見送りも3委員が利上げ主張 タカ派的据え置き",
+      "body": "日銀は金融政策決定会合で現状維持を決定したが、3名の審議委員が利上げを主張。植田総裁は物価上振れリスクへの留意を表明し、市場はタカ派的と受け止めた。ドル円は159円前半で上値重く推移。",
+      "impact": [
+        "円高圧力継続",
+        "日本株への逆風",
+        "6月会合での利上げ観測浮上"
+      ],
+      "source_index": 0,
+      "link": "https://news.yahoo.co.jp/pickup/6577981?source=rss",
+      "source": "Yahoo!ファイナンス"
+    },
+    {
+      "tag": "地政学",
+      "headline": "原油111ドル突破、トランプ氏がイラン提案に難色との報道",
+      "body": "ブレント原油が111ドルに急騰。トランプ大統領がイランの戦争終結提案に不満を示したとの報道を受け、中東紛争の長期化懸念が再燃。出光系タンカーがホルムズ海峡を航行中との報道も緊張を高めている。",
+      "impact": [
+        "インフレ圧力再燃",
+        "スタグフレーション懸念",
+        "航空・運輸セクターへの逆風"
+      ],
+      "source_index": 27,
+      "link": "https://www.marketwatch.com/story/global-oil-contract-tops-110-after-reports-that-trump-unhappy-with-proposal-from-iran-to-end-war-0708b8ec?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "tag": "AI・テック",
+      "headline": "OpenAI収益目標未達報道でソフトバンク急落、AI関連株に波及",
+      "body": "WSJ報道によりOpenAIがユーザー成長と収益で社内目標を下回ったことが判明。ソフトバンクGは半年ぶりの大幅下落、オラクルや半導体関連にも売り波及。AI投資の回収期待に冷や水。",
+      "impact": [
+        "AI関連株の調整継続",
+        "Big Tech決算への警戒感",
+        "ソフトバンク株の重し"
+      ],
+      "source_index": 25,
+      "link": "https://www.marketwatch.com/story/after-report-of-openai-missing-targets-one-company-sees-its-worst-share-price-decline-in-six-months-f552fe04?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "tag": "決算",
+      "headline": "GM決算好調、最高裁判決で関税コスト減 通期見通し上方修正",
+      "body": "GMが1Q決算で予想を上回る利益を計上。最高裁判決により関税コストが軽減されたことで通期利益見通しを引き上げ。自動車セクターに明るい材料。",
+      "impact": [
+        "自動車株への追い風",
+        "関税政策の司法判断が企業業績に影響",
+        "米国製造業への安心感"
+      ],
+      "source_index": 50,
+      "link": "https://finance.yahoo.com/markets/article/gm-earnings-top-estimates-company-raises-profit-forecast-after-supreme-court-ruling-reduces-tariff-costs-143121594.html",
+      "source": "Yahoo Finance US"
+    },
+    {
+      "tag": "中国",
+      "headline": "中国人民銀、一部銀行に4月融資拡大を指示 信用急減速に警戒",
+      "body": "中国人民銀行が一部銀行に対し4月の融資拡大を指示。信用供与の急減速に対する警戒感から、景気下支え姿勢を強化。CATLの香港での50億ドル調達成功とは対照的な国内状況。",
+      "impact": [
+        "中国景気への懸念継続",
+        "人民元への下落圧力",
+        "新興国市場への波及リスク"
+      ],
+      "source_index": 17,
+      "link": "https://jp.reuters.com/markets/japan/A5VKSIAVHJPZVOKUJYE5SSDG5E-2026-04-28/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "英国",
+      "headline": "BOE、30日は金利据え置きへ 中東紛争の影響見極め",
+      "body": "イングランド銀行は30日のMPCで金利据え置きを予想。中東紛争によるエネルギー価格上昇の影響を慎重に見極める姿勢。BOEは株式市場の暴落リスクにも警告を発している。",
+      "impact": [
+        "ポンドの方向感欠如",
+        "英国株への慎重姿勢",
+        "欧州金融政策の足並みに注目"
+      ],
+      "source_index": 13,
+      "link": "https://jp.reuters.com/markets/japan/XSMNSUSZBNPY3LYFVZFWCGFYG4-2026-04-28/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "決算",
+      "headline": "Spotify株急落、1Q好調も加入者見通しが市場予想下回る",
+      "body": "Spotifyは1Q決算で市場予想に沿う内容だったものの、今後の加入者見通しが予想を下回り株価急落。サブスク市場の飽和懸念が再浮上。",
+      "impact": [
+        "サブスクリプション銘柄への警戒",
+        "グロース株全般への逆風",
+        "消費者支出の選別化"
+      ],
+      "source_index": 47,
+      "link": "https://www.investors.com/news/technology/spotify-stock-q1-2026-earnings/?src=A00220&yptr=yahoo",
+      "source": "Yahoo Finance US"
+    }
+  ],
+  "funny_stories": [
+    {
+      "kind": "皮肉・風刺系",
+      "title": "AIの夢と現実",
+      "body": "「AIが人類を超える」と言われて久しいが、OpenAIは自社の収益目標すら超えられなかった。ソフトバンク株は半年ぶりの大幅安。孫正義氏の「AIは人類の進化」発言が脳裏をよぎる。進化の途中で躓くこともあるのだ。",
+      "source_index": 25,
+      "link": "https://www.marketwatch.com/story/after-report-of-openai-missing-targets-one-company-sees-its-worst-share-price-decline-in-six-months-f552fe04?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "kind": "人間味・哀愁系",
+      "title": "老舗の矜持",
+      "body": "「うなぎ店の隣にうなぎ店」という見出しに、思わず目が止まった。何十年も暖簾を守ってきた老舗の隣に新規出店。競争は資本主義の華だが、当事者には眠れない夜があるのだろう。市場も人生も、隣の芝は青く見えるものだ。",
+      "source_index": 7,
+      "link": "https://news.yahoo.co.jp/pickup/6577984?source=rss",
+      "source": "Yahoo!ファイナンス"
+    },
+    {
+      "kind": "観察・再発見系",
+      "title": "2時間の壁と株価",
+      "body": "アディダスの株価が上昇した理由は「マラソン2時間切りの靴」。人類の限界突破がそのまま株価に反映される。かつてロジャー・バニスターが4分の壁を破った時、株式市場は存在しなかった。今や人間の足の速さまでが投資判断材料になる時代である。",
+      "source_index": 5,
+      "link": "https://news.yahoo.co.jp/pickup/6577985?source=rss",
+      "source": "Yahoo!ファイナンス"
+    }
+  ],
+  "charts_of_the_day": [
+    {
+      "source": "yf",
+      "ticker": "BZ=F",
+      "title": "Brent原油",
+      "name": "Brent原油",
+      "sub": "$ / bbl",
+      "rationale": "111ドル突破、イラン情勢悪化で急騰。スタグフレーション懸念の震源地"
+    },
+    {
+      "source": "yf",
+      "ticker": "9984.T",
+      "title": "ソフトバンクG",
+      "name": "ソフトバンクG",
+      "sub": "",
+      "rationale": "OpenAI目標未達報道で半年ぶり大幅安。AI投資回収への疑念"
+    },
+    {
+      "source": "yf",
+      "ticker": "JPY=X",
+      "title": "ドル円",
+      "name": "USD/JPY",
+      "sub": "ドル円",
+      "rationale": "日銀タカ派据え置きで159円前半、円高圧力継続"
+    },
+    {
+      "source": "yf",
+      "ticker": "^TNX",
+      "title": "米10年債利回り",
+      "name": "米10年債利回り",
+      "sub": "%",
+      "rationale": "原油高とスタグフレーション懸念下での金利動向に注目"
+    },
+    {
+      "source": "yf",
+      "ticker": "GM",
+      "title": "ゼネラル・モーターズ",
+      "name": "ゼネラル・モーターズ",
+      "sub": "",
+      "rationale": "好決算と通期上方修正、関税コスト減の恩恵"
+    },
+    {
+      "source": "yf",
+      "ticker": "SPOT",
+      "title": "Spotify",
+      "name": "Spotify",
+      "sub": "",
+      "rationale": "加入者見通し下振れで急落、グロース株の試金石"
+    },
+    {
+      "source": "yf",
+      "ticker": "^VIX",
+      "title": "VIX恐怖指数",
+      "name": "VIX (恐怖指数)",
+      "sub": "INDEX",
+      "rationale": "BOEが株式暴落リスクを警告、市場センチメントの確認"
+    },
+    {
+      "source": "yf",
+      "ticker": "GC=F",
+      "title": "金",
+      "name": "金 (COMEX)",
+      "sub": "$ / oz",
+      "rationale": "地政学リスク上昇も下落、インフレ圧力との綱引き"
+    }
+  ],
+  "deep_dive": {
+    "title": "原油111ドル突破が示すスタグフレーションの足音",
+    "lede": "イラン情勢の悪化でブレント原油が111ドルに急騰。中央銀行は利下げどころか利上げ議論に直面し、1970年代の悪夢が現代に蘇りつつある。",
+    "background": "トランプ大統領がイランの戦争終結提案に難色を示したとの報道を受け、中東紛争の長期化観測が急速に広がった。出光興産系タンカーがホルムズ海峡を航行中との報道も、エネルギー供給の脆弱性を改めて意識させた。原油価格は年初から約40%上昇しており、これはコロナ後の供給ショック以来の急騰ペースだ。同日、日銀は利上げを見送ったものの3委員が利上げを主張、植田総裁は「物価上振れリスクへの留意」を明言。BOEも据え置き予想だが、原油高が金融政策の自由度を著しく狭めている。",
+    "implications": "短期的には、エネルギーコスト上昇が企業マージンを圧迫し、トヨタサプライヤーの利益圧迫報道にもあるように製造業への逆風となる。中期的には、Ray Dalio氏が指摘するように「スタグフレーション時代の利下げはFRBの信認を傷つける」状況が現実化。FRBは今週のFOMCで難しい判断を迫られる。長期的には、エネルギー転換投資の加速と、サプライチェーンの地政学的再編が不可避となろう。",
+    "what_to_watch": [
+      "5月FOMC声明文でのインフレ言及の変化",
+      "ホルムズ海峡の航行状況と保険料率",
+      "6月日銀会合での利上げ判断",
+      "ガソリン小売価格と消費者信頼感指数の動向",
+      "HYスプレッドの拡大ペース"
+    ],
+    "related_keys": [
+      "brent",
+      "wti",
+      "us10y",
+      "hyoas"
+    ],
+    "source_index": 27,
+    "link": "https://www.marketwatch.com/story/global-oil-contract-tops-110-after-reports-that-trump-unhappy-with-proposal-from-iran-to-end-war-0708b8ec?mod=mw_rss_topstories",
+    "source": "MarketWatch Top"
+  },
+  "economic_chart_of_the_day": {
+    "series_id": "DCOILBRENTEU",
+    "title": "ブレント原油価格の推移",
+    "subtitle": "日次, ドル/バレル",
+    "rationale": "イラン情勢悪化で111ドル突破。スタグフレーション懸念の核心であり、今後の金融政策と企業収益を左右する最重要指標",
+    "period_years": 5
+  },
+  "valuation_view": {
+    "stance": "やや割高",
+    "body": "S&P500のShiller CAPEは依然として32倍台と歴史的高水準にある。原油111ドル突破によるコスト増と、OpenAI目標未達に象徴されるAI投資回収の不透明感が重なり、バリュエーションの正当化は困難になりつつある。一方、GM好決算のように関税軽減恩恵を受けるセクターもあり、銘柄選別の重要性が増している。Fed ModelではFF金利3.75%との比較で株式の相対的魅力はやや低下。"
+  },
+  "central_bank_watch": [
+    {
+      "code": "FED",
+      "last_decision": "12月FOMCで25bp利下げ、FF金利上限3.75%。データ次第でペース調整の姿勢を維持",
+      "next_meeting": "4月29-30日 FOMC",
+      "official_quotes": "ダリオ氏は「ウォーシュ氏が利下げすればスタグフレーション下でFRBの信認を傷つける」と警告",
+      "market_view": "原油高でインフレ再燃懸念、今週は据え置き予想が優勢。年内利下げ観測は後退"
+    },
+    {
+      "code": "ECB",
+      "last_decision": "6月に25bp利下げ、預金ファシリティ金利2.0%。インフレ鈍化を確認しつつ慎重姿勢",
+      "next_meeting": "6月理事会（約6週間後）",
+      "official_quotes": "ラガルド総裁は「データ依存」を繰り返し強調、原油高への言及増加",
+      "market_view": "欧州への中国製品流入懸念と原油高で追加利下げ観測は後退、据え置き継続予想"
+    },
+    {
+      "code": "BOJ",
+      "last_decision": "4月会合で据え置き決定も3委員が利上げ主張。短期金利0.728%、タカ派的据え置きと市場は解釈",
+      "next_meeting": "6月金融政策決定会合",
+      "official_quotes": "植田総裁「物価上振れリスクに留意」、利上げに前向きな姿勢を示唆",
+      "market_view": "6月会合での利上げ観測が浮上、ドル円は159円前半で上値重く円高圧力継続"
+    },
+    {
+      "code": "BOE",
+      "last_decision": "前回MPCで据え置き、中東情勢とエネルギー価格を注視する姿勢",
+      "next_meeting": "4月30日 MPC",
+      "official_quotes": "BOEは「株式市場の暴落リスク」に警告、金融安定報告で市場リスクの蓄積を指摘",
+      "market_view": "30日は据え置き予想が大勢、中東紛争の影響見極めが優先課題"
+    }
+  ]
 }
