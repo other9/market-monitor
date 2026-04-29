@@ -1,121 +1,128 @@
 {
-  "generatedAt": "2026-04-29T02:36:26.203296+00:00",
+  "generatedAt": "2026-04-29T23:45:10.373083+00:00",
   "epigraph": {
-    "quote": "石油は武器である。それは我々が繰り返し学んできたことだ。",
-    "source": "ダニエル・ヤーギン『石油の世紀』",
-    "connection": "UAEのOPEC離脱とホルムズ海峡を巡る緊張が、エネルギー地政学の重要性を改めて突きつけた一日に"
+    "quote": "戦争においては、真実が最初の犠牲者となる。",
+    "source": "アイスキュロス（古代ギリシャの悲劇詩人）",
+    "connection": "ホルムズ海峡封鎖の長期化、原油120ドル突破、そして各国の思惑が交錯する中、市場が「何が真実か」を見極めようともがく一日。"
   },
-  "headline_of_the_day": "UAE離脱でOPEC動揺、日銀は据え置きも3委員が利上げ主張",
+  "headline_of_the_day": "原油120ドル突破、FRB据え置き、AI決算明暗",
   "news": [
     {
-      "tag": "中央銀行",
-      "headline": "日銀、金利据え置きも3委員が利上げ主張　植田総裁は物価上振れリスクに言及",
-      "body": "日銀は金融政策決定会合で現状維持を決定したが、3名の審議委員が利上げを主張していたことが判明。植田総裁は会見で物価上振れリスクへの留意を強調し、タカ派的なトーンが市場に意識された。円は対ドルで一時上昇した。",
-      "impact": [
-        "円高要因",
-        "日本株に重し"
-      ],
-      "source_index": 0,
-      "link": "https://news.yahoo.co.jp/pickup/6577981?source=rss",
-      "source": "Yahoo!ファイナンス"
-    },
-    {
       "tag": "地政学",
-      "headline": "UAEがOPEC離脱を表明、カルテル体制に大きな亀裂",
-      "body": "アラブ首長国連邦が今週末をもってOPECから離脱すると発表。イラン紛争で原油供給が逼迫する中での決定は、OPECの結束力低下を象徴する。原油価格は3週間ぶりに110ドル台を回復。他の産油国の追随も取り沙汰されている。",
+      "headline": "原油120ドル突破、ホルムズ海峡封鎖の長期化観測で急騰",
+      "body": "トランプ大統領がイランの交渉提案を拒否し、封鎖継続を指示。UAE のOPEC離脱表明も加わり、供給不安が一気に高まった。WTI は110ドル、ブレントは120ドルを突破し、戦時高値圏に到達。",
       "impact": [
-        "原油高継続",
-        "産油国ETFに注目"
+        "原油高",
+        "インフレ圧力",
+        "リスクオフ"
       ],
-      "source_index": 60,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQY24wV2VQMklYUWtlcnI2cFV5bm5OYTJWS3FxSEM1aWtsXzlVazJxdDN6MnExdldRVU53VjRjT0hCUWx1cW9KQm1KNWEtZlZVb0dVUVdoTllhN1dQNGhsZG9TbWR0R2RzaldBTG03MXF3ek5kTlRObTN6UzRMektnWk00SW1TeDVvTUJ0aTFRSHprX1V1cGtMcHFkNUs0ajBnQVp1V1l5WUl4VFUwcDZ0U0NDUno?oc=5",
+      "source_index": 100,
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNNDF3cXVQZmI0amMxLXdEdGZRM2ZXcnRaUUwyVU51ZlIyenROWExLVFJiVFFnZU9sS1A1aEljUTNyWWtmenpXTDg0RGZzbElBMzdtc1k1TnBRREkxTGQtY1NnMU5GN2JSb3V2WHd3cjFQb3p3bkhTbmo0QU5IZjJUX29EcnhMTzl2cmh3OHF1c2xTTUFnM1ZWeG50Q2RSNnJkOVFvaFBWVGgzcDF1anV3?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "AI・テック",
-      "headline": "OpenAI、売上・ユーザー目標を下回る　IPO前の成長鈍化に懸念",
-      "body": "WSJ報道によると、OpenAIが自社の売上高・ユーザー成長目標を達成できていないことが判明。同社は「全力で前進中」と反論したが、Oracle株やAI関連半導体株が全面安に。市場のAI成長期待に冷や水を浴びせた。",
+      "tag": "金融政策",
+      "headline": "FRB、金利据え置きも1992年以来最大の反対票",
+      "body": "FRBは政策金利を3.75%に据え置き。ただし複数の委員が異なる見解を示し、92年以来の高い反対票数となった。パウエル議長は理事職への残留を表明、トランプ大統領の圧力を「前例のないもの」と批判。",
       "impact": [
-        "半導体株下落",
-        "AI関連バリュエーション見直し"
+        "金利据え置き",
+        "FRB独立性",
+        "ドル高"
       ],
-      "source_index": 90,
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOeDhJdk5kS0ZjcEV1MDF6U2piMWlUMzFYbGl2Y0hoQVEyajFzWDRLazF4U1p0alhaTWNnU0NKckM5c1dxVEc2WWZ4MDRsY19NR0Z3NGZYX3ZpV0E2XzB4RXpRRU1EcmltaEczcDJ4VzB6bGt6VUxzWENlcTh5NndmcFc5N2FuVzlvUHNfU3JTWHlJSllSNVJiRmhLSEhpNTdpSGhuRUxRNE9zQ2Np?oc=5",
-      "source": "WSJ Markets (via Google)"
+      "source_index": 32,
+      "link": "https://www.cnbc.com/2026/04/29/fed-interest-rate-decision-april-2026.html",
+      "source": "CNBC Markets"
+    },
+    {
+      "tag": "ハイテク決算",
+      "headline": "Alphabet・Amazon好決算、クラウドAI需要が牽引",
+      "body": "Alphabetは利益81%増、Google Cloudが市場予想を上回る成長。AmazonもAWSが2022年以来最大の伸びを記録。両社ともAI関連需要が追い風となり、株価は時間外で上昇。",
+      "impact": [
+        "クラウド成長",
+        "AI投資継続",
+        "ハイテク選別"
+      ],
+      "source_index": 81,
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOMnZEMFh1OGdLSnFjUmRWTmdwdm9NSk9VYUJvd0lnckRTa3Npdk9VTlJzb0VQUnBKN21mR2hjNkFQclFfdzgwb0p0TWlUbkcweWx6VWxjY1lXOXhBTkQtcExZdHpvaTV6c1B0eWxTYWtrV3QxTGU2dlh4dEhNVmhabjE0UFF5QzFPRFBtOWhqS3I3Z21fbzJ3Y2xXRDFaYzBpSThHOHhaakpzampWVmc?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "ハイテク決算",
+      "headline": "Meta株急落、AI投資拡大への懸念が重荷",
+      "body": "Metaは決算発表後に株価が急落。AI関連の設備投資拡大見通しが投資家の懸念を招いた。OpenAIの成長鈍化報道と相まって、AI銘柄全般に売り圧力が波及。",
+      "impact": [
+        "AI投資懸念",
+        "ハイテク売り",
+        "バリュエーション調整"
+      ],
+      "source_index": 79,
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNSUNJQmE5M1JobzJMNDRwUWNMbjJLNmFDWlBJTmNtY1JoNjFlcEM1Wkp0UnNyZ1hzckdaa3oybWtxNldQUVpZVkJ0bmVTNFdhbElubF85eXF1SUN0UnJSZ1NwWTc0NS1JMUxhT2E5aFRLOTZCTWowQS1OWk9sNWQ2VTd2RHhIRFhDWjVUZlNrQ2NtemQtejhMd3FrWmRocVF2elMxc3dLUUFMaTB3N0pVU2RR?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "為替",
+      "headline": "円、160円台に下落 「有事のドル買い」加速",
+      "body": "中東情勢の緊迫化とFRBの金利据え置きを受け、ドル円は160円台に突入。日銀の介入警戒が高まる中、安全資産としてのドル需要が円売りを加速させた。",
+      "impact": [
+        "円安",
+        "介入警戒",
+        "輸入物価上昇"
+      ],
+      "source_index": 2,
+      "link": "https://news.yahoo.co.jp/pickup/6578176?source=rss",
+      "source": "Yahoo!ファイナンス"
+    },
+    {
+      "tag": "OPEC",
+      "headline": "UAE、OPEC離脱を示唆 原油市場に新たな亀裂",
+      "body": "UAEがOPECからの離脱を検討していることが明らかに。50億ドルを投じたLIVゴルフへの資金拠出終了も発表され、サウジとの関係悪化が表面化。原油供給をめぐる不透明感が増大。",
+      "impact": [
+        "OPEC分裂リスク",
+        "供給不安",
+        "原油高継続"
+      ],
+      "source_index": 139,
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE0wYU9qR0JXQXgwcllwN203cVVKMUVmNGQyV1h4ZWl5aTdocWxFWDJ1clNjTDVZU183WjdsWnM4YV9aSTRGSXBsMTBqSWY2RkZmdmlvQ2ZKTkwwNFRYeDhkSjVtNmxRYV9Dd1JwcjYybWY?oc=5",
+      "source": "Financial Times (via Google)"
     },
     {
       "tag": "金融政策",
-      "headline": "FOMC控え市場は様子見、パウエル議長最後の会合か",
-      "body": "29日のFOMC結果発表を前に、市場は慎重姿勢を維持。パウエル議長にとって最後の会合となる可能性があり、後任候補のウォーシュ氏の政策姿勢にも関心が集まる。ダリオ氏は「スタグフレーション下での利下げは危険」と警告。",
+      "headline": "次期FRB議長候補ウォーシュ氏、上院委員会で可決",
+      "body": "トランプ大統領が指名した次期FRB議長候補のケビン・ウォーシュ氏が上院銀行委員会で承認された。ベセント財務長官はパウエル氏の理事残留を「慣例違反」と批判。",
       "impact": [
-        "ドル底堅い",
-        "金利据え置き織り込み"
+        "FRB人事",
+        "政策不透明感",
+        "市場の様子見"
       ],
-      "source_index": 30,
-      "link": "https://www.cnbc.com/2026/04/28/fed-meeting-preview-april-2026.html",
-      "source": "CNBC Markets"
-    },
-    {
-      "tag": "決算",
-      "headline": "BP、利益倍増　イラン紛争でトレーディング部門が大幅貢献",
-      "body": "英BPが四半期決算を発表し、純利益が前年同期比で倍増。中東紛争に伴う原油価格変動を捉えたトレーディング収益が大きく寄与した。エネルギーセクターの地政学プレミアムが改めて意識される結果となった。",
-      "impact": [
-        "エネルギー株堅調",
-        "トレーディング収益注目"
-      ],
-      "source_index": 100,
-      "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOR0JETEhXamRQVmFZelZfRTgwX0x5WWtPLUh2QTRxTkE2NnVKOTRiQmhmN3N0LW1DSTBETDYwSW5LcDlwZEd0blBCX1FDdllfc1locHZmVEx2bWloeW0ySHk2QzhieWdlX2Rjdy1xQW1xd2VVdTg0aVV4c1Q2cG1nUkRDUFcwcVAxMEFlRnlyOVJsMnlnN202eXRvMlNnQm9IckZyY0tiNk1GWktvNFo4SHNWMngtUExYWlZ3OQ?oc=5",
-      "source": "WSJ Markets (via Google)"
-    },
-    {
-      "tag": "中国",
-      "headline": "人民銀、一部銀行に融資拡大を指示　信用収縮に警戒感",
-      "body": "中国人民銀行が一部の銀行に対し、4月の融資を拡大するよう指示したことが判明。景気減速に伴う信用収縮への危機感が背景にある。BYDの利益が前年比55%減となるなど、中国経済の減速懸念が強まっている。",
-      "impact": [
-        "中国株軟調",
-        "人民元安圧力"
-      ],
-      "source_index": 19,
-      "link": "https://jp.reuters.com/markets/japan/A5VKSIAVHJPZVOKUJYE5SSDG5E-2026-04-28/",
-      "source": "Reuters Japan Markets"
-    },
-    {
-      "tag": "リスク管理",
-      "headline": "JPモルガン・ダイモンCEO、「債券危機」と信用悪化リスクを警告",
-      "body": "ダイモンCEOが世界的な債務膨張を背景に「何らかの債券危機」への警戒を表明。バークレイズも貸倒引当金が11億ドル超となり、リスクの高い融資から撤退する方針を示した。信用サイクル終盤の兆候が相次ぐ。",
-      "impact": [
-        "クレジットスプレッド拡大懸念",
-        "銀行株に重し"
-      ],
-      "source_index": 31,
-      "link": "https://www.cnbc.com/2026/04/28/jamie-dimon-bond-crisis-global-debt-risks.html",
-      "source": "CNBC Markets"
+      "source_index": 95,
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOaU5EaU1KaENBNEh6UHhmeHJOVG1lZkhYZGJoMTBYV2pJb1pHUU84SWl6cFVPV2o2ZkcwcE9pRVd3Vy1WN25ZejB0ejV0NUgwWlNzUW5UTk1yYlJXMVc0X2NpU3Q5UjZUVEJReGtVUEtSOUo0TFFUSWhJT1dhWEFHVjBRXzlwNmwtZzhjanZMZUVPNWZLaEx5b2R2YnZHZW16MUowYWF5YTRGREtO?oc=5",
+      "source": "Bloomberg (via Google)"
     }
   ],
   "funny_stories": [
     {
-      "kind": "皮肉・風刺系",
-      "title": "OPECからの卒業式",
-      "body": "UAEがOPEC離脱を発表した同じ日、中東では「ホルムズ海峡を開けてくれ」と各国が懇願中。かつて減産で市場を支配したカルテルも、今やメンバーが「俺は俺のペースで掘る」と言い出す始末。石油の世紀は終わっていないが、石油の同窓会は解散しつつある。",
-      "source_index": 60,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQY24wV2VQMklYUWtlcnI2cFV5bm5OYTJWS3FxSEM1aWtsXzlVazJxdDN6MnExdldRVU53VjRjT0hCUWx1cW9KQm1KNWEtZlZVb0dVUVdoTllhN1dQNGhsZG9TbWR0R2RzaldBTG03MXF3ek5kTlRObTN6UzRMektnWk00SW1TeDVvTUJ0aTFRSHprX1V1cGtMcHFkNUs0ajBnQVp1V1l5WUl4VFUwcDZ0U0NDUno?oc=5",
+      "kind": "irony",
+      "title": "50億ドルの砂上の楼閣",
+      "body": "サウジアラビアがLIVゴルフへの資金拠出を終了。50億ドルを注ぎ込んで分かったこと：ゴルフコースを買収するより、OPEC内での影響力を維持する方が難しかったらしい。UAEの離脱示唆と同日発表という偶然に、市場は「計画的撤退」の匂いを嗅ぎ取っている。",
+      "source_index": 86,
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONlRaamxwSXVGY1RxS190Sko4NldZaTQxbV9qODlOdXpGV1dHeXhNZU9CaGdwQlZQUFR4VE91WnFHdkhpdDg1clczMlVHMnVXMGZadHZQZjhSbHBtbHVjd0RZMXpaTkJSalFBaWI1cC1KdVBGQ1o2V0VvdTRWZk1va01LX1M3VklpSTRlcGtPdWF2S09tOXU2eXJ2V0J6OXhaS3F5Zm5Ba01uVXJoYlcwOVliWQ?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "kind": "人間味・哀愁系",
-      "title": "AIの成長痛",
-      "body": "OpenAIが目標未達という報道に、同社は「全力で前進中」と反論。しかしその翌日、関連株は全面安。思えばChatGPTが世界を席巻したのはわずか3年前。「期待を超え続けなければ許されない」というAI企業の宿命に、少しだけ同情したくなる春の夜。",
-      "source_index": 81,
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQTFZWbURSczZEZ1ZrQkxXMWJHSkd1R2xDQjZHdG5mZWl1Q2p6d3NoZkgtXzZ5WldpQ0JzN1FQU3B1TFY3OTZpc1d6ajNHdDU2WDBZVG9TMUl5dkhwZHBsNWkxT1BIYzNTZkVuckxDbWxweTZURzA4aHF0RDFhSF95ZUVjbEJKZ0tEV01OdFUySzVBZ3owcGxkR2llUkJsZW1KRHgzWVAtaTVKQ25XOVFlN1BB?oc=5",
-      "source": "Bloomberg (via Google)"
+      "kind": "pathos",
+      "title": "141年の甘い記憶",
+      "body": "1885年創業の老舗キャンディ店チェーンが全店舗閉鎖。AI、地政学、金利と格闘する市場の片隅で、子供時代の思い出を売る店がひっそりと姿を消した。株価チャートには現れない「時代の終わり」が、誰かの心にだけ刻まれている。",
+      "source_index": 42,
+      "link": "https://finance.yahoo.com/economy/articles/141-old-candy-store-chain-224800796.html",
+      "source": "Yahoo Finance US"
     },
     {
-      "kind": "観察・再発見系",
-      "title": "ドンキの1万円自転車が映すもの",
-      "body": "ドン・キホーテの1万円自転車が好調という。電動キックボードでもEVでもなく、最もローテクな移動手段が売れている。インフレと生活防衛の時代、消費者の「最適解」は意外とシンプル。市場が見落としがちな足元のリアルがそこにある。",
-      "source_index": 6,
-      "link": "https://news.yahoo.co.jp/pickup/6578084?source=rss",
-      "source": "Yahoo!ファイナンス"
+      "kind": "observation",
+      "title": "名言製造機パウエル",
+      "body": "「前例のない」「引き続き」「データ次第」。FRB議長会見の頻出ワードだが、今回パウエル氏が最も力を込めて言ったのは「私は残る」だった。市場は金利より先に、中央銀行総裁の「雇用の安定」を確認することになった。",
+      "source_index": 29,
+      "link": "https://www.cnbc.com/2026/04/29/jerome-powell-says-he-will-continue-to-serve-as-a-fed-governor-even-after-chairmanship-ends-.html",
+      "source": "CNBC Markets"
     }
   ],
   "charts_of_the_day": [
@@ -125,7 +132,7 @@
       "title": "WTI原油",
       "name": "WTI原油",
       "sub": "$ / bbl",
-      "rationale": "UAE離脱・ホルムズ緊張で原油が110ドル突破。地政学プレミアムの現在地を確認"
+      "rationale": "ホルムズ海峡封鎖長期化で110ドル突破。中東リスクプレミアムの可視化に必須"
     },
     {
       "source": "yf",
@@ -133,31 +140,39 @@
       "title": "ドル円",
       "name": "USD/JPY",
       "sub": "ドル円",
-      "rationale": "日銀タカ派シグナルとFOMC前のドル底堅さが交錯。159円台の攻防に注目"
+      "rationale": "160円台突入、介入警戒水準。有事のドル買いと円安進行の分岐点"
     },
     {
       "source": "yf",
-      "ticker": "^SOX",
-      "title": "SOX（半導体指数）",
-      "name": "SOX (半導体)",
-      "sub": "INDEX · USD",
-      "rationale": "OpenAI成長懸念でAI・半導体株が全面安。調整の深さを確認"
-    },
-    {
-      "source": "yf",
-      "ticker": "BP",
-      "title": "BP",
-      "name": "BP",
+      "ticker": "GOOGL",
+      "title": "Alphabet",
+      "name": "Alphabet",
       "sub": "",
-      "rationale": "利益倍増決算を発表。地政学環境下でのエネルギーメジャーの強さを検証"
+      "rationale": "好決算でMag7の明暗を分けた勝者。クラウド成長81%増の評価"
     },
     {
-      "source": "fred",
-      "ticker": "BAMLH0A0HYM2",
-      "title": "HY社債スプレッド",
-      "name": "HY 社債スプレッド",
-      "sub": "% · OAS",
-      "rationale": "ダイモンの債券危機警告を受け、クレジット市場のストレス状況を監視"
+      "source": "yf",
+      "ticker": "META",
+      "title": "Meta",
+      "name": "Meta",
+      "sub": "",
+      "rationale": "AI投資懸念で急落。同じMag7でも市場の選別が鮮明に"
+    },
+    {
+      "source": "yf",
+      "ticker": "^VIX",
+      "title": "VIX指数",
+      "name": "VIX (恐怖指数)",
+      "sub": "INDEX",
+      "rationale": "地政学リスクとAI決算の明暗でボラティリティ環境を確認"
+    },
+    {
+      "source": "yf",
+      "ticker": "GC=F",
+      "title": "金（COMEX）",
+      "name": "金 (COMEX)",
+      "sub": "$ / oz",
+      "rationale": "有事でも下落。金利据え置きとドル高の綱引きを反映"
     },
     {
       "source": "yf",
@@ -165,146 +180,115 @@
       "title": "米10年債利回り",
       "name": "米10年債利回り",
       "sub": "%",
-      "rationale": "FOMC前に利回り上昇。金利見通しと株式バリュエーションへの影響を確認"
+      "rationale": "パウエル残留表明後に上昇。インフレ懸念と金利見通しの再評価"
     },
     {
       "source": "yf",
-      "ticker": "1002.HK",
-      "title": "BYD（香港）",
-      "name": "BYD（香港）",
+      "ticker": "AMZN",
+      "title": "Amazon",
+      "name": "Amazon",
       "sub": "",
-      "rationale": "利益55%減の決算を受け、中国EV最大手の株価反応を確認"
-    },
-    {
-      "source": "yf",
-      "ticker": "^VIX",
-      "title": "VIX",
-      "name": "VIX (恐怖指数)",
-      "sub": "INDEX",
-      "rationale": "FOMC・地政学リスク・AI懸念が重なる中、恐怖指数の水準を監視"
+      "rationale": "AWS好調で時間外上昇。クラウド勝者の位置づけを確認"
     }
   ],
   "deep_dive": {
-    "title": "UAE離脱でOPECに亀裂、原油市場の新秩序は見えるか",
-    "lede": "イラン紛争でホルムズ海峡が緊張する最中、UAEが突如OPEC離脱を表明。カルテルの結束力低下は原油価格の乱高下を招きかねず、エネルギー安全保障の地図を塗り替える可能性がある。",
-    "background": "UAEは長年、OPECの生産枠に不満を抱えてきた。同国は世界有数の低コスト産油国でありながら、減産合意により生産能力をフル活用できない状況が続いていた。今回の離脱表明は、イラン紛争という供給不安の真っ只中で行われた点が衝撃的だ。OPECプラスの枠組みでロシアとの協調も進めてきたが、制裁下のロシア産原油が市場を攪乱する中、UAEは「自国の利益を優先する」判断に踏み切った。市場では次にカザフスタンやナイジェリアが追随する可能性も取り沙汰されている。",
-    "implications": "短期的には、UAEの増産観測が原油価格の上値を抑える可能性がある一方、OPECの価格調整機能低下は中長期的なボラティリティ上昇を意味する。サウジアラビアがスウィングプロデューサーとして孤軍奮闘を迫られる構図は、かつての1980年代を彷彿とさせる。エネルギーセクターにとっては追い風だが、製造業やエアラインにとってはコスト増要因。日本のようなエネルギー輸入国は、調達先多様化と備蓄政策の見直しを迫られるだろう。ペトロダラー体制の変容にも長期的に目配りが必要だ。",
+    "title": "ホルムズ海峡封鎖の長期化：原油120ドル時代と世界経済への波及",
+    "lede": "トランプ大統領がイランの交渉提案を拒否し、海峡封鎖の継続を指示。世界の原油輸送の要衝が「人質」となる異例の事態が、インフレ・金融政策・企業収益のすべてを揺さぶり始めている。",
+    "background": "ホルムズ海峡は世界の海上原油輸送の約20%が通過する最重要航路。イラン核施設への攻撃を端緒とする軍事衝突は、海峡の事実上の封鎖状態を生み出した。イラン通貨リアルは過去最安値を更新し、経済は「死のスパイラル」に入ったとの報道もある。一方、UAEのOPEC離脱示唆が重なり、産油国間の結束にも亀裂が走る。ペンタゴンは既に250億ドルの戦費を計上しており、長期化は財政面でも重荷となる。",
+    "implications": "短期的には原油価格の高止まりがインフレ期待を押し上げ、FRBの利下げ余地を狭める。豪州CPIが加速した通り、資源輸入国のインフレ圧力は既に顕在化。中期的には企業のコスト増が決算を圧迫し、消費者心理の悪化を通じて景気減速リスクが高まる。長期的にはエネルギー安全保障の再定義が進み、再エネ・LNG関連投資が加速する可能性がある一方、地政学プレミアムが恒常化すれば世界の潜在成長率を押し下げる構造要因となりうる。",
     "what_to_watch": [
-      "UAE増産の具体的タイミングと規模",
-      "サウジアラビアの対応声明",
-      "他の産油国（カザフ、ナイジェリア等）の動向",
-      "WTI・Brentのスプレッド変動",
-      "IEAの次回月報での需給見通し修正"
+      "イラン・米国間の外交チャネル再開の兆候",
+      "OPEC+臨時会合の開催有無とUAEの正式表明",
+      "週次の米原油在庫統計と輸出動向",
+      "5月の米CPIおよびPCEデフレーター",
+      "日銀・財務省の円買い介入の実施有無"
     ],
     "related_keys": [
       "wti",
       "brent",
-      "dxy"
+      "usdjpy",
+      "t10yie"
     ],
-    "source_index": 60,
-    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQY24wV2VQMklYUWtlcnI2cFV5bm5OYTJWS3FxSEM1aWtsXzlVazJxdDN6MnExdldRVU53VjRjT0hCUWx1cW9KQm1KNWEtZlZVb0dVUVdoTllhN1dQNGhsZG9TbWR0R2RzaldBTG03MXF3ek5kTlRObTN6UzRMektnWk00SW1TeDVvTUJ0aTFRSHprX1V1cGtMcHFkNUs0ajBnQVp1V1l5WUl4VFUwcDZ0U0NDUno?oc=5",
+    "source_index": 100,
+    "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNNDF3cXVQZmI0amMxLXdEdGZRM2ZXcnRaUUwyVU51ZlIyenROWExLVFJiVFFnZU9sS1A1aEljUTNyWWtmenpXTDg0RGZzbElBMzdtc1k1TnBRREkxTGQtY1NnMU5GN2JSb3V2WHd3cjFQb3p3bkhTbmo0QU5IZjJUX29EcnhMTzl2cmh3OHF1c2xTTUFnM1ZWeG50Q2RSNnJkOVFvaFBWVGgzcDF1anV3?oc=5",
     "source": "Bloomberg (via Google)"
   },
   "economic_chart_of_the_day": {
-    "series_id": "DCOILWTICO",
-    "title": "WTI原油価格（日次）",
-    "subtitle": "ドル/バレル",
-    "rationale": "UAEのOPEC離脱とホルムズ海峡緊張で原油が急伸。地政学リスクとエネルギー価格の関係を長期時系列で確認する意義は大きい。",
-    "period_years": 5
+    "series_id": "T10YIE",
+    "title": "米10年ブレークイーブン・インフレ率",
+    "subtitle": "%, 日次",
+    "rationale": "原油120ドル突破でインフレ期待がどこまで織り込まれているかを確認。FRBの金利据え置き判断の背景を理解する上で重要な指標。",
+    "period_years": 3
   },
   "central_bank_watch": [
     {
       "code": "FED",
-      "comment": "29日のFOMC結果発表を前に、市場はFF金利3.75%の据え置きをほぼ完全に織り込んでいる。パウエル議長にとって最後の会合となる可能性があり、会見での発言に注目が集まる。レイ・ダリオ氏は後任候補のウォーシュ氏について「スタグフレーション環境下での利下げは中銀の信認を損なう」と警告しており、次期体制での政策運営への不透明感も意識されている。今回の声明文では、中東紛争に伴うインフレリスクへの言及があるかが焦点。市場は年内1〜2回の利下げを織り込むが、地政学次第で見通しは流動的だ。"
+      "comment": "FRBは政策金利を3.75%に据え置いたが、1992年以来最多の反対票が出る異例の展開となった。パウエル議長は会見で理事職への残留を表明し、トランプ大統領からの解任圧力を「前例のない」と批判。ベセント財務長官は即座に「慣例違反」と反論し、政治との緊張が鮮明化している。次期議長候補のウォーシュ氏は上院委員会を通過しており、5月の交代が現実味を帯びる。市場は原油高によるインフレ再燃リスクと景気減速懸念の狭間で、年内の利下げ織り込みを後退させている。パウエル氏の残留は短期的にFRBの独立性維持のシグナルだが、政権移行期の不透明感は続く。"
     },
     {
       "code": "ECB",
-      "comment": "ECBは6月の利下げを示唆しており、預金ファシリティ金利は2.0%から更に引き下げられる公算が大きい。ただし、中東紛争に伴う原油高とユーロ圏へのインフレ波及リスクが懸念材料として浮上している。欧州航空会社がジェット燃料危機を理由に旅客サービス規制緩和を求めるロビイングを強化するなど、エネルギーコスト上昇の影響は実体経済に広がりつつある。ラガルド総裁は慎重な利下げ姿勢を維持する見通しだが、成長とインフレのバランスを取る舵取りは難しさを増している。"
+      "comment": "ECBは預金ファシリティ金利2.0%を維持しているが、原油価格の急騰がユーロ圏のディスインフレ軌道を脅かしている。エネルギー輸入依存度の高い欧州では、ホルムズ海峡封鎖の長期化が直接的なインフレ圧力となる。中国の報復関税示唆（Huawei関連）も対中貿易に依存するドイツ経済には逆風。ドイツの再軍備計画は財政拡張要因だが、インフレ抑制との両立が課題となる。6月理事会での利下げ期待は後退しつつあり、市場は年後半までの据え置き継続を織り込み始めている。"
     },
     {
       "code": "BOJ",
-      "comment": "日銀は本日の金融政策決定会合で現状維持を決定したが、3名の審議委員が利上げを主張していたことが明らかになった。植田総裁は会見で物価上振れリスクへの留意を強調し、市場はタカ派的なトーンと受け止めた。ドル円は159円台前半で推移し、上値の重い展開となっている。次回6月会合での利上げ観測が再び高まっており、日米金利差縮小への思惑が円を下支えしている。ただし、米国側のFOMC結果次第では再びドル高に振れる可能性も残る。"
+      "comment": "円が160円台に突入し、介入警戒が急速に高まっている。「有事のドル買い」が円売りを加速させる構図で、輸入物価上昇を通じたインフレ圧力が日銀の正常化議論を複雑にしている。原油高は日本のエネルギー輸入コストを直撃するため、企業収益と消費の両面で下押し要因。一方、円安は輸出企業の追い風だが、実質賃金への悪影響が消費を冷やすリスクもある。次回金融政策決定会合では、円安・インフレと景気減速リスクのバランスをどう評価するかが焦点。為替介入の実施有無にも注目が集まる。"
     },
     {
-      "code": "BOE",
-      "comment": "BOEは次回6月会合での利下げ開始が市場コンセンサスとなっているが、本日発表のバークレイズ決算では貸倒引当金が11億ドル超に達し、英国の信用環境悪化が鮮明になった。MFS（英モーゲージ会社）の破綻に伴う2.28億ポンドの損失計上も重荷だ。ベイリー総裁は慎重な利下げ姿勢を維持しているが、不動産市場の調整と家計債務の脆弱性が金融安定リスクとして意識されている。ポンドは対ドルで上値が重く、BOEの政策余地は限定的との見方が広がっている。"
+      "code": "BOC",
+      "comment": "カナダ中銀は今回の会合で金利を据え置き、「経済が想定通りなら今後の変動は小幅」とのガイダンスを維持した。産油国としてカナダは原油高の恩恵を受ける立場だが、米国との貿易関係や消費者へのコスト転嫁には注意が必要。住宅市場の調整も続いており、利下げへの転換は慎重姿勢が続く。米国のホルムズ封鎖政策が長期化すれば、カナダ産原油への代替需要が高まる可能性もあり、エネルギーセクターにとっては追い風となりうる。"
     }
   ],
   "pe_pd_view": {
-    "body": "PE（プライベート・エクイティ）市場では、M&A活動が活発に継続している。Astorgがサーモフィッシャーの微生物学部門を約10億ドルで買収する案件や、Genstarが保険持株会社ObsidianをProtective Lifeに売却するディールが発表された。Hgはスポーツ向けAIプラットフォームTeamworksに投資し、バリュエーションは15億ドル超に達した。一方、KKRはグローバル・ウェルス部門の最高投資ストラテジストを新任し、個人投資家向けビジネスの強化を進めている。PD（プライベート・デット）分野では、Saba Capitalが仕掛けたBlue OwlやStarwoodの非公開クレジットファンド株式の公開買付けに対し、投資家の応募が低調だったことが注目される。大幅なディスカウントでの流動性提供にも関わらず応募が少なかったことは、投資家が長期保有を選好していることを示唆する。",
-    "impact": "neutral",
-    "impact_summary": "ディール活発もPD公開買付け低調、投資家は様子見",
+    "body": "Blackstoneが組織改編を発表し、新たにAI専門部門を設立する方針を明らかにした。世界最大級のオルタナティブ資産運用会社がAIを戦略的重点領域に据えたことは、PE業界全体のテクノロジー投資加速を示唆している。\n\n一方、プライベート・デット（企業への直接融資）分野では、マイケル・ミルケン氏のファミリーオフィスから派生したSilver Rock Capital Partnersが40億ドルを調達。ミルケン氏は1980年代のジャンク債王として知られ、その流れを汲むクレジット戦略への大規模資金流入は、機関投資家の利回り追求姿勢の継続を反映している。\n\nKKRとEnergy CapitalによるDCC（アイルランドのエネルギー・ヘルスケア複合企業）への買収提案も進行中。エネルギー関連のインフラ資産への関心が、原油高を背景に高まっている様子がうかがえる。",
+    "impact": "positive",
+    "impact_summary": "大型調達・買収活発、PE資金は潤沢",
     "source_indices": [
-      46,
-      49,
-      51,
-      35,
-      54
+      101,
+      74,
+      142
     ],
     "sources": [
       {
-        "link": "https://www.pehub.com/genstar-to-sell-insurance-holding-firm-obsidian-to-protective-life/",
-        "source": "PE Hub",
-        "title": "Genstar to sell insurance holding firm Obsidian to Protective Life"
+        "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQbnBKY1JfRk5lWWM3ckxYeFlHZklKMFlYN24wazUxZjNWU2N3WW5rZW5RUl9uZGV2blFmX19zYUxjeE01aFFQVDZ3MXhhZlpjeGdjcE5QWlppdW5vUE9rNzZ2cW9EdHg5bFdjYloxSzNKYlA2RkU0THNJNDgxNUtVUnZLWndCSEdLNWItbmdmeENLSGpUSG5Jd1ZuNUhWOUhxdVl5QnVGbVFuR0lKZ0xJTTVR?oc=5",
+        "source": "Bloomberg (via Google)",
+        "title": "Blackstone Plans Overhaul With Focus on New AI Unit - Bloomberg.com"
       },
       {
-        "link": "https://www.pehub.com/hg-invests-in-elite-sports-ai-platform-teamworks/",
-        "source": "PE Hub",
-        "title": "Hg invests in elite sports AI platform Teamworks"
-      },
-      {
-        "link": "https://www.pehub.com/kkr-taps-lauren-goodwin-as-managing-director-and-chief-investment-strategist-for-global-wealth/",
-        "source": "PE Hub",
-        "title": "KKR taps Lauren Goodwin as managing director and chief investment strategist for global wealth"
-      },
-      {
-        "link": "https://www.cnbc.com/2026/04/27/private-credit-funds-saba-capital-tender-offers-for-shares-are-below-initial-expectations.html",
-        "source": "CNBC Markets",
-        "title": "Saba Capital finds little appetite for tender offer of shares in Blue Owl, Starwood private credit funds"
-      },
-      {
-        "link": "https://www.altassets.net/private-equity-news/by-region/global-by-region/deal-roundup-astorg-agrees-1bn-buyout-of-thermo-fisher-microbiology-unit-o2-investment-backs-steffl-drilling-pump.html",
+        "link": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/silver-rock-capital-born-from-michael-milkens-family-office-raises-4bn-for-credit-investing.html",
         "source": "AltAssets PE",
-        "title": "Deal Roundup: Astorg agrees $1bn buyout of Thermo Fisher microbiology unit, O2 Investment backs Steffl Drilling & Pump"
+        "title": "Silver Rock Capital Partners, born from Michael Milken’s family office, raises $4bn for credit investing"
+      },
+      {
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPREgwT0lFaUdrRHFKOU9OX25jNmhfVGZIT1pfOS1ZWWVqams4QzhqejVianNkMTBhRHU4WHAtM2dtakd2RGY2Q1NKNnhUNWFFb01EbnNpX1BrcUxGNHVHQlVGSE00TzlheFY4YktkRVUzM253bkxsaWFpVnVLOG9hdWtZQ3A?oc=5",
+        "source": "Financial Times (via Google)",
+        "title": "DCC considers takeover bid from KKR and Energy Capital - Financial Times"
       }
     ]
   },
   "real_assets_view": {
-    "body": "不動産市場では、都心マンションの在庫急増が報じられ、日本の住宅市場調整が鮮明になりつつある。米国でも住宅価格指数が2月に前月比横ばいとなり、成長鈍化の兆候が見られる。金利高止まりが不動産セクターの重しとなっている構図は日米共通だ。インフラ分野では、アブダビの国営エネルギー企業ADNOCが米国で「数百億ドル規模」の投資を計画していることが明らかになり、エネルギーインフラへの資金流入が続いている。一方、Allianz Global Investorsはアジア太平洋地域のインフラクレジットファンドで2.7億ドルの1stクローズを達成。再生エネルギーやデータセンター需要を背景に、インフラ債務への投資家関心は依然高い。金利低下期待が後退する中、実物資産への選好は慎重さを増している。",
-    "impact": "negative",
-    "impact_summary": "住宅在庫増・金利高止まりで不動産に逆風継続",
+    "body": "中国政府系ファンドCICがロンドン・ヒースロー空港の持分売却を検討していることが報じられた。第3滑走路建設のコスト増大が懸念材料とされ、インフラ投資における「出口戦略」の難しさを示す事例となっている。空港インフラは安定したキャッシュフローが魅力だが、大規模拡張には巨額の資本支出が伴う。\n\nPSEI（再生可能エネルギー開発会社）はBig Sky Wind（風力発電プロジェクト）の少数持分をHamilton LaneとGCM Grosvenorに売却。再エネインフラへの機関投資家の関心は依然として高く、ファンド間でのセカンダリー取引が活発化している。金利高止まり環境でもインフラの長期安定リターンへの需要は根強い。\n\nCVCはLipton（紅茶ブランド）への追加出資を決定。当初45億ユーロで見込まれていた案件価値は調整を迫られており、消費財セクターでのバリュエーション見直しが進んでいる。",
+    "impact": "neutral",
+    "impact_summary": "再エネ投資は堅調、一部で出口模索",
     "source_indices": [
-      5,
-      18,
-      96,
-      117,
-      56
+      141,
+      71,
+      130
     ],
     "sources": [
       {
-        "link": "https://news.yahoo.co.jp/pickup/6578067?source=rss",
-        "source": "Yahoo!ファイナンス",
-        "title": "都心マンション 売れない在庫急増"
-      },
-      {
-        "link": "https://jp.reuters.com/markets/japan/JH7M5YDLOBKV5M6TMYF7ADOLYY-2026-04-28/",
-        "source": "Reuters Japan Markets",
-        "title": "米住宅価格指数、2月は前月比横ばい＝ＦＨＦＡ"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPQ3kwbWNnS21WZ19zaG1xcHNhVEFMWHFIMUFyTTc0dTZmaE1BMmUxNVR0R3ZQTmhaSzJIU28yZzVpSGlCeF9EU01walVXWU1aU0lqcms0am9PSjJCbWhHQ25LWUlQZnVBajZhb1pCNlRUMExlT2ZtM2U4dmZBLUc3VjF2X2hCVnhBQlVJNGt3?oc=5",
-        "source": "WSJ Markets (via Google)",
-        "title": "U.S. Home Price Growth Slowed in February - WSJ"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVU9iWnlBZlZBTTYwRHcwRHhFY2FQNF9VTVZTUUhURWNiQ0x4ckU5Sk82YW16Z2MyT3RsdV9IMng0MDVyUW8yTjhITjlrc0tnUmZMODFTQ1dlcWdXeGpFYWVpdzFkSUxHRGNLSFI0UWtnaU1KLXRPclFweUtjVTBxamh4NG8?oc=5",
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQeUI3Mmo2Yi1SVHdNVU1DaDZPNEYxY1FtZTkxSTlkeWtJZXUxUFlTUExBV0pGTXpiZlpYSEVNQzNuNWcyaXJDRV9takxsTEwxR3RZQkJYSVo3a19rTTMybGRwb1U1aGtoQXZNOFdTQjdwVWxXZGIwVENqZ3JZX2xWYjBuZXU?oc=5",
         "source": "Financial Times (via Google)",
-        "title": "Abu Dhabi state energy group to invest ‘tens of billions’ in US push - Financial Times"
+        "title": "China’s CIC considers selling Heathrow stake over third runway cost worries - Financial Times"
       },
       {
-        "link": "https://www.altassets.net/private-equity-news/by-region/asia-by-region/100208128.html",
-        "source": "AltAssets PE",
-        "title": "AllianzGI hits $270m first close for first Asia Pacific infra credit fundraise"
+        "link": "https://www.pehub.com/psei-sells-minority-stake-in-big-sky-wind-to-hamilton-lane-and-gcm-grosvenor/",
+        "source": "PE Hub",
+        "title": "PSEI sells minority stake in Big Sky Wind to Hamilton Lane and GCM Grosvenor"
+      },
+      {
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQZ19OY1N5NzcyYVNpalJGMzFMcUx2bTdkUWFUVWg1dmRkU1BubnFSbXhNeFlDMXdVOC13blRxMEw5ZEMtRmpzZHFNbHkycGRMVXhFSWsxYkotUHBEdElnZ1pENkdnazlIdFY3c25OcWczVHBYeTFKZ3dUelp0SVNZdG96T0U?oc=5",
+        "source": "Financial Times (via Google)",
+        "title": "CVC pumps cash into Lipton as €4.5bn tea deal comes off the boil - Financial Times"
       }
     ]
   }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-29T02:34:34.435836+00:00",
+  "generatedAt": "2026-04-29T23:43:17.588038+00:00",
   "central_banks": [
     {
       "code": "FED",
@@ -9,7 +9,7 @@
       "rate_name": "FF金利(上限)",
       "next_meeting_hint": "FOMC は約6週間ごと",
       "rate_value": 3.75,
-      "rate_asof": "2026-04-28",
+      "rate_asof": "2026-04-29",
       "rate_3m_change": 0.0,
       "last_change": "利下げ",
       "last_change_amount": -0.25,
@@ -23,7 +23,7 @@
       "rate_name": "預金ファシリティ金利",
       "next_meeting_hint": "ECB理事会は約6週間ごと",
       "rate_value": 2.0,
-      "rate_asof": "2026-04-28",
+      "rate_asof": "2026-04-29",
       "rate_3m_change": 0.0,
       "last_change": "利下げ",
       "last_change_amount": -0.25,
