@@ -867,23 +867,86 @@ function CentralBankWatch({ watch, factsByCode }) {
   );
 }
 
-// ─── Alternatives Section ───
-function AlternativesSection({ view }) {
+// ─── Alternatives — single category card (PE/PD or Real Assets) ───
+const ALT_IMPACT_CONFIG = {
+  positive: { label: "POSITIVE", className: "positive", arrow: "▲" },
+  negative: { label: "NEGATIVE", className: "negative", arrow: "▼" },
+  neutral:  { label: "NEUTRAL",  className: "neutral",  arrow: "■" },
+};
+
+function AltCategoryCard({ view, title, subtitle }) {
   if (!view || !view.body) return null;
-
-  // body はバックスラッシュn または 改行を段落区切りに
   const paragraphs = view.body.split(/\n\n+|\n/).map((p) => p.trim()).filter(Boolean);
+  const impactKey = (view.impact || "neutral").toLowerCase();
+  const impactCfg = ALT_IMPACT_CONFIG[impactKey] || ALT_IMPACT_CONFIG.neutral;
+  const sources = view.sources || [];
 
+  return (
+    <div className="mm-alt-card">
+      <div className="mm-alt-card-head">
+        <div>
+          <div className="mm-alt-card-title">{title}</div>
+          {subtitle && <div className="mm-alt-card-subtitle">{subtitle}</div>}
+        </div>
+        <div className={`mm-alt-impact mm-alt-impact-${impactCfg.className}`}>
+          <span className="mm-alt-impact-arrow">{impactCfg.arrow}</span>
+          <span className="mm-alt-impact-label">{impactCfg.label}</span>
+        </div>
+      </div>
+
+      {view.impact_summary && (
+        <div className={`mm-alt-impact-summary mm-alt-impact-${impactCfg.className}-bg`}>
+          {view.impact_summary}
+        </div>
+      )}
+
+      <div className="mm-alt-body">
+        {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+      </div>
+
+      {sources.length > 0 && (
+        <div className="mm-alt-sources">
+          <div className="mm-alt-sources-label">— ソース</div>
+          <ul className="mm-alt-sources-list">
+            {sources.map((s, i) => (
+              <li key={i}>
+                <a href={s.link} target="_blank" rel="noopener noreferrer" className="mm-alt-source-link">
+                  {s.source || "記事元"}
+                  {s.title && <span className="mm-alt-source-title"> — {s.title}</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Alternatives Spotlight — wraps both PE/PD and Real Assets ───
+function AlternativesSection({ pePd, realAssets }) {
+  if (!pePd && !realAssets) return null;
   return (
     <div className="mm-alt-wrap">
       <div className="mm-alt-kicker">◆ Alternatives Spotlight · オルタナティブ資産</div>
       <div className="mm-alt-title">PE・PD・不動産・インフラ、初心者向けに読み解く</div>
       <div className="mm-alt-lede">
         プライベート・エクイティ (PE)、プライベート・デット (PD)、不動産、インフラといった
-        非上場資産クラスの直近の動きを、AIが平易な日本語で解説。
+        非上場資産クラスの直近の動きを、AIが平易な日本語で解説。各セクションには
+        <strong>市場へのインパクト方向</strong>とソース記事を添えています。
       </div>
-      <div className="mm-alt-body">
-        {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+
+      <div className="mm-alt-grid">
+        <AltCategoryCard
+          view={pePd}
+          title="PE・PD"
+          subtitle="プライベート・エクイティ／プライベート・デット"
+        />
+        <AltCategoryCard
+          view={realAssets}
+          title="不動産・インフラ"
+          subtitle="リアルアセット (Real Assets)"
+        />
       </div>
     </div>
   );
@@ -1122,7 +1185,10 @@ export default function MarketMonitor() {
       <EconomicChart econ={economic} />
 
       {/* Alternatives Spotlight */}
-      <AlternativesSection view={news.alternatives_view} />
+      <AlternativesSection
+        pePd={news.pe_pd_view}
+        realAssets={news.real_assets_view}
+      />
 
       {/* Market Muse (3 cards) */}
       {museStories.length > 0 && (
