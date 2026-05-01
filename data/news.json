@@ -1,128 +1,121 @@
 {
-  "generatedAt": "2026-04-30T23:43:16.435251+00:00",
+  "generatedAt": "2026-05-01T23:43:20.178963+00:00",
   "epigraph": {
-    "quote": "市場は、あなたが支払い能力を維持できる期間よりも長く、不合理でいられる。",
-    "source": "ジョン・メイナード・ケインズ",
-    "connection": "原油急騰、FRB据え置き、為替介入――相反する力が交錯する今日、市場の「不合理」が試される局面にある"
+    "quote": "戦争は長引く。なぜなら双方とも勝てると信じているからだ。",
+    "source": "トゥキュディデス『戦史』",
+    "connection": "米イラン対立の長期化と原油市場の緊張が続く中、解決の糸口が見えない地政学リスクを映す"
   },
-  "headline_of_the_day": "円買い介入実施、原油126ドル、FRB据え置きで市場混乱",
+  "headline_of_the_day": "原油高と円安介入、地政学リスクが市場を揺さぶる",
   "news": [
     {
-      "tag": "為替介入",
-      "headline": "政府・日銀が円買い介入を実施、ドル円155円台へ急落",
-      "body": "30日、財務省と日銀は157円台から円買い介入を実施。加藤財務相らの「最後通告」後の介入で、ドル円は一時155.5円台まで急落。原油高によるインフレ懸念と円安の板挟みで、介入姿勢を明確化した。",
+      "tag": "金融政策",
+      "headline": "パウエルFRB議長、任期後もFRB理事継続を明言",
+      "body": "パウエル議長は議長任期終了後もFRB理事として留まる意向を表明。トランプ大統領からの批判を「前例のないもの」と評した。市場はFRBの独立性維持を好感。",
       "impact": [
-        "ドル円",
-        "日本株",
-        "輸入物価"
+        "金利見通し安定",
+        "FRB独立性への安心感"
       ],
-      "source_index": 0,
-      "link": "https://news.yahoo.co.jp/pickup/6578292?source=rss",
-      "source": "Yahoo!ファイナンス"
-    },
-    {
-      "tag": "FRB",
-      "headline": "FRB金利据え置き、1992年以来最多の反対票",
-      "body": "FOMCは政策金利を3.75%に据え置き。複数の委員が利下げを主張し反対票は1992年以来最多。パウエル議長は任期後も理事として残留を表明。トランプ大統領の批判を「前例のない」と評した。",
-      "impact": [
-        "米金利",
-        "ドル",
-        "株式バリュエーション"
-      ],
-      "source_index": 37,
-      "link": "https://www.cnbc.com/2026/04/29/fed-interest-rate-decision-april-2026.html",
+      "source_index": 27,
+      "link": "https://www.cnbc.com/2026/04/29/jerome-powell-says-he-will-continue-to-serve-as-a-fed-governor-even-after-chairmanship-ends-.html",
       "source": "CNBC Markets"
     },
     {
-      "tag": "原油",
-      "headline": "原油126ドルに急騰後反落、ホルムズ海峡封鎖懸念",
-      "body": "イラン戦争の影響でWTI原油は一時126ドルまで急騰し、イラン開戦以来の高値を更新。ホルムズ海峡ではイラン関連船舶のみ通行という異常事態。その後供給懸念の後退で反落。",
+      "tag": "為替介入",
+      "headline": "日本、約5兆円規模の円買い介入を実施か",
+      "body": "ブルームバーグ報道によると日本当局は約345億ドル（約5兆円）規模の円買い介入を実施した模様。大型連休中の流動性低下を狙った介入とみられるが、円安基調継続の見方も根強い。",
       "impact": [
-        "エネルギー株",
-        "インフレ期待",
-        "消費"
+        "ドル円の短期ボラティリティ上昇",
+        "介入効果の持続性に疑問"
       ],
-      "source_index": 128,
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNS2tUdEItSWJiaklyQTREdnRhMFJqZlo0MTdHTldrZDFoQ2VQTFNYaGZJdzRZVEExRUhHbS1HOEthaW9XVUJPVnpwS1Y4aDNfRGFjcGp4OG5kUGwtbEptSVJkbWpzTkdGQlY1djNpaHljb2ROaGtVNk5NYjRzUGo0QW5MWDVHak1kREhMM1VsQ2F1emVHUnVTVXF3NUQySlhQWW44?oc=5",
-      "source": "WSJ Markets (via Google)"
-    },
-    {
-      "tag": "ECB",
-      "headline": "ECB金利据え置き、ラガルド総裁「スタグフレーションは当てはまらず」",
-      "body": "ECBは預金ファシリティ金利を2.0%に据え置き。ラガルド総裁は原油高によるインフレ加速にも関わらず「現代にスタグフレーションは当てはまらない」と強調。欧州経済は成長鈍化とインフレ上昇の狭間にある。",
-      "impact": [
-        "ユーロ",
-        "欧州債券",
-        "欧州株"
-      ],
-      "source_index": 12,
-      "link": "https://jp.reuters.com/markets/japan/3OEYO6KHRBJNBIGUGGON2BI6K4-2026-04-30/",
-      "source": "Reuters Japan Markets"
-    },
-    {
-      "tag": "ビッグテック決算",
-      "headline": "Alphabet時価総額4210億ドル増、クラウドとAI好調で過去2番目の上昇",
-      "body": "Alphabet決算はクラウド成長とAI勢いで市場予想を大幅上回り、株価急騰。時価総額の1日増加幅は史上2位を記録。一方でMeta、MicrosoftはAI投資負担が重しとなり明暗分かれる。",
-      "impact": [
-        "ナスダック",
-        "AI関連株",
-        "クラウド"
-      ],
-      "source_index": 85,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNUEdwdDJnUlV6THF3cENKRnEtVUFmSFEtTl9OUzk0MFhuNlV4eG95dzhvaENRTVRWbGpjRWZkZFozdEIwcElpeHVPcXhHUGh3Q0pjWGNweVhXWkZ6WDdua0Z6NHlENDNEeTJlaFBYLXFOUFU1Mk1pd0JNaGhILVZGYlFpVHFZN1o0Q2lFR3JfUF9sQnZvVkVXQ0dUdS1XVTBPbF9SYm9yekMyZzlyaHl3ZmdpZkg?oc=5",
-      "source": "Bloomberg (via Google)"
-    },
-    {
-      "tag": "米経済指標",
-      "headline": "米新規失業保険申請18.9万件、1969年以来の低水準",
-      "body": "週間新規失業保険申請件数は18.9万件と1969年以来の最低水準。労働市場の逼迫継続を示し、FRBの利下げ見送り姿勢を裏付け。1-3月期GDP成長率は2%と底堅さを維持。",
-      "impact": [
-        "米金利見通し",
-        "ドル",
-        "賃金インフレ"
-      ],
-      "source_index": 105,
-      "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQTnloTHcxUGdyUlFUUWV0LUJ4cHJWb0w3UjBzTmRXRjNYUzl5SlI3SHZXVlJjdk82bERkRjkxQWE1VTVjeUh2TmRfbkh6eE96MlZVeXFVaWZkWTZXSHc4OXdUTU94Qmd1LXgzbFdNZ2VtVkNSel92aFp2Q2Z4elQzdXN1TW4zUkY5Z1Y1X2xsTWlJT2ZiYzE4Rjduc2tuanNhRXJGNXBBUQ?oc=5",
+      "source_index": 89,
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPc1J0YnluUFV6R01FSzk2QTMzaXpvTzhvMm5laHhrNzRzX3AwdWVNdFphY2VldHpnMDdSSXNBaWppZ0NCQk5xaWl6Ykp1T1BxUmlzcElZYlRiVE1rOFpnZ2tLaHFsOGJRbjZsOXpxQmxHRzJLRnRDM05vUkxWbHRsNnhzaTQySEFOSFlaaERRQ1E5azdVemdyN0VmMENIclhKWnpTcHdTQnUzVGhJMldxS25mOXM?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
       "tag": "地政学",
-      "headline": "UAE、OPECから離脱へ――サウジとの亀裂再燃",
-      "body": "UAEがOPECからの離脱を発表し、サウジアラビアとの関係に亀裂。イラン戦争下での産油国間の結束に疑問符。原油供給の不透明感が一段と高まる展開に。",
+      "headline": "原油、イラン戦争10週目で4年ぶり高値圏",
+      "body": "WTI原油は週間で上昇、イラン情勢の長期化で125ドル超えを予想するトレーダーも。ガソリン価格は戦争開始から約50%上昇し、米国民の生活を直撃している。",
       "impact": [
-        "原油",
-        "中東情勢",
-        "エネルギー政策"
+        "インフレ再燃リスク",
+        "消費者心理悪化"
       ],
-      "source_index": 140,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNc0NrVjFZTUNBdk95dFVaOWE5NkkxanBYeUhJOU41ZmlSRGZnUUc3YVRmaHktRlBnZkpnMjBteGpGbDdKQXVVZ29yTVpiNUZ5QWZjRlo0Q0xLc2wwVE9LbDVqdDlhSDFFaHhXT1RkWV9aTGx4NlpSSFByR3ZOcW0zME84ZV8?oc=5",
+      "source_index": 14,
+      "link": "https://www.marketwatch.com/story/it-now-costs-160-to-fill-up-americas-top-selling-vehicle-as-the-iran-war-nears-its-10th-week-803077d2?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "tag": "関税",
+      "headline": "トランプ大統領、EU自動車に25%関税を予告",
+      "body": "トランプ大統領は欧州車への25%関税を予告し、EU議会貿易委員長は「受け入れられない」と反発。貿易摩擦の再燃が欧州株・自動車セクターの重荷に。",
+      "impact": [
+        "欧州自動車株下落リスク",
+        "貿易戦争再燃懸念"
+      ],
+      "source_index": 76,
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPU1ZnLXJibG5qdTVfNjU4czNjRHMtaWUwUW9mMXJaeFNGa2JtZGVZd3duNm1aSHBZeVFhQkQtVTlKOWNJdm8zSEJOaGd3OFV0alVSVWVGVFdWeHEzLUpJaGd5bllDVTVxQzlBTEdMMkhqeTVVVHl2eFNNcDBOOHlxWHg1RkNGS2FFb2FGUExndTV3a2M3XzdWa25LWS1FQmZ1UjVOeFIzWVlUbmpDcVE?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "決算",
+      "headline": "イーライリリー、GLP-1薬好調で売上56%増",
+      "body": "イーライリリーのQ1決算は肥満・糖尿病治療薬の爆発的成長で売上が前年比56%増。株価は急伸し、ヘルスケアセクターを牽引。",
+      "impact": [
+        "ヘルスケアセクター堅調",
+        "GLP-1市場の拡大継続"
+      ],
+      "source_index": 37,
+      "link": "https://finance.yahoo.com/markets/article/eli-lilly-stock-soars-after-q1-earnings-as-revenue-grows-56-on-strength-of-glp-1-drug-sales-164308976.html",
+      "source": "Yahoo Finance US"
+    },
+    {
+      "tag": "オルタナ",
+      "headline": "Ares Management、Q1に過去最高300億ドル調達",
+      "body": "プライベートクレジット大手Aresは市場の不安定さにもかかわらず、第1四半期に過去最高の300億ドルを調達。オルタナ投資への資金流入が継続。",
+      "impact": [
+        "プライベートクレジット市場の活況",
+        "機関投資家のオルタナシフト"
+      ],
+      "source_index": 96,
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRFZsRmlSSlNJemNGZmRLa213TnoxMWNaNHQwU1YxZ0xTNjlCREJqVC1DcG9tVTZEMVRybUNuRUZjV1ZQZm9kX1YxNFNvVUNpQjBFMWtBdlhQYXNCTDVhY3JpQkM1RFNHSkhPNFR6SXRLTTRMTDN0QWlvZE5NaWctOXByeWZma0R4WWtJS0xjaGtxRjBrRDFCVVZWSDhQQzlv?oc=5",
+      "source": "WSJ Markets (via Google)"
+    },
+    {
+      "tag": "半導体",
+      "headline": "Huawei、AI半導体売上急増でNvidia中国シェアを侵食",
+      "body": "米国の輸出規制下でHuaweiのAI半導体売上が急増。Nvidiaの中国事業が停滞する中、地政学的デカップリングが加速している。",
+      "impact": [
+        "Nvidia中国売上減リスク",
+        "半導体サプライチェーン分断"
+      ],
+      "source_index": 125,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQy05d1UzSnZVRm90NURLeEVNbDkyZG5ESTJPQk9KQW9sY0NSeDdDdThBNUVwS0lPTmtyaXpHQnA5SXpLSkxfTDhuN3dLc0g1Q3FuX2VORkZEYlBKMmdnNGNubjJYZU1NYVFIaTBuMGtJUjhPRFhBZFVIZmtGOEQxa0k2Z0c?oc=5",
       "source": "Financial Times (via Google)"
     }
   ],
   "funny_stories": [
     {
       "kind": "皮肉・風刺系",
-      "title": "パウエル議長、退任しない宣言の翌日に熊を突く",
-      "body": "「理事として残る」と宣言したパウエル議長。あるアナリストは「トランプに立ち向かうのは勇敢だが、ある時点でそれは熊を鋭い棒で突くことになる」と評した。次期FRB議長候補ウォーシュ氏は、切れない議長と切らないFRBの両方を相手にする羽目に。就任前から胃薬が必要かもしれない。",
-      "source_index": 28,
-      "link": "https://www.marketwatch.com/story/could-powells-decision-to-stay-worsen-relations-between-the-fed-and-the-white-house-ba91a3f9?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
+      "title": "Jane Streetの1人当たり268万ドル",
+      "body": "クオンツ取引大手Jane Streetの従業員1人当たり報酬が268万ドル（約4億円）に。「AIに仕事を奪われる」と心配する前に、まずJane Streetに入社する方法を心配すべきかもしれない。なお、同社の採用プロセスは「AI以上に難解」との評判。",
+      "source_index": 87,
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOTTRZeHVuT3hXcnI5N2dLNnNXQnNFaEVoNkRGQ0NQcm54WUstRFR2ZHUwVVBQNjBNcC03Y0lYOGdpWWJkOGJqcHNuOTRNeTlkc0p5d2xTZ3FpaVlodlotTG9PM2I4RnowWGtDeUd0bmRUblZDS3JwTkQ3R01nU1QteWtKRTVhSFFTclhjcGhIcXBrYnBtU1NPeDl4VkFFUWVXQXVqUEtQdmNqcDZjamtMblM2bWQ?oc=5",
+      "source": "Bloomberg (via Google)"
     },
     {
       "kind": "人間味・哀愁系",
-      "title": "ゴールドカード、販売実績1枚",
-      "body": "トランプ政権が39兆ドルの債務解消策として打ち出した「500万ドルのゴールドカード・ビザ」。華々しく発表されたものの、これまでの販売実績はわずか1枚。購入者が誰かは不明だが、1枚で39兆ドル返済には、あと780万人ほど必要な計算になる。",
-      "source_index": 44,
-      "link": "https://finance.yahoo.com/economy/policy/articles/trump-5m-gold-card-visa-160500873.html",
-      "source": "Yahoo Finance US"
+      "title": "バフェット後のバークシャー",
+      "body": "バフェット氏が中心にいない初の株主総会。新CEO グレッグ・アベル氏は会場の全ブースを回り握手を続けたという。95歳の「オマハの賢人」の影は大きく、「彼なしでも大丈夫」と自分に言い聞かせる株主たちの表情が目に浮かぶ。",
+      "source_index": 19,
+      "link": "https://www.cnbc.com/2026/05/01/berkshire-hathaways-shopping-extravaganza-draws-lighter-crowds-as-spotlight-shifts-to-greg-abel.html",
+      "source": "CNBC Markets"
     },
     {
       "kind": "観察・再発見系",
-      "title": "行列からの大乱入、動画が波紋",
-      "body": "ある人気店で整然と並んでいた行列が、開店と同時に崩壊し客が店内に雪崩れ込む動画がSNSで拡散。市場関係者は「これは毎月第一金曜日の雇用統計発表後のトレーディングフロアそのものだ」と共感を示した。秩序は、試される瞬間まで存在するものである。",
-      "source_index": 6,
-      "link": "https://news.yahoo.co.jp/pickup/6578279?source=rss",
-      "source": "Yahoo!ファイナンス"
+      "title": "TOTOが半導体銘柄に？",
+      "body": "日本のトイレメーカーTOTOの株価がAI関連事業へのピボットで急騰。ウォシュレットで世界を制した企業が、次はAIでトイレの未来を変えるのか。「あらゆるものがAI銘柄になる時代」の象徴的一幕。",
+      "source_index": 127,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOVkV2OGVSVGpfZE9lWmFadE56STM0cUZFd2xvVDN4Wkx4ZXRzSExHZ0Joc05Rd2FmREplWDRuN29neThLaHNvRXlZeWZVd1BvaVpvVWh6OTdqT0VaeVFWbzNHbGZmdmpWZHU1YlRBblhkVm9rTEx5YzV3OEpEdk15Q0ZBZzA?oc=5",
+      "source": "Financial Times (via Google)"
     }
   ],
   "charts_of_the_day": [
@@ -132,7 +125,7 @@
       "title": "WTI原油",
       "name": "WTI原油",
       "sub": "$ / bbl",
-      "rationale": "126ドル急騰後の反落、ホルムズ海峡封鎖懸念が市場を揺るがす"
+      "rationale": "イラン戦争長期化で4年ぶり高値圏。125ドル超えの予想も出ており、エネルギーコストとインフレの観点から最重要"
     },
     {
       "source": "yf",
@@ -140,161 +133,173 @@
       "title": "ドル円",
       "name": "USD/JPY",
       "sub": "ドル円",
-      "rationale": "政府・日銀の円買い介入実施で157円台から155円台へ急落"
+      "rationale": "日本当局が約5兆円規模の介入実施。連休中の介入効果と円安基調継続の綱引きを注視"
     },
     {
       "source": "yf",
-      "ticker": "GOOGL",
-      "title": "Alphabet",
-      "name": "Alphabet",
+      "ticker": "LLY",
+      "title": "Eli Lilly",
+      "name": "Eli Lilly",
       "sub": "",
-      "rationale": "時価総額4210億ドル増、史上2位の1日上昇幅を記録"
+      "rationale": "GLP-1薬爆発的成長で売上56%増。ヘルスケアセクターを牽引する決算後の株価動向"
     },
     {
       "source": "yf",
-      "ticker": "^TNX",
-      "title": "米10年債利回り",
-      "name": "米10年債利回り",
-      "sub": "%",
-      "rationale": "原油高インフレ懸念でグローバルに債券利回り上昇"
+      "ticker": "^GSPC",
+      "title": "S&P 500",
+      "name": "S&P 500",
+      "sub": "INDEX · USD",
+      "rationale": "ナスダックとともに最高値更新。地政学リスク下でも上昇を続ける米国株の強さを確認"
     },
     {
-      "source": "fred",
-      "ticker": "T10YIE",
-      "title": "10Yブレークイーブン",
-      "name": "10Y ブレークイーブン",
-      "sub": "% · 期待インフレ",
-      "rationale": "原油急騰で期待インフレがどこまで上昇しているか確認"
+      "source": "yf",
+      "ticker": "NVDA",
+      "title": "NVIDIA",
+      "name": "NVIDIA",
+      "sub": "",
+      "rationale": "Huaweiの台頭で中国シェア侵食の報道。軍事AI契約拡大のポジティブ材料との綱引き"
     },
     {
       "source": "fred",
       "ticker": "BAMLH0A0HYM2",
-      "title": "HY社債スプレッド",
+      "title": "HYスプレッド",
       "name": "HY 社債スプレッド",
       "sub": "% · OAS",
-      "rationale": "地政学リスクと金利据え置きでクレジット市場のストレス度を確認"
+      "rationale": "プライベートクレジット活況の裏で、公開市場のクレジット環境を確認"
     },
     {
       "source": "yf",
-      "ticker": "META",
-      "title": "Meta Platforms",
-      "name": "Meta Platforms",
+      "ticker": "GC=F",
+      "title": "金",
+      "name": "金 (COMEX)",
+      "sub": "$ / oz",
+      "rationale": "地政学リスク高まるも金利上昇懸念で週間下落。安全資産の動向を注視"
+    },
+    {
+      "source": "yf",
+      "ticker": "VOW3.DE",
+      "title": "フォルクスワーゲン",
+      "name": "フォルクスワーゲン",
       "sub": "",
-      "rationale": "AI投資負担でAlphabetと明暗、ビッグテック間格差を可視化"
-    },
-    {
-      "source": "yf",
-      "ticker": "DX-Y.NYB",
-      "title": "ドル指数",
-      "name": "ドル指数 (DXY)",
-      "sub": "INDEX",
-      "rationale": "円介入・FRB据え置きでドルの総合的な動きを把握"
+      "rationale": "トランプ大統領のEU自動車関税25%予告。欧州自動車セクターへの影響を確認"
     }
   ],
   "deep_dive": {
-    "title": "日本の為替介入が示す「ドル高・原油高」の袋小路",
-    "lede": "イラン戦争に伴う原油急騰でインフレ圧力が高まる中、円安を止めるため政府・日銀が介入に踏み切った。輸入物価と通貨防衛の両立という難題に、日本の政策当局が直面している。",
-    "background": "ドル円は157円台まで下落し、加藤財務相らの「最後通告」後、30日に円買い介入が実施された。背景には、イラン戦争による原油価格の急騰がある。WTI原油は一時126ドルに達し、日本の輸入コストは大幅に増加。円安が進めば輸入インフレが加速し、家計と企業を直撃する。一方、FRBが金利を据え置き、日米金利差は依然として大きい。日銀は4月会合で追加利上げを見送っており、金利差縮小による円高誘導は困難な状況にある。介入は「時間稼ぎ」の色彩が強い。",
-    "implications": "短期的には155円台への押し戻しで輸入企業に安堵感を与えるが、介入の効果は一時的とみられる。FRBが利下げに転じない限り、円安圧力は根強く残る。中期的には、原油高が長期化すれば日本の経常収支悪化を通じて円売り圧力が再燃するリスクがある。日銀が追加利上げに動けば円高に振れるが、住宅ローン金利上昇や企業の資金調達コスト増加という副作用も大きい。政策当局は「インフレ抑制か景気か」という古典的なトレードオフに直面している。",
+    "title": "イラン戦争10週目、原油市場は「クランチポイント」へ",
+    "lede": "中東情勢の長期化で原油価格は4年ぶり高値圏に突入。世界の石油在庫は急減し、市場は供給逼迫の臨界点に近づいている。",
+    "background": "4月7日にWTI原油が113ドルの高値をつけて以降、米イラン間の軍事的緊張は解消されていない。イランはホルムズ海峡で通行料を要求し、米国は支払った船舶への制裁を警告するなど、事実上の海上封鎖リスクが高まっている。FT報道によると世界の石油在庫は急速に減少しており、「1カ月以内にクランチポイント（臨界点）」に達する可能性がある。一方、ExxonとChevronはトランプ政権からの増産圧力に応じず、シェール生産者も価格高騰にもかかわらず増産に慎重な姿勢を維持している。",
+    "implications": "短期的には原油価格の125ドル超えも視野に入り、ガソリン価格上昇（現在4.42ドル/ガロン、戦争開始から50%上昇）が米消費者心理を圧迫する。中期的にはインフレ再燃がFRBの利下げシナリオを複雑化させる。CPIへの波及が確認されれば、「higher for longer」が現実味を帯びる。長期的には、エネルギー安全保障の観点から再エネ投資加速（豪州は中東緊張を受けエネルギー転換を加速）や、米国のエネルギー自給戦略の見直しにつながる可能性がある。",
     "what_to_watch": [
-      "今後1-2週間の介入継続有無と規模（財務省の姿勢）",
-      "5月1日の日銀金融政策決定会合の結果と植田総裁発言",
-      "ホルムズ海峡の通行状況と原油価格の推移",
-      "米PCEデフレーターの推移とFRBの次回会合（6月）での姿勢",
-      "日本の4月貿易統計（エネルギー輸入額の変化）"
+      "WTI原油の113ドル（4月高値）突破の有無",
+      "ホルムズ海峡の通行状況と保険料率の推移",
+      "次回CPIにおけるエネルギー価格の寄与度",
+      "OPEC+の増産対応の有無",
+      "イラン核交渉の再開可能性に関する報道"
     ],
     "related_keys": [
-      "usdjpy",
       "wti",
-      "us10y",
-      "nikkei"
+      "brent",
+      "t10yie",
+      "vix"
     ],
-    "source_index": 13,
-    "link": "https://jp.reuters.com/markets/japan/XTLXEKR6MFO3NCW66LVGWOWZK4-2026-04-30/",
-    "source": "Reuters Japan Markets"
+    "source_index": 119,
+    "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPenpsYWU5Si1ScFVYdE1LZ3RjSkFqU2taNzRkX1VwZ0drWUNzVWNJeTc4UnNyWjhwdF9uZjd3YkpWMF9FMmJEUmJrVE5fSHpQZXd5ZUsxdVhVUERYeDlxbjVacW1GRFlwTlZINHZMbjZFalowelRvUmFYNUZGQ0l3WDY3V1U?oc=5",
+    "source": "Financial Times (via Google)"
   },
   "economic_chart_of_the_day": {
-    "series_id": "ICSA",
-    "title": "米・新規失業保険申請件数",
-    "subtitle": "週次, 千人",
-    "rationale": "18.9万件と1969年以来の最低水準。労働市場の逼迫がFRBの利下げ先送りを正当化する根拠となっており、今後の金融政策を占う上で注目すべき指標。",
+    "series_id": "DCOILWTICO",
+    "title": "WTI原油価格の推移",
+    "subtitle": "日次, ドル/バレル",
+    "rationale": "イラン戦争長期化で原油が4年ぶり高値圏。インフレ・消費者心理・FRB政策への波及経路として最重要の経済指標",
     "period_years": 3
   },
   "central_bank_watch": [
     {
       "code": "FED",
-      "comment": "FOMCは政策金利を3.75%（FF金利上限）に据え置いた。注目すべきは1992年以来最多となる反対票で、複数の委員が利下げを主張した。パウエル議長は会見で2027年5月の議長任期終了後も理事として留任する意向を表明し、トランプ大統領からの圧力を「前例のない」と評した。市場はこれを「独立性の維持」と評価する一方、次期FRB議長候補とされるウォーシュ氏の政策運営を複雑にするとの見方もある。原油急騰でPCEインフレが上振れする中、利下げ時期は一段と後ずれしており、市場の織り込みは年内1回あるかどうかという水準に低下している。"
+      "comment": "パウエル議長は5月FOMCで政策金利を3.75%に据え置いた後、議長任期終了後もFRB理事として留まる意向を明言した。トランプ大統領からの繰り返しの批判を「前例のない」と表現しつつも、独立性を堅持する姿勢を示した。ミネアポリス連銀カシュカリ総裁はイラン戦争のリスクを理由に利下げに反対票を投じており、FOMC内でも地政学リスクへの見方が分かれている。市場は年内1〜2回の利下げを織り込むが、原油高が続けばインフレ再燃懸念から利下げ期待は後退する可能性がある。次回6月FOMCまでにCPIと雇用統計が発表され、データ次第の展開が続く。"
     },
     {
       "code": "ECB",
-      "comment": "ECB理事会は預金ファシリティ金利を2.0%に据え置いた。ラガルド総裁は記者会見で「現代にスタグフレーションは当てはまらない」と強調し、原油高によるインフレ上昇は一時的との見解を示した。ただし欧州のインフレ率は上昇基調にあり、ユーロ圏経済は成長鈍化とインフレ加速という難しい組み合わせに直面している。BOE同様、中東情勢の悪化シナリオでは追加利上げの可能性も排除されておらず、市場は次回6月会合まで慎重な姿勢を維持する見込み。"
+      "comment": "ECBは直近6月に0.25%利下げを実施し、預金ファシリティ金利は2.0%となった。トランプ大統領がEU自動車に25%関税を予告したことで、欧州経済への下押し圧力が強まる懸念がある。EU議会貿易委員長は「受け入れられない」と反発しており、貿易摩擦が実体経済に波及すれば追加緩和の議論が再燃する可能性がある。ただし原油高によるインフレ上振れリスクとの板挟みで、ECBも難しい舵取りを迫られている。市場は年内さらに1〜2回の利下げを見込むが、関税と原油の二正面作戦が政策判断を複雑化させている。"
     },
     {
       "code": "BOJ",
-      "comment": "日銀は4月会合で政策金利を据え置いたが、30日に政府と協調して円買い介入を実施した。ドル円が157円台まで下落する中、加藤財務相らの「最後通告」後の介入となり、当局の本気度を市場に示す形となった。ただし日米金利差が依然として大きい中、介入効果は一時的との見方が多い。5月1日の金融政策決定会合では追加利上げの有無が焦点となるが、原油高によるコストプッシュ・インフレと景気減速リスクの板挟みで、植田総裁は難しい判断を迫られる。"
+      "comment": "日銀は大型連休中に約5兆円規模とみられる円買い介入を実施した。流動性が薄い連休中を狙った介入だが、市場では「円安基調は変わらない」との見方が根強い。日米金利差が依然として大きく、キャリートレードの巻き戻しには至っていない。次回の金融政策決定会合では介入の効果検証とともに、原油高による輸入物価上昇の影響も議論される見込み。利上げ継続の可能性は残るが、円安抑制効果は限定的との市場評価が介入の持続性への疑問を投げかけている。"
     },
     {
       "code": "BOE",
-      "comment": "BOEは政策金利を据え置き、イラン戦争の影響に関する複数シナリオを提示した。最悪シナリオでは「強力な」利上げが必要になる可能性も示唆し、市場に警戒感を与えた。発表後、ポンドは軟化し英国債利回りは低下。市場は利上げ観測を後退させたが、原油高が長期化すれば再びタカ派転換のリスクがある。BOEは他の主要中銀と同様、インフレと成長の両にらみで難しい舵取りを続けている。"
+      "comment": "BOEは直近の金融政策委員会(MPC)で利下げを決定し、英国債利回りは決定後に上昇した。市場は「タカ派的利下げ」と解釈しており、今後の緩和ペースは緩やかとの見方が優勢。英国ではGLP-1薬を福利厚生から外す企業が出るなどコスト意識が高まる一方、賃貸住宅市場では大家の売却が加速（1日700件が市場に）し、住宅市場の構造変化も注視されている。次回MPCでは原油高のインフレ波及と成長鈍化のバランスが焦点となる。"
     }
   ],
   "pe_pd_view": {
-    "body": "プライベート・クレジット市場では、Blue Owl Capital（上場しているオルタナティブ運用会社）が四半期で90億ドルの資金流入を報告したが、経営陣は「市場全体としては冷え込みつつある」と慎重な見方を示した。AI関連投資ではBlackstoneの信用・保険事業が370億ドルの資金流入を記録しAUM（運用資産残高）が1.3兆ドルに達する一方、プライベート・クレジット大手各社はAIリスクがソフトウェア投資先企業に与える影響について投資家への説明に追われている。\n\nまた、Lazardがプライベート・キャピタルのアドバイザリー・プレースメント・エージェント（ファンド募集支援会社）であるCampbell Lutyensを5.75億ドルで買収すると発表。PEファンドの資金調達環境が厳しくなる中、アドバイザリー機能を取り込む動きが加速している。KKRはSpaceXへの投資で10倍のリターンを実現したとBlue Owlが言及し、今年後半のIPO市場活性化への期待も高まっている。",
-    "impact": "neutral",
-    "impact_summary": "資金流入は堅調だが市場全体は慎重モード",
+    "body": "プライベート市場では資金調達が引き続き好調だ。プライベートクレジット大手のAres Managementは第1四半期に過去最高となる300億ドルを調達し、市場の不安定さが逆にオルタナ投資への資金流入を加速させている構図が鮮明になった。Ares（エアリーズ）は企業向け直接融資を主力とするファンドで、銀行融資に代わる「ダイレクト・レンディング」と呼ばれる分野のリーダーだ。\n\nPeter Thiel氏率いるFounders Fundは過去最大の60億ドルを調達。ベンチャーキャピタル側でも大型調達が続く。また、ヘルスケア特化のArchiMedはEsperion Therapeuticsを11億ドルで非公開化する案件を発表し、医療セクターでのバイアウト活動も活発だ。Blue OwlはSpaceXへの投資で10倍のリターンを得たと報告しており、ユニコーン株式のセカンダリー市場の好調さを示している。TPGも100億ドル超を調達し、「市場の乱高下を収益機会に変える」戦略を強調している。",
+    "impact": "positive",
+    "impact_summary": "オルタナ大手の過去最高調達、リスク資産への待機資金潤沢",
     "source_indices": [
-      52,
-      77,
-      86,
-      146
+      96,
+      82,
+      57,
+      26,
+      107
     ],
     "sources": [
       {
-        "link": "https://finance.yahoo.com/markets/stocks/articles/blackstone-bx-credit-insurance-business-160332536.html",
-        "source": "Yahoo Finance US",
-        "title": "Blackstone (BX)’s Credit and Insurance Business Brings in $37 Billion of Inflows During Q1; AUM Hits $1.3 Trillion"
+        "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRFZsRmlSSlNJemNGZmRLa213TnoxMWNaNHQwU1YxZ0xTNjlCREJqVC1DcG9tVTZEMVRybUNuRUZjV1ZQZm9kX1YxNFNvVUNpQjBFMWtBdlhQYXNCTDVhY3JpQkM1RFNHSkhPNFR6SXRLTTRMTDN0QWlvZE5NaWctOXByeWZma0R4WWtJS0xjaGtxRjBrRDFCVVZWSDhQQzlv?oc=5",
+        "source": "WSJ Markets (via Google)",
+        "title": "Ares Management Raises Record $30 Billion in First Quarter Despite Market Fears - WSJ"
       },
       {
-        "link": "https://www.pehub.com/lazard-to-acquire-private-capital-advisor-and-placement-agent-campbell-lutyens-for-575m/",
-        "source": "PE Hub",
-        "title": "Lazard to acquire private capital advisor and placement agent Campbell Lutyens for $575m"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQNGNzMGdUS3FkY24wdndDcFdFemNTSHhFSFhpSy1WdVUyR3lsaTkxY0I4UExaZnd4VkhQS3hWdks5TEl6c0k4dGxSdWVTNGpUTEhhU1FySW9YbDZZUXBVWmNldW9OTi1HdUFmRmVSeGlyS3l5QjFrNDF0anVhM0xNQW9FTG5iYXNwQ29pVWtCOTZRejh0ZWRQVTZpQnpmZmUzaXhJV2FBOHRjdEczRmJvYjVxdw?oc=5",
+        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQWGJJQ09yb05zMXVIMUtXZ3VvdkxraDJWZFhkT0hMTnN6ZHdxY2lIakR4R01XNVBrOXR0dVZ6Y0VDZzFYeW5ST051YTVpMmw4VENpcTJEWlNXZDE3YzVzNGNPRTVvX1lGUmJJYnhDRjVINGlzNWhjeGswZkZLY3pCcndrSTdnVFg4RTBMWUE2akhxT28yMGJweDFTM3NWT3JFcU1HQUhfZjVZcEhzZmF3SjB4RTY?oc=5",
         "source": "Bloomberg (via Google)",
-        "title": "Private Credit Giants Try to Reassure Investors on AI Risks to Software Bets - Bloomberg.com"
+        "title": "Thiel’s Founders Fund Raises $6 Billion in Its Largest-Ever Haul - Bloomberg.com"
       },
       {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPRjBjQkVlRUJfbm9Tc1J1emdUV3B3OW4xc3VwUERNZlFsSGR0aW9QR0lKU2NlbUYtTUJoYlBvSWx0cTQ2VklncTRiUGgyeWhaRzFwaXp1OEZ4V19mZGJuX1RKQXhTdXdPQV90UGdKenZqX3c1ZDExTWtSYjlueWlvREsxdzY?oc=5",
-        "source": "Financial Times (via Google)",
-        "title": "Blue Owl draws in $9bn as private credit market cools - Financial Times"
+        "link": "https://www.pehub.com/archimed-to-take-esperion-therapeutics-private-for-1-1bn/",
+        "source": "PE Hub",
+        "title": "ArchiMed to take Esperion Therapeutics private for $1.1bn"
+      },
+      {
+        "link": "https://www.cnbc.com/2026/04/30/blue-owl-shares-private-credit-spacex-gains.html",
+        "source": "CNBC Markets",
+        "title": "Blue Owl shares surge after private credit firm cites 10X gains from SpaceX"
+      },
+      {
+        "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxONF8zbVBHZ3JqaFdiYU1rZ2FsbmFPTDNCZXZWMDB3YlFUc1hEZndhYmE0VHdTcE5XaDNWNmw5NkRueTdNdzZhZlRsd01SQWdJWlpUTThZbVdCMndIR0VBMG5HTWZLRmJabXFZcGgwTWZrVENOcklCSzBHM05xcjN2Um85SFB3a1pOZ3c?oc=5",
+        "source": "WSJ Markets (via Google)",
+        "title": "TPG Raises More Than $10 Billion, Doubles Capital Deployments - WSJ"
       }
     ]
   },
   "real_assets_view": {
-    "body": "インフラ分野では、Macquarie率いるコンソーシアムがルイジアナ州の電力会社Clecoを、Stonepeak（インフラ特化のPEファーム）とBernhard Capitalに売却すると発表。米国の電力インフラへの投資意欲は依然として旺盛であることを示している。また、航空機リース会社TrueNoordがFreshstreamからArcus Infrastructureに売却されるなど、輸送インフラ関連の案件も活発だ。\n\nベルギーでは政府がEngieとの間で原子力資産の国有化交渉を進めており、エネルギー安全保障を巡る欧州の政策転換が浮き彫りになっている。商業不動産については目立ったニュースは少ないが、金利高止まりと原油高によるコスト増加が引き続き重しとなっている。インフラ案件は電力・エネルギー安全保障テーマで堅調だが、金利環境の不透明感から全体的なバリュエーションには慎重な見方が続く。",
+    "body": "不動産・インフラ分野では、エネルギー関連が最大のテーマとなっている。豪州政府は中東緊張を背景にエネルギー転換を加速する方針を発表。再生可能エネルギーへの投資拡大は、インフラファンドにとって長期的な追い風となる。一方、AI関連の電力需要増大を背景に、原子力スタートアップFermiが顧客獲得に苦戦して事業継続が困難になったとの報道もあり、「AIと電力」の組み合わせが投資テーマとして注目される一方、実行段階では課題も多い。\n\n商業不動産では、英国で賃貸住宅の大家が1日700件ペースで物件を売却しており、住宅市場の構造変化が進行中。金利上昇局面で取得した物件の収益悪化が売却の背景にある。プライベート市場では、Todd Boehly氏の保険会社が規制上の優遇措置を獲得したとの報道があり、代替資本（サイドカー）を活用した不動産・インフラ投資のストラクチャーにも注目が集まっている。",
     "impact": "neutral",
-    "impact_summary": "電力インフラ案件は堅調、金利高止まりが重し",
+    "impact_summary": "再エネ追い風も商業不動産は構造調整継続",
     "source_indices": [
-      71,
-      76,
-      141
+      109,
+      78,
+      129,
+      128
     ],
     "sources": [
       {
-        "link": "https://www.pehub.com/business-services-attractiveness-grade-b-portco-exits-are-top-of-mind-at-dealmax-macquarie-led-group-exits-cleco-to-stonepeak-and-bernhard-capital/",
-        "source": "PE Hub",
-        "title": "Business services attractiveness, grade-B portco exits are top of mind at DealMax; Macquarie-led group exits Cleco to Stonepeak and Bernhard Capital"
+        "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQT21CVFg5R01uSExETFVlWmVlVkRXUktLdndzRzc0SWM4YTNSWC1uamNMNVFpTVlXZ3BlbXpRcUFkVHdEU3RZaUZCQnNrODRlYlp1eW5Sc1BfWlpRN0lvaFNTOGM1eExoWUpYblVmbTdZbFBPT2tFd0hNSHNnSF9IMEY2S0swaUMyYTY4OFZXMFV1V1dXbV8xZ2Vjc1NzdkRncy02ZE9OeEphNlNEaHlaYjlWUmlvd3JiTVE?oc=5",
+        "source": "WSJ Markets (via Google)",
+        "title": "Australia Doubles Down on Energy Shift as Middle East Tensions Simmer - WSJ"
       },
       {
-        "link": "https://www.pehub.com/freshstream-to-sell-truenoord-to-arcus-infrastructure/",
-        "source": "PE Hub",
-        "title": "Freshstream to sell TrueNoord to Arcus Infrastructure"
+        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcnhwZlFSZW1WLWVfWjRnT1IycVU5ZkNzN0JlczZIMEM0Q1hoS09YWFhqdGhiZVFQb0JzSGdxODZCVE03R2t0bEdPQlpoY2NvdDl6d2hqQS04Ny1lSFN5cHJWMHdYVkNHQkNBNkhSc3JYWUtFZm5ySE1nX29rYXdkRE1lLTJibEJ6d1dOVkVxZnYwZFhsUm9KZnBpajlKR0lJc0MzUVBNVUIxZElNUWdMMzAtUQ?oc=5",
+        "source": "Bloomberg (via Google)",
+        "title": "Nuclear AI Startup Fermi Promised Land and Ample Power. But It Couldn't Sign a Single Client - Bloomberg.com"
       },
       {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPOW13XzNLTnhHQUlfdVZ6RGVkSVZlSkhzSXZQcVc4a0NlLXlLZTA3NTlZZEJTV2tEZ3RydlhYdlprUTRYcjRBbElpNVFuZDB1Ujcydzc1Ym9CRk5oSENjMUNCM3JEa0FoYkNfUnhhOVRXeFlrcWVUMVVwQ0w4REtycTkwOXc?oc=5",
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWEYya2FrZkduQlF6UkNzcDUycDRmU2o5aUFBUnpaY2ZaaXkzbTd1QXdQQVBjRWx3RUxlNUZHSXhKUUZjM2hGYkJVSnpzVnlLMWpwb1FrVXBjTkdHVzRBQkM2aWpvT1hxTjRtMVBMSjNCNVQtdm84NzN4YmtyZGFTM2FrVzU?oc=5",
         "source": "Financial Times (via Google)",
-        "title": "Belgium in talks with Engie to nationalise country’s nuclear assets - Financial Times"
+        "title": "700 rental homes ‘hit the market every day’ as British landlords sell up - Financial Times"
+      },
+      {
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQYnEwZm5TbTl2aDdyQUo2MGs5ZEY4WVVxdFplcVRrQXVoZTV2aGpjbjNkNzhoQWlkZ0xFQVl0V3IxQlhWZFdzbGN4UDA5U0F2RkdLTks3VEJoZHBXTnY4OGtvZFFiRC1PSkpnalo0TjNMaV96S1VwcUpmdVpWU3ltc25tTkc?oc=5",
+        "source": "Financial Times (via Google)",
+        "title": "Todd Boehly’s insurer wins reprieve on rules to close capital arbitrage - Financial Times"
       }
     ]
   }
