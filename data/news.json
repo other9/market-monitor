@@ -1,131 +1,139 @@
 {
-  "generatedAt": "2026-05-01T23:43:20.178963+00:00",
+  "generatedAt": "2026-05-02T23:34:53.484371+00:00",
   "epigraph": {
-    "quote": "戦争は長引く。なぜなら双方とも勝てると信じているからだ。",
-    "source": "トゥキュディデス『戦史』",
-    "connection": "米イラン対立の長期化と原油市場の緊張が続く中、解決の糸口が見えない地政学リスクを映す"
+    "quote": "歴史は繰り返さないが、韻を踏む。",
+    "source": "マーク・トウェイン（作家）",
+    "connection": "イラン戦争、中東への武器売却、スピリット航空破綻—異なる危機が同時進行する中、市場は史上最高値を更新。楽観と不安が交錯する今日の相場に。"
   },
-  "headline_of_the_day": "原油高と円安介入、地政学リスクが市場を揺さぶる",
+  "headline_of_the_day": "S&P・ナスダック最高値、原油安と好決算が追い風",
   "news": [
     {
       "tag": "金融政策",
-      "headline": "パウエルFRB議長、任期後もFRB理事継続を明言",
-      "body": "パウエル議長は議長任期終了後もFRB理事として留まる意向を表明。トランプ大統領からの批判を「前例のないもの」と評した。市場はFRBの独立性維持を好感。",
+      "headline": "Fed、利下げ議論から利上げ検討へシフト",
+      "body": "WSJ報道によると、FRBは数ヶ月にわたる利下げ議論を経て、利上げの可能性を検討する方向へ転換。インフレ再燃への警戒が強まる中、シカゴ連銀グールズビー総裁も直近のインフレ指標を「悪いニュース」と評価した。",
       "impact": [
-        "金利見通し安定",
-        "FRB独立性への安心感"
+        "利上げ観測浮上でドル高・債券安の可能性",
+        "株式バリュエーションへの下押し圧力"
       ],
-      "source_index": 27,
-      "link": "https://www.cnbc.com/2026/04/29/jerome-powell-says-he-will-continue-to-serve-as-a-fed-governor-even-after-chairmanship-ends-.html",
-      "source": "CNBC Markets"
-    },
-    {
-      "tag": "為替介入",
-      "headline": "日本、約5兆円規模の円買い介入を実施か",
-      "body": "ブルームバーグ報道によると日本当局は約345億ドル（約5兆円）規模の円買い介入を実施した模様。大型連休中の流動性低下を狙った介入とみられるが、円安基調継続の見方も根強い。",
-      "impact": [
-        "ドル円の短期ボラティリティ上昇",
-        "介入効果の持続性に疑問"
-      ],
-      "source_index": 89,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPc1J0YnluUFV6R01FSzk2QTMzaXpvTzhvMm5laHhrNzRzX3AwdWVNdFphY2VldHpnMDdSSXNBaWppZ0NCQk5xaWl6Ykp1T1BxUmlzcElZYlRiVE1rOFpnZ2tLaHFsOGJRbjZsOXpxQmxHRzJLRnRDM05vUkxWbHRsNnhzaTQySEFOSFlaaERRQ1E5azdVemdyN0VmMENIclhKWnpTcHdTQnUzVGhJMldxS25mOXM?oc=5",
-      "source": "Bloomberg (via Google)"
-    },
-    {
-      "tag": "地政学",
-      "headline": "原油、イラン戦争10週目で4年ぶり高値圏",
-      "body": "WTI原油は週間で上昇、イラン情勢の長期化で125ドル超えを予想するトレーダーも。ガソリン価格は戦争開始から約50%上昇し、米国民の生活を直撃している。",
-      "impact": [
-        "インフレ再燃リスク",
-        "消費者心理悪化"
-      ],
-      "source_index": 14,
-      "link": "https://www.marketwatch.com/story/it-now-costs-160-to-fill-up-americas-top-selling-vehicle-as-the-iran-war-nears-its-10th-week-803077d2?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
-    },
-    {
-      "tag": "関税",
-      "headline": "トランプ大統領、EU自動車に25%関税を予告",
-      "body": "トランプ大統領は欧州車への25%関税を予告し、EU議会貿易委員長は「受け入れられない」と反発。貿易摩擦の再燃が欧州株・自動車セクターの重荷に。",
-      "impact": [
-        "欧州自動車株下落リスク",
-        "貿易戦争再燃懸念"
-      ],
-      "source_index": 76,
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPU1ZnLXJibG5qdTVfNjU4czNjRHMtaWUwUW9mMXJaeFNGa2JtZGVZd3duNm1aSHBZeVFhQkQtVTlKOWNJdm8zSEJOaGd3OFV0alVSVWVGVFdWeHEzLUpJaGd5bllDVTVxQzlBTEdMMkhqeTVVVHl2eFNNcDBOOHlxWHg1RkNGS2FFb2FGUExndTV3a2M3XzdWa25LWS1FQmZ1UjVOeFIzWVlUbmpDcVE?oc=5",
-      "source": "Bloomberg (via Google)"
-    },
-    {
-      "tag": "決算",
-      "headline": "イーライリリー、GLP-1薬好調で売上56%増",
-      "body": "イーライリリーのQ1決算は肥満・糖尿病治療薬の爆発的成長で売上が前年比56%増。株価は急伸し、ヘルスケアセクターを牽引。",
-      "impact": [
-        "ヘルスケアセクター堅調",
-        "GLP-1市場の拡大継続"
-      ],
-      "source_index": 37,
-      "link": "https://finance.yahoo.com/markets/article/eli-lilly-stock-soars-after-q1-earnings-as-revenue-grows-56-on-strength-of-glp-1-drug-sales-164308976.html",
-      "source": "Yahoo Finance US"
-    },
-    {
-      "tag": "オルタナ",
-      "headline": "Ares Management、Q1に過去最高300億ドル調達",
-      "body": "プライベートクレジット大手Aresは市場の不安定さにもかかわらず、第1四半期に過去最高の300億ドルを調達。オルタナ投資への資金流入が継続。",
-      "impact": [
-        "プライベートクレジット市場の活況",
-        "機関投資家のオルタナシフト"
-      ],
-      "source_index": 96,
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRFZsRmlSSlNJemNGZmRLa213TnoxMWNaNHQwU1YxZ0xTNjlCREJqVC1DcG9tVTZEMVRybUNuRUZjV1ZQZm9kX1YxNFNvVUNpQjBFMWtBdlhQYXNCTDVhY3JpQkM1RFNHSkhPNFR6SXRLTTRMTDN0QWlvZE5NaWctOXByeWZma0R4WWtJS0xjaGtxRjBrRDFCVVZWSDhQQzlv?oc=5",
+      "source_index": 92,
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQSkJ4SVBZLUFpN0prU0lxejFwTUlBcGdUVzlCc1d5cmxpSUR4YzZJdXhHS3c5RzFvdlV5Qm1zR1NtdkFUOEJJVEZYWkRGdmhaSndHeGwxWDM1MmM4Z3BsYk1tLWUtY2tVSktlSjFQUmRTeDRwOWE5T2NiYnc0dlpKUGJjdDdEQ3U2WUJ3OHEwaTVROWFNaTI4TXVLN1c3SGpPbVpQc1VZTS1ucGZ5TzlILW9RWkV4dUZjcmt3dXF6cEk?oc=5",
       "source": "WSJ Markets (via Google)"
     },
     {
-      "tag": "半導体",
-      "headline": "Huawei、AI半導体売上急増でNvidia中国シェアを侵食",
-      "body": "米国の輸出規制下でHuaweiのAI半導体売上が急増。Nvidiaの中国事業が停滞する中、地政学的デカップリングが加速している。",
+      "tag": "地政学",
+      "headline": "米、中東同盟国に86億ドルの武器売却を承認",
+      "body": "トランプ政権はイラン戦争を背景に、サウジアラビア、UAE等への大型武器売却を迅速承認。一方、欧州向け武器供給には遅延警告も発出され、イラン紛争による在庫逼迫が顕在化している。",
       "impact": [
-        "Nvidia中国売上減リスク",
-        "半導体サプライチェーン分断"
+        "中東情勢の長期化リスク",
+        "防衛関連株への追い風"
       ],
-      "source_index": 125,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNQy05d1UzSnZVRm90NURLeEVNbDkyZG5ESTJPQk9KQW9sY0NSeDdDdThBNUVwS0lPTmtyaXpHQnA5SXpLSkxfTDhuN3dLc0g1Q3FuX2VORkZEYlBKMmdnNGNubjJYZU1NYVFIaTBuMGtJUjhPRFhBZFVIZmtGOEQxa0k2Z0c?oc=5",
-      "source": "Financial Times (via Google)"
+      "source_index": 85,
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOT0dLdTVKamxOSV9NQ3p5VkhYY0RqZ19PVnNpNFRZc1N5MnlUOGNQeXFSSVVJdk43anByc1lrYzViWU84WkhQQ0xPWVp3ckFZRThkUm5aajJMNmJVQW1PQXBpemM1eDB6QldoM0w3N1E3ZUtERzRTX0Zfc1JXMHlqMEd0eU4zUDZpenQyYUxzOWhESGh4MEZpREVxNmluYWZWTE5ObzhIWUI2blJwLUVkVVB3anU?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "企業決算",
+      "headline": "バークシャー、現金残高3800億ドルに膨張",
+      "body": "バフェット後初の四半期でアベルCEO体制のバークシャー・ハサウェイは株式売却を14四半期連続で継続。現金残高は過去最高の3800億ドルに達し、市場への慎重姿勢を鮮明にした。",
+      "impact": [
+        "大型買収への期待と様子見姿勢の両面",
+        "市場のバリュエーション警戒シグナル"
+      ],
+      "source_index": 67,
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPWVpLYVU0N2doM1pIZDdmMkJuVXFBTmhkZDA3b1ZGWk5LZmFXb2hGZFJsajVYOUl6eUJFT0VleS1GTEpPTjRUNGJrZHRoNXBLbmF6eVV4TEsyX2k2bFpqdzhIUDJ4S01OWmpycmJBZVlyTUQySXlNeXNTakVMNXFKNEUtdV93dVZELVQ2Si1UQkNrRjhJTGFrR0RnOWVvTnVueWppYkQtZVVsX2taeW1R?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "航空・破綻",
+      "headline": "スピリット航空、運航停止—政府救済交渉決裂",
+      "body": "米LCC大手スピリット航空がホワイトハウスとの救済交渉決裂を受け、全便運航を即時停止。燃料高騰と競争激化が直撃し、低価格航空ビジネスモデルの限界を露呈した。",
+      "impact": [
+        "競合他社の供給力・運賃への影響",
+        "航空セクター再編加速"
+      ],
+      "source_index": 75,
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPQzVLUzdCVXRfcUN3SDNrOEE1LVhlWU83UkwxbWdpQnhRTlNvLV9qc3RaSFhubFRKekJ4Rk9BN19xelExU1RLOUYwVVZLWko0bmJYQ2p3b3Z1VTYwRkJXdWVzRl92cWtRdUsyWEk1QUtzenEtT0RWOTFsd2Mwc2k2enBvSy1mM2JuZmxyTFBnbWEzLTlJNEN0ZHZlN01vdFUyV0RXZ2VLMHFRLVFPN2dZOUFR?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "原油・エネルギー",
+      "headline": "大手石油各社、供給バッファー枯渇を警告",
+      "body": "イラン戦争長期化の中、メジャー各社は余剰生産能力の減少を警告。ホルムズ海峡では大型タンカーの通過が確認されたが、世界最大のコンテナ船社は同海峡を迂回するルートを計画中。",
+      "impact": [
+        "原油価格の上振れリスク継続",
+        "海運・物流コストへの波及"
+      ],
+      "source_index": 86,
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNU3dUMjJGNjkzZWt1Y1ZZeGl0TDNLRUJmRXF1bW11cXFuRDFWanBUZEhXSDVRd1hoUGp0NGNiZlNxdkk4SzdNZC1XbzllZHVPdktpUnE5bHN6Wlo4NzFJMWwya3dBRm1kakxhUGVnNGl6OS01eTgzQUpWbUtRWDhMNFFyb0IyOVV4TlBkb3NqbFJfanQwTXJOM2NJcDZ0VXZBY1ZOQWN2Mk9nbmlMcXd1c29CaldyQQ?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "米国株",
+      "headline": "S&P500・ナスダック、揃って史上最高値更新",
+      "body": "好決算と原油安を追い風に、S&P500は週間で2024年末以来最長の連騰を記録。ゴールドマン・サックスは7100超えを「フロス（過熱）」と警告するも、リスクオンムードが継続。",
+      "impact": [
+        "モメンタム継続への期待",
+        "調整リスクへの警戒も"
+      ],
+      "source_index": 12,
+      "link": "https://jp.reuters.com/markets/japan/W7P2QRBTJJKMDANBHPXHIGGIU4-2026-05-01/",
+      "source": "Reuters Japan Markets"
+    },
+    {
+      "tag": "為替",
+      "headline": "ドル円、2月以来の大幅な週間下落",
+      "body": "連休中の介入警戒感が継続する中、ドル円は週間で大幅安。黒田前日銀総裁も「円安は行き過ぎ」と発言し、日本当局のスタンスに市場の注目が集まっている。",
+      "impact": [
+        "介入リスクの織り込み進行",
+        "輸出企業の為替感応度に注目"
+      ],
+      "source_index": 9,
+      "link": "https://jp.reuters.com/markets/japan/INRC3R2CSVICTOAFH65ZQKVKS4-2026-05-01/",
+      "source": "Reuters Japan Markets"
     }
   ],
   "funny_stories": [
     {
-      "kind": "皮肉・風刺系",
-      "title": "Jane Streetの1人当たり268万ドル",
-      "body": "クオンツ取引大手Jane Streetの従業員1人当たり報酬が268万ドル（約4億円）に。「AIに仕事を奪われる」と心配する前に、まずJane Streetに入社する方法を心配すべきかもしれない。なお、同社の採用プロセスは「AI以上に難解」との評判。",
-      "source_index": 87,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOTTRZeHVuT3hXcnI5N2dLNnNXQnNFaEVoNkRGQ0NQcm54WUstRFR2ZHUwVVBQNjBNcC03Y0lYOGdpWWJkOGJqcHNuOTRNeTlkc0p5d2xTZ3FpaVlodlotTG9PM2I4RnowWGtDeUd0bmRUblZDS3JwTkQ3R01nU1QteWtKRTVhSFFTclhjcGhIcXBrYnBtU1NPeDl4VkFFUWVXQXVqUEtQdmNqcDZjamtMblM2bWQ?oc=5",
+      "kind": "irony",
+      "title": "3800億ドルの「様子見」",
+      "body": "バフェット亡き後、バークシャーの現金残高は過去最高を更新し続けている。アベル新CEOの初仕事は「何も買わない」こと。株主総会でアベル氏は全ブースを回り握手を振りまいたが、最も固く握りしめていたのは財布の紐だったようだ。「忍耐を」というメッセージは、ウォール街には「君たちの株は高すぎる」と聞こえたかもしれない。",
+      "source_index": 134,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOLU5DTlRSMS1uRkxEY2hSOVdkV0VLM1pZMWo1WTZqV1dWRW0wYWdWTEU2ME1TSk14YjdIR1Z3cDlLRHBNY1VIamNHTnRRRWFjTUNNNkNveWxLOEhpem5Kc1gzSlVkMlNnRlc5V3pUWTNib3VoNlhWOU54Y19VTFo0cFpfU1I?oc=5",
+      "source": "Financial Times (via Google)"
+    },
+    {
+      "kind": "pathos",
+      "title": "空の墓場、地上の行列",
+      "body": "スピリット航空が突然の運航停止を発表した瞬間、空港には途方に暮れた乗客の列ができた。「格安」を売りにした航空会社は、最後に乗客に最も高くついた—目的地に着けないというコストを。競合他社が救済便を出す中、あるXユーザーは呟いた。「スピリットの最安値は、結局キャンセル料ゼロだった。」",
+      "source_index": 80,
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOYXc2TjdDN0JWc2piczAzcGFNUGV6U0t4bTRsNkdMRG5oYmR5M09lNmo5TEZNcXBhLUk1VVgyODRyR2V0ZXZ2YjMzSTJnYlpRVW9IeEpCTnFkNVZIcjV3TDFQT3h4MkJLLWVHVkotR0Y4T0ZtcmdWS2RST29LNExnNUIyUkRlaFdYQzhURFhReDJOempjUWlRMkVXMW5JcEZlMUZZT1dRb1BuQTlOUVYyUlJR?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "kind": "人間味・哀愁系",
-      "title": "バフェット後のバークシャー",
-      "body": "バフェット氏が中心にいない初の株主総会。新CEO グレッグ・アベル氏は会場の全ブースを回り握手を続けたという。95歳の「オマハの賢人」の影は大きく、「彼なしでも大丈夫」と自分に言い聞かせる株主たちの表情が目に浮かぶ。",
-      "source_index": 19,
-      "link": "https://www.cnbc.com/2026/05/01/berkshire-hathaways-shopping-extravaganza-draws-lighter-crowds-as-spotlight-shifts-to-greg-abel.html",
-      "source": "CNBC Markets"
-    },
-    {
-      "kind": "観察・再発見系",
-      "title": "TOTOが半導体銘柄に？",
-      "body": "日本のトイレメーカーTOTOの株価がAI関連事業へのピボットで急騰。ウォシュレットで世界を制した企業が、次はAIでトイレの未来を変えるのか。「あらゆるものがAI銘柄になる時代」の象徴的一幕。",
-      "source_index": 127,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOVkV2OGVSVGpfZE9lWmFadE56STM0cUZFd2xvVDN4Wkx4ZXRzSExHZ0Joc05Rd2FmREplWDRuN29neThLaHNvRXlZeWZVd1BvaVpvVWh6OTdqT0VaeVFWbzNHbGZmdmpWZHU1YlRBblhkVm9rTEx5YzV3OEpEdk15Q0ZBZzA?oc=5",
-      "source": "Financial Times (via Google)"
+      "kind": "observation",
+      "title": "AIで解雇は違法？",
+      "body": "中国の裁判所が「AI導入を理由とした解雇は認められない」との判決を下した。シリコンバレーが「AIは雇用を奪う」と騒ぐ中、中国は法律で「AIが来ても君の席は守る」と宣言した形だ。効率化の波に法の防波堤。テック企業の人事部は今頃、解雇理由の言い換え辞典を必死で探しているに違いない。",
+      "source_index": 71,
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQbjRnSHZFdEFWaW5oQm1qOVFEMTBSWTc3TzlqUDVXUmJTYnR4aF9BZGRiM2lDakV6MEhLYU5fRk8zWVdhLTFVZUtmV05mWDlMc2RRYzRrejZFdDk4bkZLVjR2STl3aEZfaHhyV1pONUpBUkZVQ2NXTDdVUm5kelRjU0hMWTZnR1FTb2Fzd2tiMjFqNmV3Yzg5Z1VHVXBmall3QjZqZVJyTkFwTEJGYnA2SjVB?oc=5",
+      "source": "Bloomberg (via Google)"
     }
   ],
   "charts_of_the_day": [
+    {
+      "source": "yf",
+      "ticker": "^GSPC",
+      "title": "S&P 500",
+      "name": "S&P 500",
+      "sub": "INDEX · USD",
+      "rationale": "史上最高値更新。週間連騰記録と「フロス」警告の狭間で、モメンタムの持続性を確認。"
+    },
     {
       "source": "yf",
       "ticker": "CL=F",
       "title": "WTI原油",
       "name": "WTI原油",
       "sub": "$ / bbl",
-      "rationale": "イラン戦争長期化で4年ぶり高値圏。125ドル超えの予想も出ており、エネルギーコストとインフレの観点から最重要"
+      "rationale": "イラン戦争長期化と供給バッファー枯渇警告。スピリット破綻の背景にも燃料高。"
     },
     {
       "source": "yf",
@@ -133,173 +141,153 @@
       "title": "ドル円",
       "name": "USD/JPY",
       "sub": "ドル円",
-      "rationale": "日本当局が約5兆円規模の介入実施。連休中の介入効果と円安基調継続の綱引きを注視"
+      "rationale": "2月以来の大幅週間下落。黒田前総裁「円安行き過ぎ」発言と介入警戒。"
     },
     {
       "source": "yf",
-      "ticker": "LLY",
-      "title": "Eli Lilly",
-      "name": "Eli Lilly",
+      "ticker": "BRK-B",
+      "title": "バークシャー・ハサウェイ B株",
+      "name": "バークシャー・ハサウェイ B株",
       "sub": "",
-      "rationale": "GLP-1薬爆発的成長で売上56%増。ヘルスケアセクターを牽引する決算後の株価動向"
+      "rationale": "現金3800億ドル、14四半期連続の株式売却。アベル体制初の株主総会後の市場評価。"
     },
     {
       "source": "yf",
-      "ticker": "^GSPC",
-      "title": "S&P 500",
-      "name": "S&P 500",
-      "sub": "INDEX · USD",
-      "rationale": "ナスダックとともに最高値更新。地政学リスク下でも上昇を続ける米国株の強さを確認"
+      "ticker": "^TNX",
+      "title": "米10年債利回り",
+      "name": "米10年債利回り",
+      "sub": "%",
+      "rationale": "Fed利上げシフト観測浮上。利回り低下の持続性と金融政策転換リスクを注視。"
     },
     {
       "source": "yf",
-      "ticker": "NVDA",
-      "title": "NVIDIA",
-      "name": "NVIDIA",
+      "ticker": "^VIX",
+      "title": "VIX（恐怖指数）",
+      "name": "VIX (恐怖指数)",
+      "sub": "INDEX",
+      "rationale": "株高の中でのボラティリティ水準。GS「フロス」警告と市場のリスク認識のギャップ。"
+    },
+    {
+      "source": "yf",
+      "ticker": "LUV",
+      "title": "サウスウエスト航空",
+      "name": "サウスウエスト航空",
       "sub": "",
-      "rationale": "Huaweiの台頭で中国シェア侵食の報道。軍事AI契約拡大のポジティブ材料との綱引き"
-    },
-    {
-      "source": "fred",
-      "ticker": "BAMLH0A0HYM2",
-      "title": "HYスプレッド",
-      "name": "HY 社債スプレッド",
-      "sub": "% · OAS",
-      "rationale": "プライベートクレジット活況の裏で、公開市場のクレジット環境を確認"
+      "rationale": "スピリット破綻で競合LCCへの需要シフト期待。航空セクター再編の受益者候補。"
     },
     {
       "source": "yf",
-      "ticker": "GC=F",
-      "title": "金",
-      "name": "金 (COMEX)",
-      "sub": "$ / oz",
-      "rationale": "地政学リスク高まるも金利上昇懸念で週間下落。安全資産の動向を注視"
-    },
-    {
-      "source": "yf",
-      "ticker": "VOW3.DE",
-      "title": "フォルクスワーゲン",
-      "name": "フォルクスワーゲン",
+      "ticker": "XLE",
+      "title": "エネルギーセクターETF",
+      "name": "エネルギーセクターETF",
       "sub": "",
-      "rationale": "トランプ大統領のEU自動車関税25%予告。欧州自動車セクターへの影響を確認"
+      "rationale": "供給逼迫警告と中東リスク。原油価格動向とエネルギー株の連動性を確認。"
     }
   ],
   "deep_dive": {
-    "title": "イラン戦争10週目、原油市場は「クランチポイント」へ",
-    "lede": "中東情勢の長期化で原油価格は4年ぶり高値圏に突入。世界の石油在庫は急減し、市場は供給逼迫の臨界点に近づいている。",
-    "background": "4月7日にWTI原油が113ドルの高値をつけて以降、米イラン間の軍事的緊張は解消されていない。イランはホルムズ海峡で通行料を要求し、米国は支払った船舶への制裁を警告するなど、事実上の海上封鎖リスクが高まっている。FT報道によると世界の石油在庫は急速に減少しており、「1カ月以内にクランチポイント（臨界点）」に達する可能性がある。一方、ExxonとChevronはトランプ政権からの増産圧力に応じず、シェール生産者も価格高騰にもかかわらず増産に慎重な姿勢を維持している。",
-    "implications": "短期的には原油価格の125ドル超えも視野に入り、ガソリン価格上昇（現在4.42ドル/ガロン、戦争開始から50%上昇）が米消費者心理を圧迫する。中期的にはインフレ再燃がFRBの利下げシナリオを複雑化させる。CPIへの波及が確認されれば、「higher for longer」が現実味を帯びる。長期的には、エネルギー安全保障の観点から再エネ投資加速（豪州は中東緊張を受けエネルギー転換を加速）や、米国のエネルギー自給戦略の見直しにつながる可能性がある。",
+    "title": "Fed、利下げから利上げへ——政策転換の背景と市場への含意",
+    "lede": "数ヶ月にわたる利下げ議論から一転、FRBが利上げの可能性を視野に入れ始めた。インフレ再燃への警戒が金融政策の風向きを変えつつある。",
+    "background": "2025年後半から2026年初にかけて、FRBは累計で1%の利下げを実施し、FF金利上限は3.75%まで低下した。しかし、イラン戦争による原油価格上昇、関税政策の影響、住宅価格の高止まりなど、インフレ圧力は根強い。シカゴ連銀のグールズビー総裁は直近のインフレ指標を「悪いニュース」と明言。WSJ報道によれば、FOMC内部では利上げシナリオのマッピングが始まっている。パウエル議長時代の「すべてが上昇する相場」は、政策転換の岐路に立っている。",
+    "implications": "短期的には、利上げ観測の台頭はドル高・債券安要因となり、金利敏感セクター（不動産、公益）や高バリュエーション成長株への逆風となりうる。中期的には、2026年後半のFOMC会合（約6週間ごと）が市場のボラティリティの震源地となる可能性が高い。一方、インフレ抑制が確認されれば「利上げは脅しで終わる」シナリオも残る。市場は現在、利上げをほぼ織り込んでおらず、コミュニケーション次第で大きな調整リスクが潜在する。",
     "what_to_watch": [
-      "WTI原油の113ドル（4月高値）突破の有無",
-      "ホルムズ海峡の通行状況と保険料率の推移",
-      "次回CPIにおけるエネルギー価格の寄与度",
-      "OPEC+の増産対応の有無",
-      "イラン核交渉の再開可能性に関する報道"
+      "次回FOMC（6週間後）の声明文・ドットチャートの変化",
+      "5月CPIおよびPCEデフレーターの推移",
+      "ブレークイーブン・インフレ率（10年）の動向",
+      "パウエル議長後任人事（ウォーシュ氏の指名観測）",
+      "原油価格の$125突破シナリオと二次的インフレ効果"
     ],
     "related_keys": [
-      "wti",
-      "brent",
+      "us10y",
       "t10yie",
+      "sp500",
       "vix"
     ],
-    "source_index": 119,
-    "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPenpsYWU5Si1ScFVYdE1LZ3RjSkFqU2taNzRkX1VwZ0drWUNzVWNJeTc4UnNyWjhwdF9uZjd3YkpWMF9FMmJEUmJrVE5fSHpQZXd5ZUsxdVhVUERYeDlxbjVacW1GRFlwTlZINHZMbjZFalowelRvUmFYNUZGQ0l3WDY3V1U?oc=5",
-    "source": "Financial Times (via Google)"
+    "source_index": 92,
+    "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQSkJ4SVBZLUFpN0prU0lxejFwTUlBcGdUVzlCc1d5cmxpSUR4YzZJdXhHS3c5RzFvdlV5Qm1zR1NtdkFUOEJJVEZYWkRGdmhaSndHeGwxWDM1MmM4Z3BsYk1tLWUtY2tVSktlSjFQUmRTeDRwOWE5T2NiYnc0dlpKUGJjdDdEQ3U2WUJ3OHEwaTVROWFNaTI4TXVLN1c3SGpPbVpQc1VZTS1ucGZ5TzlILW9RWkV4dUZjcmt3dXF6cEk?oc=5",
+    "source": "WSJ Markets (via Google)"
   },
   "economic_chart_of_the_day": {
-    "series_id": "DCOILWTICO",
-    "title": "WTI原油価格の推移",
-    "subtitle": "日次, ドル/バレル",
-    "rationale": "イラン戦争長期化で原油が4年ぶり高値圏。インフレ・消費者心理・FRB政策への波及経路として最重要の経済指標",
+    "series_id": "T10YIE",
+    "title": "10年ブレークイーブン・インフレ率",
+    "subtitle": "日次, %",
+    "rationale": "Fed利上げシフト観測の背景にはインフレ再燃懸念。市場が織り込む期待インフレの推移を確認することで、政策転換の蓋然性を測る。",
     "period_years": 3
   },
   "central_bank_watch": [
     {
       "code": "FED",
-      "comment": "パウエル議長は5月FOMCで政策金利を3.75%に据え置いた後、議長任期終了後もFRB理事として留まる意向を明言した。トランプ大統領からの繰り返しの批判を「前例のない」と表現しつつも、独立性を堅持する姿勢を示した。ミネアポリス連銀カシュカリ総裁はイラン戦争のリスクを理由に利下げに反対票を投じており、FOMC内でも地政学リスクへの見方が分かれている。市場は年内1〜2回の利下げを織り込むが、原油高が続けばインフレ再燃懸念から利下げ期待は後退する可能性がある。次回6月FOMCまでにCPIと雇用統計が発表され、データ次第の展開が続く。"
+      "comment": "FF金利上限は3.75%で据え置かれているが、WSJ報道によればFOMC内部で利上げシナリオの検討が始まった。シカゴ連銀グールズビー総裁は直近のインフレ指標を「悪いニュース」と評し、パウエル議長時代の緩和路線からの転換を示唆。市場は依然として利上げをほぼ織り込んでおらず、今後のコミュニケーション次第でボラティリティが高まる可能性がある。次回FOMCは約6週間後で、声明文の文言変化とドットチャートの上方修正の有無が焦点。ウォーシュ次期議長指名観測も絡み、不確実性は高い。"
     },
     {
       "code": "ECB",
-      "comment": "ECBは直近6月に0.25%利下げを実施し、預金ファシリティ金利は2.0%となった。トランプ大統領がEU自動車に25%関税を予告したことで、欧州経済への下押し圧力が強まる懸念がある。EU議会貿易委員長は「受け入れられない」と反発しており、貿易摩擦が実体経済に波及すれば追加緩和の議論が再燃する可能性がある。ただし原油高によるインフレ上振れリスクとの板挟みで、ECBも難しい舵取りを迫られている。市場は年内さらに1〜2回の利下げを見込むが、関税と原油の二正面作戦が政策判断を複雑化させている。"
+      "comment": "預金ファシリティ金利は2.0%。直近6月に0.25%の利下げを実施しており、ユーロ圏のディスインフレ傾向を反映した緩和継続姿勢。ただし、イラン戦争によるエネルギー価格上昇がインフレ見通しを複雑化させている。アイルランド中銀総裁はエネルギー高の長期化を警戒するコメントを発出。FTは「ユーロの急務」としてECBの難しい舵取りを指摘しており、次回理事会（約6週間後）では成長とインフレのバランスを巡る議論が激化しそうだ。"
     },
     {
       "code": "BOJ",
-      "comment": "日銀は大型連休中に約5兆円規模とみられる円買い介入を実施した。流動性が薄い連休中を狙った介入だが、市場では「円安基調は変わらない」との見方が根強い。日米金利差が依然として大きく、キャリートレードの巻き戻しには至っていない。次回の金融政策決定会合では介入の効果検証とともに、原油高による輸入物価上昇の影響も議論される見込み。利上げ継続の可能性は残るが、円安抑制効果は限定的との市場評価が介入の持続性への疑問を投げかけている。"
+      "comment": "黒田前総裁が「円安は行き過ぎ」と発言し、市場の介入警戒感を高めた。ドル円は週間で2月以来の大幅下落を記録し、連休中も当局のスタンスへの注目が継続。現行の政策金利は公表されていないが、植田総裁体制下での正常化路線は維持されているとみられる。次回金融政策決定会合では、為替動向を踏まえたフォワードガイダンスの微調整があるか注目。円安是正圧力と輸出企業への配慮の間で、コミュニケーションの難易度は高い。"
     },
     {
       "code": "BOE",
-      "comment": "BOEは直近の金融政策委員会(MPC)で利下げを決定し、英国債利回りは決定後に上昇した。市場は「タカ派的利下げ」と解釈しており、今後の緩和ペースは緩やかとの見方が優勢。英国ではGLP-1薬を福利厚生から外す企業が出るなどコスト意識が高まる一方、賃貸住宅市場では大家の売却が加速（1日700件が市場に）し、住宅市場の構造変化も注視されている。次回MPCでは原油高のインフレ波及と成長鈍化のバランスが焦点となる。"
+      "comment": "英国ではファラージ率いるリフォーム党が初の地方政権参加を控え、財政政策の不透明感が増している。FT報道では富裕層が相続税改革を前に年金資産を取り崩す動きが加速。金融政策面では、インフレ圧力と成長減速の狭間でMPCの判断が難しくなっている。バークレイズとエイゴンは「市場の痛み」への備えを呼びかけており、次回MPC（約6週間後）では据え置き継続が基本線ながら、タカ派委員の発言に注目が集まる。"
     }
   ],
   "pe_pd_view": {
-    "body": "プライベート市場では資金調達が引き続き好調だ。プライベートクレジット大手のAres Managementは第1四半期に過去最高となる300億ドルを調達し、市場の不安定さが逆にオルタナ投資への資金流入を加速させている構図が鮮明になった。Ares（エアリーズ）は企業向け直接融資を主力とするファンドで、銀行融資に代わる「ダイレクト・レンディング」と呼ばれる分野のリーダーだ。\n\nPeter Thiel氏率いるFounders Fundは過去最大の60億ドルを調達。ベンチャーキャピタル側でも大型調達が続く。また、ヘルスケア特化のArchiMedはEsperion Therapeuticsを11億ドルで非公開化する案件を発表し、医療セクターでのバイアウト活動も活発だ。Blue OwlはSpaceXへの投資で10倍のリターンを得たと報告しており、ユニコーン株式のセカンダリー市場の好調さを示している。TPGも100億ドル超を調達し、「市場の乱高下を収益機会に変える」戦略を強調している。",
-    "impact": "positive",
-    "impact_summary": "オルタナ大手の過去最高調達、リスク資産への待機資金潤沢",
+    "body": "今週はPE（プライベート・エクイティ）分野で複数の動きがあった。ヘルスケア特化型のArchiMedがEsperion Therapeuticsを11億ドルで非公開化する契約を発表。PE業界では製薬・バイオ分野の「パブリック・トゥ・プライベート」案件が増加傾向にあり、上場市場でのバリュエーション低迷を逆手に取った動きだ。一方、元ユナイテッド航空CEOのオスカー・ムニョス氏らが新PE会社「Mako」を正式に立ち上げ、経営経験者によるオペレーショナル型PEの潮流を示した。\n\nPD（プライベート・デット）関連では、KKRが過半数を保有するFlow Control Groupにノイバーガー・バーマンが少数株主として参画。これはPE投資先企業へのプライベート・クレジット供給の一例で、銀行融資に代わるダイレクト・レンディングの拡大を象徴している。MarketWatchはプライベート・クレジットについて「銀行より安全ではなく、損失を隠すのが上手いだけ」と警鐘を鳴らしており、透明性への懸念は引き続き論点だ。",
+    "impact": "neutral",
+    "impact_summary": "非公開化案件活発もクレジット透明性に懸念",
     "source_indices": [
-      96,
-      82,
+      59,
       57,
-      26,
-      107
+      61,
+      22
     ],
     "sources": [
-      {
-        "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNRFZsRmlSSlNJemNGZmRLa213TnoxMWNaNHQwU1YxZ0xTNjlCREJqVC1DcG9tVTZEMVRybUNuRUZjV1ZQZm9kX1YxNFNvVUNpQjBFMWtBdlhQYXNCTDVhY3JpQkM1RFNHSkhPNFR6SXRLTTRMTDN0QWlvZE5NaWctOXByeWZma0R4WWtJS0xjaGtxRjBrRDFCVVZWSDhQQzlv?oc=5",
-        "source": "WSJ Markets (via Google)",
-        "title": "Ares Management Raises Record $30 Billion in First Quarter Despite Market Fears - WSJ"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQWGJJQ09yb05zMXVIMUtXZ3VvdkxraDJWZFhkT0hMTnN6ZHdxY2lIakR4R01XNVBrOXR0dVZ6Y0VDZzFYeW5ST051YTVpMmw4VENpcTJEWlNXZDE3YzVzNGNPRTVvX1lGUmJJYnhDRjVINGlzNWhjeGswZkZLY3pCcndrSTdnVFg4RTBMWUE2akhxT28yMGJweDFTM3NWT3JFcU1HQUhfZjVZcEhzZmF3SjB4RTY?oc=5",
-        "source": "Bloomberg (via Google)",
-        "title": "Thiel’s Founders Fund Raises $6 Billion in Its Largest-Ever Haul - Bloomberg.com"
-      },
       {
         "link": "https://www.pehub.com/archimed-to-take-esperion-therapeutics-private-for-1-1bn/",
         "source": "PE Hub",
         "title": "ArchiMed to take Esperion Therapeutics private for $1.1bn"
       },
       {
-        "link": "https://www.cnbc.com/2026/04/30/blue-owl-shares-private-credit-spacex-gains.html",
-        "source": "CNBC Markets",
-        "title": "Blue Owl shares surge after private credit firm cites 10X gains from SpaceX"
+        "link": "https://www.pehub.com/new-pe-firm-mako-officially-rolls-out/",
+        "source": "PE Hub",
+        "title": "New PE firm Mako officially rolls out"
       },
       {
-        "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxONF8zbVBHZ3JqaFdiYU1rZ2FsbmFPTDNCZXZWMDB3YlFUc1hEZndhYmE0VHdTcE5XaDNWNmw5NkRueTdNdzZhZlRsd01SQWdJWlpUTThZbVdCMndIR0VBMG5HTWZLRmJabXFZcGgwTWZrVENOcklCSzBHM05xcjN2Um85SFB3a1pOZ3c?oc=5",
-        "source": "WSJ Markets (via Google)",
-        "title": "TPG Raises More Than $10 Billion, Doubles Capital Deployments - WSJ"
+        "link": "https://www.pehub.com/neuberger-to-back-flow-control-group/",
+        "source": "PE Hub",
+        "title": "Neuberger to back Flow Control Group"
+      },
+      {
+        "link": "https://www.marketwatch.com/story/private-credit-isnt-safer-than-banks-its-just-better-at-hiding-losses-84937515?mod=mw_rss_topstories",
+        "source": "MarketWatch Top",
+        "title": "Private credit isn’t safer than banks — it’s just better at hiding losses"
       }
     ]
   },
   "real_assets_view": {
-    "body": "不動産・インフラ分野では、エネルギー関連が最大のテーマとなっている。豪州政府は中東緊張を背景にエネルギー転換を加速する方針を発表。再生可能エネルギーへの投資拡大は、インフラファンドにとって長期的な追い風となる。一方、AI関連の電力需要増大を背景に、原子力スタートアップFermiが顧客獲得に苦戦して事業継続が困難になったとの報道もあり、「AIと電力」の組み合わせが投資テーマとして注目される一方、実行段階では課題も多い。\n\n商業不動産では、英国で賃貸住宅の大家が1日700件ペースで物件を売却しており、住宅市場の構造変化が進行中。金利上昇局面で取得した物件の収益悪化が売却の背景にある。プライベート市場では、Todd Boehly氏の保険会社が規制上の優遇措置を獲得したとの報道があり、代替資本（サイドカー）を活用した不動産・インフラ投資のストラクチャーにも注目が集まっている。",
-    "impact": "neutral",
-    "impact_summary": "再エネ追い風も商業不動産は構造調整継続",
+    "body": "不動産市場では、米国の差し押さえ件数が6年ぶりの高水準に達したとWSJが報道。住宅コストの高止まりと金利水準の影響が家計を圧迫している。商業不動産の調整は継続しており、PEによる法律事務所買収への規制強化を検討する州も出てきた。不動産関連投資全般に対する慎重姿勢が広がっている。\n\nインフラ分野では、南アフリカの国営電力会社Eskomが「電力余剰」を宣言し、長年の電力危機からの脱却を示唆。新興国インフラの改善は長期的な投資機会となりうる。一方、イラン戦争によるエネルギー価格上昇は、電力・公益セクターのコスト構造に影響を与えており、金利低下期待の後退と相まって不動産・インフラ資産クラスへの逆風となっている。",
+    "impact": "negative",
+    "impact_summary": "差し押さえ6年高水準、金利・エネルギー高が逆風",
     "source_indices": [
+      88,
       109,
-      78,
-      129,
-      128
+      121
     ],
     "sources": [
       {
-        "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQT21CVFg5R01uSExETFVlWmVlVkRXUktLdndzRzc0SWM4YTNSWC1uamNMNVFpTVlXZ3BlbXpRcUFkVHdEU3RZaUZCQnNrODRlYlp1eW5Sc1BfWlpRN0lvaFNTOGM1eExoWUpYblVmbTdZbFBPT2tFd0hNSHNnSF9IMEY2S0swaUMyYTY4OFZXMFV1V1dXbV8xZ2Vjc1NzdkRncy02ZE9OeEphNlNEaHlaYjlWUmlvd3JiTVE?oc=5",
+        "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPNnFYWkNmN2h5N0dMTWNxU3FXZ0Q5Q1RYT1lQelBNSWtnMUxsdktNRWxUQjc2Q3UtUV91cWtNb0pVb05oWHZEY0h2bERRSTVXZ3dkdEQzdEZmRUpjZXlIYXdQRV9oYkpndXVqRm5HbXlOQmtBVElxZWN1UGhjUGdFSU00NElMSmloTkRfRTVxUGJkZnpHc1IwVUlyaXNMLTZfZXBROXV0UnhUUWc?oc=5",
         "source": "WSJ Markets (via Google)",
-        "title": "Australia Doubles Down on Energy Shift as Middle East Tensions Simmer - WSJ"
+        "title": "High Housing Costs Are Pushing Foreclosures to a Six-Year High - WSJ"
       },
       {
-        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNcnhwZlFSZW1WLWVfWjRnT1IycVU5ZkNzN0JlczZIMEM0Q1hoS09YWFhqdGhiZVFQb0JzSGdxODZCVE03R2t0bEdPQlpoY2NvdDl6d2hqQS04Ny1lSFN5cHJWMHdYVkNHQkNBNkhSc3JYWUtFZm5ySE1nX29rYXdkRE1lLTJibEJ6d1dOVkVxZnYwZFhsUm9KZnBpajlKR0lJc0MzUVBNVUIxZElNUWdMMzAtUQ?oc=5",
-        "source": "Bloomberg (via Google)",
-        "title": "Nuclear AI Startup Fermi Promised Land and Ample Power. But It Couldn't Sign a Single Client - Bloomberg.com"
+        "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPQ3ZZd1N4UmJGWXZOdWJneVhvc1lLSVZ0WV8wR3lmUDRsdzhEWTJXTFZLSXV0UG1JcUFYcVVzTFNuMXRGOGNJS29vM3pkbEdOYWdMSUs1Tzk4djZGQk9uTTVoX0JqVE11akpBQlJtMnJVbmdtX1V0cXlNOWZmQ2E4WlFQYVU2TWxqUXFkVXo1ZjZfZU1CZGhranBudV9BUnVJNHE1U0F0WEQwR2t4?oc=5",
+        "source": "WSJ Markets (via Google)",
+        "title": "States Consider Bans on Private Equity Law-Firm Acquisitions - WSJ"
       },
       {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWEYya2FrZkduQlF6UkNzcDUycDRmU2o5aUFBUnpaY2ZaaXkzbTd1QXdQQVBjRWx3RUxlNUZHSXhKUUZjM2hGYkJVSnpzVnlLMWpwb1FrVXBjTkdHVzRBQkM2aWpvT1hxTjRtMVBMSjNCNVQtdm84NzN4YmtyZGFTM2FrVzU?oc=5",
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxORHFJZVpJVUc5cjl2OEVsWUUwWUFzMlVBVXhSTTJabjlEbFY5cUM3SjVzSS1nWVFMdDlVb2J4LXdoNXRleFNFZFNDOExySC1fX29RZzMyWW5PU1FSMjJDNEZZMnN6RXlrd0d2T2lHX3BmanRYZTk2eEl5akREYm5nY0U3U1A?oc=5",
         "source": "Financial Times (via Google)",
-        "title": "700 rental homes ‘hit the market every day’ as British landlords sell up - Financial Times"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQYnEwZm5TbTl2aDdyQUo2MGs5ZEY4WVVxdFplcVRrQXVoZTV2aGpjbjNkNzhoQWlkZ0xFQVl0V3IxQlhWZFdzbGN4UDA5U0F2RkdLTks3VEJoZHBXTnY4OGtvZFFiRC1PSkpnalo0TjNMaV96S1VwcUpmdVpWU3ltc25tTkc?oc=5",
-        "source": "Financial Times (via Google)",
-        "title": "Todd Boehly’s insurer wins reprieve on rules to close capital arbitrage - Financial Times"
+        "title": "South Africa now has a power surplus, says Eskom chief - Financial Times"
       }
     ]
   }
