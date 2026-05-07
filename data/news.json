@@ -1,122 +1,121 @@
 {
-  "generatedAt": "2026-05-06T23:41:57.227611+00:00",
+  "generatedAt": "2026-05-07T23:44:25.620302+00:00",
   "epigraph": {
-    "quote": "平和は戦争の不在ではない。平和とは美徳であり、心の状態であり、善意と信頼と正義への傾向である。",
-    "source": "バルーフ・スピノザ『神学・政治論』",
-    "connection": "中東停戦への期待と外交交渉が市場を動かした一日。真の平和とは何かを問う古典が、地政学リスクに翻弄される現代市場に響く。"
+    "quote": "戦争においては、最初の犠牲者は真実である。",
+    "source": "アイスキュロス（古代ギリシャの悲劇詩人）",
+    "connection": "米イラン間の軍事衝突と和平交渉が錯綜する中、市場は情報の真偽を見極めながら原油と地政学リスクの間で揺れ動いている"
   },
-  "headline_of_the_day": "中東停戦期待で株高・原油安、リスクオン加速",
+  "headline_of_the_day": "米イラン衝突と和平観測で原油乱高下、関税違法判決も",
   "news": [
     {
       "tag": "地政学",
-      "headline": "米国がイラン封鎖作戦を一時停止、外交解決模索へ",
-      "body": "トランプ政権がホルムズ海峡を巡る「プロジェクト・フリーダム」を一時停止し、イランとの外交交渉を模索。中国も停戦とホルムズ再開を呼びかけ、原油価格は急落。S&P500は612ドル高と大幅上昇。",
+      "headline": "米イラン、ペルシャ湾で交戦も和平協議進展の兆し",
+      "body": "米軍とイラン軍がペルシャ湾で交戦する一方、両国が終戦に向けた1ページの覚書に近づいているとの報道も。トランプ大統領はイランに合意受諾を要求。原油価格は一時急騰後、和平期待で上昇幅を縮小した。",
       "impact": [
-        "株高",
-        "原油安",
-        "ドル安"
+        "原油価格の高ボラティリティ継続",
+        "地政学プレミアムの不安定化"
       ],
-      "source_index": 123,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPTDBUS1JFaUJhLU51TUpORkY0RzdOakxIMTFPWWhoUFAzOXRMWU92YWZkYlZVRFlDOG9OYzl2NUNXU2xJdlI5NHRsLTVzSnVSVWxpYmpqRzBTaFhSdEtNQ2EySjJjcGp4c0ZGQzhtaUVQNlVZR0t4Y2p3dV92a0JWZkI5OXo?oc=5",
-      "source": "Financial Times (via Google)"
-    },
-    {
-      "tag": "雇用統計",
-      "headline": "ADP雇用統計、10.9万人増で2025年初来最大",
-      "body": "4月の米民間雇用者数は10万9千人増と市場予想を上回り、労働市場の底堅さを示した。金曜の雇用統計への注目が高まる中、FRBの利下げ判断に影響を与える可能性。",
-      "impact": [
-        "金利上昇圧力",
-        "ドル支援"
-      ],
-      "source_index": 86,
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMGdFaDctVlVWYkxQYlB1SXl5UkpiS2ZjLXdfLTAyV2FKcTFsdXFFOGZGRm0zdWM5QWd4TEJGVDJxY0lFejg5eEJxbDJ2bDVMUnd2Yi1meENtakhNQmdFZlkxRUlCclFPTk9DTzI3b1lEblVqaE15WXVEa3QxWENjRHVUem1yTmEzRmdWNzRYR3kzMDFMVDMtNXFUMFVfOG1KU0JV?oc=5",
+      "source_index": 67,
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNN2czTVlDT0U3VGRQZEphRlZ2ZDQtU2VLX292OEpFbzJsRkNGYVlGeWQ5dU5wQVhPZENTdXRQb0JqdlBPSHdvd1ZQaV9IcDA1WVlxZWFHeGdlRURxSUVoMkswdWtjS1hIVlJGeVZlc1RpSFg4a3MydU1ZdFlObkxaTlFTWTVmbUNWZzd2M2hackREWml1OFJzY2RhVEtvMXkzUkNIWmlIYTdkN3RvWm13dA?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "規制動向",
-      "headline": "SEC、四半期決算報告の廃止案を正式提案",
-      "body": "SECがトランプ政権の支持を受け、四半期報告に代わる半期報告制度を正式提案。企業負担軽減を狙うが、投資家保護の観点から批判も。市場構造の根本的変化の可能性。",
+      "tag": "金融政策",
+      "headline": "トランプ関税、米国際貿易裁判所が違法と判断",
+      "body": "米国際貿易裁判所がトランプ大統領の10%追加関税を違法と判断。政権のバックアップ関税計画に打撃。ただし控訴の可能性が高く、市場は慎重な反応にとどまった。",
       "impact": [
-        "企業負担減",
-        "透明性低下懸念"
+        "関税政策の法的不確実性増大",
+        "貿易政策の混迷長期化リスク"
       ],
-      "source_index": 23,
-      "link": "https://www.cnbc.com/2026/05/05/sec-is-close-to-ending-mandatory-quarterly-earnings-reports-that-trump-called-for.html",
+      "source_index": 55,
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPRS1pR1dxUkpra2Q5TVVpdkxsTEVFdFhFSnN3dEwxeWI4a0VGY1YtYTJGYVQ4Q2x2UXVHWjRhQ0t2dXh6TXNPVFJQTWtKcERkbi1kbTUwV1ZwX0R0NnZaWHgwRDRNVHk4bGVENGdNZGlYYTFseGxycDhrYjQ4bjhVeTlLYkVBaXE5SFpZS2x2SE4zYmxYNm82aVpTT2x6aWx3aExMeDdkb0xuZ0lHcGc1Nmt3?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "経済指標",
+      "headline": "米新規失業保険申請、小幅増も低水準を維持",
+      "body": "先週の新規失業保険申請件数は若干増加したものの、引き続き低水準を維持。労働市場の底堅さを示すが、イラン戦争の影響が今後顕在化する可能性も。",
+      "impact": [
+        "労働市場の堅調さ確認",
+        "FRBの利下げペースに影響"
+      ],
+      "source_index": 74,
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPdG12WHpsY2hwWnlmNXRURmlUZkNTR2tUbFNTaEdLY2hIMGpQcG1SLS1pY2ZSakxkUHBRcWpLbmU1eXo4TUlwNHFJcVc2eS1ZeG15alVDMk5GRml6U0dnWHUxVFNRMW5nQ3Nma2NXV3pyYTF1Q0twYU0yOTRSYkNLbVphc2otcUxXbzlGZjVtREdRWE0wSVFPQ0w4MzRRM0pqckVmaFVUZ1d6bDBf?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "企業決算",
+      "headline": "Whirlpool株急落、「戦争で景気後退並みの需要減」と警告",
+      "body": "家電大手Whirlpoolがイラン戦争により米国で「景気後退並みの業界縮小」が発生したと発表。消費者信頼感の崩壊と価格引き上げ計画を示唆し、株価は一時20%下落。",
+      "impact": [
+        "消費者センチメント悪化の具体例",
+        "インフレ圧力再燃の警戒"
+      ],
+      "source_index": 20,
+      "link": "https://www.cnbc.com/2026/05/07/whirlpool-says-iran-war-causing-recession-level-industry-decline-the-shares-are-down-20percent.html",
       "source": "CNBC Markets"
     },
     {
-      "tag": "半導体",
-      "headline": "サムスン時価総額1兆ドル突破、韓国株最高値更新",
-      "body": "AI需要への期待からサムスン電子の時価総額が1兆ドルを突破。韓国総合指数も史上最高値を更新し、アジア半導体株への資金流入が加速している。",
+      "tag": "テクノロジー",
+      "headline": "Nvidia、データセンター企業IRENに最大21億ドル出資",
+      "body": "Nvidiaがオーストラリアのデータセンター企業IRENに最大21億ドルを投資し、5GWのAIファクトリー構築を支援すると発表。IREN株は急騰したが、CoreWeaveはコスト増で9%下落。",
       "impact": [
-        "半導体株高",
-        "アジア株上昇"
+        "AIインフラ投資の加速",
+        "データセンター銘柄の選別進む"
       ],
-      "source_index": 94,
-      "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTFB2SUpzMHA3OFVrZVBGMF8wd19ZWHdkeEZnMXhpclpTWFNORjMyOWRTUnUzNllhclVxSEo4bXhnLXJSYUkzS2RZRjJnTFlKUXRQT3dwU3ZsdmVYSWM3RVFFTXhJQzJqMHpyZ3Z1YlAzYmZaNW9rWEd2VjdRUQ?oc=5",
+      "source_index": 61,
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPdDJDaUFXSkdKNjFwMUQ2LVgtbTc4S0FQLXlZUWNaZGpVWVlLXzJRdXR5ZGtoMS1LOUladkpOcGxWam5fODJ5YzJ2Rzc1Q1FId1ZkcnBBbGd4dmdjSDdKc2tHMnRRUUY2NElLdVQ0S3lPYlhTdngwSThrVWRrVEU0TUpOaHo3dVZiY21MTndHQkctVnpNdjc0MHRDUHM4bWs2WjN4bjFLSlJHSTdIR3NZ?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "オルタナティブ",
+      "headline": "Carlyle、過去最高の960億ドルの投資余力を保有",
+      "body": "PE大手Carlyleが過去最高となる960億ドルの未投資資金（ドライパウダー）を抱え、市場の混乱を投資機会と捉える姿勢を示した。CEOは「ボラティリティが機会を生む」と発言。",
+      "impact": [
+        "PE資金のM&A市場流入期待",
+        "バリュエーション調整局面での買い圧力"
+      ],
+      "source_index": 80,
+      "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQLXgtN3NVWVFyUnpHcmRwdlRyaXY2UFNESms3R0lLRXZaaC1aRHVLRWZJQ05UWkVONnlLTEI1d2F0dWpuS0Z1c2tlNnM0U0FzQWotejlQZVRpY3F2RnlWRkJKNkFDU2xIbWVTX1JKYjQ2REM0U1BxQndvdy0za05zMHAwOUxHb01JOEpXU0QwdGtKMEYxRElWR21YOFNXeEk?oc=5",
       "source": "WSJ Markets (via Google)"
     },
     {
-      "tag": "AI・テック",
-      "headline": "中国政府系ファンド、DeepSeekに500億ドル評価で出資へ",
-      "body": "中国の半導体産業育成ファンド「ビッグファンド」がAI企業DeepSeekへの出資を主導。評価額は450-500億ドルに達し、米中AI競争が新たな局面に。",
+      "tag": "為替",
+      "headline": "ドル指数、イラン戦争開始時を下回る水準に",
+      "body": "ドル指数がイラン戦争開始時点を下回る水準まで下落。関税政策の混乱、財政懸念、景気減速リスクがドル売り圧力となっている。GW中の円買い介入観測（4〜5兆円規模）も。",
       "impact": [
-        "中国AI株注目",
-        "米中競争激化"
+        "ドル安トレンドの定着",
+        "新興国資産への資金回帰"
       ],
-      "source_index": 116,
-      "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOdHRsUlBlaW5mOFVldmVBVFh5ZnM4UGlCcGlRbUt4X29hUzh2UXVyclYybnZpVTJKblp4TDR6cVNUTFRKSWxITU8tUGp3Ym9mMENLaGRydHowVldYWnJUUV9kUjE5MUtuTDNqazJldkRJT05PN2NiUHV0N1lHZlU3STN6amVUUXlvRVNQWFpIU2ZIQQ?oc=5",
+      "source_index": 97,
+      "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQWFRQeWx3aEV2RUh5X3UzVy1EYzhYOVczVVpIOGVvSG5qRnpIZnM2eHktYTlWT1pKZklyc3JObE9QLXRlcHhVS1laYjFITHRfeUhEQkpMeVhMOEYycFE0WVk0TFpYMEtjRUVNTXV2dkMtaHhGVDdHRTUwS2Y5ZEZWNS1zdEh0d3YtN3h0NXU3ZUJVdnlhRW1HRW1fekFYWVBRYlp2dDZjY19mZmRiYzZSUHpaZ1I0VkE?oc=5",
       "source": "WSJ Markets (via Google)"
-    },
-    {
-      "tag": "決算",
-      "headline": "ノボノルディスク急伸、ウェゴビー錠剤の需要好調",
-      "body": "デンマークの製薬大手ノボノルディスクが経口GLP-1製剤の強い需要を報告。米国でのペプチド熱が追い風となり、株価は大幅上昇。肥満症治療市場の拡大を裏付け。",
-      "impact": [
-        "ヘルスケア株高",
-        "GLP-1関連注目"
-      ],
-      "source_index": 104,
-      "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPRDJzWmI4TWJEQTd0VTV1WWVjOXdtQWdHWjN3YU56ckVvcFRmdjhVNm1lTHJ6QmJvTWdTMG0xOUtVRk0ySUNNTDBNNkNkVVNFNHpVY2U4LWtLRW9sbmtHbXR4TTV6V2VzVFkxRnpUaG9iTGxzTWtvLXZjb00wR0VpY2hiM2h0bHZHZFo5ZGl1RlhVNlZILW9jSVhaTTdtWTFfZWh1N3JfaXVJX3VmUU40eU1TRW50ODJBbHd0MlRsZ3F1TERnQlE?oc=5",
-      "source": "WSJ Markets (via Google)"
-    },
-    {
-      "tag": "金融規制",
-      "headline": "FSBがプライベートクレジットの脆弱性に警鐘",
-      "body": "金融安定理事会（FSB）がプライベートクレジット市場のシステミックリスクに警告を発した。流動性ミスマッチや評価の不透明性を指摘。規制強化の議論が加速する可能性。",
-      "impact": [
-        "PE/PD市場警戒",
-        "規制リスク"
-      ],
-      "source_index": 134,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQYzFRVXJTZGRJNXppRVl6aHZ3bmlzWmxqZ2pPQkNWZUptSWVwWXpPZ01ZbFRPRUJMWjFkTzk5UE02bGxjY0ZLM0Jkcm01bjZxVnRSdEFfQXE4TWt6VGdYWVR4R2tzQ0xMZThjNUsxdFd1Ni0yS0NTWWpWVzJiVnYxcGlKMGw?oc=5",
-      "source": "Financial Times (via Google)"
     }
   ],
   "funny_stories": [
     {
-      "kind": "皮肉・風刺系",
-      "title": "AIに任せた株式運用の末路",
-      "body": "WSJの記者がChatGPTにポートフォリオ運用を任せる実験を敢行。結果は「思ったより悪くないが、思ったより良くもない」という、まさにAIらしい中庸な成績だったとか。人間のファンドマネジャーは胸をなでおろすべきか、それとも「俺もこの程度か」と嘆くべきか。",
-      "source_index": 97,
+      "kind": "irony",
+      "title": "AIに株式運用を任せてみた結果",
+      "body": "WSJの記者がChatGPTにポートフォリオ運用を依頼する実験を敢行。結果は…まあ、AIが「長期投資の重要性」を説きながら毎日銘柄入れ替えを提案してきたとか。人間のファンドマネージャーも苦笑い。",
+      "source_index": 95,
       "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxORnJZalQ3bmE3TXl1bFRQNUczQmxSQlNXdW5VeUFSNDNxcXJLRGZVSjR3ZmNydHJZbUtEWnVzTF9hQS1tbE44WVhITkk3amgyT05VMk15eEdXXzQ2d0c2bGlDdnBFRlJwWFM3Tm5JUk96SGJmQnExSC1DQlFIYzY3bTNvMlltbnprRkhRUWdSSFlrNmR1ZkVFRGZEajJNaThNSTFDdXNGdXUxMXc?oc=5",
       "source": "WSJ Markets (via Google)"
     },
     {
-      "kind": "人間味・哀愁系",
-      "title": "結婚3日目で発覚した秘密",
-      "body": "著名ファイナンシャルアドバイザーのデイブ・ラムジー氏に届いた相談：「結婚式の3日後、夫が『内緒の借金がある』と告白しました」。ラムジー氏は「カウンセリングか、婚姻無効か」と回答。蜜月は文字通り3日で終わった。金融リテラシーは結婚前に確認を。",
-      "source_index": 42,
-      "link": "https://finance.yahoo.com/sectors/healthcare/articles/dave-ramsey-tells-woman-consider-152500332.html",
-      "source": "Yahoo Finance US"
+      "kind": "pathos",
+      "title": "消費者は「お金が尽きかけている」",
+      "body": "複数の米企業CEOが決算会見で「消費者はお金が尽きてきている」と口を揃える。しかしUberとディズニーは「うちのお客さんは元気に使ってますよ」と逆張り。体験にはお金を惜しまないが、洗濯機は買わない、それが2026年の消費者像。",
+      "source_index": 64,
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNM0h6TVBDLXJZRC02S1pjeEFMaGUwWURMbjgtSjQ1cU5NV1lmV2VyUXZtWDczeXlSZW5iRTNMZU5Wb3NkWG9vNWpKbUo5blg2OEZ2cmpJS0ZmaFh0QUFGVWhkTEdxNFB5ZmYtUDhmNXZ3VjJZWUhtcnUxUG9lZGc4M19IQlVCeEJCeWN0akhOYkZNMXNCNlI3cC1wTWZlT0ZkZlU1VTRjRlp6RHg1VUdCeXZESQ?oc=5",
+      "source": "Bloomberg (via Google)"
     },
     {
-      "kind": "観察・再発見系",
-      "title": "フランス人が5月に働かない技術",
-      "body": "FT紙が「5月にフランス人が働かない方法」を真面目に解説。祝日と有給を組み合わせ、5月の出勤日を最小化する国民的スキルは、もはや芸術の域。働き方改革のヒントは、アルプスの向こうにあったのかもしれない。",
-      "source_index": 135,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWHZWei1pdEUzb25TVWhqZDQxNjhONzE1NXVYVmpsZ0U5WHZKRmY5aEdNOURXYVNRa19rQUNfaG84YWxQVXl3cE1PbHBtUzJHZWJVcXJvNkQ5MzBtNGl6SXoxdVg4eXV4QkwzQ0JOdFZ3YzQ3c3lXbk0waTZpdGx0OGhSMmY?oc=5",
-      "source": "Financial Times (via Google)"
+      "kind": "observation",
+      "title": "名古屋モーニング文化の進化",
+      "body": "コーヒー1杯でトースト、卵、サラダが付く名古屋の「モーニング」が更に進化しているとの報道。インフレに苦しむ世界の投資家諸氏、名古屋に移住すれば食費は確実に最適化できる。朝食のアルファがそこにある。",
+      "source_index": 6,
+      "link": "https://news.yahoo.co.jp/pickup/6579182?source=rss",
+      "source": "Yahoo!ファイナンス"
     }
   ],
   "charts_of_the_day": [
@@ -126,39 +125,47 @@
       "title": "WTI原油",
       "name": "WTI原油",
       "sub": "$ / bbl",
-      "rationale": "中東停戦期待で急落。ホルムズ海峡リスク後退を映す最重要指標"
+      "rationale": "米イラン軍事衝突と和平協議で乱高下。地政学プレミアムの行方を確認"
     },
     {
       "source": "yf",
-      "ticker": "^GSPC",
-      "title": "S&P 500",
-      "name": "S&P 500",
-      "sub": "INDEX · USD",
-      "rationale": "612ドル高の大幅上昇。リスクオン相場の象徴"
+      "ticker": "DX-Y.NYB",
+      "title": "ドル指数(DXY)",
+      "name": "ドル指数 (DXY)",
+      "sub": "INDEX",
+      "rationale": "イラン戦争開始時を下回る水準まで下落、関税違法判決も重し"
     },
     {
       "source": "yf",
-      "ticker": "005930.KS",
-      "title": "サムスン電子",
-      "name": "サムスン電子",
+      "ticker": "WHR",
+      "title": "Whirlpool",
+      "name": "Whirlpool",
       "sub": "",
-      "rationale": "時価総額1兆ドル突破。AI半導体期待の象徴"
+      "rationale": "戦争で景気後退並みの需要減と警告、消費者センチメント悪化の象徴"
     },
     {
       "source": "yf",
-      "ticker": "NVO",
-      "title": "ノボノルディスク",
-      "name": "ノボノルディスク",
+      "ticker": "IREN",
+      "title": "IREN",
+      "name": "IREN",
       "sub": "",
-      "rationale": "ウェゴビー錠剤好調で急伸。GLP-1市場拡大の主役"
+      "rationale": "Nvidiaの21億ドル出資発表で急騰、AIインフラ投資の恩恵"
     },
     {
       "source": "yf",
       "ticker": "GC=F",
-      "title": "金（COMEX）",
+      "title": "金(COMEX)",
       "name": "金 (COMEX)",
       "sub": "$ / oz",
-      "rationale": "2.77%高の4681ドル。地政学リスク後退でも底堅い"
+      "rationale": "4699ドルで引け。地政学リスクと通貨安で安全資産需要継続"
+    },
+    {
+      "source": "yf",
+      "ticker": "CRWV",
+      "title": "CoreWeave",
+      "name": "CoreWeave",
+      "sub": "",
+      "rationale": "売上倍増もコスト増でマージン縮小、AI銘柄の選別進む"
     },
     {
       "source": "yf",
@@ -166,93 +173,80 @@
       "title": "米10年債利回り",
       "name": "米10年債利回り",
       "sub": "%",
-      "rationale": "停戦期待で低下。ADP好調との綱引きに注目"
+      "rationale": "原油高・インフレリスクが長期金利の下限を形成との指摘"
     },
     {
       "source": "yf",
-      "ticker": "^SOX",
-      "title": "SOX（半導体指数）",
-      "name": "SOX (半導体)",
-      "sub": "INDEX · USD",
-      "rationale": "サムスン・Infineon好決算でAI半導体株に追い風"
-    },
-    {
-      "source": "fred",
-      "ticker": "BAMLH0A0HYM2",
-      "title": "HYスプレッド",
-      "name": "HYスプレッド",
-      "sub": "",
-      "rationale": "リスクオンでスプレッド縮小傾向を確認"
+      "ticker": "^VIX",
+      "title": "VIX(恐怖指数)",
+      "name": "VIX (恐怖指数)",
+      "sub": "INDEX",
+      "rationale": "地政学と関税判決でボラティリティ継続、センチメント確認"
     }
   ],
   "deep_dive": {
-    "title": "ホルムズ海峡危機の転換点——トランプ政権が外交に舵を切った意味",
-    "lede": "米国が「プロジェクト・フリーダム」を一時停止し、イランとの外交交渉を模索。原油市場と世界経済を人質に取った危機は、出口を見つけられるのか。",
-    "background": "2025年に入りエスカレートした米イラン対立は、ホルムズ海峡の事実上の封鎖という形で世界経済を脅かしてきた。世界の原油輸送の約2割が通過するこの海峡の閉塞は、原油価格を急騰させ、インフレ再燃の懸念を招いた。トランプ政権は当初、軍事的圧力で海峡の「自由航行」を確保する「プロジェクト・フリーダム」を展開したが、イラン側の抵抗と国際社会の懸念を受け、外交チャンネルの活用に転じた。中国も停戦と海峡再開を呼びかけ、大国間の利害が外交解決へ収斂しつつある。",
-    "implications": "短期的には、停戦期待が原油価格を押し下げ、エネルギーコスト高に苦しむ企業・消費者に朗報となる。株式市場はリスクオン姿勢を強め、エネルギー以外のセクターに資金が向かいやすい。中期的には、外交交渉が長期化すれば原油のボラティリティは高止まりし、企業の設備投資判断を慎重にさせる可能性がある。また、サウジアラムコが6月積み原油価格を引き下げたことは、OPEC+内の足並みの乱れを示唆しており、原油市場の構造変化も注視が必要だ。",
+    "title": "Ray Dalio「大乱流の時代に突入」：市場は何に備えるべきか",
+    "lede": "世界最大のヘッジファンド創業者が米国の「大乱流期」入りを警告。イラン戦争、財政赤字、政治的分断が重なる中、投資家はポートフォリオの根本的な見直しを迫られている。",
+    "background": "Bridgewater創業者のRay Dalio氏が、米国が「大乱流（Great Turbulence）」の時代に入ったと警鐘を鳴らした。その背景には複合的な要因がある。まずイラン戦争の長期化と原油価格の高止まり。次に、連邦裁判所がトランプ政権の追加関税を違法と判断したことで露呈した政策の不確実性。そして財政赤字拡大による長期金利への上昇圧力。ドイツでは520億ユーロの税収不足見通しが発表されるなど、戦争のコストは世界経済に波及している。Dalio氏は過去にも2008年金融危機やコロナショックを的確に予見しており、その発言は市場で重く受け止められている。",
+    "implications": "短期的には、地政学イベントへの過敏な反応が続き、原油・金・国債のボラティリティが高止まりする展開が想定される。中期的には、Apollo CEOのRowan氏が指摘するように「市場調整リスクの高まり」に備えたディフェンシブなポジショニングが広がる可能性がある。ヘッジファンドはテックラリーで2020年以来最大のリターンを記録しているが、金融セクターが相場上昇から取り残されている点は過去の弱気相場前と共通する警戒シグナルだ。長期的には、米国の政治・財政・外交の三重苦が「ドル離れ」を加速させ、新興国や金、暗号資産への分散が進む構図が考えられる。",
     "what_to_watch": [
-      "米イラン外交交渉の進展（Witkoff特使の動向）",
-      "ホルムズ海峡の船舶通航量の回復時期",
-      "OPEC+の増産姿勢と価格設定方針",
-      "FRBのインフレ見通しへの影響",
-      "欧州・アジアのエネルギー在庫水準"
+      "米イラン和平協議の進展と原油価格の反応",
+      "トランプ政権の関税違法判決への対応（控訴・代替策）",
+      "金融セクターの相対パフォーマンス（弱気相場の先行指標）",
+      "FRBの次回FOMC（インフレvs景気減速のバランス）",
+      "ドル指数の100割れリスクと円買い介入の有無"
     ],
     "related_keys": [
-      "wti",
-      "brent",
       "vix",
-      "dxy"
+      "dxy",
+      "gold",
+      "us10y"
     ],
-    "source_index": 123,
-    "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPTDBUS1JFaUJhLU51TUpORkY0RzdOakxIMTFPWWhoUFAzOXRMWU92YWZkYlZVRFlDOG9OYzl2NUNXU2xJdlI5NHRsLTVzSnVSVWxpYmpqRzBTaFhSdEtNQ2EySjJjcGp4c0ZGQzhtaUVQNlVZR0t4Y2p3dV92a0JWZkI5OXo?oc=5",
-    "source": "Financial Times (via Google)"
+    "source_index": 60,
+    "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZkVEdzVKQm1UYkpKS0Z5cV9KM05VVFlxc2NDdy1MTjdSZ3VsV1JiY1Rwel9OV1pSdW9FUmUwajNjS1dMZ0FYT3lGdlRNbWZjTnpiZTRTMGpaV0x5X29pU0NpYVRuMmsycl9nTHRiZkMyV3U3NTlzRkwwSnlEdG9ib2NfZG5YSnJGbmVBVVF6bzM5aUdSM1pGdUQ2M01yZ2JlNGlZaGR3cUkxVFU?oc=5",
+    "source": "Bloomberg (via Google)"
   },
   "economic_chart_of_the_day": {
-    "series_id": "ICSA",
-    "title": "新規失業保険申請件数",
-    "subtitle": "週次、千人",
-    "rationale": "ADP雇用統計が予想上振れした翌日、金曜の雇用統計を控え労働市場の「今」を確認。FRBの利下げ判断を左右する最もタイムリーな指標。",
+    "series_id": "DCOILWTICO",
+    "title": "WTI原油価格（日次）",
+    "subtitle": "$ / バレル、日次更新",
+    "rationale": "米イラン間の軍事衝突と和平協議が錯綜する中、原油価格の動向がインフレ・消費者心理・企業業績すべてに影響。今日最も見るべき経済指標。",
     "period_years": 3
   },
   "central_bank_watch": [
     {
       "code": "FED",
-      "comment": "FRBはFF金利上限を3.75%に据え置いており、直近では2025年12月に0.25%の利下げを実施した。本日発表のADP雇用統計は10万9千人増と2025年初来最大となり、労働市場の底堅さを改めて示した。市場では次回FOMCでの追加利下げ期待が後退しつつあるが、中東情勢の沈静化によるインフレ圧力緩和がどう評価されるかが焦点となる。パウエル議長は「データ次第」の姿勢を崩しておらず、金曜の雇用統計と来週のCPIがFRBの次の一手を決定づける可能性が高い。市場は6月FOMCでの据え置きをメインシナリオとしつつ、夏場の利下げ再開に含みを残している。"
+      "comment": "FRBのFF金利上限は現在3.75%で、直近の利下げは2025年12月の0.25%。今週発表された新規失業保険申請は小幅増にとどまり労働市場の底堅さを示したが、Whirlpoolなど企業が「景気後退並みの需要減」を報告し、イラン戦争の影響が実体経済に浸透し始めている。市場では年内あと1〜2回の利下げを織り込むが、原油高によるインフレ再燃リスクとの板挟みでFRBは難しい舵取りを迫られる。次回FOMCでは戦争のインフレ影響に関する議論が焦点となりそうだ。"
     },
     {
       "code": "ECB",
-      "comment": "ECBは預金ファシリティ金利を2.0%に維持しており、直近では2025年6月に0.25%の利下げを行った。ユーロ圏ではエネルギー価格高騰の影響が残る一方、中東停戦期待が原油安をもたらせば、インフレ見通しの下方修正余地が生まれる。ラガルド総裁は「夏以降の追加緩和は排除しない」とのスタンスを維持しているが、ドイツを中心に景気減速懸念も根強い。市場は7月理事会での利下げ確率を約40%と織り込んでおり、今後発表される4月CPIと5月PMIが判断材料となる。ユーロドルは停戦期待でやや上昇したが、ドル安主導の色彩が強い。"
+      "comment": "ECBの預金ファシリティ金利は2.0%。ドイツが520億ユーロの税収不足見通しを発表し、イラン戦争が欧州経済にも打撃を与えていることが鮮明になった。財政悪化は利下げ余地を狭める一方、景気減速対応の必要性も高まる。トランプ大統領がEU との貿易交渉期限を7月4日まで延長したことで関税リスクは一時後退したが、交渉の行方次第では再び緊張が高まる。EUは対ロシア協議の準備も進めており、地政学の重層化がECBの政策判断を複雑にしている。"
     },
     {
       "code": "BOJ",
-      "comment": "日銀は金融政策決定会合で現行の緩和姿勢を維持しており、市場では7月会合での利上げ観測がくすぶっている。ドル円は停戦期待と米金利低下を受けて円高方向に振れたが、依然として高水準にあり、海外旅行者からは円安の負担を訴える声が絶えない。植田総裁は「物価と賃金の好循環を見極める」姿勢を崩しておらず、春闘の結果を踏まえた判断が焦点。円安が輸入物価を押し上げる構図は続いており、次回会合での政策修正の有無に市場の関心が集まっている。"
+      "comment": "日銀の政策金利データは更新待ちだが、市場の注目はGW中の為替介入観測に集中している。報道によれば4〜5兆円規模の円買い介入が実施された可能性がある。ドル安トレンドが定着する中、急激な円高は輸出企業には逆風となる。日本株は記録的高値を更新中で、ソフトバンク株も急伸。FT紙が「日本の憲法改正の時期」と論じるなど、地政学環境の変化を背景に政治・経済両面で日本の転換点を意識する海外の視線が強まっている。"
     },
     {
       "code": "BOC",
-      "comment": "カナダ銀行（BOC）は原油価格の動向に大きく左右される立場にある。本日の原油急落は、エネルギー輸出国であるカナダ経済にとって短期的な逆風となりうるが、同時にインフレ圧力の緩和にも寄与する。マックレム総裁は「インフレが持続的に2%へ向かえば追加利下げも選択肢」としており、市場は次回6月会合での据え置きをメインシナリオとしつつも、原油動向次第では利下げ再開もありうると見ている。カナダドルは対米ドルでやや軟調に推移しており、米加金利差の縮小観測が下支えとなっている。"
+      "comment": "カナダ銀行（BOC）は、自国企業のキューバ撤退に象徴されるトランプ制裁の影響に直面している。鉱業大手Sherrittがトランプ政権の制裁強化懸念からキューバ事業撤退を発表。カナダ経済は米国との貿易依存度が高く、関税政策の不確実性が景気見通しを曇らせる。原油価格のボラティリティもエネルギー輸出国としてのカナダにとって諸刃の剣だ。次回会合ではこれら外部リスクと国内インフレのバランスが議論の中心となろう。"
     }
   ],
   "pe_pd_view": {
-    "body": "プライベートクレジット市場に対する警戒感が高まった一日となった。金融安定理事会（FSB）がプライベートクレジットの「脆弱性」に関する報告書を公表し、流動性ミスマッチや評価の不透明性、銀行システムとの連関リスクを指摘。同じ日にDoubleLine Capitalのジェフリー・ガンドラック氏も「プライベートクレジットファンドの投資家は損失を被る」と警告を発した。一方、ApolloのCEOマーク・ローワン氏は市場調整への警戒姿勢を示しつつ、自社の信用ファンドについて「透明性向上で差別化を図る」と発言。業界内でも自己防衛の動きが見られる。PE関連では、THL Partnersが第10号ファンドで63.5億ドルを調達し前号比13%増、Twin Bridgeもロワーミドル向け第6号ファンドで8.55億ドルを目標超過でクローズするなど、資金調達は堅調に推移している。ただし、FSBの警告は今後の規制議論に発展する可能性があり、中長期的にはPE/PD市場の成長ペースに影響を与えうる。",
-    "impact": "negative",
-    "impact_summary": "FSB警告とガンドラック発言でPD市場に警戒感",
+    "body": "PE（プライベート・エクイティ）市場では、Carlyleが過去最高となる960億ドルの『ドライパウダー』（投資未実行の資金）を保有していることを発表した。CEO は「ボラティリティが投資機会を生む」と述べ、市場の混乱を好機と捉える姿勢を明確にした。\n\n一方、Apollo CEOのRowan氏は市場調整リスクを警告し、ディフェンシブなポジショニングを取っていると発言。また、ライバルの保険会社の慣行を「悪質」と批判するなど、業界内の緊張も垣間見える。\n\nディール面では、CD&Rがインストルメンテーション事業をAmetek に50億ドルで売却、Sirisは Equiniti売却で3倍リターンを実現。5th Century PartnersやApis Partnersなど中堅ファンドも調達を倍増させており、PE資金は潤沢だ。ただしCapstoneは産業セクターのM&A市場が「challenged（厳しい）」状況と指摘しており、ディール成立には選別が進む局面といえる。",
+    "impact": "positive",
+    "impact_summary": "Carlyle過去最高のドライパウダー、M&A市場への買い圧力期待",
     "source_indices": [
-      134,
-      70,
-      19,
-      65,
-      60
+      80,
+      23,
+      51,
+      52,
+      53
     ],
     "sources": [
       {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQYzFRVXJTZGRJNXppRVl6aHZ3bmlzWmxqZ2pPQkNWZUptSWVwWXpPZ01ZbFRPRUJMWjFkTzk5UE02bGxjY0ZLM0Jkcm01bjZxVnRSdEFfQXE4TWt6VGdYWVR4R2tzQ0xMZThjNUsxdFd1Ni0yS0NTWWpWVzJiVnYxcGlKMGw?oc=5",
-        "source": "Financial Times (via Google)",
-        "title": "FSB raises alarm over private credit vulnerabilities - Financial Times"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQcFUxRjB1bE83RGR6MXdmYzQ3aW9RR1poSFE3c183dXRVTXh3OFFqdVplazFZb0hEMlBkTTdRcFB1OXFuSC03QTJ4MWhoc2JVbEJHUnBCMWc1Zlo5b01lYXBJbkhCWS01MjQtbXAxbktJU24ybFA3QjBMT2ZmOUUxUnFNVUVVYkt5ZGl5MUtpSWtuX09sVXd2RTB0eHhTVE0zd3VuYjhSTGRBckp3bFFIR3N5QjliQQ?oc=5",
-        "source": "Bloomberg (via Google)",
-        "title": "Gundlach Warns Investors Will Lose Money on Private Credit Funds - Bloomberg.com"
+        "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQLXgtN3NVWVFyUnpHcmRwdlRyaXY2UFNESms3R0lLRXZaaC1aRHVLRWZJQ05UWkVONnlLTEI1d2F0dWpuS0Z1c2tlNnM0U0FzQWotejlQZVRpY3F2RnlWRkJKNkFDU2xIbWVTX1JKYjQ2REM0U1BxQndvdy0za05zMHAwOUxHb01JOEpXU0QwdGtKMEYxRElWR21YOFNXeEk?oc=5",
+        "source": "WSJ Markets (via Google)",
+        "title": "Carlyle Sees Market Opportunities With a Record $96 Billion to Invest - WSJ"
       },
       {
         "link": "https://www.cnbc.com/2026/05/06/apollo-ceo-rowan-market-correction-rival-insurers.html",
@@ -260,41 +254,52 @@
         "title": "Apollo CEO Rowan warns of market correction, slams 'egregious' practices at rival insurers"
       },
       {
-        "link": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/100208248.html",
+        "link": "https://www.altassets.net/private-equity-news/by-region/global-by-region/deal-roundup-cdr-agrees-indicor-units-sale-for-5bn-cppib-exits-loan-portfolio-to-arrow-global-fortress.html",
         "source": "AltAssets PE",
-        "title": "THL Partners picks up $6.35bn at final close of tenth flagship fundraise"
+        "title": "Deal Roundup: CD&R agrees Indicor units sale for $5bn, CPPIB exits loan portfolio to Arrow Global, Fortress"
       },
       {
-        "link": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/twin-bridge-beats-target-for-sixth-flagship-fund-closes-vehicle-on-over-855m.html",
+        "link": "https://www.altassets.net/private-equity-news/by-region/europe-by-region/western-europe-europe-by-region/united-kingdom-western-europe-europe-by-region/100208296.html",
         "source": "AltAssets PE",
-        "title": "Twin Bridge beats target for sixth flagship fund, closes vehicle on over $855m"
+        "title": "Apis Partners more than doubles Fund II total with $1.23bn close of third fund series"
+      },
+      {
+        "link": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/5th-century-partners-closes-oversubscribed-276m-fund-ii-almost-double-debut-fund-total.html",
+        "source": "AltAssets PE",
+        "title": "5th Century Partners closes oversubscribed $276m Fund II, almost double debut fund total"
       }
     ]
   },
   "real_assets_view": {
-    "body": "不動産・インフラ市場では、中東情勢の沈静化期待が追い風となりうる展開だった。金利低下はREITやインフラ資産にとって一般的に追い風であり、米10年債利回りの低下はセクターのバリュエーション改善要因となる。個別では、デンマークの洋上風力大手オーステッドが発電量増加を背景に好決算を発表。再生可能エネルギーインフラへの投資意欲が維持されていることを示した。また、ビル・ゲイツ氏が支援する核融合スタートアップがイギリス初の商業プラント建設を計画しており、次世代エネルギーインフラへの関心も高い。一方、水処理企業Cleanwater1が15-17倍EBITDAでの売却を模索しているとの報道は、インフラ関連のバリュエーションが依然として高水準にあることを示唆。金利低下が続けばディール活動の活発化が期待されるが、FSBによるプライベート市場全般への警戒もあり、慎重な目線が必要だ。",
-    "impact": "positive",
-    "impact_summary": "金利低下期待とオーステッド好決算でセクター追い風",
+    "body": "インフラ分野では、Sirisがアポロから再生可能エネルギーサービス会社Takkionを買収。アポロは2020年に投資しており、セカンダリー市場での資産流動化が活発化している。また、SVPが電力発電施設New Frontera Holdingsを取得するなど、エネルギーインフラへの投資意欲は旺盛だ。\n\nアジア開発銀行は2035年までにアジア太平洋地域のエネルギー・デジタルインフラに700億ドルを投資する計画を発表。東南アジアが重点地域となり、再生エネや通信インフラへの公的資金流入が見込まれる。\n\n一方、イラン戦争の影響でジェット燃料価格が急騰し、AirAsia CEOは「コロナより深刻」と発言。航空・物流インフラには逆風が吹いている。商業不動産については目立った新規材料はなく、金利高止まりの中で調整局面が続いている。",
+    "impact": "neutral",
+    "impact_summary": "エネルギーインフラ投資活発も、航空燃料高騰が物流に逆風",
     "source_indices": [
-      106,
-      127,
-      53
+      48,
+      46,
+      21,
+      120
     ],
     "sources": [
       {
-        "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQV1g1eWJka1VEWThtei1nbGZtSVJZU3NmVEZER1F3dW9hOWRnNVdVdkZPOFFmbjFWc3Q5QWxkMVJwZkR4Zks3NWlWVnVyeUVvM281N0tJVVJGZGwtVHJFZlpWWlcxS0hjZnJ3aXEza25Zc2c4RGVqeExxcFBSZlNaSlZKcW1RbHBmNDhJRVJsc1RvWmpyVlJXSnFTcUtNa20xajBR?oc=5",
-        "source": "WSJ Markets (via Google)",
-        "title": "Orsted’s Earnings Rise on Jump in Offshore Generation - WSJ"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQN3NHUlhOM0FGTzZQTUhuU19LN1ZwdWg4Q2NFNDNTZ1o4SlVXMUhNMkducDNZSkh0bFhDZHdxWjJNSlFuVEEyNjIyOHkzOGN5NWVDMHNtQk9NVlhRYmZHaG1kakQ4QnllaVQ4QjFwc0hRZEl6NEFvYkFOOWxsOG5CSkRoQlk?oc=5",
-        "source": "Financial Times (via Google)",
-        "title": "Fusion start-up backed by Bill Gates plans UK’s first commercial plant - Financial Times"
-      },
-      {
-        "link": "https://www.pehub.com/exclusive-baird-capital-to-test-buyout-market-for-water-treatment-firm-cleanwater1-sources-say/",
+        "link": "https://www.pehub.com/siris-acquires-renewable-energy-services-provider-takkion-from-apollo/",
         "source": "PE Hub",
-        "title": "Exclusive: Baird Capital to test buyout market for water treatment firm Cleanwater1, sources say"
+        "title": "Siris acquires renewable energy services provider Takkion from Apollo"
+      },
+      {
+        "link": "https://www.pehub.com/svp-acquires-power-generation-facility-new-frontera-holdings/",
+        "source": "PE Hub",
+        "title": "SVP acquires power generation facility New Frontera Holdings"
+      },
+      {
+        "link": "https://www.cnbc.com/2026/05/07/adb-70-billion-plan-southeast-asia-digital-infrastructure-power.html",
+        "source": "CNBC Markets",
+        "title": "Asian Development Bank's $70 billion energy and digital infra push puts Southeast Asia center stage"
+      },
+      {
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOSXIySDQzM0p1S0ZyeURYdXBoZ01HYThjd1U3RmFVRnRDUjlna3R1SFdvNUhjdXJNbFhUMktQSGtiU2YteFBPM2ZPOUQwcUlWcThSTWtfc2JwOFlldVVkOFpGR0lXdVZhckhpYWRWcDQ2T0dySXNTUVk5c29sUXBETnViTFk?oc=5",
+        "source": "Financial Times (via Google)",
+        "title": "Jet fuel crisis worse than Covid for airlines, says AirAsia chief - Financial Times"
       }
     ]
   }
