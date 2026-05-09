@@ -28,8 +28,8 @@ const PALETTE = {
   fg: "#1A1F2E",
   muted: "#5C6373",
   dim: "#9BA0AB",
-  accent: "#8B2635",
-  accent2: "#B87333",
+  accent: "#1A4D7A",
+  accent2: "#4A6E6A",
   border: "#D4CDB8",
   borderStrong: "#1A1F2E",
   up: "#2D6A4F",
@@ -1505,7 +1505,7 @@ export default function MarketMonitor() {
 
       {/* Footer */}
       <footer className="mm-footer">
-        <div>Market Monitor · 東京版 · v12.1 · auto-updated 08:00 JST</div>
+        <div>Market Monitor · 東京版 · v12.2 · auto-updated 08:00 JST</div>
         <div>Data: yfinance / FRED / Anthropic Claude API</div>
       </footer>
     </div>

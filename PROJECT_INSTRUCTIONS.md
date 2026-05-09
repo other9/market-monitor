@@ -56,7 +56,8 @@ GitHub Actions の自動コミット (`chore: update market data ...`) との競
 
 ## デザインシステム
 - ライトテーマ: クリーム背景 (#F5F1E8) + ネイビー文字 (#1A1F2E)
-- アクセントカラー: バーガンディ (#8B2635) と銅色 (#B87333)
+- アクセントカラー: ディープブルー (#1A4D7A) と セージティール (#4A6E6A)
+- 上昇/下落色: 緑 (#2D6A4F) / 赤 (#C0392B) — 慣習どおり、変更しない
 - フォント: Fraunces (display, セリフ) + JetBrains Mono (data) + IBM Plex Sans (body)
 - 等幅フォントの数値表示を多用、新聞風の格調を重視
 - レスポンシブ: 1100px/960px/760px/640px の4段階ブレイクポイント
@@ -97,7 +98,8 @@ Pensions & Investments / DailyAlts / PE Hub / AltAssets PE
 - 軽い修正は v12.1 のような小数刻みも可
 
 ## 現状のステータス
-最新バージョン: **v12.1**
+最新バージョン: **v12.2**
+- v12.2 修正点: GitHub Actions を Node 24 対応に更新 (checkout@v5 系統)、色調をブルー×グリーン基調に変更、`.mm-alt-impact-label` の font-size 補修、ルート残骸ファイル削除指示、README 全面書き換え
 - v12.1 修正点: Listed Alternatives Proxies のチャートに X/Y 軸・グリッド・Tooltip を追加 (機関投資家用途で「月別・価格水準」が読み取れるようにした)
 - v12 主要点 (継続): ローマ数字 → アラビア数字に統一
 - Claude モデルを `claude-opus-4-7` に更新

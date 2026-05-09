@@ -5,6 +5,49 @@
 
 ---
 
+## v12.2 で導入された決定
+
+### [DECISION v12.2-01] GitHub Actions を Node 24 対応バージョンに更新
+- **背景**: GitHub の deprecation 通告 — Node.js 20 が 2026年6月2日にデフォルト切替、9月16日に runner から完全削除
+- **更新内容**:
+  - `actions/checkout@v4` → `@v5` (2025年8月リリース、Node 24 対応)
+  - `actions/setup-python@v5` → `@v6` (2026年1月リリース)
+  - `actions/setup-node@v4` → `@v5` (Node 20 → 22 LTS にも引き上げ)
+  - `actions/configure-pages@v4` → `@v5`
+  - `actions/upload-pages-artifact@v3` → `@v4`
+  - `actions/deploy-pages@v4` → `@v5`
+- **方針**: `@v5` 系統 (安定リリース) で揃える。`@v6` も存在するが checkout など一部のみで、混在を避けるため統一
+- **副次効果**: Node を 20 → 22 LTS に引き上げ。Vite の build 性能が若干向上する見込み
+- **検証**: ローカルでの YAML 構文チェック済み、本番 Actions の実行で確認
+
+### [DECISION v12.2-02] 色調をブルー × グリーン基調に変更
+- **背景**: バーガンディ (`#8B2635`) と銅色 (`#B87333`) は新聞風の格調を狙ったが、機関投資家の視覚的期待に対しては暖色寄りで違和感があった (「サーモンピンク」と認識される)
+- **新色**:
+  - `--accent`: `#1A4D7A` (深いブルー、Bloomberg/FT 系金融情報誌のトーン)
+  - `--accent2`: `#4A6E6A` (セージティール、`--up: #2D6A4F` とは色相を変えてある)
+- **維持**: `--up: #2D6A4F` (上昇緑) と `--down: #C0392B` (下落赤) は慣習色なので変更しない
+- **同期箇所**: `src/index.css` (CSS 変数) と `src/MarketMonitor.jsx` の `PALETTE` オブジェクト (Recharts 用) を必ず一致させる
+- **影響範囲**: タイトル飾り罫、引用符マーク、リンク下線、Deep Dive 枠線、Funding/Vol カードのアクセント、ニュースカードのレジーム色など全体
+
+### [DECISION v12.2-03] `.mm-alt-impact-label` の font-size を補修
+- **背景**: v11 から継承した軽微な不備 (前回の動作検証で発見)
+- **対応**: `font-size: 10.5px` を CSS に追加。`.mm-alt-impact-arrow` (11px) と整合させ、letter-spacing と font-family も明示
+
+### [DECISION v12.2-04] ルート残骸ファイルの削除
+- **対象**: v11 以前の遺物として残っていた以下 4 ファイル
+  - `MarketMonitor.jsx` (現行は `src/` 配下にあるべき)
+  - `chart_universe.py` (現行は `scripts/` 配下)
+  - `daily-update.yml` (現行は `.github/workflows/` 配下)
+  - `fetch_market_data.py` (現行は `scripts/` 配下)
+- **問題**: ビルドや実行には影響しないが、リポジトリの混乱要因
+- **対応**: zip では削除できないため、展開後に `git rm` で明示的に削除する手順を README と DECISIONS に明記
+
+### [DECISION v12.2-05] README を v12 構成に合わせて全面書き換え
+- **旧版の誤り**: 「毎朝 7 時 (JST)」、claude-opus 旧モデル名、v11 以前のページ構成
+- **新版**: cron は 8 時、claude-opus-4-7、v12 のページ構成 (1〜9 章 + 補助セクション)、現状 14 RSS、archive レイヤ、Stale Data 警告
+
+---
+
 ## v12.1 で導入された決定
 
 ### [DECISION v12.1-01] Listed Alternatives Proxies のチャートに軸を追加
@@ -27,6 +70,7 @@
   リファクタの履歴で不整合が残っていた
 - **方針**: アラビア数字 1〜9 に統一、配置順そのものは現状維持で番号だけ揃える
 - **副次効果**: 新規セクション追加時にローマ数字の組み合わせを考えなくてよい
+
 
 ### [DECISION v12-02] Claude モデルを `claude-opus-4-7` に更新
 - **旧**: `claude-opus-4-5`

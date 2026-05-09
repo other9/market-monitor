@@ -1253,6 +1253,7 @@
   text-transform: uppercase;
 }
 .mm-alt-impact-arrow { font-size: 11px; }
+.mm-alt-impact-label { font-size: 10.5px; letter-spacing: 0.06em; font-family: var(--font-mono); }
 .mm-alt-impact-positive { background: var(--up); color: #FFF; }
 .mm-alt-impact-negative { background: var(--down); color: #FFF; }
 .mm-alt-impact-neutral  { background: var(--muted); color: #FFF; }
