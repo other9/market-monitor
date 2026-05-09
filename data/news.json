@@ -1,121 +1,121 @@
 {
-  "generatedAt": "2026-05-08T23:46:14.081228+00:00",
+  "generatedAt": "2026-05-09T12:47:12.725098+00:00",
   "epigraph": {
-    "quote": "市場は、あなたが支払い能力を維持できる期間よりも長く、非合理的であり続けることができる。",
+    "quote": "市場は、あなたが支払い能力を維持できる期間よりも長く、不合理でいられる。",
     "source": "ジョン・メイナード・ケインズ",
-    "connection": "99年バブルとの類似を指摘する声が高まる中、モメンタム取引が極限に達し、合理性と狂騒の境界が問われている"
+    "connection": "イラン戦争、インフレ懸念、消費者心理の過去最低を尻目に最高値を更新し続ける株式市場の不可解さを映す"
   },
-  "headline_of_the_day": "雇用堅調も消費者心理は過去最悪、市場は停戦と半導体に沸く",
+  "headline_of_the_day": "雇用堅調でも消費者心理は過去最低、市場は新高値",
   "news": [
     {
-      "tag": "経済指標",
-      "headline": "米4月雇用者数11.5万人増、2カ月連続の改善",
-      "body": "米労働省が発表した4月の非農業部門雇用者数は11.5万人増と、ほぼ1年ぶりに2カ月連続で堅調な伸びを記録。幅広いセクターで雇用が増加し、労働市場の底堅さを示した。一方で賃金上昇はインフレに追いつかず、実質所得の目減りが続いている。",
+      "tag": "雇用統計",
+      "headline": "米4月雇用11.5万人増、セクター横断的に堅調な伸び",
+      "body": "4月の非農業部門雇用者数は11.5万人増と市場予想をやや下回ったものの、幅広いセクターで採用が続いた。労働市場の底堅さがFRBの利下げ見送りを正当化する材料となっている。",
       "impact": [
-        "短期的に利下げ期待後退",
-        "ドル売り継続との乖離に注意"
+        "株式市場は安心感から上昇",
+        "利下げ期待は後退"
       ],
-      "source_index": 85,
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQVDdfdWszc2t4bExYVFNLWk5QbFdVZVJfUm1oZzRxVmRKZGd0WGNpb2w4c1o4Rl9UTURYT08yVHl4YmdDRXp6VXJVMDlaUzJ1WUFqWnl2SHNtVS1YbWVYckhHdUR1TDJINF92eExvbTJILTl0dkJta1JzTzBMVjRHV1A0U3NTWGdLTnVzVThuLURycE42WXltbmFMRERERUpWcWtDdVEwNEFvWVN3TVlDTFBDNFNCdw?oc=5",
-      "source": "Bloomberg (via Google)"
+      "source_index": 88,
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBFT1ZEOExtM3M3XzFxa1hLQXVwV0lHbWIzM0ZrR2F1YVFYOE5MVEt5UmZGVjNIejJZQ05FdVNWdWNTcTIzUXF3MHBycG1UUXlJcmVNaDFfRGU4NEF3b2JUQWE5aHg4dTRsRlc5SmVkWldCRlQ3a0RWQzJoVDg?oc=5",
+      "source": "WSJ Markets (via Google)"
     },
     {
-      "tag": "経済指標",
-      "headline": "ミシガン消費者信頼感、過去最低を更新",
-      "body": "ミシガン大学消費者信頼感指数が史上最低水準に落ち込んだ。インフレ懸念が消費者心理を圧迫し続けており、雇用統計の堅調さとは対照的な結果となった。スタグフレーション懸念の火種となる可能性がある。",
+      "tag": "消費者心理",
+      "headline": "ミシガン消費者信頼感、イラン戦争とインフレ懸念で過去最低",
+      "body": "5月のミシガン大消費者信頼感指数が過去最低を更新。イラン紛争の長期化とインフレ高止まりへの不安が家計心理を冷やしている。株高との乖離が際立つ。",
       "impact": [
-        "消費関連株に警戒感",
-        "FRBの政策判断を複雑化"
+        "個人消費の先行きに黄信号",
+        "インフレ期待上昇"
       ],
       "source_index": 80,
       "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNWowS2w5RkJ4WG5uUU1VNlRjbFJadmtWdGloM3FzOXBkdXBNTFpkd3F5TDZNanhsVVFmby1NaWNwbzN2NmJlSmFPV19SUm1FY0w1WmI0WUtRQm1ndUJvMDg3a3JJTTNkTVh3RmhIanYzX21qNWM2YUQ5dHpVdHZTUWxrWkZqN2gtM2ZMVmhCRlp3aTlIczl2RGZrbUdsNFZlSTl4MFRVc1JycjJLRnY2aGwyZXI?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "地政学",
-      "headline": "トランプ大統領、露ウクライナ3日間停戦を発表",
-      "body": "トランプ大統領はロシアとウクライナが3日間の停戦と捕虜交換に合意したと発表。散発的な交戦は報告されているものの、停戦は概ね維持されているとした。恒久的な和平への第一歩となるか注目される。",
+      "tag": "金融政策",
+      "headline": "ゴールドマン、インフレ高止まりでFRB利下げを12月・3月に後ずれ予想",
+      "body": "ゴールドマン・サックスはFRBの利下げ開始時期を従来予想から後ずれさせ、12月と来年3月を見込む。イラン戦争による原油高がインフレ圧力を持続させるとの見方。",
       "impact": [
-        "欧州株・ユーロに追い風",
-        "エネルギー価格安定期待"
+        "短期金利高止まり継続",
+        "グロース株にやや逆風"
       ],
-      "source_index": 67,
+      "source_index": 56,
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMUlVZ2VzWGZqUklLcTN2SzdBTUp6ZlpQdHIzSW14YXRzcGlhM2l1NXdwcjNEV29QZWJWd3NYbmxseENvekQ0QTFkRWhpa3E0cW1pUzhmVWZqaDdidWpQSXotYzdXT21KLWRhR0IwTHlTYUlTaHNhcnFCZ0Nvd211WFQ0V2VWYkdNaXNqRFJCX1NQcWhyOV9OQjFuNHNQUkZPRElCYVN2ZUVucFFQdDl6MA?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "地政学",
+      "headline": "トランプ、ロシア・ウクライナ間の3日間停戦を仲介",
+      "body": "トランプ大統領がロシアとウクライナの3日間停戦と捕虜交換を発表。プーチン大統領は戦勝記念日パレードを実施。恒久和平への道筋は依然不透明。",
+      "impact": [
+        "欧州リスクプレミアム一時低下",
+        "エネルギー価格への影響は限定的"
+      ],
+      "source_index": 64,
       "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNbHpSZDJRTjFXX1ZFdnp0dFZZcWlPS3RoX3ItbzZ5Yy1wOF9ldTdfc0l2WXJPaWx6aXUtcHZfa1B2VjgxRU11ZVFGUXozaElHWmV4MGlwM2xxdV9DUnphR29id0F1QjJzNHpKMEs4M0ZJeFR4TmdKQlByOFhqeGczczFQcVhpSkkzNmo5eUVWcWxNeV9xY0RXenpnR05HVU94TUNMSzNKU1VxTkNIdlE?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "半導体",
-      "headline": "AMD・マイクロン急騰、AIデータセンター楽観論復活",
-      "body": "半導体セクターが大幅高となり、AMDとマイクロンが特に急騰。アナリストは「AIデータセンターへの楽観論が劇的に復活した」と指摘。インテルもAppleとの製造提携報道で14%上昇し、過去最高の上昇率を記録した。",
+      "tag": "中東情勢",
+      "headline": "ホルムズ海峡封鎖懸念、中国のエネルギー輸入が急減",
+      "body": "イランによるホルムズ海峡脅威で中国向け原油・LNG輸送が大幅減少。アラムコ・ADNOCは迂回ルートで輸出を継続するも、供給不安が燻る。",
       "impact": [
-        "SOX指数が市場をリード",
-        "AI投資テーマの持続確認"
+        "原油価格の上振れリスク",
+        "中国経済減速懸念"
       ],
-      "source_index": 12,
-      "link": "https://www.marketwatch.com/story/amd-micron-shares-surge-on-a-big-day-for-chip-sector-outperformance-fe2d5306?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
-    },
-    {
-      "tag": "AI・資金調達",
-      "headline": "Anthropic、評価額1兆ドル近くの資金調達を検討",
-      "body": "ChatGPTのライバルであるAnthropicが、評価額1兆ドル近くでの資金調達を検討中と報じられた。収益急増を背景に、Akamaiとの18億ドルのコンピューティング契約も発表。AI企業への資金流入が加速している。",
-      "impact": [
-        "非上場AI企業の評価高騰継続",
-        "上場テック株への波及"
-      ],
-      "source_index": 119,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPbm50a0dOeDRWaURZY3JFcjlDZjk4TV9VTE91UW0ydW80QmRnQ0t5bGR2WkFtWFFwN1RsdmFacnNSYnV6aWJsQnhyNDQzUWtGMDhyZGpjYTZuZjNmN1RnUFVreU0xUFFhb1VzOUFVSWFydUJpUnFLR0stTTJ5NWNXSnpKV24?oc=5",
-      "source": "Financial Times (via Google)"
-    },
-    {
-      "tag": "プライベートクレジット",
-      "headline": "Apollo、プライベートクレジット懸念の中で優位に",
-      "body": "プライベートクレジット市場への警戒感が高まる中、Apolloが早期の勝者として浮上している。Blue Owlはソフトウェア向けエクスポージャーを削減する方針を発表。カリフォルニア大学がBlue Owl BDCに大規模投資を決定。",
-      "impact": [
-        "プライベートクレジットの選別進む",
-        "質への逃避傾向"
-      ],
-      "source_index": 86,
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWjFmdU10dmluaEpQbURyZVF1NW1jUWVTQ0ZXWWZoVEZqcUwxVmdhdTJlY2o0eWxZM1A3QTlpX0g5aXV1cVJkcDBjZHRxVkZxeGN5RDdHeDZpV3g5bmc1aEJGUTZEY0xEckVPQjJXcy1XZUhMeVVyRzh5ZU5PdmZFTFVfemJYbXhMdmlMa2MwOXFqVzBVUWU5X1Bkc0FuVmpFaXBJdXduaG43UWRUeHRaS3JhWlZVdw?oc=5",
+      "source_index": 57,
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPVzVkVGZURUpTNXh3UFNjdVpxMWdEQUo3QWU0b2JMemdwTS1fSEZfRnUzcHRUU2d0VDJLTUktamd5NjhKeFFrTVl0YmRqcGlEcnc5S1NrZm1EOTNhTm1lMVZzTWZKRkg3b3NfemJIMVY0ajgzWEdub1FhczlmUEVfeFVRRy1kaXFZSk5mWWJ2Zk40ejZ6MFlidGV2LXhpcU4wTWt1YkZUdTlNLTZJT255ZA?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "モメンタム警戒",
-      "headline": "モメンタム取引が極限に、ウォール街から警告相次ぐ",
-      "body": "モメンタム取引が新たな極端な水準に達し、著名投資家マイケル・バーリーは「1999-2000年バブルの最終局面のよう」と警告。一方でS&P 500が8,000を超える確率は50%以上との予測も。テックバブルとの類似性が議論を呼んでいる。",
+      "tag": "半導体",
+      "headline": "TSMC、A13プロセスノード発表でAI・HPC性能向上へ",
+      "body": "台湾セミコンダクターが次世代A13プロセスを発表。AI・高性能コンピューティング向け半導体の微細化競争が加速。SOX指数は週間で大幅高。",
       "impact": [
-        "ボラティリティ上昇リスク",
-        "逆張り戦略への関心"
+        "半導体株の追い風継続",
+        "AI関連投資の活性化"
       ],
-      "source_index": 74,
-      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNR1NuRVpvWGdlUFVrMlFrdWpzZEJHN1NaQWdHMlVRQnJlU0ptRTF6XzFxckk3NGx5Zi1FZnNZRzRwU3FXZFJoUFR3MktkalJzdGYyanJUWnAwYW1rQVdRQXVMcTFEbzFPbFRueVVKVUNvcjNIMVhJMFJQREpxTnlOT2Vpc3pSdzlsbnM2Qk1SOWduTlZMVEtHZnRWcnFKMXN6aFYyLWF5X0F1U21vSTN0NXlDcw?oc=5",
+      "source_index": 43,
+      "link": "https://finance.yahoo.com/sectors/technology/articles/ttaiwan-semiconductor-tsm-unveils-a13-111545111.html",
+      "source": "Yahoo Finance US"
+    },
+    {
+      "tag": "プライベートクレジット",
+      "headline": "アポロ・ブラックストーン、ブロードコム向け350億ドル融資を検討",
+      "body": "アポロとブラックストーンがブロードコムのM&A資金として350億ドル規模の大型融資を検討中。プライベートクレジット市場の存在感が一段と拡大。",
+      "impact": [
+        "大型M&A活性化の兆し",
+        "銀行融資市場からのシフト"
+      ],
+      "source_index": 66,
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQeld5MlAxZG5uRGdGTmRMRUdkS2pyNXJDWnEzZURrMG94QlpKZFl6d3pEczdjTEFjZGtXejZxTnpmbTF2OWZMUDY4cTRid3Q5eG5rVUhJcjlZWFVzT1JLVGZoMjlWVG45eUJaNnVpYVlwbVJsdWlNLWpFUDNQVkRlSS1VTVJoLUpTNzFWLXBSSmEybUJNTVFWTGxWWFhLaVhhdTZOQVk0LURjZGg3?oc=5",
       "source": "Bloomberg (via Google)"
     }
   ],
   "funny_stories": [
     {
       "kind": "皮肉・風刺系",
-      "title": "ランボルギーニからスーツへ：仮想通貨業界の変身",
-      "body": "かつてランボルギーニと派手なパーティーで知られた仮想通貨業界が、今やスーツ姿でコンプライアンスを語る時代に。WSJが「クリプトランドの変貌」を報じた。規制当局と仲良くなるのが新しいムーンショットらしい。次はネクタイの色で相場を予測する時代か。",
-      "source_index": 113,
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPMGw1c2lOWThuSlVVZ3BZaEpNUUI4UnM1c0txbU1jLVVjUXozbzZoR2d4cHlGRC1nRWxNN3RSUWF0NmtCNmxpZkhpOE1sZ0JlZlhwVE5jVndOZjBkNVBSdGhPbmdXTTItcmJubDdNNUNQX3JSeU1laWRNcXBZd1VTNjIxeGZ4MXZmV0lwUWdZRnhiVllMOTNXMVc1WF8zUl9FRGw4YUk1S2VMUC1HOVprMWFrZ2VudGV5M3BsOUNxMXQ?oc=5",
-      "source": "WSJ Markets (via Google)"
+      "title": "消費者は絶望、市場は祝杯",
+      "body": "ミシガン消費者信頼感が「過去最低」を更新した同じ日に、S&P500は「過去最高」を更新。市場関係者は『消費者の気持ちと株価は別物』と冷静だが、AIに聞いたら『人間って不思議ですね』と返ってきそうな一日だった。",
+      "source_index": 80,
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNWowS2w5RkJ4WG5uUU1VNlRjbFJadmtWdGloM3FzOXBkdXBNTFpkd3F5TDZNanhsVVFmby1NaWNwbzN2NmJlSmFPV19SUm1FY0w1WmI0WUtRQm1ndUJvMDg3a3JJTTNkTVh3RmhIanYzX21qNWM2YUQ5dHpVdHZTUWxrWkZqN2gtM2ZMVmhCRlp3aTlIczl2RGZrbUdsNFZlSTl4MFRVc1JycjJLRnY2aGwyZXI?oc=5",
+      "source": "Bloomberg (via Google)"
     },
     {
       "kind": "人間味・哀愁系",
-      "title": "GW明けの退職代行、依頼が急増",
-      "body": "ゴールデンウィーク明け、退職代行サービスへの依頼が急増しているという。連休中に人生を見つめ直した結果、月曜日に会社へ行く気力が消滅したのだろう。「つながらない権利」が話題になる一方で、「もう繋がりたくない」人々が静かに増えている。",
-      "source_index": 4,
+      "title": "GW明け、代行業者への依頼急増",
+      "body": "日本ではゴールデンウィーク明けに退職代行サービスへの依頼が急増。長い休みで『人生を見つめ直した』結果らしい。市場も連休明けに急に冷静になることがあるが、こちらは代行してくれる人がいない。",
+      "source_index": 3,
       "link": "https://news.yahoo.co.jp/pickup/6579327?source=rss",
       "source": "Yahoo!ファイナンス"
     },
     {
       "kind": "観察・再発見系",
-      "title": "ヘッジファンドのパーティードレスコード問題",
-      "body": "著名投資家デビッド・アインホーンのヘッジファンドパーティーで「セクシーなパーティー服」を求める招待状がFTで話題に。市場分析の鋭さで知られる彼も、ドレスコードのリスク管理は難しいようだ。少なくともショートポジションよりは明確な指示だが。",
-      "source_index": 116,
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA4OUVraWZrYXZDdkowOG1LMHQxTHd3QmZnaG1EYWpfTWNRZUszV2JwYjlqS3lQcEdnRmNKM0xMTHR4M0hDY1JEdllBVzJMNTE5UWVnejFaQURhQW52VjdMTXBvc0hWRWtjWEhjVDVMOTU?oc=5",
-      "source": "Financial Times (via Google)"
+      "title": "ランボルギーニからスーツへ",
+      "body": "暗号資産業界の装いが派手なスーパーカーから地味なスーツに変わりつつあるという。『規制対応のため真面目に見せたい』のが理由とか。TradFi（伝統的金融）への憧れか、あるいは単に含み損で車を売っただけか。",
+      "source_index": 81,
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPMGw1c2lOWThuSlVVZ3BZaEpNUUI4UnM1c0txbU1jLVVjUXozbzZoR2d4cHlGRC1nRWxNN3RSUWF0NmtCNmxpZkhpOE1sZ0JlZlhwVE5jVndOZjBkNVBSdGhPbmdXTTItcmJubDdNNUNQX3JSeU1laWRNcXBZd1VTNjIxeGZ4MXZmV0lwUWdZRnhiVllMOTNXMVc1WF8zUl9FRGw4YUk1S2VMUC1HOVprMWFrZ2VudGV5M3BsOUNxMXQ?oc=5",
+      "source": "WSJ Markets (via Google)"
     }
   ],
   "charts_of_the_day": [
@@ -125,31 +125,15 @@
       "title": "SOX半導体指数",
       "name": "SOX (半導体)",
       "sub": "INDEX · USD",
-      "rationale": "AMD・マイクロン・インテル急騰でAIデータセンター楽観論が復活。半導体セクターの勢いを確認"
+      "rationale": "TSMC新プロセス発表、Cerebras IPO観測など半導体セクターが相場を牽引。週間で大幅上昇"
     },
     {
       "source": "yf",
-      "ticker": "INTC",
-      "title": "インテル",
-      "name": "インテル",
-      "sub": "",
-      "rationale": "Apple製造提携報道で14%急騰、過去最高の上昇率。ビジネス転換の成否を占う"
-    },
-    {
-      "source": "yf",
-      "ticker": "^GSPC",
-      "title": "S&P 500",
-      "name": "S&P 500",
-      "sub": "INDEX · USD",
-      "rationale": "雇用統計と半導体ラリーで史上最高値更新。バブル警告との乖離を確認"
-    },
-    {
-      "source": "yf",
-      "ticker": "^VIX",
-      "title": "VIX恐怖指数",
-      "name": "VIX (恐怖指数)",
-      "sub": "INDEX",
-      "rationale": "モメンタム取引が極限に達する中、市場のコンプレイセンシー（自己満足）度を測定"
+      "ticker": "CL=F",
+      "title": "WTI原油",
+      "name": "WTI原油",
+      "sub": "$ / bbl",
+      "rationale": "ホルムズ海峡リスク継続で原油供給不安。週間では下落も地政学リスクが燻る"
     },
     {
       "source": "fred",
@@ -157,23 +141,15 @@
       "title": "ミシガン消費者信頼感",
       "name": "ミシガン消費者信頼感",
       "sub": "",
-      "rationale": "史上最低を更新。雇用堅調との乖離がスタグフレーション懸念を示唆"
+      "rationale": "過去最低を記録。株高との乖離が顕著で、実体経済との温度差を確認"
     },
     {
       "source": "yf",
-      "ticker": "JPY=X",
-      "title": "ドル円",
-      "name": "USD/JPY",
-      "sub": "ドル円",
-      "rationale": "堅調な雇用統計にもかかわらずドル安継続。為替市場の反応を確認"
-    },
-    {
-      "source": "yf",
-      "ticker": "WHR",
-      "title": "ワールプール",
-      "name": "ワールプール",
-      "sub": "",
-      "rationale": "イラン戦争で「リセッション級の需要減」と警告、12%下落。消費者心理悪化の象徴"
+      "ticker": "^GSPC",
+      "title": "S&P 500",
+      "name": "S&P 500",
+      "sub": "INDEX · USD",
+      "rationale": "雇用統計と半導体高で新高値更新。モメンタム極端化への警告も"
     },
     {
       "source": "yf",
@@ -181,108 +157,120 @@
       "title": "金（COMEX）",
       "name": "金 (COMEX)",
       "sub": "$ / oz",
-      "rationale": "重要なトレンドラインを上抜け、週間1.95%高。地政学リスクとインフレ期待を反映"
+      "rationale": "週間2%上昇、重要トレンドライン上抜け。地政学リスクと実質金利低下が支援"
+    },
+    {
+      "source": "yf",
+      "ticker": "AKAM",
+      "title": "Akamai",
+      "name": "Akamai",
+      "sub": "",
+      "rationale": "AnthropicとのAIコンピューティング18億ドル契約発表で急騰"
+    },
+    {
+      "source": "yf",
+      "ticker": "^TNX",
+      "title": "米10年債利回り",
+      "name": "米10年債利回り",
+      "sub": "%",
+      "rationale": "中東緊張でも週間ほぼ横ばい。FRB利下げ後ずれ観測と安全資産需要が拮抗"
+    },
+    {
+      "source": "yf",
+      "ticker": "DX-Y.NYB",
+      "title": "ドル指数",
+      "name": "ドル指数 (DXY)",
+      "sub": "INDEX",
+      "rationale": "雇用堅調でも下落継続。トランプ・習会談控え方向感を探る"
     }
   ],
   "deep_dive": {
-    "title": "「1999年バブル最終章」警告とモメンタム取引の極限",
-    "lede": "マイケル・バーリーをはじめ複数の著名投資家がテックバブルとの類似性を警告する一方、市場は史上最高値を更新し続けている。この乖離が示すものとは何か。",
-    "background": "著名投資家マイケル・バーリー（映画『マネー・ショート』で描かれた人物）が「1999-2000年バブルの最終局面のよう」とSNSに投稿し、市場に波紋を広げた。Bloombergも「モメンタム取引が新たな極端な水準に達している」と警告記事を配信。S&P 500の株価収益率は歴史的高水準にあり、AIブームへの期待が牽引役となっている。一方で予測市場Kalshiでは、S&P 500が2026年中に8,000を超える確率が50%以上と見積もられており、強気派と弱気派の見解は真っ向から対立している。",
-    "implications": "短期的には、モメンタム戦略の巻き戻しリスクに注意が必要だ。バブル崩壊の予測は常に「早すぎる」ことで知られるが、今回はAI関連の実収益が伴っている点が1999年とは異なる。ただし、Big TechのAI投資7250億ドルによりフリーキャッシュフローが10年ぶり低水準という報道も気がかりだ。中期的には、FRBの利下げタイミングと企業収益の実態が、この「モメンタム vs ファンダメンタルズ」の綱引きを決することになる。消費者信頼感の史上最低という現実と、株式市場の高揚感との乖離は、いずれ収斂を迫られる。",
+    "title": "消費者心理「過去最低」と株式市場「過去最高」の危険な乖離",
+    "lede": "ミシガン大消費者信頼感指数が歴史的低水準に沈む一方、S&P500は最高値を更新。この異常な乖離は何を示唆しているのか。",
+    "background": "5月のミシガン大消費者信頼感指数が過去最低を記録した。イラン戦争の長期化、ガソリン価格高騰への懸念、そして根強いインフレ不安が家計心理を圧迫している。一方で同じ日、S&P500は雇用統計の堅調さと半導体株の急騰を受けて史上最高値を更新。ゴールドマン・サックスが利下げ予想を後ずれさせたにもかかわらず、市場は意に介さない。著名投資家マイケル・バリーは『1999-2000年バブル末期のような雰囲気』と警告。モメンタム取引の極端化にウォール街からも懸念の声が上がっている。",
+    "implications": "短期的には、AIブームと半導体セクターの強さが相場を支える構図が続く可能性がある。しかし中期的には、消費者心理の悪化は個人消費の減速を予兆する。GDP の約7割を占める個人消費が失速すれば、企業業績への影響は避けられない。また、インフレ期待の上昇はFRBの利下げをさらに遅らせ、バリュエーションが高止まりした株式市場にとってリスク要因となる。モメンタムの極端な偏りは、何らかのショックで急激な巻き戻しを招く可能性も孕む。",
     "what_to_watch": [
-      "NVIDIA等AI主要銘柄の次回決算での設備投資回収見通し",
-      "VIXの急騰サイン（現在の低水準からの反転）",
-      "モメンタムファクターETFからの資金流出データ",
-      "5月FOMC議事要旨でのAI評価に関する言及",
-      "Big Techのフリーキャッシュフロー回復時期の見通し"
+      "来週の米CPI（消費者物価指数）発表",
+      "トランプ大統領の訪中と米中会談の行方",
+      "ホルムズ海峡情勢とガソリン価格の推移",
+      "6月FOMCに向けたFRB高官発言",
+      "半導体セクターの決算と受注動向"
     ],
     "related_keys": [
       "sp500",
       "vix",
-      "sox",
-      "nasdaq"
+      "us10y",
+      "wti"
     ],
-    "source_index": 19,
-    "link": "https://www.cnbc.com/2026/05/08/michael-burry-says-the-market-today-feels-like-the-last-months-of-the-1999-2000-bubble.html",
-    "source": "CNBC Markets"
+    "source_index": 80,
+    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNWowS2w5RkJ4WG5uUU1VNlRjbFJadmtWdGloM3FzOXBkdXBNTFpkd3F5TDZNanhsVVFmby1NaWNwbzN2NmJlSmFPV19SUm1FY0w1WmI0WUtRQm1ndUJvMDg3a3JJTTNkTVh3RmhIanYzX21qNWM2YUQ5dHpVdHZTUWxrWkZqN2gtM2ZMVmhCRlp3aTlIczl2RGZrbUdsNFZlSTl4MFRVc1JycjJLRnY2aGwyZXI?oc=5",
+    "source": "Bloomberg (via Google)"
   },
   "economic_chart_of_the_day": {
     "series_id": "UMCSENT",
     "title": "ミシガン大学消費者信頼感指数",
-    "subtitle": "月次, 1966=100",
-    "rationale": "雇用統計が堅調な一方で消費者心理は史上最低を更新。この乖離がスタグフレーション懸念の核心であり、今後の消費動向を占う重要指標",
+    "subtitle": "月次, 1966年=100基準",
+    "rationale": "過去最低を記録した消費者心理。株高との乖離を長期時系列で確認し、過去の低迷期との比較が有用。",
     "period_years": 5
   },
   "central_bank_watch": [
     {
       "code": "FED",
-      "comment": "FF金利上限は3.75%で据え置き継続。4月の雇用者数が11.5万人増と2カ月連続で堅調となったことで、市場の早期利下げ期待はやや後退している。一方で、ミシガン消費者信頼感が史上最低を記録するなど、労働市場とセンチメントの乖離が鮮明だ。今週のバーリー警告やモメンタム取引への懸念に対し、FRBは金融安定面でも注視を強めている。次回6月FOMCでは、インフレ指標の動向と消費の実態を見極める姿勢が維持される見通し。市場は年内1回の利下げを織り込むが、パウエル議長は慎重姿勢を崩していない。"
+      "comment": "ゴールドマン・サックスがFRBの利下げ開始予想を12月と来年3月に後ずれさせた。4月雇用統計は11.5万人増と底堅く、失業率も安定。イラン戦争に伴う原油高がインフレ圧力を持続させており、FRBは慎重姿勢を崩せない状況だ。現在のFF金利上限は3.75%。市場では年内1回の利下げ織り込みが後退し、6月FOMCでの据え置きはほぼ確実視されている。パウエル議長は『データ次第』を繰り返すが、消費者のインフレ期待上昇が新たな懸念材料となっている。"
     },
     {
       "code": "ECB",
-      "comment": "預金ファシリティ金利は2.0%。ロシア・ウクライナの3日間停戦合意は欧州経済にとって朗報であり、エネルギー価格安定への期待が高まっている。ただし、恒久的和平への道筋は不透明で、ECBは地政学リスクを引き続き警戒。EUがプーチンとの対話準備を進めているとの報道もあり、今後の展開次第では欧州景気見通しが大きく変わる可能性がある。インフレは2%目標に接近しており、次回理事会では追加利下げの議論が本格化する見込み。"
+      "comment": "ECBは預金ファシリティ金利を2.0%に維持。ユーロ圏では英国地方選でのReform UK躍進など政治的不安定化が進み、財政拡張圧力が高まる可能性がある。一方でUBSのエルモッティCEOは『欧州は過剰規制で衰退リスク』と警告。ラガルド総裁は慎重な利下げ路線を維持しているが、景気減速懸念とインフレ高止まりの板挟みが続く。次回理事会では追加利下げの可能性が議論される見込み。"
     },
     {
       "code": "BOJ",
-      "comment": "日銀は金融政策決定会合で現行の緩和姿勢を維持。円安が続く中、植田総裁は為替動向を注視しつつも急激な政策変更には慎重な構えを見せている。国内ではニコンが860億円の過去最大赤字を計上するなど企業業績に明暗が分かれ、景気の足取りはまだら模様。ナフサ価格上昇による食品値上げ懸念も浮上しており、インフレ動向が今後の政策判断を左右する。次回会合では、賃上げの持続性と物価見通しの再点検が焦点となる。"
+      "comment": "日銀は現行の金融緩和姿勢を維持。ドル円は雇用統計後もドル安基調が続き、円高方向への圧力がかかっている。国内ではナフサ価格上昇による食品値上げ懸念が報じられ、輸入インフレへの警戒が必要だ。植田総裁は6月会合に向けて物価・賃金動向を慎重に見極める姿勢。市場では年内の追加利上げ観測がくすぶるが、海外経済の不透明感から見送りとの見方も根強い。"
     },
     {
-      "code": "BOE",
-      "comment": "英国ではIAG（ブリティッシュ・エアウェイズ親会社）がジェット燃料高騰で20億ユーロの利益圧迫を警告し、ビジネスクラス値上げを発表。小売店への客足も減少しており、インフレが消費を蝕んでいる実態が浮き彫りになった。スターマー政権は不安定な政治環境に直面しており、BOEは景気減速とインフレ持続の板挟みで難しい舵取りを迫られている。市場は次回MPCでの据え置きを予想するが、成長見通しの下方修正リスクに注目が集まる。"
+      "code": "BOC",
+      "comment": "カナダの4月失業率が6カ月ぶりの高水準に上昇した。関税政策や港湾問題がカーニー首相の通商戦略に影を落とす中、BOCは難しい舵取りを迫られている。米国との金利差が意識される中、カナダドルは軟調。利下げ余地はあるものの、インフレ再燃リスクとの兼ね合いで次回会合での判断が注目される。"
     }
   ],
   "pe_pd_view": {
-    "body": "プライベートクレジット市場では選別が進んでいる。Apolloが「プライベートクレジット・パニック」の中で優位に立っているとBloombergが報じた。Apolloは大手運用会社の中でも保守的なアンダーライティング（融資審査）で知られ、市場の混乱期にその強みが発揮されている形だ。一方、Blue Owlはソフトウェア向けのプライベートクレジット・エクスポージャーを削減する方針を発表。テック企業向け融資のリスクを警戒する動きと見られる。\n\n注目すべきは、カリフォルニア大学がBlue Owl BDC（ビジネス・デベロップメント・カンパニー＝上場型プライベートクレジット投資会社）に大規模投資を決定したこと。機関投資家の選別眼が厳しくなる中でも、実績ある運用者への資金流入は続いている。Siris CapitalはEquinitiの売却で3倍のリターンを達成見込みと報じられ、トークン化証券への関心も窺える。",
-    "impact": "neutral",
-    "impact_summary": "質への逃避進む、大手運用会社に資金集中",
+    "body": "今週のPE・PD市場では大型案件の動きが目立った。アポロとブラックストーンがブロードコム向けに350億ドル規模の融資を検討中と報じられ、プライベートクレジット（銀行を介さない直接融資）の存在感が一段と拡大している。従来なら投資適格企業の大型M&Aは銀行団が担っていたが、規制強化で銀行の融資能力が制約される中、オルタナティブ運用会社がその穴を埋めている構図だ。\n\nまた、Siris Capitalがポートフォリオ企業Equinitiの売却で投資元本の3倍のリターンを見込むなど、バイアウト案件の好調なイグジットも報告された。一方、EQTによるIntertek（検査・認証サービス大手）への3度目の買収提案が拒否されるなど、防衛関連を含む一部セクターでは『戦争効果』でバリュエーションが複雑化しているとの指摘もある。",
+    "impact": "positive",
+    "impact_summary": "大型融資案件がPDの成長を牽引、PE出口も好調",
     "source_indices": [
-      86,
-      33,
-      73,
-      56
+      66,
+      47,
+      51
     ],
     "sources": [
       {
-        "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWjFmdU10dmluaEpQbURyZVF1NW1jUWVTQ0ZXWWZoVEZqcUwxVmdhdTJlY2o0eWxZM1A3QTlpX0g5aXV1cVJkcDBjZHRxVkZxeGN5RDdHeDZpV3g5bmc1aEJGUTZEY0xEckVPQjJXcy1XZUhMeVVyRzh5ZU5PdmZFTFVfemJYbXhMdmlMa2MwOXFqVzBVUWU5X1Bkc0FuVmpFaXBJdXduaG43UWRUeHRaS3JhWlZVdw?oc=5",
+        "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQeld5MlAxZG5uRGdGTmRMRUdkS2pyNXJDWnEzZURrMG94QlpKZFl6d3pEczdjTEFjZGtXejZxTnpmbTF2OWZMUDY4cTRid3Q5eG5rVUhJcjlZWFVzT1JLVGZoMjlWVG45eUJaNnVpYVlwbVJsdWlNLWpFUDNQVkRlSS1VTVJoLUpTNzFWLXBSSmEybUJNTVFWTGxWWFhLaVhhdTZOQVk0LURjZGg3?oc=5",
         "source": "Bloomberg (via Google)",
-        "title": "Apollo Is Emerging as the Early Winner From Private Credit Panic - Bloomberg.com"
+        "title": "Apollo, Blackstone Weigh $35 Billion Financing for Broadcom - Bloomberg.com"
       },
       {
-        "link": "https://finance.yahoo.com/markets/stocks/articles/blue-owl-private-credit-fund-162418726.html",
-        "source": "Yahoo Finance US",
-        "title": "Blue Owl will reduce private credit exposure to software"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQdEprbVNmeG1PcEZDUl9ieTJIMVBSOE9MSHhvUkk3N0NhQjJWSjdIZlhDSHFhMGt4VHJVMnk5angyMEE4aWd5NUNmbHBqanFuNnNyWEFGSEN3UHFqeVRGRVdpSVo4SHcxUE9TSXBpemVod3VTMmt6SUdUeHdnRHg1LXVRRVpFckY2aU1sUUt5VlBDX3pwRjE0ZFV1ZHJ2MjhjOUxwbFZ0STlyVUpWWTRrYm91LTc?oc=5",
-        "source": "Bloomberg (via Google)",
-        "title": "Blue Owl BDC Won Big New Investment by University of California - Bloomberg.com"
-      },
-      {
-        "link": "https://www.pehub.com/siris-to-reap-3x-return-on-equiniti-in-sale-to-bullish-sources-say/",
+        "link": "https://www.pehub.com/siris-capital-to-triple-its-money-with-equiniti-sale-remote-healthcare-demand-pulls-pe-to-telehealth/",
         "source": "PE Hub",
-        "title": "Siris to reap 3x return on Equiniti in sale to Bullish, sources say"
+        "title": "Siris Capital to triple its money with Equiniti sale; Remote healthcare demand pulls PE to telehealth"
+      },
+      {
+        "link": "https://www.pehub.com/war-effect-complicating-defense-deal-valuations-says-houlihan-lokey-eqts-third-offer-for-intertek-rejected/",
+        "source": "PE Hub",
+        "title": "‘War effect’ complicating defense deal valuations, says Houlihan Lokey; EQT’s third offer for Intertek rejected"
       }
     ]
   },
   "real_assets_view": {
-    "body": "不動産・インフラセクターでは、建設レンディング（建設向け融資）専門のS3 Capitalが約13億ドルの投資可能資金を調達し、ハードキャップ（上限額）でクローズした。商業用不動産市場への慎重論が続く中でも、建設融資という特定ニッチへの需要は根強い。\n\nCarlyleとDiversified Energyは、Caminoからアナダルコ盆地の石油資産を12億ドルで取得すると発表。オクラホマ州で450以上の開発候補地を保有することになり、エネルギーインフラへの大型投資が続いている。\n\n一方、カナダの年金基金OPTrustがWestbankのタワープロジェクトから8000万ドルの回収を求めて提訴したとの報道は、商業不動産の一部案件で投資家と開発業者の間に緊張が走っていることを示唆している。金利高止まりが続く中、不動産バリュエーションの調整は道半ばといえる。",
+    "body": "不動産・インフラ分野では、Brookfieldが第1四半期に210億ドルを調達し、年間で過去最高ペースに向かっていると発表。金利高止まりにもかかわらず、インフラや再生可能エネルギーへの機関投資家の資金流入が続いている。Brookfieldはデータセンターや送電網など、AI需要と脱炭素に関連する資産に注力している。\n\n一方、カナダの年金基金OPTrustがバンクーバーのWestbankタワー案件で8,000万ドルの回収を求めて提訴するなど、商業不動産では選別が進む。金利が長期間高止まりする中、立地や用途による二極化が鮮明だ。ただし、FRBの利下げが後ずれしても『いずれ来る』との見方から、インフラ資産への長期資金は底堅い。",
     "impact": "neutral",
-    "impact_summary": "建設融資は好調、商業不動産は調整継続",
+    "impact_summary": "インフラ調達好調だが商業不動産は選別継続",
     "source_indices": [
-      60,
-      58,
-      79
+      98,
+      72
     ],
     "sources": [
       {
-        "link": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/s3-capital-collects-1-3bn-of-investable-capital-in-new-construction-lending-fundraise.html",
-        "source": "AltAssets PE",
-        "title": "S3 Capital collects $1.3bn of investable capital in new construction lending fundraise"
-      },
-      {
-        "link": "https://www.pehub.com/carlyle-and-diversified-energy-to-acquire-andarko-basin-oil-assets-from-camino-for-1-2bn/",
-        "source": "PE Hub",
-        "title": "Carlyle and Diversified Energy to acquire Andarko Basin oil assets from Camino for $1.2bn"
+        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNYVA4VE9mNjZ6YVlMUUZDZmc0VFZCMlNHSV9vVFJkaHB3M2hheHB2NEhHZ05ESGhCT3hPWkVaTHJubDdqUHRUMnhTSjhrVjhxckxGbmhjUEN4QlJLanhIMWpGZjZtQnJIa1JRVzNOME45d0ROTEk3cENYRzBGWl9lUkZEMjkybTdPdnhMVGtGdHJwOUFib3JGMHg5a29YYVRxcTRjSlU0NkFFNmVfbHJWV3ZpVQ?oc=5",
+        "source": "WSJ Markets (via Google)",
+        "title": "Brookfield Banks $21 Billion in First Quarter, Heading for Record Year - WSJ"
       },
       {
         "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNUDVhbUNvWkdtNEdKdjM3WUJ5YWI3UzRialpBYWlZTVJXbjJVTHAzYTg3S3hndW5xOWs4QnBhaGQ0ZUwzbG82OHAxb1RDQmhTZThtRmRwaEpoZDJQTEtyRzRhLURrWFNNeDFZbXJnVUU4c1NBOG8xVWt2Qzd4dkF6QWFObmF6M3hIUzJTbThIeDU2N25EX3JZcnVQNXhjRUxteHI5ZC1oclpBcF9kZU5Ib1dZRVF3WjBybDNpYUx3UQ?oc=5",
