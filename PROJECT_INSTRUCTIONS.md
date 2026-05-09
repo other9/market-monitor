@@ -97,8 +97,9 @@ Pensions & Investments / DailyAlts / PE Hub / AltAssets PE
 - 軽い修正は v12.1 のような小数刻みも可
 
 ## 現状のステータス
-最新バージョン: **v12**
-- ローマ数字 → アラビア数字に統一
+最新バージョン: **v12.1**
+- v12.1 修正点: Listed Alternatives Proxies のチャートに X/Y 軸・グリッド・Tooltip を追加 (機関投資家用途で「月別・価格水準」が読み取れるようにした)
+- v12 主要点 (継続): ローマ数字 → アラビア数字に統一
 - Claude モデルを `claude-opus-4-7` に更新
 - 信用市場グループ (HY/IG/EM Corp OAS) を強調 (v11時点で取得済みだったが、UI/lede で明示的に位置付け)
 - ボラティリティ・流動性セクション新設 (MOVE / VIX期間構造 / SOFR-IORB)

@@ -680,9 +680,30 @@ function ListedAltCard({ row, category }) {
       <div className="mm-alts-spark">
         {data.length > 0 && (
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data} margin={{ top: 4, right: 4, left: 4, bottom: 0 }}>
-              <YAxis hide domain={[min - pad, max + pad]} />
-              <XAxis hide dataKey="d" />
+            <AreaChart data={data} margin={{ top: 6, right: 6, left: 0, bottom: 0 }}>
+              <CartesianGrid stroke={PALETTE.border} strokeDasharray="2 4" vertical={false} />
+              <XAxis
+                dataKey="d"
+                tick={{ fontSize: 8.5, fill: PALETTE.muted, fontFamily: FONT_MONO }}
+                stroke={PALETTE.dim}
+                tickFormatter={(v) => v.slice(5, 7) + "/" + v.slice(2, 4)}
+                interval={Math.max(1, Math.floor(data.length / 4))}
+                minTickGap={20}
+              />
+              <YAxis
+                orientation="right"
+                tick={{ fontSize: 8.5, fill: PALETTE.muted, fontFamily: FONT_MONO }}
+                stroke={PALETTE.dim}
+                domain={[min - pad, max + pad]}
+                tickFormatter={(v) => fmt(v, v > 100 ? 0 : 1)}
+                width={32}
+                tickCount={4}
+              />
+              <Tooltip
+                contentStyle={{ background: PALETTE.panel, border: `1px solid ${PALETTE.borderStrong}`, fontFamily: FONT_MONO, fontSize: 11, color: PALETTE.fg, padding: "4px 8px" }}
+                labelStyle={{ color: PALETTE.muted }}
+                formatter={(v) => [fmt(v, 2), row.ticker]}
+              />
               <Area
                 type="monotone"
                 dataKey="v"
@@ -691,6 +712,7 @@ function ListedAltCard({ row, category }) {
                 fill={PALETTE.accent2}
                 fillOpacity={0.12}
                 dot={false}
+                activeDot={{ r: 3, fill: PALETTE.accent2, stroke: PALETTE.panel }}
               />
             </AreaChart>
           </ResponsiveContainer>
@@ -1483,7 +1505,7 @@ export default function MarketMonitor() {
 
       {/* Footer */}
       <footer className="mm-footer">
-        <div>Market Monitor · 東京版 · v12 · auto-updated 08:00 JST</div>
+        <div>Market Monitor · 東京版 · v12.1 · auto-updated 08:00 JST</div>
         <div>Data: yfinance / FRED / Anthropic Claude API</div>
       </footer>
     </div>
