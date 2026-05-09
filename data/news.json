@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-09T14:00:45.318162+00:00",
+  "generatedAt": "2026-05-09T14:44:26.089845+00:00",
   "cadence": {
     "mode": "weekly_review",
     "label": "週次総括 (第19週)",
@@ -7,121 +7,127 @@
   },
   "epigraph": {
     "quote": "歴史は繰り返さないが、韻を踏む。",
-    "source": "マーク・トウェイン (帰属)",
-    "connection": "S&P・ナスダックが最高値を更新する一方、Michael Burryが『1999-2000年バブル末期』と警告。週次総括で振り返る今週の市場の高揚と警戒の韻。"
+    "source": "マーク・トウェイン",
+    "connection": "AIブームと1999-2000年バブルの類似性を指摘するバーリの警告と、それでも最高値を更新する株式市場の対比に通じる。"
   },
-  "headline_of_the_day": "最高値更新も、バブル警戒の声強まる週末",
+  "headline_of_the_day": "雇用堅調と半導体高で株最高値、原油警戒",
   "news": [
     {
-      "tag": "米国株",
-      "headline": "S&P・ナスダックが最高値、雇用統計と半導体好調が追い風",
-      "body": "8日のNY市場でS&P 500とナスダックが終値ベースの最高値を更新。4月雇用者数は11.5万人増と底堅く、半導体株のラリーと相まってリスクオンが継続。米10年債利回りは低下、ドルは下落した。",
+      "tag": "米経済",
+      "headline": "米4月雇用者数+11.5万人、堅調な雇用が続く",
+      "body": "米労働省が発表した4月雇用統計は11.5万人増と堅調で、幅広いセクターで採用が続いた。雇用統計と半導体株の上昇を背景に、S&P500とナスダックは最高値を更新。Goldman Sachsは粘着的なインフレを理由にFRBの利下げ時期を12月および3月に後ずれさせるとの見方を示した。",
       "impact": [
-        "米株高",
-        "金利低下",
-        "ドル安"
+        "米株最高値更新",
+        "FRB利下げ後ずれ観測強まる",
+        "ドル底堅い"
       ],
-      "source_index": 16,
-      "link": "https://jp.reuters.com/markets/japan/TNTPQBAVUBJNHIV4J4V4ZF6MMQ-2026-05-08/",
-      "source": "Reuters Japan Markets"
+      "source_index": 85,
+      "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBFT1ZEOExtM3M3XzFxa1hLQXVwV0lHbWIzM0ZrR2F1YVFYOE5MVEt5UmZGVjNIejJZQ05FdVNWdWNTcTIzUXF3MHBycG1UUXlJcmVNaDFfRGU4NEF3b2JUQWE5aHg4dTRsRlc5SmVkWldCRlQ3a0RWQzJoVDg?oc=5",
+      "source": "WSJ Markets (via Google)"
     },
     {
       "tag": "金融政策",
-      "headline": "ゴールドマン、Fed利下げ予想を12月・3月に後ずれ",
-      "body": "ゴールドマン・サックスがインフレの粘着性を理由に、Fedの次回利下げ時期を12月、その次を来年3月に修正。FF金利上限は現行3.75%。来週のCPIが次の試金石となる。",
+      "headline": "Goldman、Fed利下げを12月と3月に先延ばし予想",
+      "body": "Goldman Sachsはインフレ高止まりを理由に、FRBの次回利下げ時期を従来予想から後ずれさせ12月、その次を来年3月とする見通しを示した。FF金利上限は現在3.75%で、市場は来週の米CPIに注目している。",
       "impact": [
         "短期金利上昇圧力",
-        "ドル底堅さ"
+        "ドル堅調",
+        "ハイテクのバリュエーション圧迫リスク"
       ],
-      "source_index": 68,
+      "source_index": 58,
       "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMUlVZ2VzWGZqUklLcTN2SzdBTUp6ZlpQdHIzSW14YXRzcGlhM2l1NXdwcjNEV29QZWJWd3NYbmxseENvekQ0QTFkRWhpa3E0cW1pUzhmVWZqaDdidWpQSXotYzdXT21KLWRhR0IwTHlTYUlTaHNhcnFCZ0Nvd211WFQ0V2VWYkdNaXNqRFJCX1NQcWhyOV9OQjFuNHNQUkZPRElCYVN2ZUVucFFQdDl6MA?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
       "tag": "地政学",
-      "headline": "トランプ氏、ロシア・ウクライナ3日間停戦を発表",
-      "body": "トランプ大統領がロシア・ウクライナ間で3日間の停戦と捕虜交換の合意を発表。プーチン氏は対独戦勝記念日の軍事パレードを縮小規模で実施。一方、米国は対イラン関連で中国の衛星画像企業に制裁を科した。",
+      "headline": "イラン戦争で世界の原油バッファー急減、ホルムズ封鎖警戒",
+      "body": "Bloombergによると、イラン戦争を受けて世界の原油在庫バッファーが歴史的なペースで取り崩されている。米国は中国の衛星画像企業に制裁を発動、トランプ政権はホルムズ海峡再開を最優先課題とし、最も難しい課題は先送りした。Citi系アナリストは『$5ガソリンのリスクはもはや無視できない』と警告。",
       "impact": [
-        "有事プレミアム後退",
-        "原油の地政学リスク低下"
+        "原油先高観",
+        "インフレ再燃リスク",
+        "新興国通貨に逆風"
       ],
-      "source_index": 127,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQLVNfTnRwSlFjR3JtZXBPMldiR1VtdmZnS01VSlFlalNaUG9XRjlzd0g0TmVKQ1dDdW5JczhxT0ZNTVFvMzVad21wdW96cGplTmhYVVBUUm1BMGstXzVoNEdIenE0eVVnOHZiMW9ZaGpTbHRidTN6SVlOcXJMeGFIQjNVZGM?oc=5",
-      "source": "Financial Times (via Google)"
-    },
-    {
-      "tag": "中東",
-      "headline": "ホルムズ海峡で衝突継続、米『$5ガソリン』警戒も",
-      "body": "イラン戦争を背景にホルムズ海峡で衝突が続き、中国のエネルギー輸入は急減。WTIは週ベースで下落も、市場では『$5ガソリンのリスクは無視できない』との声。停戦への試行と現場の緊張が同居する不安定な構図。",
-      "impact": [
-        "原油ボラ上昇",
-        "インフレ警戒"
-      ],
-      "source_index": 141,
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9odWtPcUJSMldYR3RldllMV0dLOEg0V19aUjdwZWlLbXVSVFZmRkhvVGFqWnRYbk9tSF9DZjVlTktVQVJXWGZPTk9xTHpLZ3UtckpZNTZpb2paOXUxWGNTZnEtUGFLTjg0SW9KMm9zWnU?oc=5",
-      "source": "Financial Times (via Google)"
-    },
-    {
-      "tag": "個別株",
-      "headline": "トヨタ株急落、減益予想で日本株全体に重し",
-      "body": "トヨタが減益予想を発表し株価急落。日経平均は急騰後の利益確定売りもあり小反落となった。為替は156円台半ば、円売り越しは縮小しており、円相場の見直し圧力が意識される。",
-      "impact": [
-        "日本株重し",
-        "円底堅さ"
-      ],
-      "source_index": 10,
-      "link": "https://jp.reuters.com/markets/japan/TS73JSFMCJJ6BGEWITO4CHFCLQ-2026-05-08/",
-      "source": "Reuters Japan Markets"
-    },
-    {
-      "tag": "消費者",
-      "headline": "米消費者信頼感が過去最低、インフレ不安とイラン戦争で",
-      "body": "ミシガン大消費者信頼感指数が過去最低水準まで低下。インフレ期待の上振れとイラン戦争への懸念が背景。雇用は堅調だが、家計マインドの劣化はソフトデータ全般のリセッションシグナルとして注視される。",
-      "impact": [
-        "景気減速懸念",
-        "ディフェンシブ物色"
-      ],
-      "source_index": 92,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNWowS2w5RkJ4WG5uUU1VNlRjbFJadmtWdGloM3FzOXBkdXBNTFpkd3F5TDZNanhsVVFmby1NaWNwbzN2NmJlSmFPV19SUm1FY0w1WmI0WUtRQm1ndUJvMDg3a3JJTTNkTVh3RmhIanYzX21qNWM2YUQ5dHpVdHZTUWxrWkZqN2gtM2ZMVmhCRlp3aTlIczl2RGZrbUdsNFZlSTl4MFRVc1JycjJLRnY2aGwyZXI?oc=5",
+      "source_index": 56,
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdmZYb0dtYlpySkRlWUhtR1ZSSkViNV96OTdMdHFGQWtNSEJVTnNLZDBfLWZTaHdYcUgzSXNaaU9rY05MQ1gyTF93aWVnMGtwX3VqR3R4SEdlNXIwRDE0LUl0ZTctWldOcGJwYVJlYVpCOS1seFlkdGYzMTlqcy11bThlMXFaMXllNkZXVnpqSno3RmI5TXJsY2hSMi1FWHNvOEptZnJ3UHIwRDJweVZvR3hB?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "金融安定",
-      "headline": "FRB金融安定報告、地政学リスクとAIを最大の懸念に",
-      "body": "FRBが半期金融安定報告を公表。地政学リスクを最大の懸念とし、AIを潜在的脅威として明記。ECBラガルド総裁は原油高でも会合ごとに機動的に判断すると述べた。預金ファシリティ金利は2.0%。",
+      "tag": "地政学",
+      "headline": "トランプ、ロシア・ウクライナ3日間停戦と捕虜交換を発表",
+      "body": "トランプ大統領はロシアとウクライナが3日間の停戦と捕虜交換に合意したと発表。プーチン大統領は縮小された戦勝記念パレードを開催した。NATO諸国は米軍の欧州駐留削減に身構えている。中東情勢の緊張と対照的に、欧州での戦闘小休止は限定的なリスク選好材料となる。",
       "impact": [
-        "クレジット警戒",
-        "ボラ意識"
+        "欧州株サポート",
+        "ユーロ底堅い",
+        "防衛セクター材料"
       ],
-      "source_index": 18,
-      "link": "https://jp.reuters.com/markets/japan/J6RUXQUVSVMW3C2CV5YRYWRDGI-2026-05-08/",
-      "source": "Reuters Japan Markets"
+      "source_index": 71,
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNbHpSZDJRTjFXX1ZFdnp0dFZZcWlPS3RoX3ItbzZ5Yy1wOF9ldTdfc0l2WXJPaWx6aXUtcHZfa1B2VjgxRU11ZVFGUXozaElHWmV4MGlwM2xxdV9DUnphR29id0F1QjJzNHpKMEs4M0ZJeFR4TmdKQlByOFhqeGczczFQcVhpSkkzNmo5eUVWcWxNeV9xY0RXenpnR05HVU94TUNMSzNKU1VxTkNIdlE?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "通商",
+      "headline": "通商裁判所、トランプの新グローバル関税に違法判決",
+      "body": "米通商裁判所はトランプ大統領の新たなグローバル関税が違法であると判断した。一方、トランプ・習近平首脳会談ではイラン問題が議題を占有し、レアアースや関税を巡る進展は遅れる可能性がある。来週は米CPIとトランプの中国訪問が焦点。",
+      "impact": [
+        "関税不確実性",
+        "サプライチェーン銘柄に影響",
+        "人民元動向注視"
+      ],
+      "source_index": 94,
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSU9CQkR4eDJValRWcDJXTjdMbkhsbFliNHdjQUZKT3dxbnlSbUZxSV8ycnFxZ28teGlkNHRkQ1U1eUwzM2dLMWFVYzNTYkFhbm9aSXc1aFpEc0d4Rm5NcDhzcEYxTUVzdVhQdjVaYjRTQ1JqdmN4c29iU2otVWtEdkU1QVdHODVrbUszR1hDOWpkS2JLclJidkNR?oc=5",
+      "source": "WSJ Markets (via Google)"
+    },
+    {
+      "tag": "コモディティ",
+      "headline": "COMEX金、週間1.95%高の$4720.40で引け",
+      "body": "COMEX金先物は週間で1.95%上昇し1オンス4720.40ドルで引けた。中国では金生産が減少する一方、地金・コインへの投資家需要が急増している。地政学リスクとインフレ警戒の継続が金を支えている。",
+      "impact": [
+        "金最高値圏継続",
+        "ドル指数と逆行",
+        "リスクヘッジ需要"
+      ],
+      "source_index": 92,
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPcFI1UWc2UmhmcklMR0k5eXlHaHVOZ0huVW1UdVFOUlJmQlNIVTF3Qy1ENnZrU3A0XzNwLUFOMGlZbjFBZlEwYlhQTzVlZVhDc3ZYSHVWQ2t4NXBCMUdzcEt4cXAzTmZLdU5KS0JETlgxNnZtZEx3amFNZ1VldG1FdWxYNTlpZElKSEpGVFgtSm9ZM2lNa0tvU0huNHl0ajg4b1pnbC1fdVk?oc=5",
+      "source": "WSJ Markets (via Google)"
+    },
+    {
+      "tag": "クレジット",
+      "headline": "Apollo・Blackstone、Broadcomに$350億の資金供給を検討",
+      "body": "Apollo Global ManagementとBlackstoneがBroadcomに対し最大350億ドル規模のファイナンスを検討していると報じられた。プライベートクレジット市場の調整局面で、Apolloは早期の勝者として浮上。Jane Streetは第1四半期に過去最高の161億ドルのトレーディング収益を記録するなど、市場の集中度が高まっている。",
+      "impact": [
+        "プライベートクレジット拡大",
+        "投資銀行ビジネス圧迫",
+        "金融システム集中リスク"
+      ],
+      "source_index": 69,
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQeld5MlAxZG5uRGdGTmRMRUdkS2pyNXJDWnEzZURrMG94QlpKZFl6d3pEczdjTEFjZGtXejZxTnpmbTF2OWZMUDY4cTRid3Q5eG5rVUhJcjlZWFVzT1JLVGZoMjlWVG45eUJaNnVpYVlwbVJsdWlNLWpFUDNQVkRlSS1VTVJoLUpTNzFWLXBSSmEybUJNTVFWTGxWWFhLaVhhdTZOQVk0LURjZGg3?oc=5",
+      "source": "Bloomberg (via Google)"
     }
   ],
   "funny_stories": [
     {
       "kind": "皮肉・風刺系",
-      "title": "ヘッジファンド・ドレスコード",
-      "body": "デヴィッド・アインホーン氏が自身のヘッジファンド・パーティで『セクシーなパーティドレスでお越しを』と来場ガイドを送ったとか。アルファ追求とドレスコード追求は別の才能。マイクロソフト株を80億ドル分減らした同業に比べれば、まあ、減らしているのは服の面積だけである。",
-      "source_index": 120,
-      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFA4OUVraWZrYXZDdkowOG1LMHQxTHd3QmZnaG1EYWpfTWNRZUszV2JwYjlqS3lQcEdnRmNKM0xMTHR4M0hDY1JEdllBVzJMNTE5UWVnejFaQURhQW52VjdMTXBvc0hWRWtjWEhjVDVMOTU?oc=5",
-      "source": "Financial Times (via Google)"
+      "title": "ベアマーケットでラップダンス",
+      "body": "弱気相場の真っ只中にもかかわらず、暗号業界は盛大なラップダンス・パーティーを開催したという。一方でWSJは『ランボルギーニからスーツへ、変わるクリプトランド』と報じる。同業界は弱気相場でラップダンス、強気相場でスーツ。常に反対を行く一貫性だけは健在らしい。",
+      "source_index": 59,
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSkxCeGxzN2RlXzFGejhwWmI1M2NRZjRYQ3VaNWlBQ3FRWl9SSG55Q0FfcXhjeXdnYllJZGE5X0pvbmFhMmtwZm01YnZkLVJTbDBTWmZudHI2cFZnaHFfbU5zdXRZYVpZbDMxeDQyUG4xUHBoTkViR05aaFF5emVsVzlDYmNlOFVWU3J2ZWhzRUtQWWJMRkR4ZnM2VmtvLXlCd2lDeGg3YXZrTjZROFhIM0ZQWlE?oc=5",
+      "source": "Bloomberg (via Google)"
     },
     {
       "kind": "人間味・哀愁系",
-      "title": "薬はあるのに容器がない",
-      "body": "薬局では薬は届いているのに容器が足りず、患者を待たせる光景。半導体やAIの世界が最高値を更新する裏で、街角ではプラスチック小瓶という地味な部品の不足に大人たちが頭を抱える。グローバル・サプライチェーンの最後の一マイルは、いつも泥臭い。",
-      "source_index": 0,
-      "link": "https://news.yahoo.co.jp/pickup/6579437?source=rss",
-      "source": "Yahoo!ファイナンス"
+      "title": "AIで肩書だけ立派なエンジニア",
+      "body": "AnthropicからスタートアップまでAI業界で最も人気の肩書は『Member of Technical Staff』。職務記述書は存在しない。給与は数十万ドル、仕事内容は本人にも上司にも分からない。21世紀の知的最前線で、結局『なんかすごい人』という曖昧さが最も価値を持つというのは少し切ない。",
+      "source_index": 12,
+      "link": "https://www.marketwatch.com/story/the-most-prestigious-job-in-ai-has-no-description-d517601f?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
     },
     {
       "kind": "観察・再発見系",
-      "title": "ペンタゴン、UFOファイルを公開",
-      "body": "国防総省が機密解除されたUFO関連ファイルを政府サイトに掲載。市場参加者は『未知の飛行物体より、来週のCPIの方が怖い』と冷静。地球外文明と対話する前に、まずは中央銀行と対話する練習を続ける必要がありそうだ。",
-      "source_index": 87,
-      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPdEYtano0WXJ2NGh0YkRWTnpjZjdMMVMwTFZ3LWtHc2FVOEZZNEpRbnBIZGVRV3UyQWFJQXh6ZWw2UGNDbVk5MHlMOW5rWmlabF9qaHVQOWpKOEdod2VOV1NCSUUwaVN3MFd6UWhRMWhDUFo2dTNqVkVKakxKMkJVMFBxSklNM19lZ01faVljX0J3cV9GNnJwQ015OTBzNHB2TDFfSExmNUJNQVdhc3BDUldKSQ?oc=5",
-      "source": "Bloomberg (via Google)"
+      "title": "ペンタゴンのUFO公開と$5ガソリン",
+      "body": "ペンタゴンがUFOファイルを大量公開した同じ週に、市場では『$5ガソリンのリスクはもはや無視できない』との警告が出た。地球外生命体の存在より、ガソリン価格の方が家計には重大事。読者の関心は宇宙の真理ではなく、明日の通勤コストにある——市場の正直さよ。",
+      "source_index": 129,
+      "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9odWtPcUJSMldYR3RldllMV0dLOEg0V19aUjdwZWlLbXVSVFZmRkhvVGFqWnRYbk9tSF9DZjVlTktVQVJXWGZPTk9xTHpLZ3UtckpZNTZpb2paOXUxWGNTZnEtUGFLTjg0SW9KMm9zWnU?oc=5",
+      "source": "Financial Times (via Google)"
     }
   ],
   "charts_of_the_day": [
@@ -131,23 +137,7 @@
       "title": "S&P 500",
       "name": "S&P 500",
       "sub": "INDEX · USD",
-      "rationale": "週末に最高値を更新。バブル警戒の声と最高値の同居を可視化。"
-    },
-    {
-      "source": "yf",
-      "ticker": "^SOX",
-      "title": "SOX (半導体)",
-      "name": "SOX (半導体)",
-      "sub": "INDEX · USD",
-      "rationale": "今週のラリーをけん引した半導体セクターの勢いを確認。"
-    },
-    {
-      "source": "yf",
-      "ticker": "^VIX",
-      "title": "VIX",
-      "name": "VIX",
-      "sub": "恐怖指数",
-      "rationale": "停戦報道とバブル警戒のせめぎ合いの中、ボラ水準を点検。"
+      "rationale": "雇用統計と半導体高で最高値更新、過熱感の有無を確認"
     },
     {
       "source": "yf",
@@ -155,15 +145,7 @@
       "title": "WTI原油",
       "name": "WTI原油",
       "sub": "$/bbl · NY先物",
-      "rationale": "ホルムズ海峡の緊張とイラン停戦観測を映す週足。"
-    },
-    {
-      "source": "yf",
-      "ticker": "JPY=X",
-      "title": "USD/JPY",
-      "name": "USD/JPY",
-      "sub": "ドル円",
-      "rationale": "円156円台半ば、CFTCで円売り越し縮小。来週のCPIに向けた地合い。"
+      "rationale": "イラン戦争・ホルムズ警戒で原油バッファー急減、$5ガソリン論台頭"
     },
     {
       "source": "yf",
@@ -171,7 +153,15 @@
       "title": "金 (COMEX)",
       "name": "金 (COMEX)",
       "sub": "$/oz",
-      "rationale": "週次で1.95%上昇、$4720台。地政学とインフレヘッジの需要。"
+      "rationale": "週間+1.95%、地政学・インフレ警戒で資金流入継続"
+    },
+    {
+      "source": "yf",
+      "ticker": "^SOX",
+      "title": "SOX 半導体指数",
+      "name": "SOX (半導体)",
+      "sub": "INDEX · USD",
+      "rationale": "Micron 700%高、Cerebras IPO価格レンジ引き上げなど半導体ラリーの主役"
     },
     {
       "source": "yf",
@@ -179,85 +169,112 @@
       "title": "米10年債利回り",
       "name": "米10年債利回り",
       "sub": "%",
-      "rationale": "中東情勢で週内ほぼ横ばい。次のカタリストはCPI。"
+      "rationale": "Goldman利下げ後ずれ観測と来週CPIを控えた金利動向"
     },
     {
       "source": "yf",
-      "ticker": "7203.T",
-      "title": "トヨタ自動車",
-      "name": "トヨタ自動車",
-      "sub": "",
-      "rationale": "減益予想で急落、日本株全体への波及を確認。"
+      "ticker": "^VIX",
+      "title": "VIX",
+      "name": "VIX",
+      "sub": "恐怖指数",
+      "rationale": "最高値更新下のボラティリティ、Burryのバブル警告との乖離"
+    },
+    {
+      "source": "fred",
+      "ticker": "BAMLH0A0HYM2",
+      "title": "HY社債スプレッド",
+      "name": "HY 社債スプレッド",
+      "sub": "% · OAS",
+      "rationale": "プライベートクレジット動揺局面での公開市場のリスク許容度"
+    },
+    {
+      "source": "yf",
+      "ticker": "DX-Y.NYB",
+      "title": "ドル指数",
+      "name": "ドル指数 (DXY)",
+      "sub": "INDEX",
+      "rationale": "利下げ後ずれと地政学リスクのドル需要"
     }
   ],
   "deep_dive": {
-    "title": "週次総括 (第19週): 最高値とバブル警戒、停戦観測が同居した一週間",
-    "lede": "雇用統計と半導体が米株を最高値に押し上げる一方、Burry氏は『1999-2000年末期』と警告。停戦と戦火、最高値と最低消費者信頼感が交錯した。",
-    "background": "週序盤は中東緊張で原油が上下動、中盤はFRB金融安定報告が地政学・AIを最大リスクと位置づけた。後半に向けてはトランプ大統領がロシア・ウクライナの3日間停戦と捕虜交換を仲介、プーチン氏は縮小版の戦勝記念パレードを実施。米国は対イラン支援を理由に中国の衛星画像企業に制裁を科し、米中対立の火種は続いた。週末には4月雇用者数が11.5万人増と底堅く、S&P・ナスダックが最高値を更新。一方でミシガン大消費者信頼感は過去最低、ゴールドマンはFed利下げを12月・3月に後ずれ修正。COMEX金は週1.95%高、ココアは15%超急騰、トヨタは減益で急落と、テーマが分岐した。",
-    "implications": "ハードデータ(雇用)とソフトデータ(消費者信頼感)の乖離が極端に拡大しており、市場はハード優位で動いているが、これは脆い均衡だ。Burry氏や一部運用者がモメンタム集中を警告するなか、Microsoft株を大幅減らしたTCIの動きはAI一極集中への警鐘とも読める。停戦合意は短期的にリスクプレミアムを下げるが、ホルムズ海峡の衝突継続と$5ガソリン警戒は残存。来週は米CPIとトランプ・習会談が最大の焦点で、CPI次第では『利下げ後ずれ→ドル高・株調整』の経路、停戦進展なら『原油安・ディフェンシブ後退』の経路と、シナリオは二極化しやすい。クレジットでは Apolloがプライベートクレジット動揺の早期勝者と報じられるなど、信用市場の選別も進む局面。",
+    "title": "週次総括 (第19週): 最高値更新の裏で広がる『二重構造』——AI熱狂と地政学コスト",
+    "lede": "雇用堅調と半導体ラリーで米株は最高値を更新したが、原油バッファーは急減し、Burryは1999-2000年バブル末期との類似を警告した一週間だった。",
+    "background": "今週の市場は3つの軸で動いた。第一に米経済の底堅さ：4月雇用は+11.5万人と堅調で、S&P500とナスダックは最高値更新、Jobs ReportとChip Rallyが追い風となった。一方Goldmanはインフレ粘着を理由にFed利下げを12月・来年3月へ後ずれ予想。第二に地政学：イラン戦争でホルムズ海峡周辺の緊張が続き、世界の原油バッファーが歴史的速度で取り崩され、米国は対イラン支援の中国衛星企業を制裁。トランプはロ・ウクライナ3日間停戦を発表したが、プーチンは縮小版戦勝パレードで応じた。第三に金融資本市場の集中：Jane Streetが四半期161億ドルの過去最高トレーディング収益、Apollo・BlackstoneはBroadcomへの$350億ファイナンスを検討、Brookfieldは$210億調達と、プライベート資本の存在感が一段と拡大した。",
+    "implications": "市場は『AIと米景気』を買い、『地政学と金利』を軽視する二極化が極まりつつある。Burryが指摘する通り、株価が雇用や消費者心理と連動せず動く局面はバブル末期の特徴であり、Wall Streetも『モメンタム・トレードの極端な水準』として警戒を促す。来週は米CPIが利下げ織り込みを再調整する材料となり、トランプの中国訪問では関税・レアアース合意が遅れるリスクが意識される。原油は供給バッファー縮小で下値が固く、$5ガソリン論が現実化すればコアインフレ再加速・実質金利上昇を通じて高PSR銘柄に逆風。プライベートクレジット集中はシステミックリスクとして次の調整局面で試される論点となる。米通商裁判所のグローバル関税違法判決も、行政の通商手段に制約をかける重大な伏線。",
     "what_to_watch": [
-      "米4月CPI(コア・ヘッドライン)とインフレ期待への波及",
-      "トランプ・習会談の議題(関税・レアアース・イラン)",
-      "ホルムズ海峡情勢と原油価格、対イラン制裁の追加措置",
-      "Fed高官発言とゴールドマンの利下げ後ずれシナリオの市場織り込み",
-      "AI関連企業の決算ガイダンスとモメンタム集中の持続性"
+      "5/13週: 米4月CPI・コアCPI（利下げ織り込みの試金石）",
+      "トランプ・習会談: 関税・レアアース・台湾を巡る発信",
+      "ホルムズ海峡情勢とイランの対米応答",
+      "Cerebras IPO価格決定とAIインフラ投資の規律",
+      "プライベートクレジット動向（Apollo/Blackstone/Broadcom案件の進捗）"
     ],
     "related_keys": [
       "sp500",
-      "vix",
       "wti",
+      "gold",
       "us10y"
     ],
-    "source_index": 31,
+    "source_index": 19,
     "link": "https://www.cnbc.com/2026/05/08/michael-burry-says-the-market-today-feels-like-the-last-months-of-the-1999-2000-bubble.html",
     "source": "CNBC Markets"
   },
   "economic_chart_of_the_day": {
-    "series_id": "UMCSENT",
-    "title": "ミシガン大学消費者信頼感",
-    "subtitle": "月次, 指数 (1966Q1=100)",
-    "rationale": "今週、消費者信頼感が過去最低水準まで低下。ハードデータ(雇用堅調)とソフトデータの乖離を可視化し、来週のCPIに向けた家計マインドの位置を確認するため。",
+    "series_id": "PAYEMS",
+    "title": "米非農業部門雇用者数",
+    "subtitle": "月次, 千人 (前月差は別途)",
+    "rationale": "4月+11.5万人の堅調な雇用が株式最高値更新を後押しし、Fed利下げ後ずれ観測の根拠となった。来週CPIを控え、雇用とインフレのバランスを確認する基礎指標。",
     "period_years": 5
   },
   "central_bank_watch": [
     {
       "code": "FED",
-      "comment": "12月の利下げでFF金利上限は3.75%に到達。今週のFRB金融安定報告は地政学リスクとAIを最大の懸念に挙げ、利下げを進めつつもリスク監視を強める姿勢を示した。雇用統計は11.5万人増と底堅く、ミシガン大消費者信頼感は過去最低と、ハード/ソフトの乖離が極端。市場ではゴールドマンが次回利下げを12月、その次を3月に後ずれ修正するなど、インフレ粘着への警戒が再浮上している。来週の米CPIが、年内追加利下げの織り込み度合いを左右する最大のイベントとなる。"
+      "comment": "FF金利上限は3.75%（直近変動は2025年12月の-0.25%）。今週Goldman SachsはFed利下げ時期を従来予想から12月および来年3月へ後ずれさせると公表し、市場の織り込みも追随した。背景にはインフレの粘着性、4月雇用統計の+11.5万人という堅調さ、そしてイラン戦争による原油バッファー縮小がもたらすインフレ再燃リスクがある。一方でMichael BurryはAI主導の株高を1999-2000年バブル末期に例え、株価と実体経済指標の乖離を警告。FOMCは雇用の堅調さとインフレの上振れリスクを天秤にかけ、来週の米CPI次第で利下げパスがさらに後ずれする可能性が現実味を帯びている。"
     },
     {
       "code": "ECB",
-      "comment": "預金ファシリティ金利は6月の利下げ後2.0%で据え置きが続く。ラガルド総裁は今週、原油高でも会合ごとに機動的に判断する姿勢を改めて強調し、シナリオ依存の運営を明確にした。ホルムズ海峡情勢が再び不安定化するなか、欧州にとってはエネルギー価格と賃金交渉の二正面が焦点。市場は当面の据え置きを織り込みつつ、地政学ショック発生時の対応余地を意識する展開。賃金・サービスインフレの粘着性が薄れれば、年後半の追加緩和余地も意識される段階に入る。"
+      "comment": "預金ファシリティ金利は2.0%（直近変動は2025年6月の-0.25%）。ユーロ圏は米国対比でディスインフレが進んでおり、追加緩和の余地は残るが、急ぐ理由は乏しい局面が続く。今週はトランプ仲介によるロ・ウクライナ3日間停戦の発表と、NATO諸国が米軍の欧州駐留削減に身構える報道が並び立ち、エネルギー価格と防衛支出の両面から欧州マクロの不確実性が高まった。英Reform UKの躍進やドイツ等での五党化政治もユーロ圏全体の財政規律議論に波及しうる。ECBは中立的スタンスを維持しつつ、原油・エネルギー価格を起点としたインフレ再燃に対する警戒を強める段階に入っている。"
     },
     {
       "code": "BOJ",
-      "comment": "今週は政策決定会合がなく、市場は次回会合に向け為替と賃金の動向を見極める時間帯となった。ドル円は156円台半ばで推移し、CFTCの投機筋円売り越しは縮小、円ショートの巻き戻し気配がじわりと出ている。トヨタの減益予想とサプライチェーン論点は、円安頼みの収益構造の限界を意識させる材料。来週の米CPI次第では円安加速→介入警戒の地合いに振れやすく、植田総裁の発言や追加利上げの示唆有無が次の市場テーマとなる。"
+      "comment": "日銀は引き続き正常化プロセスの途上にあり、市場の関心は次回会合での利上げペースと長期金利のコントロールに向かう。今週はドル高・利下げ後ずれ観測でドル円に再び円安圧力がかかった一方、金が最高値圏で推移するなど、円の安全資産機能の弱さが浮き彫りとなった。国内ではナフサ高による食品値上げ懸念や訪日客の地域偏在など、家計と地方経済の温度差が議論されている。日銀は米CPIとFedの政策パス、原油動向を見極めながら、円安・輸入インフレ・賃金動向の三角関係を慎重に評価する局面が続く。"
     },
     {
       "code": "BOE",
-      "comment": "今週は地方選挙でスターマー政権が苦戦し、ファラージ氏のReform UK躍進など『5党制時代』入りの観測が強まるなど、政治の不確実性が金融政策運営の背景ノイズとして増幅。BOEは緩やかな利下げ路線を維持しつつも、賃金・サービスインフレの粘着性に慎重姿勢を崩していない。為替・財政プレミアムの安定が利下げ余地の鍵となり、市場は次回MPCに向け、政治発のボラ上昇と長期金利の動きを注視する段階。投票結果が財政運営に与える含意も、債券市場が試金石として見ている。"
+      "comment": "今週の英国は政治面でBOEの背景環境が大きく揺れた。地方選挙でNigel FarageのReform UKが躍進し、Starmer首相は陣営内の対抗馬による『スローモーション政権交代』圧力にさらされている。スコットランドとウェールズで独立志向政党が支持を伸ばすなど、英国は事実上の五党化政治に突入。FT社説も『政治家は債券市場とどう対話すべきか』を論じるなど、財政信認の不確実性が意識されている。Bank Rateの最新値は本ファクトシートに未取得だが、政治の流動化が長期金利・ポンドの織り込みに反映されつつあり、BOEは金融政策の独立性とデータ依存姿勢を一層強調する必要がある。"
     }
   ],
   "pe_pd_view": {
-    "body": "今週はプライベート市場の構造変化を示す材料が複数並んだ。Apollo・BlackstoneがBroadcomに対し最大350億ドル規模のファイナンスを検討中と報じられ、ハイパースケーラー周辺の超大型ディールにPE系信用が深く食い込む構図が鮮明に。プライベート・クレジット(銀行を介さず非公開で企業に貸す融資)市場では一部に動揺が走るなか、ApolloがそのなかでむしろシェアとAUMを伸ばす『早期勝者』として注目された。\n\nファンド募集面ではS3 Capitalが建設向けレンディングで13億ドル、Corbin Capitalが訴訟ファイナンス(企業の訴訟費用に資金を出し勝訴金から回収する戦略)で3.42億ドルを調達するなど、ニッチ・プライベートデット領域への資金流入が継続。Siris CapitalはEquinitiの売却で投資額の3倍を回収する見込みと報じられ、エグジット環境の改善も読み取れる。初心者にとっての含意は、銀行融資以外のレバレッジ供給源が拡大している分、信用サイクルが悪化した際のショック吸収先がどこに移るかを意識する必要があるという点だ。",
-    "impact": "neutral",
-    "impact_summary": "巨額ファイナンス活況も、信用集中リスクは累積",
+    "body": "今週はプライベート市場の存在感が際立つ一週間だった。最大のニュースはApolloとBlackstoneがBroadcom向けに最大350億ドル規模のファイナンスを検討しているとの報道。これはプライベートクレジット（公開市場を経由せず、運用会社が直接企業に貸し出す融資）が、超大型案件の領域にまで踏み込んできたことを示す象徴的なディール。Bloombergは『プライベートクレジットのパニックの初期勝者はApolloだ』と報じており、業界内での集中も進む。\n\nファンドレイズも活発で、S3 Capitalが建設融資ファンドで13億ドル、Corbin Capitalが商業訴訟ファイナンスで3.42億ドルを調達。Siris Capitalは英Equiniti売却で投資額の3倍リターンを見込む。一方Brookfieldは第1四半期に210億ドルを調達、年間記録を更新中。\n\n初心者にとっての注目点は、こうした巨額の『ドライパウダー（投資未実行の待機資金）』が積み上がる一方で、上場市場の信用スプレッドや銀行融資との競合関係が変質しつつあること。プライベートクレジットへの集中はシステム上の新しいリスク源にもなり得るが、当面は資金供給拡大として上場株・信用市場にも波及しうる。",
+    "impact": "positive",
+    "impact_summary": "巨額ドライパウダーが資金供給の追い風、ただし集中リスク留意",
     "source_indices": [
-      78,
-      91,
-      64,
-      67,
-      59
+      69,
+      80,
+      96,
+      47,
+      52,
+      55
     ],
     "sources": [
       {
         "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQeld5MlAxZG5uRGdGTmRMRUdkS2pyNXJDWnEzZURrMG94QlpKZFl6d3pEczdjTEFjZGtXejZxTnpmbTF2OWZMUDY4cTRid3Q5eG5rVUhJcjlZWFVzT1JLVGZoMjlWVG45eUJaNnVpYVlwbVJsdWlNLWpFUDNQVkRlSS1VTVJoLUpTNzFWLXBSSmEybUJNTVFWTGxWWFhLaVhhdTZOQVk0LURjZGg3?oc=5",
         "source": "Bloomberg (via Google)",
-        "title": "Apollo, Blackstone Weigh $35 Billion Financing for Broadcom - Bloomberg.com"
+        "title": "Apollo, Blackstone Weigh $35 Billion Financing for Broadcom - Bloomberg"
       },
       {
         "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOWjFmdU10dmluaEpQbURyZVF1NW1jUWVTQ0ZXWWZoVEZqcUwxVmdhdTJlY2o0eWxZM1A3QTlpX0g5aXV1cVJkcDBjZHRxVkZxeGN5RDdHeDZpV3g5bmc1aEJGUTZEY0xEckVPQjJXcy1XZUhMeVVyRzh5ZU5PdmZFTFVfemJYbXhMdmlMa2MwOXFqVzBVUWU5X1Bkc0FuVmpFaXBJdXduaG43UWRUeHRaS3JhWlZVdw?oc=5",
         "source": "Bloomberg (via Google)",
-        "title": "Apollo Is Emerging as the Early Winner From Private Credit Panic - Bloomberg.com"
+        "title": "Apollo Is Emerging as the Early Winner From Private Credit Panic - Bloomberg"
+      },
+      {
+        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNYVA4VE9mNjZ6YVlMUUZDZmc0VFZCMlNHSV9vVFJkaHB3M2hheHB2NEhHZ05ESGhCT3hPWkVaTHJubDdqUHRUMnhTSjhrVjhxckxGbmhjUEN4QlJLanhIMWpGZjZtQnJIa1JRVzNOME45d0ROTEk3cENYRzBGWl9lUkZEMjkybTdPdnhMVGtGdHJwOUFib3JGMHg5a29YYVRxcTRjSlU0NkFFNmVfbHJWV3ZpVQ?oc=5",
+        "source": "WSJ Markets (via Google)",
+        "title": "Brookfield Banks $21 Billion in First Quarter, Heading for Record Year - WSJ"
+      },
+      {
+        "link": "https://www.pehub.com/siris-capital-to-triple-its-money-with-equiniti-sale-remote-healthcare-demand-pulls-pe-to-telehealth/",
+        "source": "PE Hub",
+        "title": "Siris Capital to triple its money with Equiniti sale; Remote healthcare demand pulls PE to telehealth"
       },
       {
         "link": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/s3-capital-collects-1-3bn-of-investable-capital-in-new-construction-lending-fundraise.html",
@@ -268,23 +285,17 @@
         "link": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/corbin-capital-collects-342m-for-commercial-litigation-finance-fund.html",
         "source": "AltAssets PE",
         "title": "Corbin Capital collects $342m for commercial litigation finance fund"
-      },
-      {
-        "link": "https://www.pehub.com/siris-capital-to-triple-its-money-with-equiniti-sale-remote-healthcare-demand-pulls-pe-to-telehealth/",
-        "source": "PE Hub",
-        "title": "Siris Capital to triple its money with Equiniti sale; Remote healthcare demand pulls PE to telehealth"
       }
     ]
   },
   "real_assets_view": {
-    "body": "実物資産分野ではBrookfieldが第1四半期に210億ドルを調達し、年間記録更新ペースとの報道。インフラ・不動産・再エネ・クレジットを横断するメガマネジャーが資金集中の受け皿になっている構図がより鮮明になった。一方、カナダの大手年金OPTrustがWestbankのタワー案件を巡り8000万ドル回収を求め提訴したとの報道は、商業不動産(オフィス・高級住宅)で個別案件の損失処理が依然続いていることを示す。\n\n金利環境では、ゴールドマンがFed利下げを12月・3月に後ずれ修正し、米10年債利回りは横ばい圏。利下げ後ずれは不動産・インフラの割引率に逆風だが、雇用堅調・AI需要によるデータセンター・電力インフラ投資のテーマは継続。FH CapitalによるJinkoSolar米子会社の過半取得など、再エネ製造への戦略的資金流入も確認された。初心者には、『金利低下=実物資産追い風』の単純式が崩れつつあり、個別アセットの稼働力(テナント・契約料金・規制)で勝負が決まる局面に入った点が重要だ。",
+    "body": "Brookfield Asset Managementが第1四半期に210億ドルの新規資金を集め、年間で過去最高ペースに達したと報じられた。同社はインフラ・再生エネ・不動産を主要セクターとし、金利低下局面で機関投資家マネーの受け皿となっている。インフラ（空港・有料道路・データセンター・電力網など）は、AI需要拡大による電力・データセンター投資の追い風を受け、引き続き資金流入が続く構図。\n\n一方で不安材料もある。FTは『リテール投資家が商業不動産保有から離れている』と報じ、上場REITやオープンエンド型不動産ファンドからの資金流出が続いている。さらにカナダのOPTrust（年金基金）はWestbankのタワー案件を巡り8000万ドル回収のため提訴、商業不動産の個別案件には依然としてストレスが残る。\n\n初心者向けのポイント：金利低下は不動産・インフラの追い風（借入コスト低下＋イールド魅力増）。ただしFedの利下げが今週『12月へ後ずれ』予想となったことで、短期的な追い風は弱まる。AI起点のデータセンター需要は構造的テーマとして残るが、オフィス系商業不動産は地域・案件ごとの選別が続く局面。",
     "impact": "neutral",
-    "impact_summary": "メガマネジャー集中進むも、個別案件の選別圧力強まる",
+    "impact_summary": "インフラに資金流入も、商業不動産は個別ストレス残存",
     "source_indices": [
-      108,
-      85,
-      60,
-      68
+      96,
+      116,
+      74
     ],
     "sources": [
       {
@@ -293,19 +304,14 @@
         "title": "Brookfield Banks $21 Billion in First Quarter, Heading for Record Year - WSJ"
       },
       {
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNcmtBam1pdXNnekRCbHFIODZadW8wTDVnVWhKSkNOYmZWZmZfa2FMbHVDS2t3d3BLdzM3bVd0WmoxVkVHZlF3dUwwZm9TTFgzYVRvTWtiVC1RZHA5bV80ZWo1WW4zczMzdFVya2xzX05PMTlKUkRaaUM0QjVmd3ByWG11QkY?oc=5",
+        "source": "Financial Times (via Google)",
+        "title": "Retail investors turn away from commercial property holdings - Financial Times"
+      },
+      {
         "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNUDVhbUNvWkdtNEdKdjM3WUJ5YWI3UzRialpBYWlZTVJXbjJVTHAzYTg3S3hndW5xOWs4QnBhaGQ0ZUwzbG82OHAxb1RDQmhTZThtRmRwaEpoZDJQTEtyRzRhLURrWFNNeDFZbXJnVUU4c1NBOG8xVWt2Qzd4dkF6QWFObmF6M3hIUzJTbThIeDU2N25EX3JZcnVQNXhjRUxteHI5ZC1oclpBcF9kZU5Ib1dZRVF3WjBybDNpYUx3UQ?oc=5",
         "source": "Bloomberg (via Google)",
-        "title": "OPTrust Goes to Court to Recoup $80 Million From Westbank Tower - Bloomberg.com"
-      },
-      {
-        "link": "https://www.pehub.com/fh-capital-to-acquire-majority-stake-in-jinkosolars-us-subsidiary/",
-        "source": "PE Hub",
-        "title": "FH Capital to acquire majority stake in JinkoSolar’s US subsidiary"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMUlVZ2VzWGZqUklLcTN2SzdBTUp6ZlpQdHIzSW14YXRzcGlhM2l1NXdwcjNEV29QZWJWd3NYbmxseENvekQ0QTFkRWhpa3E0cW1pUzhmVWZqaDdidWpQSXotYzdXT21KLWRhR0IwTHlTYUlTaHNhcnFCZ0Nvd211WFQ0V2VWYkdNaXNqRFJCX1NQcWhyOV9OQjFuNHNQUkZPRElCYVN2ZUVucFFQdDl6MA?oc=5",
-        "source": "Bloomberg (via Google)",
-        "title": "Goldman Sees Fed Cuts Delayed to December, March on Inflation - Bloomberg.com"
+        "title": "OPTrust Goes to Court to Recoup $80 Million From Westbank Tower - Bloomberg"
       }
     ]
   }
