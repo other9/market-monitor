@@ -98,20 +98,35 @@ Pensions & Investments / DailyAlts / PE Hub / AltAssets PE
 - 軽い修正は v12.1 のような小数刻みも可
 
 ## 現状のステータス
-最新バージョン: **v12.2**
-- v12.2 修正点: GitHub Actions を Node 24 対応に更新 (checkout@v5 系統)、色調をブルー×グリーン基調に変更、`.mm-alt-impact-label` の font-size 補修、ルート残骸ファイル削除指示、README 全面書き換え
-- v12.1 修正点: Listed Alternatives Proxies のチャートに X/Y 軸・グリッド・Tooltip を追加 (機関投資家用途で「月別・価格水準」が読み取れるようにした)
-- v12 主要点 (継続): ローマ数字 → アラビア数字に統一
-- Claude モデルを `claude-opus-4-7` に更新
-- 信用市場グループ (HY/IG/EM Corp OAS) を強調 (v11時点で取得済みだったが、UI/lede で明示的に位置付け)
-- ボラティリティ・流動性セクション新設 (MOVE / VIX期間構造 / SOFR-IORB)
-- Listed Alternatives Proxies セクション新設 (PSP/BIZD/IFRA/VNQ/1343.T)
-- Stale Data 警告バー (`generatedAt` が 36時間以上古い場合に表示)
-- Deep Dive アーカイブ機構 (data/archive/YYYY-MM-DD/ に日次スナップショット)
-- 週末・月初の長尺コンテンツ分岐 (土曜は週次総括、月初2日間は前月総括)
+最新バージョン: **v13.0**
+
+v13 は「土台拡充フェーズ」 (機能追加と分離して保守性・コスト効率・運用品質を高める)。
+全体方針は [`ROADMAP.md`](ROADMAP.md) を参照。
+
+### v13.0 で導入された土台 (動作変更なし)
+- **`scripts/common.py`** 新設 — FRED API client / yfinance MultiIndex 吸収 / 共通ロガー / 日付ヘルパー (まだ既存スクリプトでは使用していない、土台のみ)
+- **`scripts/take_snapshot.sh`** — 改修確認用 zip を 1 コマンド化 (`bash scripts/take_snapshot.sh`)
+- **`tests/`** — pytest 導入、最小 18 テスト
+- **Actions の Python smoke test ステップ** — 共通モジュール import チェック + pytest を最初に実行
+- **README にトラブルシュート章を厚く** — 失敗時の手動再実行、yfinance/Claude API のエラー対処、smoke test 失敗時のデバッグ手順
+- **`ROADMAP.md`** — v13.x / v14+ の方針文書化
+
+### v12 系の主要機能 (継続)
+- セクション 9 つ (アラビア数字)
+- ブルー×グリーン基調
+- Claude モデル `claude-opus-4-7`
+- Stale Data 警告 (36 時間以上古い `generatedAt` で赤バー)
+- Deep Dive アーカイブ (`data/archive/YYYY-MM-DD/`)
+- 週末/月初の長尺コンテンツ分岐 (土曜=週次総括、月初2日=前月総括)
+- Listed Alternatives Proxies (PSP/BIZD/IFRA/NFRA/VNQ/1343.T、軸付きチャート)
+- Funding & Volatility パネル (VIX 期間構造 / MOVE / SOFR-IORB)
+- バリュエーション・ゲージ (Shiller CAPE / Buffett / Fed Model)
+- 中央銀行ウォッチ (Fed/ECB/BOJ + 日替わり 1 中銀)
 
 ## 次回以降の開発で気を付けたいこと
 - 新規データソース追加時は data/*.json のスキーマ変更を JSX 側でも対応
 - コミット済み `data/*.json` 自体がプレースホルダ役なので、スキーマ変更時は最新の JSON も一緒に更新
 - requirements.txt の更新を忘れない
-- ワークフローへの新ステップ追加時は実行順序に注意 (中銀ファクト → ニュース、市場データ → listed_alts、Commit直前に archive)
+- ワークフローへの新ステップ追加時は実行順序に注意 (smoke test → 中銀ファクト → ニュース、市場データ → listed_alts、Commit直前に archive)
+- **大型改修 (v13.1 以降) は新しい Claude チャットで開始** (context window 圧迫回避)
+- **改修毎に `bash scripts/take_snapshot.sh` で snapshot を取得** し Claude 側で実機照合

@@ -5,6 +5,60 @@
 
 ---
 
+## v13.0 で導入された決定
+
+### [DECISION v13.0-01] 「土台拡充フェーズ」を機能追加と分離する
+- **背景**: v12 系で機能拡充がひと段落。今後の保守性・コスト効率・運用品質を高めるため、機能追加を一旦止めて土台を整備する判断
+- **方針**: v13 系全体を「土台拡充」と位置付け、各バージョンを以下の責務で分割:
+  - v13.0: 共通モジュールの足場 (動作変えず)
+  - v13.1: フロントのコンポーネント分割
+  - v13.2: Claude API 呼び出しの分割
+  - v13.3 以降の任意項目
+- **理由**: 一度に全部やるとリスクが高く、問題発生時の切り分けが難しい。各段階で snapshot を取って動作確認できる粒度に区切る
+- **詳細**: `ROADMAP.md` を新設して全体方針を文書化
+
+### [DECISION v13.0-02] `scripts/common.py` を新設したが既存スクリプトはリファクタしない
+- **背景**: 5 つの `fetch_*.py` で FRED API 呼び出しが重複、4 つで `extract_close_series` が重複している
+- **新設内容**: `scripts/common.py` に以下を集約
+  - `fred_observations()`, `fred_latest_value()` — FRED API client
+  - `extract_close_series()` — yfinance MultiIndex 列吸収
+  - `log_ok / log_warn / log_skip / log_info` — 共通ロガー (既存の `[OK]/[WARN]/[SKIP]` 慣習を踏襲)
+  - `jst_today_iso / jst_now / utc_now_iso / utc_now / JST` — 日付ヘルパー
+- **方針**: v13.0 では既存スクリプトをリファクタしない。`common.py` を「使える状態」にするだけ
+- **理由**: 共通モジュール導入とリファクタを同時にやるとバグの切り分けが困難。v13.1 以降で 1 ファイルずつ慎重に置き換える
+- **互換性**: 既存スクリプトは無修正で動作 (= v12.2 と完全に同じ挙動)
+
+### [DECISION v13.0-03] `scripts/take_snapshot.sh` で改修確認フローを定着
+- **背景**: 改修毎に kk が手動で zip コマンドを打つ運用は、コマンドを忘れる/再入力する手間がある
+- **対応**: `scripts/take_snapshot.sh` をリポジトリに置き、`bash scripts/take_snapshot.sh` で 1 コマンド化
+- **副次効果**: 除外パターンが固定化され、誤って `node_modules/` を含めてしまう事故を防ぐ
+- **連携**: `.gitignore` の `*.zip` で git tracked にはならない (= push されない)
+- **README に運用手順を明文化**
+
+### [DECISION v13.0-04] pytest と Actions smoke test の導入
+- **背景**: v13 でコード変更が増える前に、最低限の自動チェックの土台を作る
+- **対応**:
+  - `requirements.txt` に `pytest>=8.0.0` を追加
+  - `tests/test_common.py` で `extract_close_series` (7 ケース)、日付ヘルパー、ロガー、`determine_cadence` の最小テスト (計 18 ケース)
+  - `tests/conftest.py` で sys.path に `.` と `scripts/` を追加 (本番の PYTHONPATH=scripts 慣習をテストでも再現)
+  - `pytest.ini` で testpath を指定
+  - Actions ワークフローの最初に `Python smoke test` ステップを追加 (`import scripts.common` チェック + `pytest tests/`)
+- **意図**: 大型リファクタ (v13.1, v13.2) で挙動が壊れた時に Actions が即座に検知してデプロイを止めるセーフティネット
+- **将来**: テスト件数は今後 v13.x で順次増やす。当面は土台のみ
+
+### [DECISION v13.0-05] サブエージェント機能の必要性 — 現時点では不要
+- **検討対象**:
+  - Claude Code subagents (CLI 開発支援用)
+  - Anthropic Agent SDK subagents (API 経由で構築)
+  - ワークフロー内 Claude API multi-call (= subagents 機能ではない)
+- **結論**:
+  - Claude Code subagents: 不要 (プロジェクト規模で並列探索が要らない)
+  - Agent SDK subagents: 不要 (ETL パイプラインなので対話 agent 機能不要)
+  - API multi-call 化: **v13.2 で実装する価値あり** (失敗の独立性 + Haiku 等のモデル使い分けで質とコストを両改善)
+- **詳細**: `ROADMAP.md` の「サブエージェント機能の必要性」節を参照
+
+---
+
 ## v12.2 で導入された決定
 
 ### [DECISION v12.2-01] GitHub Actions を Node 24 対応バージョンに更新

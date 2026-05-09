@@ -32,6 +32,12 @@ jobs:
       - name: Install Python deps
         run: pip install -r requirements.txt
 
+      # ── 0. Python smoke test (import チェック + 単体テスト) ──
+      - name: Python smoke test
+        run: |
+          python -c "import scripts.common; print('common.py OK, version=', scripts.common.__version__)"
+          pytest tests/ --tb=short
+
       # ── 1. 既存の市場データ ──
       - name: Fetch market data (yfinance)
         run: python scripts/fetch_market_data.py

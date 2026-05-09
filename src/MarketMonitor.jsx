@@ -1505,7 +1505,7 @@ export default function MarketMonitor() {
 
       {/* Footer */}
       <footer className="mm-footer">
-        <div>Market Monitor · 東京版 · v12.2 · auto-updated 08:00 JST</div>
+        <div>Market Monitor · 東京版 · v13.0 · auto-updated 08:00 JST</div>
         <div>Data: yfinance / FRED / Anthropic Claude API</div>
       </footer>
     </div>

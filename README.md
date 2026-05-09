@@ -64,6 +64,18 @@ git add . && git commit -m "feat: ..." && git push
 GitHub Actions の自動コミット (`chore: update market data ...`) との競合は通常 `git pull --rebase` で吸収できる。
 コンフリクトしたら `git checkout --theirs data/ && git add data/ && git rebase --continue` で data/ を Actions 側優先で解決。
 
+### 改修動作確認 — snapshot を取って Claude に渡す
+
+zip 適用 & push → Actions 完走を確認したあと、以下のコマンドで作業領域全体の zip を作る:
+
+```bash
+bash scripts/take_snapshot.sh
+```
+
+リポジトリ直下に `mm-snapshot-YYYYMMDD-HHMM.zip` が作られる。VS Code エクスプローラーで右クリック → **Download** → Claude チャットに添付 → 私が想定どおりに反映されているか実機照合する。
+
+`.gitignore` の `*.zip` で git tracked にはならないので、不要になったら `rm mm-snapshot-*.zip` で削除すれば良い。
+
 ---
 
 ## ローカル開発
@@ -72,6 +84,9 @@ GitHub Actions の自動コミット (`chore: update market data ...`) との競
 # Python 側
 pip install -r requirements.txt
 FRED_API_KEY=xxx python scripts/fetch_market_data.py
+
+# テスト
+pytest tests/ -v
 
 # フロントエンド側
 npm install
@@ -94,6 +109,7 @@ npm run dev
 8. **Public リポジトリの Secrets 安全性**: Fork では Secrets が読めない仕様
 9. **モニタリング不要**: Actions 失敗の即時検知は GitHub の通知メール + UI 側の Stale Data 警告で代替
 10. **プレースホルダ JSON**: コミット済みの `data/*.json` 自体が本番データ兼初期表示の二重役割。スキーマ変更時は最新の JSON も合わせて更新
+11. **PYTHONPATH=scripts**: `fetch_news.py` などが内部で `from chart_universe import ...` のような相対 import を使っているため、Actions では PYTHONPATH 環境変数経由で解決している。CWD はリポジトリ root のまま
 
 ---
 
@@ -135,31 +151,100 @@ npm run dev
 - Anthropic API (claude-opus-4-7): 月 **約 1,600 円** (入力 ~10k / 出力 ~3k トークン × 30 日)
 - FRED API: 無料
 
-コストを抑えるなら、`fetch_news.py` のモデルを `claude-haiku-4-5-20251001` に切り替えると 1/10 程度になるが、Deep Dive の品質は落ちる。
+コストを抑えるなら、`fetch_news.py` のモデルを `claude-haiku-4-5-20251001` に切り替えると 1/10 程度になるが、Deep Dive の品質は落ちる。**v13.2 で予定されている API multi-call 化により、Muse など軽い創作タスクのみを Haiku に切り替えてコスト削減する見込み**。
 
 ---
 
 ## トラブルシューティング
 
-### `market.json` が空または古い
-yfinance が Yahoo のレートリミットに掛かることがある。Actions のログで `[WARN] ... fetch failed` が出ていたら時間を置いて手動再実行。
+### Actions の特定ステップが失敗する場合 (一般)
 
-### Claude API が 429
-tier 上限に当たっている。`fetch_news.py` の `max_tokens` を減らすか、`items[:150]` を減らす。
+1. Actions タブ → 失敗した run をクリック → 失敗ステップを展開してログを読む
+2. `[WARN]` 行に注目 (各 fetch スクリプトはエラーがあっても WARN を吐いて継続する設計)
+3. **手動再実行**: Actions タブ → ワークフロー名 (Daily Market Update) → "Run workflow" ボタン → main ブランチを選択 → 実行
+4. それでも直らない場合は **Codespaces で直接実行**して切り分け:
+   ```bash
+   FRED_API_KEY=$FRED_API_KEY ANTHROPIC_API_KEY=$ANTHROPIC_API_KEY \
+     PYTHONPATH=scripts \
+     python scripts/fetch_news.py
+   ```
+
+### `market.json` が空または古い (yfinance レート制限)
+
+yfinance は Yahoo Finance のレートリミット (15 分内 X 回など) に掛かることがある。
+- 数時間待って手動再実行 (上記)
+- 単一銘柄が問題なら `scripts/fetch_market_data.py` の `INSTRUMENTS` から一時的に外す
+- 慢性的なら Alpha Vantage 等への切替を v14 で検討予定
+
+### Claude API が 429 (Rate limit exceeded)
+
+Anthropic の tier 上限に当たっている。
+- `scripts/fetch_news.py` の `max_tokens` を減らす (現在 4096 程度)
+- `items[:150]` の引数を減らして送る記事数を絞る
+- 数時間待って手動再実行
 
 ### Pages のビルドが失敗する
-**Settings → Pages → Source** が `GitHub Actions` になっているか確認。「Deploy from a branch」ではこのワークフローは動かない。
+
+`Settings → Pages → Source` が **GitHub Actions** になっているか確認。「Deploy from a branch」ではこのワークフローは動かない。
+
+過去に **GitHub 側の設定リセット**で「Deploy from a branch」に戻ってしまったケースあり。Pages デプロイステップだけ失敗していたら最初に確認する。
 
 ### Stale Data 警告が出ている
-`data/*.json` の `generatedAt` が 36 時間以上古い。Actions タブで最新 run の状況を確認、必要なら手動再実行。
+
+`data/*.json` の `generatedAt` が 36 時間以上古い場合、UI 上部に赤いバーが表示される。
+- Actions タブで最新 run の状況を確認
+- 失敗していれば上記の「手動再実行」
+- 連続で失敗するなら Anthropic API キーや FRED API キーの失効を疑う
+
+### Listed Alts や archive の data が古い (rebase 後の症状)
+
+zip 適用後 `git pull --rebase` を忘れると、ローカルが Actions 側の最新 chore commit より古いままになる。
+- `git fetch && git log HEAD..origin/main` で差分を見る
+- `git pull --rebase` で同期
+
+### Smoke test (pytest) が失敗する
+
+v13.0 で導入された Actions の `Python smoke test` ステップが失敗した場合、コードのリグレッション可能性が高い。
+- `pytest tests/ -v` をローカルで実行して詳細を見る
+- 失敗テストが指す関数 (例: `extract_close_series`) を確認
+- 共通モジュール `scripts/common.py` への変更がテスト前提を壊していないか
+
+---
+
+## v13.0 で導入された土台
+
+### 共通モジュール `scripts/common.py`
+
+FRED API 呼び出し、yfinance MultiIndex 吸収、ログ書式、日付処理を集約。
+v13.1 以降で各 `fetch_*.py` を順次これを使う形にリファクタする予定。
+
+利用例:
+```python
+from scripts.common import fred_observations, extract_close_series, log_ok, utc_now_iso
+
+obs = fred_observations("DGS10", observation_start="2024-01-01")
+log_ok(f"DGS10: {len(obs)} points")
+```
+
+### 自動化スクリプト `scripts/take_snapshot.sh`
+
+改修確認用の snapshot zip を 1 コマンドで作成。詳細は **「改修動作確認 — snapshot を取って Claude に渡す」** 章を参照。
+
+### 単体テスト `tests/`
+
+`pytest tests/` で実行。Actions ワークフローの最初に smoke test として走る。
+- `tests/test_common.py` — 共通モジュールの基本動作 + `determine_cadence()` の型チェック
+- `tests/conftest.py` — `scripts/` を sys.path に追加するための設定
 
 ---
 
 ## バージョン履歴 (主要)
 
+- **v13.0** (2026-05): 土台拡充フェーズ初期 — `scripts/common.py` 新設、`scripts/take_snapshot.sh` 追加、pytest 導入と Actions smoke test、トラブルシュート章拡充
 - **v12.2** (2026-05): GitHub Actions を Node 24 対応に更新 (checkout@v5 等)、色調をブルー×グリーン基調に変更、`.mm-alt-impact-label` 補修、ルート残骸ファイル削除
 - **v12.1** (2026-05): Listed Alts チャートに X/Y 軸・グリッド・Tooltip を追加
 - **v12** (2026-05): セクション番号アラビア化、Funding/Vol パネル、Listed Alts プロキシ、Deep Dive アーカイブ、週末/月初の長尺総括モード、Claude モデル `claude-opus-4-7` に更新、Stale Data 警告
 - **v11** 以前: 多数の段階的機能追加 (履歴は `DECISIONS.md` 参照)
 
 詳細な決定の経緯は [`DECISIONS.md`](DECISIONS.md) を参照。
+今後の開発計画は [`ROADMAP.md`](ROADMAP.md) を参照。
