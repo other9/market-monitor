@@ -1,133 +1,132 @@
 {
-  "generatedAt": "2026-05-09T12:59:12.289413+00:00",
+  "generatedAt": "2026-05-09T13:19:27.875939+00:00",
   "cadence": {
     "mode": "weekly_review",
     "label": "週次総括 (第19週)",
     "context": "第19週"
   },
   "epigraph": {
-    "quote": "市場が最も危険なのは、すべてが順調に見えるときである。",
+    "quote": "市場が最も危険なのは、誰もが最も安全だと感じているときである。",
     "source": "ハワード・マークス『市場サイクルを極める』",
-    "connection": "雇用統計とチップ株で最高値更新の一方、消費者信頼感は過去最低、Burryは『1999年末』と警鐘。良すぎる相場の足元で警報が静かに鳴っている週だった。"
+    "connection": "雇用統計を好感した株高と最高値更新の一方、Buryによる『1999-2000バブル末期』警鐘やモメンタム極端化への警告が交錯した一週間。市場の楽観と警戒のコントラストを象徴。"
   },
-  "headline_of_the_day": "雇用堅調・半導体最高値、しかし消費者心理は過去最低",
+  "headline_of_the_day": "雇用堅調で最高値、火種は中東と関税",
   "news": [
     {
-      "tag": "米経済指標",
-      "headline": "4月雇用は11.5万人増、雇用統計受け株最高値・ドル安",
-      "body": "4月の米雇用者数は11.5万人増と幅広いセクターで底堅く、S&P500とNasdaqは半導体ラリーと併せて最高値を更新。一方でドル指数は労働指標の堅調にもかかわらず下落し、利下げ期待の根強さを示した。",
+      "tag": "米雇用統計",
+      "headline": "米4月雇用者数+11.5万人、株は最高値更新",
+      "body": "4月の米非農業部門雇用者数は+11.5万人と幅広いセクターで底堅い伸びを示し、ハイテク株主導でS&P500とナスダックは最高値を更新。ただしGoldmanは利下げ期待を12月・来年3月に後ずれさせ、市場の織り込みとのギャップが残る。",
       "impact": [
         "米株最高値更新",
-        "ドル安継続",
-        "利下げ織り込み微修正"
+        "利下げ期待の後退",
+        "ドル底堅い"
       ],
       "source_index": 84,
       "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTFBFT1ZEOExtM3M3XzFxa1hLQXVwV0lHbWIzM0ZrR2F1YVFYOE5MVEt5UmZGVjNIejJZQ05FdVNWdWNTcTIzUXF3MHBycG1UUXlJcmVNaDFfRGU4NEF3b2JUQWE5aHg4dTRsRlc5SmVkWldCRlQ3a0RWQzJoVDg?oc=5",
       "source": "WSJ Markets (via Google)"
     },
     {
-      "tag": "中央銀行",
-      "headline": "ゴールドマンがFed利下げ予想を12月・3月に後ろ倒し",
-      "body": "ゴールドマン・サックスはイラン戦争による原油・物価上振れリスクを理由に、Fedの次回利下げを12月、その次を来年3月へ後ろ倒し。FF金利上限3.75%からの追加緩和ペースが慎重化するとの見方が広がる。",
+      "tag": "地政学",
+      "headline": "ホルムズ海峡で衝突継続、原油・湾岸情勢に火種",
+      "body": "イラン戦争を背景にホルムズ海峡で武力衝突が継続。米はイランの報復を警戒する一方、SaudiアラムコやADNOCは原油輸出を継続。中国のエネルギー輸入は急減し、サプライチェーンの動揺が顕在化。",
       "impact": [
-        "短期金利据え置き観測",
-        "ドル高材料",
-        "ハイテク高バリュエーションへの逆風"
+        "原油上振れリスク",
+        "湾岸クレジット警戒",
+        "中国景気下押し"
+      ],
+      "source_index": 75,
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNQ0RmaEhwVkloMEZudXFnTTFPMXVHVHpYMTJxekU2Z2RjT3FiTk5aZUFDNThEQk8tY01HOTVwS2QtVWVoMTN4bzNHX3dLY2kzQmlRNUkteFpIZmlWQmNNMVJHUmItcmlJTVRCV2JFTWZEbDB2WVNMYzhTY0tpME1SSGhrNk40aFVuWmtwTkNCbkc5VkVfd3JpV3Faa1BLWXNGQ2taR2MyUUFxMjRq?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "貿易・関税",
+      "headline": "米通商裁判所、トランプ新グローバル関税に違法判断",
+      "body": "米通商裁判所はトランプ政権の新たなグローバル関税を違法と判断。一方で来週のトランプ・習会談ではイラン情勢が議題を圧迫し、レアアース・サプライチェーン議論は後ろ倒しの懸念。",
+      "impact": [
+        "関税不確実性",
+        "米中合意遅延",
+        "サプライチェーン株は神経質"
+      ],
+      "source_index": 94,
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSU9CQkR4eDJValRWcDJXTjdMbkhsbFliNHdjQUZKT3dxbnlSbUZxSV8ycnFxZ28teGlkNHRkQ1U1eUwzM2dLMWFVYzNTYkFhbm9aSXc1aFpEc0d4Rm5NcDhzcEYxTUVzdVhQdjVaYjRTQ1JqdmN4c29iU2otVWtEdkU1QVdHODVrbUszR1hDOWpkS2JLclJidkNR?oc=5",
+      "source": "WSJ Markets (via Google)"
+    },
+    {
+      "tag": "中央銀行",
+      "headline": "Goldman、Fed利下げを12月・3月に後ずれ予想",
+      "body": "Goldman Sachsはインフレ粘着性を理由にFedの次回利下げ見通しを9月から12月へ、その次を来年3月へ後ずれさせた。FF金利上限は3.75%で据え置きの公算が強まり、来週の米CPIが焦点。",
+      "impact": [
+        "短期金利の高止まり",
+        "ドル支援",
+        "ハイテクバリュエーション圧力"
       ],
       "source_index": 56,
       "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMUlVZ2VzWGZqUklLcTN2SzdBTUp6ZlpQdHIzSW14YXRzcGlhM2l1NXdwcjNEV29QZWJWd3NYbmxseENvekQ0QTFkRWhpa3E0cW1pUzhmVWZqaDdidWpQSXotYzdXT21KLWRhR0IwTHlTYUlTaHNhcnFCZ0Nvd211WFQ0V2VWYkdNaXNqRFJCX1NQcWhyOV9OQjFuNHNQUkZPRElCYVN2ZUVucFFQdDl6MA?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "消費者心理",
-      "headline": "米消費者信頼感が過去最低、インフレ不安とイラン戦争が重荷",
-      "body": "ミシガン消費者信頼感指数は記録的な低水準まで低下。雇用は堅調でも、ホルムズ海峡情勢に伴うガソリン価格上昇懸念とインフレ期待の上振れが家計マインドを直撃しており、強い労働市場と弱い心理の乖離が鮮明に。",
-      "impact": [
-        "消費関連株の重荷",
-        "インフレ期待の高止まり",
-        "Fedの判断複雑化"
-      ],
-      "source_index": 80,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNWowS2w5RkJ4WG5uUU1VNlRjbFJadmtWdGloM3FzOXBkdXBNTFpkd3F5TDZNanhsVVFmby1NaWNwbzN2NmJlSmFPV19SUm1FY0w1WmI0WUtRQm1ndUJvMDg3a3JJTTNkTVh3RmhIanYzX21qNWM2YUQ5dHpVdHZTUWxrWkZqN2gtM2ZMVmhCRlp3aTlIczl2RGZrbUdsNFZlSTl4MFRVc1JycjJLRnY2aGwyZXI?oc=5",
-      "source": "Bloomberg (via Google)"
-    },
-    {
-      "tag": "地政学",
-      "headline": "ホルムズ海峡で米イラン緊迫、対中制裁も発動",
-      "body": "米国はホルムズ海峡周辺でのイラン追加報復を警戒し、衛星画像でイランを支援したとして中国企業を制裁。サウジとADNOCは原油を綱渡りで通航させており、原油先物は週間ベースでは下落も日中は上昇。FTは『5ドル/ガロンガソリン』警戒を再燃と報じる。",
-      "impact": [
-        "原油プレミアム継続",
-        "米中緊張再燃",
-        "防衛・エネルギー株支援"
-      ],
-      "source_index": 73,
-      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNQ0RmaEhwVkloMEZudXFnTTFPMXVHVHpYMTJxekU2Z2RjT3FiTk5aZUFDNThEQk8tY01HOTVwS2QtVWVoMTN4bzNHX3dLY2kzQmlRNUkteFpIZmlWQmNNMVJHUmItcmlJTVRCV2JFTWZEbDB2WVNMYzhTY0tpME1SSGhrNk40aFVuWmtwTkNCbkc5VkVfd3JpV3Faa1BLWXNGQ2taR2MyUUFxMjRq?oc=5",
-      "source": "Bloomberg (via Google)"
-    },
-    {
-      "tag": "貿易・関税",
-      "headline": "米通商裁判所がトランプの新グローバル関税に違法判決",
-      "body": "米連邦通商裁判所がトランプ大統領の新たな包括関税は権限を逸脱しているとして無効判断。来週のトランプ・習近平会談を前に米中協議の前提が揺らぐが、サプライチェーン・希土類など本筋の議題はイラン情勢に押されて後回しの可能性。",
-      "impact": [
-        "関税不確実性",
-        "輸入コスト見通しの修正",
-        "中国輸出関連の追い風"
-      ],
-      "source_index": 96,
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSU9CQkR4eDJValRWcDJXTjdMbkhsbFliNHdjQUZKT3dxbnlSbUZxSV8ycnFxZ28teGlkNHRkQ1U1eUwzM2dLMWFVYzNTYkFhbm9aSXc1aFpEc0d4Rm5NcDhzcEYxTUVzdVhQdjVaYjRTQ1JqdmN4c29iU2otVWtEdkU1QVdHODVrbUszR1hDOWpkS2JLclJidkNR?oc=5",
-      "source": "WSJ Markets (via Google)"
-    },
-    {
       "tag": "コモディティ",
-      "headline": "金が週間+1.95%で4720ドル、銅・ココアも急騰",
-      "body": "COMEX金は週間+1.95%の4720.40ドルで引け、重要トレンドラインを回復。中国では金生産が減少する一方、地金・コインへの個人投資需要が急増。ココアも投資家のポジション再構築で15%超急騰し、コモディティ全般にリスクヘッジ需要が回帰。",
+      "headline": "金、週間+1.95%で4720ドル台、戦争と中国需要が下支え",
+      "body": "Comex金は週間+1.95%、4720.40ドルで終了。中国では金生産が落ち込む一方、個人の延べ棒・コイン需要が急増。地政学リスクとインフレ粘着が金需要の構造的な追い風に。",
       "impact": [
-        "インフレヘッジ需要継続",
-        "実質金利低下観測",
-        "新興国センチメント支援"
+        "金強気継続",
+        "実質金利との綱引き",
+        "EM中銀の買い継続観測"
       ],
-      "source_index": 94,
+      "source_index": 92,
       "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPcFI1UWc2UmhmcklMR0k5eXlHaHVOZ0huVW1UdVFOUlJmQlNIVTF3Qy1ENnZrU3A0XzNwLUFOMGlZbjFBZlEwYlhQTzVlZVhDc3ZYSHVWQ2t4NXBCMUdzcEt4cXAzTmZLdU5KS0JETlgxNnZtZEx3amFNZ1VldG1FdWxYNTlpZElKSEpGVFgtSm9ZM2lNa0tvU0huNHl0ajg4b1pnbC1fdVk?oc=5",
       "source": "WSJ Markets (via Google)"
     },
     {
-      "tag": "AI/ハイテク",
-      "headline": "Nvidia・Anthropicら巨大AI契約相次ぐ、警戒の声も",
-      "body": "NvidiaがIRENのAIデータセンターに最大21億ドル投資、AnthropicがAkamaiと18億ドルのコンピューティング契約。一方Chris HohnのTCIはMicrosoft株80億ドル分を縮小しAI混乱への警戒を表明。Michael Burryも『1999-2000年バブル末期のよう』と発言し、強気と懐疑が併存。",
+      "tag": "中国経済",
+      "headline": "中国4月輸出が加速、関税前駆け込みの可能性",
+      "body": "中国4月輸出は予想を上回り加速。関税発動前の駆け込み出荷との見方も根強く、エネルギー輸入はホルムズ混乱で急減。輸出のモメンタムは持続性に疑問。",
       "impact": [
-        "半導体・データセンター関連の上昇",
-        "ハイテク偏重への警戒",
-        "モメンタム極端化リスク"
+        "人民元・アジア通貨に支援",
+        "サプライチェーン懸念は継続"
       ],
-      "source_index": 32,
-      "link": "https://finance.yahoo.com/sectors/technology/articles/nvidia-invests-2-1-billion-111838996.html",
-      "source": "Yahoo Finance US"
+      "source_index": 99,
+      "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPU3k4Q0hXRDE5NHM4NXp0c2tMWFRNd0thY3FGX3NLSnZOa3FtcmdHRE84NlRlZTJsVXU2UEtES0hBYWlOZ0tIMDRzRjFBSVp6TEpsTFRBeGJOSzZyZGZJQmR3d2xuc2lfSWo5azBSaXhqR05FaHZNbndFc01wb1BIeWk1SGhWb2lqaXc?oc=5",
+      "source": "WSJ Markets (via Google)"
+    },
+    {
+      "tag": "株式市場",
+      "headline": "モメンタム極端化、Buryも『1999年バブル末期の感触』",
+      "body": "ファンドマネージャーのMichael Buryは『株は雇用や消費者心理ではなく、需給で動いている。1999-2000バブル末期のようだ』と警鐘。Wall Streetもモメンタム取引の極端な集中に警戒メッセージを発し始めている。",
+      "impact": [
+        "反転リスクの蓄積",
+        "ヘッジ需要",
+        "VIX低位の脆さ"
+      ],
+      "source_index": 19,
+      "link": "https://www.cnbc.com/2026/05/08/michael-burry-says-the-market-today-feels-like-the-last-months-of-the-1999-2000-bubble.html",
+      "source": "CNBC Markets"
     }
   ],
   "funny_stories": [
     {
       "kind": "皮肉・風刺系",
-      "title": "Lamborghiniからスーツへ",
-      "body": "WSJ曰く、暗号資産界はランボから三つ揃いの時代へ。かつてマイアミの会場でジェット機の鍵を見せびらかしていた連中が、いまや規制当局の前で『コンプライアンス・オフィサーを増員しました』と神妙にうなずく。一番ビットコインを語らなくなった瞬間に、一番値上がりしているのは皮肉な話だ。",
-      "source_index": 81,
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPMGw1c2lOWThuSlVVZ3BZaEpNUUI4UnM1c0txbU1jLVVjUXozbzZoR2d4cHlGRC1nRWxNN3RSUWF0NmtCNmxpZkhpOE1sZ0JlZlhwVE5jVndOZjBkNVBSdGhPbmdXTTItcmJubDdNNUNQX3JSeU1laWRNcXBZd1VTNjIxeGZ4MXZmV0lwUWdZRnhiVllMOTNXMVc1WF8zUl9FRGw4YUk1S2VMUC1HOVprMWFrZ2VudGV5M3BsOUNxMXQ?oc=5",
-      "source": "WSJ Markets (via Google)"
+      "title": "UFOと関税、どちらが信じられないか",
+      "body": "ペンタゴンが大量のUFO機密文書をネット公開した同じ週、米通商裁判所がトランプ関税を違法と一蹴。トレーダー曰く『未確認飛行物体より、未確認関税のほうが市場には脅威。少なくともUFOはS&P500を動かさない』。",
+      "source_index": 76,
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPdEYtano0WXJ2NGh0YkRWTnpjZjdMMVMwTFZ3LWtHc2FVOEZZNEpRbnBIZGVRV3UyQWFJQXh6ZWw2UGNDbVk5MHlMOW5rWmlabF9qaHVQOWpKOEdod2VOV1NCSUUwaVN3MFd6UWhRMWhDUFo2dTNqVkVKakxKMkJVMFBxSklNM19lZ01faVljX0J3cV9GNnJwQ015OTBzNHB2TDFfSExmNUJNQVdhc3BDUldKSQ?oc=5",
+      "source": "Bloomberg (via Google)"
     },
     {
       "kind": "人間味・哀愁系",
-      "title": "HOAが600ドルから1300ドルへ",
-      "body": "住宅ローンを完済した先輩が『これで自由だ』と祝杯を挙げた翌月、管理組合費が倍になった。屋上防水、配管更新、保険料、すべてに『特別徴収』の三文字。家は買えても、家を持ち続ける費用は誰も教えてくれない。退職後の月600ドルが1300ドルになる、それが2020年代の現実である。",
-      "source_index": 38,
+      "title": "HOA管理費、月600ドルが1300ドルに",
+      "body": "金利低下を待ちわびる米国の住宅オーナーに、追い打ちをかける管理費の倍増。『住宅ローンより管理費のほうが速く上がる』と嘆く声に、Buffettが『住宅金融はもっと考え直せ』と老師のような一言。マイホームの夢が、毎月の請求書に少しずつ削られていく。",
+      "source_index": 44,
       "link": "https://finance.yahoo.com/economy/articles/600-monthly-hoa-payment-jumps-110000850.html",
       "source": "Yahoo Finance US"
     },
     {
       "kind": "観察・再発見系",
-      "title": "ペンタゴンのUFOファイル公開日",
-      "body": "雇用統計が良くて株は最高値、消費者信頼感は過去最低、その同じ日にペンタゴンがUFOの機密ファイルを公開した。市場参加者の反応は『で、どっちが我々のポートフォリオに影響するのか?』。地球外生命体の存在より、来週のCPIのほうが心拍数を上げるあたり、我々はもう完全にプロの病である。",
-      "source_index": 110,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVlJwaW8tRVJHWG16Uk9mQ0FQX0dEUXp6T1RhNE5FdjdqR1p1R1I0eVIxOGFfZ2ZZWHNQN0VJdUFNNUZFYmZWVUV5Qk91VkxBcjJIWUFid0dQQ2htLWltT1BaakZULTNHRkJjQm9aUko3VmowY1RjTDhtVlhZMktxSTRvSzI?oc=5",
-      "source": "Financial Times (via Google)"
+      "title": "ラボルギーニからスーツへ、暗号通貨の制服チェンジ",
+      "body": "WSJ曰く、暗号資産界隈の制服がランボとパーカーから仕立てのスーツへ。ETF認可と機関投資家流入で『真面目に儲ける』モードに突入。皮肉なことに、彼らがスーツを着始めた途端、ヘッジファンド業界は『セクシーなパーティ服』を要求する案内を出していた。",
+      "source_index": 81,
+      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPMGw1c2lOWThuSlVVZ3BZaEpNUUI4UnM1c0txbU1jLVVjUXozbzZoR2d4cHlGRC1nRWxNN3RSUWF0NmtCNmxpZkhpOE1sZ0JlZlhwVE5jVndOZjBkNVBSdGhPbmdXTTItcmJubDdNNUNQX3JSeU1laWRNcXBZd1VTNjIxeGZ4MXZmV0lwUWdZRnhiVllMOTNXMVc1WF8zUl9FRGw4YUk1S2VMUC1HOVprMWFrZ2VudGV5M3BsOUNxMXQ?oc=5",
+      "source": "WSJ Markets (via Google)"
     }
   ],
   "charts_of_the_day": [
@@ -137,15 +136,7 @@
       "title": "S&P 500",
       "name": "S&P 500",
       "sub": "INDEX · USD",
-      "rationale": "雇用統計と半導体ラリーで最高値更新。今週の象徴。"
-    },
-    {
-      "source": "yf",
-      "ticker": "^SOX",
-      "title": "SOX (半導体)",
-      "name": "SOX (半導体)",
-      "sub": "INDEX · USD",
-      "rationale": "Nvidia/IREN投資、TSMC新プロセスなど半導体は週の主役。"
+      "rationale": "雇用統計後の最高値更新を確認。週次総括の中心指標。"
     },
     {
       "source": "yf",
@@ -153,7 +144,7 @@
       "title": "金 (COMEX)",
       "name": "金 (COMEX)",
       "sub": "$/oz",
-      "rationale": "週間+1.95%でトレンドライン回復、中国個人需要も急増。"
+      "rationale": "週間+1.95%、地政学と中国小口需要の構造的追い風。"
     },
     {
       "source": "yf",
@@ -161,23 +152,7 @@
       "title": "WTI原油",
       "name": "WTI原油",
       "sub": "$/bbl · NY先物",
-      "rationale": "ホルムズ海峡緊迫、5ドルガソリン警戒の再燃。"
-    },
-    {
-      "source": "yf",
-      "ticker": "DX-Y.NYB",
-      "title": "ドル指数",
-      "name": "ドル指数 (DXY)",
-      "sub": "INDEX",
-      "rationale": "強い雇用にもかかわらずドル続落、為替の素直でない反応。"
-    },
-    {
-      "source": "yf",
-      "ticker": "^VIX",
-      "title": "VIX",
-      "name": "VIX",
-      "sub": "恐怖指数",
-      "rationale": "最高値・モメンタム極端化のなかで低位安定するボラ。"
+      "rationale": "ホルムズ衝突継続と『$5ガソリンリスク再燃』を映す。"
     },
     {
       "source": "yf",
@@ -185,34 +160,58 @@
       "title": "米10年債利回り",
       "name": "米10年債利回り",
       "sub": "%",
-      "rationale": "中東情勢下、週間ほぼ変わらずの債券市場の落ち着き。"
+      "rationale": "雇用堅調・利下げ後ずれ観測の中で来週のCPI待ち。"
     },
     {
       "source": "yf",
-      "ticker": "TSM",
-      "title": "TSMC",
-      "name": "TSMC",
-      "sub": "",
-      "rationale": "A13プロセス発表、AI半導体サプライチェーンの中核。"
+      "ticker": "^VIX",
+      "title": "VIX",
+      "name": "VIX",
+      "sub": "恐怖指数",
+      "rationale": "モメンタム極端化警告と最高値の安心感の綱引きを観察。"
+    },
+    {
+      "source": "yf",
+      "ticker": "^SOX",
+      "title": "SOX (半導体)",
+      "name": "SOX (半導体)",
+      "sub": "INDEX · USD",
+      "rationale": "TSMCのA13プロセス、Cerebras IPO価格引き上げなど半導体材料が集中。"
+    },
+    {
+      "source": "yf",
+      "ticker": "DX-Y.NYB",
+      "title": "ドル指数 (DXY)",
+      "name": "ドル指数 (DXY)",
+      "sub": "INDEX",
+      "rationale": "Fed利下げ後ずれ観測で再びドル強含み。"
+    },
+    {
+      "source": "fred",
+      "ticker": "BAMLH0A0HYM2",
+      "title": "HY 社債スプレッド",
+      "name": "HY 社債スプレッド",
+      "sub": "% · OAS",
+      "rationale": "Apollo・BlackstoneによるBroadcom 350億ドルファイナンス検討など、信用市場の地合いを点検。"
     }
   ],
   "deep_dive": {
-    "title": "週次総括 (第19週): 強い雇用と最低の消費心理、AIと地政学が引き裂く相場",
-    "lede": "雇用は堅調、株は最高値、しかし消費者心理は記録的低水準で原油はホルムズに張り付く——強気と弱気の指標が同居した一週間だった。",
-    "background": "週前半はAI関連の巨大ディールが相場を牽引。NvidiaがIRENに最大21億ドル、AnthropicがAkamaiと18億ドル契約、GoogleのIsomorphic Labsは20億ドル超調達、Cerebrasはレンジ引上げのIPOを準備。半導体株は最高値を更新。週末にかけて4月雇用統計が11.5万人増と底堅く、S&P500・Nasdaqがそろって最高値を塗り替えた。一方、地政学はイランがホルムズ海峡で挑発を続け、米国は中国の衛星画像企業に制裁を発動。トランプはロシア・ウクライナの3日間停戦を仲介する一方、米通商裁判所は新グローバル関税を違法と判断。ミシガン消費者信頼感は記録的低水準まで低下し、ゴールドマンはFedの次回利下げを12月へ後ろ倒した。Hohn(TCI)はMicrosoft株を80億ドル縮小、BurryはAIラリーを『1999-2000年末期』と評した。",
-    "implications": "ヘッドライン指数の最高値更新の裏で、相場のけん引役はモメンタム・半導体・AIの一握りに極端に集中している。ゴールドマンの利下げ後ろ倒しは、ハイ・バリュエーション銘柄の割引率の前提が崩れるリスクを示唆。消費者心理の歴史的悪化は、強い雇用がいつまで支援材料として機能するかの賞味期限を疑わせる。地政学では、ホルムズの『騙し騙し通航』が続く限り原油は構造プレミアムを抱え、5ドル/ガロン懸念がインフレ期待を再加速させうる。米通商裁判所の関税違法判決は、トランプ・習会談を前に米中交渉のレバレッジ構造を変える可能性。来週はCPIが最大の試金石となり、強い指標と弱い指標の『ねじれ』のどちらに市場が体重を乗せるかが決まる週となる。",
+    "title": "週次総括(第19週): 雇用堅調が祝祭を演出、しかし火種は中東・関税・モメンタム集中",
+    "lede": "米株は雇用統計と半導体ラリーで最高値を更新したが、ホルムズの戦火、Fed利下げ後ずれ、関税法廷闘争、モメンタム集中への警鐘という4つの火種が同時にくすぶる週となった。",
+    "background": "週前半はFedの利下げ期待後退観測が強まり、Goldmanは次回利下げを12月、その次を来年3月へ後ずれさせた。週半ばにはペンタゴンが大量のUFO文書を公開する一方、米通商裁判所がトランプ新関税を違法と判断、政策不確実性が再燃。中東ではホルムズ海峡で米イラン衝突が継続、サウジ・ADNOCが原油輸出を継続する一方で中国のエネルギー輸入は急減。週末の米雇用統計は+11.5万人と底堅く、半導体株を中心にS&P500とナスダックが最高値を更新した。背後ではJane Streetが四半期161億ドルの記録的トレーディング収益、Brookfieldが1Qで210億ドル調達と、バブル的な金融活況も顕在化。Michael BuryやWSJ・FTは『1999年末期』『モメンタム極端化』への警告を発した。",
+    "implications": "来週はトランプ・習会談と米CPIが二大イベント。CPIが粘着的なら利下げ後ずれが本格的に織り込まれ、長期金利上昇とハイテクのバリュエーション圧力が再燃しうる。地政学はホルムズ封鎖懸念が燻り、原油は$5ガソリン論まで戻る余地。モメンタム集中は雇用統計後の最高値で一段と過熱しており、何らかのショック(関税の司法差し戻し、中東エスカレーション、AI関連企業の警告)が起爆剤となる可能性。一方で、Brookfield・Apollo・Blackstoneのプライベート市場の活況、Jane Street等マーケットメイカーの記録収益は流動性の厚さを示し、押し目買い余力も大きい。リスク・リワードは非対称化しつつあり、ヘッジコストの安いVIX低位はチャンスでもある。",
     "what_to_watch": [
-      "5/13 米CPI:インフレ期待の上振れと整合的か",
-      "トランプ・習近平会談:関税違法判決後の交渉の枠組み",
-      "ホルムズ海峡情勢と原油・ガソリン価格",
-      "TCI のMicrosoft縮小に他のメガ投資家が追随するか",
-      "FOMC高官発言:ゴールドマン的な利下げ後ずれ観の検証"
+      "5/13週: 米CPI(コアの粘着性とサービスインフレ)",
+      "トランプ・習会談(関税・レアアース・台湾)",
+      "ホルムズ海峡情勢とブレント原油の$80超え可否",
+      "通商裁判所判決を受けた関税政策の再構築",
+      "Cerebras IPOプライシングと半導体センチメント"
     ],
     "related_keys": [
       "sp500",
-      "sox",
-      "gold",
-      "wti"
+      "us10y",
+      "wti",
+      "gold"
     ],
     "source_index": 82,
     "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOSHFVNW1lamI5OE1IQ1A3ZVNJcFRqLVdsMkRLbmIyd05LbnIzZzBhcVZaZWJ1Si1DZUp5S2tmTVA2WmJyWndOX0pWTWNaeXRtSl9icThMdXhzQlpzOWlDX0VPT3NMZUlQTHNfM1dBZ1k4LU9DbERTUy1wbkc3cjl6R2ZLN3hpSXYxQTBxcDVNaTdZeVlkZmdTUldrbVdKRmVTOHc?oc=5",
@@ -220,63 +219,45 @@
   },
   "economic_chart_of_the_day": {
     "series_id": "UMCSENT",
-    "title": "ミシガン消費者信頼感指数",
-    "subtitle": "月次, 1966Q1=100",
-    "rationale": "4月は記録的な低水準まで低下し、強い雇用統計と真逆のシグナル。家計マインドの破綻は消費株や利下げ期待を考えるうえで今週最も重要な指標。",
+    "title": "米ミシガン大消費者信頼感指数",
+    "subtitle": "月次, 1966年Q1=100",
+    "rationale": "今週のWSJ報道では消費者信頼感がイラン戦争を背景に過去最低圏に沈んだ。雇用は堅調なのに心理は悪化という乖離は、来週のCPIや小売動向の読み筋を左右する重要な歪み。",
     "period_years": 5
   },
   "central_bank_watch": [
     {
       "code": "FED",
-      "comment": "FF金利は上限3.75%(2025年12月に-0.25%実施)で据え置きが続く。今週は4月雇用統計が11.5万人増と底堅い一方、ミシガン消費者信頼感が記録的低水準に沈み、強い労働市場と弱い家計心理の乖離が鮮明になった。ゴールドマンはイラン戦争による原油・物価上振れを織り込み、次回利下げ予想を12月、その次を来年3月へ後ろ倒し。市場はなお年内追加緩和をある程度織り込むが、来週のCPI次第では織り込みが大きく剥がれる余地がある。FOMC内部ではインフレ再加速リスクと景気減速懸念のバランスをどう見るかで温度差があり、要人発言が為替・金利のボラを高めやすい局面。"
+      "comment": "FF金利上限は3.75%で据え置き、12月のFOMCが次の焦点。Goldmanは次回利下げを9月から12月、その次を来年3月へ後ずれさせ、市場の織り込みもタカ派寄りに修正されつつある。背景は粘着的なサービスインフレと、+11.5万人と底堅い4月雇用統計。一方でホルムズ封鎖がもたらすエネルギー価格上振れリスクはインフレを再燃させかねず、Fedが利下げ余地を温存したいインセンティブを強める。来週の米CPIがコアで再加速すれば、年内利下げゼロ観測まで戻る余地。逆に消費者心理の急悪化が先行指標として効けば、12月利下げの確度は再び上がる。Fed要人発言は『データ次第』を反復しており、市場との対話は静観モード。"
     },
     {
       "code": "ECB",
-      "comment": "預金ファシリティ金利は2.0%(6月の-0.25%以降据え置き)で、ディスインフレ進展を確認しつつ追加利下げの是非を慎重に見極める段階。今週はユーロ圏固有の大きな新材料は乏しかったが、英国ではStarmer政権が選挙で大敗し『5政党時代』の不安定政治が浮上。地政学ではホルムズ海峡情勢とウクライナの3日間停戦が並走し、エネルギー価格の振れが域内インフレに直結しうる。市場はECBが米Fedより先に追加利下げに踏み切るシナリオを引き続き織り込むが、原油プレミアムが定着すれば慎重姿勢に傾くリスクがある。"
+      "comment": "預金ファシリティ金利は2.0%(最終変動は2025年6月の-25bp)で据え置き、緩和サイクルは小休止。ユーロ圏は中東情勢によるエネルギー価格上振れと、中国の輸出加速・関税前駆け込みによる外需変動を同時に抱える。賃金とサービスインフレは緩やかに減速しているが、ECBはホルムズ起因の供給ショックを警戒し、追加利下げには慎重姿勢を崩さない。市場は次回会合での据え置きを8割近く織り込み、年内追加利下げは1回程度の見方が主流。ユーロ円・ユーロドルはFedの後ずれ観測で売り戻され、ECBにとってはユーロ安によるインフレ輸入のリスクと、輸出競争力支援の綱引きが続く。"
     },
     {
       "code": "BOJ",
-      "comment": "政策金利の最新値はFRED上未取得だが、市場では次回会合に向けて緩やかな追加利上げの織り込みが続いている。今週はドル指数が強い米雇用統計後にも下落し、円は相対的に下げ渋り。日本固有のニュースは個別企業中心で金融政策に直結する材料に乏しいが、米利下げ後ずれ観測と原油プレミアムが併存することで『日米金利差は縮みにくいがインフレは輸入経由で再加速しやすい』という日銀にとって厄介な構図が継続。次回会合では基調的物価の見極めと、賃金・サービス価格動向のアップデートが焦点となる。"
+      "comment": "政策金利の最新値は本稿時点で未取得だが、市場は年内追加利上げの織り込みを再び高めている。ドル円は米雇用統計後にFed利下げ後ずれ観測で底堅く推移し、為替介入リスクと利上げ期待が共存。日銀内部では基調的インフレが2%に向けた持続性を確認しつつあり、賃金交渉の波及度合いと米関税の実体経済影響を見極めるフェーズ。ホルムズ起因の原油上振れは円安と相俟って輸入インフレの再燃リスクを高め、利上げ前倒しの口実になり得る。次回会合では物価見通しの上方修正余地と、長期金利容認レンジの再確認が焦点。"
     },
     {
       "code": "BOC",
-      "comment": "今週はカナダの4月失業率が6カ月ぶりの高水準に上昇し、労働市場の冷え込みが鮮明に。さらにカナダ西海岸の港湾問題がカーニー政権の通商戦略を脅かしているとの報道もあり、貿易依存度の高い経済としては逆風が重なる構図。米通商裁判所がトランプの新グローバル関税を違法と判断したことは中期的にカナダ輸出にとって追い風だが、目先の景気減速とインフレ鈍化の組み合わせはBOCの追加利下げ観測を後押ししやすい。市場は次回会合での緩和継続を一段と織り込み始めている。"
+      "comment": "カナダの4月失業率は半年ぶり高水準に上昇し、労働市場の軟化が鮮明に。Carney政権の貿易野心はカナダの港湾混乱に阻まれ、外需面でも逆風。BOCは追加利下げに動く余地が広がっており、市場は次回会合での25bp利下げ確度を引き上げ。一方で米国はFedが利下げを後ずれさせており、米加金利差拡大によるカナダドル安が輸入インフレを刺激するリスクも。原油はカナダにとって主要輸出品であり、ホルムズ封鎖でWTIが急騰すれば交易条件は改善するが、消費者の購買力は逆に痛む。BOCは雇用悪化と通貨防衛の二律背反に直面している。"
     }
   ],
   "pe_pd_view": {
-    "body": "今週のPE(プライベート・エクイティ=未公開株式に投資するファンド)市場は、ヘルスケアと与信周りでの動きが目立った。Siris Capitalがポートフォリオ会社Equinitiの売却で投資額を3倍に増やす見通しで、テレヘルス(遠隔医療)向けのPE投資5件、Amulet Capitalによる不妊治療クリニック網TFP買収など、規制下で成長余地のあるヘルスケアにマネーが集中している。ファンドレイズ面ではS3 Capitalが建設向け融資ファンドで13億ドル、Corbin Capitalが訴訟ファイナンスで3.42億ドルを集めるなど、銀行が手を引いた領域に資金が流れ込む構図が続く。\n\nPD(プライベート・デット=非上場の貸付)では、ApolloとBlackstoneがBroadcom向けに最大350億ドルの大型ファイナンスを検討と報じられ、メガディールの資金供給者として民間信用市場が公的市場の代替となりつつあることが改めて示された。一方EQTのIntertek買収は3度目も拒絶、Houlihan Lokeyは『戦争効果』で防衛系ディールのバリュエーションが定まりにくいと指摘。AI・データセンター関連の巨大投資需要を取り込みつつ、エグジット環境の好転(Inspire Brands=ダンキンのIPO申請等)が見え始めた点はポジティブ。",
+    "body": "今週はプライベート市場の活況を象徴する材料が並んだ。最大の話題は、Apollo Global ManagementとBlackstoneがBroadcom向けに最大350億ドル規模のファイナンス(主に企業買収やインフラ投資のために組成される大型融資パッケージ)を検討している報道。これはプライベート・デット(銀行を介さず投資ファンドが直接企業に貸し出す融資)の規模が、もはや投資銀行のシンジケートローンに匹敵する水準にまで拡大したことを示す象徴的事例だ。\n\nBrookfieldは1Qで210億ドルを調達し過去最高ペース、Siris CapitalはEquinitiの売却で投資元本の3倍リターンを実現する見込み、S3 Capitalは建設融資で13億ドル、Corbin Capitalは訴訟ファイナンスで3.42億ドルを調達と、ニッチ戦略への資金流入も活発。テレヘルス分野へのPE投資集中(GoldmanやAvesi等)も目立った。\n\nなぜ重要か:プライベート市場の『ドライパウダー(投資未実行の待機資金)』が積み上がるほど、上場株のM&A標的に対する買い圧力が高まる。一方で、PDの規模拡大は信用サイクルが反転した際の損失波及経路として、上場銀行株や社債市場にも影響しうる。",
     "impact": "positive",
-    "impact_summary": "巨額ファイナンス活発化、エグジット改善で上場市場にも追い風",
+    "impact_summary": "PE/PDマネー潤沢、上場株への買収圧力と信用緩和を支援",
     "source_indices": [
       47,
-      49,
-      50,
-      51,
       52,
       55,
-      67,
-      16
+      68,
+      96
     ],
     "sources": [
       {
         "link": "https://www.pehub.com/siris-capital-to-triple-its-money-with-equiniti-sale-remote-healthcare-demand-pulls-pe-to-telehealth/",
         "source": "PE Hub",
         "title": "Siris Capital to triple its money with Equiniti sale; Remote healthcare demand pulls PE to telehealth"
-      },
-      {
-        "link": "https://www.pehub.com/pe-hones-in-on-telehealth-demand-5-deals/",
-        "source": "PE Hub",
-        "title": "PE zeros in on telehealth demand: 5 deals"
-      },
-      {
-        "link": "https://www.pehub.com/amulet-capital-to-acquire-tfp-fertility-group-from-benefit-street-partners/",
-        "source": "PE Hub",
-        "title": "Amulet Capital to acquire TFP Fertility Group from Benefit Street Partners"
-      },
-      {
-        "link": "https://www.pehub.com/war-effect-complicating-defense-deal-valuations-says-houlihan-lokey-eqts-third-offer-for-intertek-rejected/",
-        "source": "PE Hub",
-        "title": "‘War effect’ complicating defense deal valuations, says Houlihan Lokey; EQT’s third offer for Intertek rejected"
       },
       {
         "link": "https://www.altassets.net/private-equity-news/by-region/north-america-by-region/united-states-north-america-by-region/s3-capital-collects-1-3bn-of-investable-capital-in-new-construction-lending-fundraise.html",
@@ -294,22 +275,20 @@
         "title": "Apollo, Blackstone Weigh $35 Billion Financing for Broadcom - Bloomberg.com"
       },
       {
-        "link": "https://www.marketwatch.com/story/dunkin-is-making-its-return-to-the-stock-market-with-a-new-twist-c89f1cc2?mod=mw_rss_topstories",
-        "source": "MarketWatch Top",
-        "title": "Dunkin’ is making its return to the stock market — with a new twist"
+        "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNYVA4VE9mNjZ6YVlMUUZDZmc0VFZCMlNHSV9vVFJkaHB3M2hheHB2NEhHZ05ESGhCT3hPWkVaTHJubDdqUHRUMnhTSjhrVjhxckxGbmhjUEN4QlJLanhIMWpGZjZtQnJIa1JRVzNOME45d0ROTEk3cENYRzBGWl9lUkZEMjkybTdPdnhMVGtGdHJwOUFib3JGMHg5a29YYVRxcTRjSlU0NkFFNmVfbHJWV3ZpVQ?oc=5",
+        "source": "WSJ Markets (via Google)",
+        "title": "Brookfield Banks $21 Billion in First Quarter, Heading for Record Year - WSJ"
       }
     ]
   },
   "real_assets_view": {
-    "body": "実物資産(不動産・インフラ)では、オルタナティブ大手Brookfieldが第1四半期に210億ドルを調達し過去最高ペースで推移。インフラ・再エネ・不動産の各戦略でグローバルに資金を集めており、長期投資家の実物資産シフトが続いていることを示す象徴的な数字となった。一方、カナダ年金OPTrustがWestbankの高層タワーから8000万ドルの回収を求めて訴訟に踏み切ったように、商業不動産の個別案件では引き続き痛みが残る。バリュー(価値)が回復しつつある国・セクターと、出口に苦しむ案件が同居する『K字型』が鮮明だ。\n\nインフラ系ではFH CapitalがJinkoSolarの米子会社の経営権を取得、再エネ製造の地政学的再編が進行。AIデータセンター需要を背景にNvidia-IREN、Anthropic-Akamai等の大型契約が続き、上場インフラ(IFRA/NFRA)・データセンターREIT・電力ユーティリティに資金が向かいやすい環境。金利面ではゴールドマンがFed利下げを後ろ倒したことで実物資産の割引率前提は短期的に重しだが、消費者心理悪化と原油プレミアムが続けば、インカム性の強い実物資産は防衛的な配分先として選好されやすい。",
+    "body": "オルタナティブの巨人Brookfieldが1Qで210億ドルを調達し、過去最高ペースの年に向かっている。同社は再生可能エネルギー、データセンター、有料道路など『リアルアセット(実物資産)』に強みを持ち、機関投資家が金利ピークアウトを見越して長期インカム資産に資金を再配分する流れを取り込んでいる。\n\n一方で警戒材料も。カナダ年金基金OPTrustがバンクーバーのWestbankタワーから8000万ドルを取り戻すべく訴訟に持ち込んだ件は、商業不動産(特に高級レジデンシャル)の調整がまだ尾を引いていることを示す。FH CapitalがJinkoSolarの米子会社の過半株式を取得する動きは、米中分断下での太陽光バリューチェーン再編の一環だ。\n\n初心者向け補足:不動産・インフラは一般に金利低下が追い風(将来の安定キャッシュフローの現在価値が上がるため)。今週はFed利下げが後ずれする観測が強まったため短期的には逆風だが、データセンター需要(AI関連)とインフラ投資の構造的なテーマは健在。地域・セクターによる二極化が続く局面。",
     "impact": "neutral",
-    "impact_summary": "Brookfield好調もCRE個別痛み残る、AI需要が下支え",
+    "impact_summary": "AIインフラ需要強いが金利後ずれと商業不動産調整が相殺",
     "source_indices": [
-      98,
-      74,
-      48,
-      32,
-      66
+      96,
+      73,
+      48
     ],
     "sources": [
       {
@@ -326,16 +305,6 @@
         "link": "https://www.pehub.com/fh-capital-to-acquire-majority-stake-in-jinkosolars-us-subsidiary/",
         "source": "PE Hub",
         "title": "FH Capital to acquire majority stake in JinkoSolar’s US subsidiary"
-      },
-      {
-        "link": "https://finance.yahoo.com/sectors/technology/articles/nvidia-invests-2-1-billion-111838996.html",
-        "source": "Yahoo Finance US",
-        "title": "Nvidia invests up to $2.1 billion in IREN AI data center deal"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNRmY1NUNNaHFyQlBHb1VsN0NiRGlOQ2hMRk1EMFJhZTgtMVZqR1VqQnF5ZjNtUjc3MmZKZFYtRlRzd2NDdS1DRGRjNXdIOUlQSDNIU3NvNjl4bnluaEF4Um1MWjJWSVNJOFBIOHBILXBLcTlXSGFiZXh5T1Ztc1lLenQtdjhaMUcwUlp1N2tGdF83ZzlORHdsZXpNUGZzakZlTmczZ0tDYw?oc=5",
-        "source": "Bloomberg (via Google)",
-        "title": "Anthropic Inks $1.8 Billion Computing Deal With Akamai (AKAM) - Bloomberg.com"
       }
     ]
   }
