@@ -33,17 +33,17 @@ FRED_BASE = "https://api.stlouisfed.org/fred/series/observations"
 CENTRAL_BANKS: list[dict[str, Any]] = [
     # ── 常設 ──
     {"code": "FED",   "name": "FRB (米連邦準備理事会)",       "country": "米国",      "always_show": True,
-     "rate_id": "DFEDTARU",                                                                   # Fed Funds Target Upper
+     "rate_id": "DFEDTARU",
      "rate_name": "FF金利(上限)",
      "next_meeting_hint": "FOMC は約6週間ごと"},
 
     {"code": "ECB",   "name": "ECB (欧州中央銀行)",            "country": "ユーロ圏",  "always_show": True,
-     "rate_id": "ECBDFR",                                                                     # ECB Deposit Facility Rate
+     "rate_id": "ECBDFR",
      "rate_name": "預金ファシリティ金利",
      "next_meeting_hint": "ECB理事会は約6週間ごと"},
 
     {"code": "BOJ",   "name": "BOJ (日本銀行)",                "country": "日本",      "always_show": True,
-     "rate_id": "IRSTCB01JPM156N",                                                            # JP central bank rate (短期政策金利)
+     "rate_id": "IRSTCB01JPM156N",
      "rate_name": "無担保コール翌日物 (誘導目標)",
      "next_meeting_hint": "金融政策決定会合は年8回"},
 
@@ -60,18 +60,18 @@ CENTRAL_BANKS: list[dict[str, Any]] = [
 
     {"code": "SNB",   "name": "SNB (スイス国立銀行)",          "country": "スイス",    "always_show": False,
      "rate_id": "IRSTCB01CHM156N",
-     "rate_name": "政策金利",
-     "next_meeting_hint": "四半期ごと"},
+     "rate_name": "SNB政策金利",
+     "next_meeting_hint": "四半期に1回"},
 
-    {"code": "RBA",   "name": "RBA (豪州準備銀行)",            "country": "豪州",      "always_show": False,
+    {"code": "RBA",   "name": "RBA (豪準備銀行)",              "country": "オーストラリア","always_show": False,
      "rate_id": "IRSTCB01AUM156N",
-     "rate_name": "キャッシュレート",
-     "next_meeting_hint": "8回/年"},
+     "rate_name": "キャッシュレート目標",
+     "next_meeting_hint": "ほぼ毎月"},
 
-    {"code": "RBNZ",  "name": "RBNZ (ニュージーランド準備銀行)","country": "ニュージーランド", "always_show": False,
+    {"code": "RBNZ",  "name": "RBNZ (NZ準備銀行)",             "country": "ニュージーランド","always_show": False,
      "rate_id": "IRSTCB01NZM156N",
-     "rate_name": "Official Cash Rate",
-     "next_meeting_hint": "7回/年"},
+     "rate_name": "OCR (Official Cash Rate)",
+     "next_meeting_hint": "年7回"},
 ]
 
 
@@ -124,12 +124,10 @@ def main() -> None:
                 last = float(s.iloc[-1])
                 last_date = s.index[-1]
 
-                # 1ヶ月前との差 (基本的に変動が少ないので、3ヶ月前との差も計算)
                 target_3m = last_date - pd.Timedelta(days=95)
                 sliced = s.loc[s.index <= target_3m]
                 prev_3m = float(sliced.iloc[-1]) if not sliced.empty else None
 
-                # 直近の利上げ/利下げを判定 (履歴を遡って前回変更点を探す)
                 last_change = None
                 last_change_amount = None
                 last_change_date = None

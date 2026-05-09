@@ -1,8 +1,8 @@
 """
-fetch_macro_indicators.py  (v2 — expanded)
+fetch_macro_indicators.py  (v3 — adds IORB for SOFR-IORB funding stress)
 
-FRED API から 17 指標を取得し、data/macro.json に書き出す。
-金利・信用・金融環境・為替/EM・エネルギーをカバー。
+FRED API から 18 指標を取得し、data/macro.json に書き出す。
+金利・期待 / 信用市場 / 金融環境 / 為替・実物 をカバー。
 """
 
 from __future__ import annotations
@@ -31,22 +31,23 @@ INDICATORS: list[dict[str, Any]] = [
     {"id": "T10YIE",       "name": "10年ブレークイーブン",   "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "市場が織り込む期待インフレ率"},
     {"id": "DFII10",       "name": "10年実質金利 (TIPS)",    "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "名目-期待インフレ。金と逆相関"},
     {"id": "SOFR",         "name": "SOFR (担保付翌日物)",    "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "米短期金利のベンチマーク"},
+    {"id": "IORB",         "name": "IORB (準備預金付利)",    "group": "金利・期待",  "freq": "日次", "unit": "%",  "desc": "Fedの行政金利。SOFRとの差はファンディング逼迫の早期シグナル"},
     {"id": "MORTGAGE30US", "name": "米30年住宅ローン金利",  "group": "金利・期待",  "freq": "週次", "unit": "%",  "desc": "家計への金利伝達チャネル"},
 
     # ─── 信用市場 ───
-    {"id": "BAMLH0A0HYM2", "name": "HY社債スプレッド (OAS)", "group": "信用市場",    "freq": "日次", "unit": "%",  "desc": "信用ストレスの王様。4%超で警戒"},
-    {"id": "BAMLC0A0CM",   "name": "IG社債スプレッド (OAS)", "group": "信用市場",    "freq": "日次", "unit": "%",  "desc": "投資適格債の信用状況"},
+    {"id": "BAMLH0A0HYM2", "name": "HY社債スプレッド (OAS)", "group": "信用市場",    "freq": "日次", "unit": "%",  "desc": "信用ストレスの王様。4%超で警戒、6%超でリセッション圏"},
+    {"id": "BAMLC0A0CM",   "name": "IG社債スプレッド (OAS)", "group": "信用市場",    "freq": "日次", "unit": "%",  "desc": "投資適格債の信用状況。プライベート・デットの絶対リターンの上限"},
     {"id": "BAMLEMCBPIOAS","name": "EM社債スプレッド (OAS)", "group": "信用市場",    "freq": "日次", "unit": "%",  "desc": "新興国クレジット、ドル流動性指標"},
 
     # ─── 金融環境 ───
     {"id": "NFCI",         "name": "Chicago Fed金融環境",    "group": "金融環境",    "freq": "週次", "unit": "z",  "desc": "+で引き締まり、-で緩和"},
     {"id": "STLFSI4",      "name": "St. Louis金融ストレス",  "group": "金融環境",    "freq": "週次", "unit": "z",  "desc": "18系列統合ストレス指標"},
 
-    # ─── 為替・EM・エネルギー ───
-    {"id": "DTWEXBGS",     "name": "ドル指数 (広義)",        "group": "為替・EM",    "freq": "日次", "unit": "idx","desc": "貿易加重、新興国通貨含む"},
-    {"id": "DEXBZUS",      "name": "USD/BRL (ブラジル)",     "group": "為替・EM",    "freq": "日次", "unit": "fx", "desc": "中南米EMのベンチマーク"},
-    {"id": "DEXMXUS",      "name": "USD/MXN (メキシコ)",     "group": "為替・EM",    "freq": "日次", "unit": "fx", "desc": "北米サプライチェーン連動"},
-    {"id": "DHHNGSP",      "name": "天然ガス (Henry Hub)",   "group": "為替・EM",    "freq": "日次", "unit": "$",  "desc": "米国エネルギー価格の基準"},
+    # ─── 為替・実物 ───
+    {"id": "DTWEXBGS",     "name": "ドル指数 (広義)",        "group": "為替・実物",  "freq": "日次", "unit": "idx","desc": "貿易加重、新興国通貨含む"},
+    {"id": "DEXBZUS",      "name": "USD/BRL (ブラジル)",     "group": "為替・実物",  "freq": "日次", "unit": "fx", "desc": "中南米EMのベンチマーク"},
+    {"id": "DEXMXUS",      "name": "USD/MXN (メキシコ)",     "group": "為替・実物",  "freq": "日次", "unit": "fx", "desc": "北米サプライチェーン連動"},
+    {"id": "DHHNGSP",      "name": "天然ガス (Henry Hub)",   "group": "為替・実物",  "freq": "日次", "unit": "$",  "desc": "米国エネルギー価格の基準"},
 ]
 
 
@@ -65,9 +66,8 @@ def fetch_fred_series(series_id: str, api_key: str) -> pd.Series:
         print(f"[WARN] FRED {series_id}: {e}", file=sys.stderr)
         return pd.Series(dtype="float64")
 
-    obs = data.get("observations", [])
     rows = []
-    for o in obs:
+    for o in data.get("observations", []):
         if o.get("value") in (".", "", None):
             continue
         try:

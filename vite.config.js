@@ -15,6 +15,7 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         { src: "data/*.json", dest: "data" },
+        { src: "data/archive/**/*.json", dest: "data/archive" },
       ],
     }),
   ],

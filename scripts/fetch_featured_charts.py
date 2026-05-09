@@ -45,7 +45,6 @@ def fetch_yf_daily(ticker: str) -> list[dict[str, Any]]:
     if df is None or df.empty:
         return []
 
-    # MultiIndex対応
     if isinstance(df.columns, pd.MultiIndex):
         if "Close" in df.columns.get_level_values(0):
             close_df = df.xs("Close", axis=1, level=0)

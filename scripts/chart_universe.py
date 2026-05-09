@@ -29,23 +29,25 @@ CHART_UNIVERSE: list[dict] = [
 
     # ── 為替 ──
     {"key": "usdjpy",   "id": "JPY=X",    "source": "yf",   "name": "USD/JPY",         "sub": "ドル円",         "tags": ["為替", "円"]},
-    {"key": "eurjpy",   "id": "EURJPY=X", "source": "yf",   "name": "EUR/JPY",         "sub": "ユーロ円",       "tags": ["為替", "円"]},
-    {"key": "eurusd",   "id": "EURUSD=X", "source": "yf",   "name": "EUR/USD",         "sub": "ユーロドル",     "tags": ["為替"]},
-    {"key": "dxy",      "id": "DX-Y.NYB", "source": "yf",   "name": "ドル指数 (DXY)",   "sub": "INDEX",         "tags": ["為替", "ドル"]},
+    {"key": "eurjpy",   "id": "EURJPY=X", "source": "yf",   "name": "EUR/JPY",         "sub": "ユーロ円",        "tags": ["為替", "円", "ユーロ"]},
+    {"key": "eurusd",   "id": "EURUSD=X", "source": "yf",   "name": "EUR/USD",         "sub": "ユーロドル",      "tags": ["為替", "ユーロ"]},
+    {"key": "dxy",      "id": "DX-Y.NYB", "source": "yf",   "name": "ドル指数 (DXY)",   "sub": "INDEX",          "tags": ["為替", "ドル"]},
 
     # ── コモディティ ──
-    {"key": "wti",      "id": "CL=F",     "source": "yf",   "name": "WTI原油",          "sub": "$ / bbl",       "tags": ["コモディティ", "エネルギー", "原油"]},
-    {"key": "brent",    "id": "BZ=F",     "source": "yf",   "name": "Brent原油",        "sub": "$ / bbl",       "tags": ["コモディティ", "エネルギー", "原油"]},
-    {"key": "gold",     "id": "GC=F",     "source": "yf",   "name": "金 (COMEX)",       "sub": "$ / oz",        "tags": ["コモディティ", "金", "安全資産"]},
-    {"key": "silver",   "id": "SI=F",     "source": "yf",   "name": "銀",               "sub": "$ / oz",        "tags": ["コモディティ", "貴金属"]},
-    {"key": "copper",   "id": "HG=F",     "source": "yf",   "name": "銅",               "sub": "$ / lb",        "tags": ["コモディティ", "景気敏感"]},
-    {"key": "btc",      "id": "BTC-USD",  "source": "yf",   "name": "ビットコイン",     "sub": "BTC/USD",       "tags": ["暗号資産", "リスクオン"]},
+    {"key": "wti",      "id": "CL=F",     "source": "yf",   "name": "WTI原油",          "sub": "$/bbl · NY先物",  "tags": ["コモディティ", "原油", "エネルギー"]},
+    {"key": "brent",    "id": "BZ=F",     "source": "yf",   "name": "Brent原油",        "sub": "$/bbl · 北海先物", "tags": ["コモディティ", "原油", "エネルギー"]},
+    {"key": "gold",     "id": "GC=F",     "source": "yf",   "name": "金 (COMEX)",       "sub": "$/oz",           "tags": ["コモディティ", "金"]},
+    {"key": "silver",   "id": "SI=F",     "source": "yf",   "name": "銀",               "sub": "$/oz",           "tags": ["コモディティ", "貴金属"]},
+    {"key": "copper",   "id": "HG=F",     "source": "yf",   "name": "銅",               "sub": "$/lb",           "tags": ["コモディティ", "景気指標"]},
+    {"key": "btc",      "id": "BTC-USD",  "source": "yf",   "name": "ビットコイン",     "sub": "BTC/USD",        "tags": ["暗号資産", "リスク資産"]},
 
-    # ── 金利 / ボラティリティ ──
-    {"key": "us10y",    "id": "^TNX",     "source": "yf",   "name": "米10年債利回り",   "sub": "%",            "tags": ["金利", "国債"]},
-    {"key": "us02y",    "id": "^IRX",     "source": "yf",   "name": "米3ヶ月T-Bill",    "sub": "%",            "tags": ["金利", "短期金利"]},
-    {"key": "us30y",    "id": "^TYX",     "source": "yf",   "name": "米30年債利回り",   "sub": "%",            "tags": ["金利", "長期金利"]},
-    {"key": "vix",      "id": "^VIX",     "source": "yf",   "name": "VIX (恐怖指数)",    "sub": "INDEX",        "tags": ["ボラティリティ", "センチメント"]},
+    # ── 金利・ボラ ──
+    {"key": "us10y",    "id": "^TNX",     "source": "yf",   "name": "米10年債利回り",   "sub": "%",             "tags": ["金利", "米国債"]},
+    {"key": "us02y",    "id": "DGS2",     "source": "fred", "name": "米2年債利回り",    "sub": "% · FRED",      "tags": ["金利", "米国債", "FED"]},
+    {"key": "us30y",    "id": "DGS30",    "source": "fred", "name": "米30年債利回り",   "sub": "% · 超長期",    "tags": ["金利", "長期金利"]},
+    {"key": "vix",      "id": "^VIX",     "source": "yf",   "name": "VIX",             "sub": "恐怖指数",       "tags": ["ボラティリティ", "リスク"]},
+    {"key": "vix3m",    "id": "^VIX3M",   "source": "yf",   "name": "VIX 3ヶ月先物",    "sub": "ボラ期間構造",   "tags": ["ボラティリティ", "リスク"]},
+    {"key": "move",     "id": "^MOVE",    "source": "yf",   "name": "MOVE (国債ボラ)",  "sub": "債券版VIX",     "tags": ["ボラティリティ", "金利", "国債"]},
 
     # ── FRED マクロ ──
     {"key": "t10y2y",   "id": "T10Y2Y",       "source": "fred", "name": "10Y-2Y スプレッド",    "sub": "% · 景気指標",  "tags": ["金利", "景気", "逆イールド"]},
@@ -53,11 +55,21 @@ CHART_UNIVERSE: list[dict] = [
     {"key": "dfii10",   "id": "DFII10",       "source": "fred", "name": "10Y 実質金利",         "sub": "% · TIPS",      "tags": ["金利", "実質金利"]},
     {"key": "hyoas",    "id": "BAMLH0A0HYM2", "source": "fred", "name": "HY 社債スプレッド",    "sub": "% · OAS",      "tags": ["信用", "クレジット", "リスクオフ"]},
     {"key": "igoas",    "id": "BAMLC0A0CM",   "source": "fred", "name": "IG 社債スプレッド",    "sub": "% · OAS",      "tags": ["信用", "クレジット"]},
+    {"key": "emoas",    "id": "BAMLEMCBPIOAS","source": "fred", "name": "EM 社債スプレッド",    "sub": "% · OAS",      "tags": ["信用", "EM", "ドル流動性"]},
     {"key": "nfci",     "id": "NFCI",         "source": "fred", "name": "Chicago Fed金融環境",  "sub": "週次 · z-score", "tags": ["金融環境", "リスク"]},
     {"key": "stlfsi",   "id": "STLFSI4",      "source": "fred", "name": "St. Louis金融ストレス", "sub": "週次 · z-score", "tags": ["金融ストレス", "リスク"]},
     {"key": "sofr",     "id": "SOFR",         "source": "fred", "name": "SOFR",                 "sub": "% · 短期金利",   "tags": ["金利", "短期金利"]},
+    {"key": "iorb",     "id": "IORB",         "source": "fred", "name": "IORB (準備預金付利)",  "sub": "% · Fed",      "tags": ["金利", "Fed", "流動性"]},
     {"key": "dxy_bgs",  "id": "DTWEXBGS",     "source": "fred", "name": "ドル指数 (広義)",      "sub": "INDEX",        "tags": ["為替", "ドル", "新興国"]},
     {"key": "natgas",   "id": "DHHNGSP",      "source": "fred", "name": "天然ガス (Henry Hub)", "sub": "$ / MMBtu",    "tags": ["コモディティ", "エネルギー"]},
+
+    # ── Listed Alternatives Proxies (上場プロキシ) ──
+    {"key": "psp",      "id": "PSP",      "source": "yf",   "name": "Listed PE (PSP)",       "sub": "Invesco · 上場PE", "tags": ["オルタナティブ", "PE", "プロキシ"]},
+    {"key": "bizd",     "id": "BIZD",     "source": "yf",   "name": "BDC (BIZD)",            "sub": "VanEck · BDC",    "tags": ["オルタナティブ", "PD", "プロキシ"]},
+    {"key": "ifra",     "id": "IFRA",     "source": "yf",   "name": "上場インフラ (IFRA)",   "sub": "iShares · 米国",   "tags": ["オルタナティブ", "インフラ", "プロキシ"]},
+    {"key": "nfra",     "id": "NFRA",     "source": "yf",   "name": "グローバル・インフラ (NFRA)","sub": "FlexShares · global", "tags": ["オルタナティブ", "インフラ", "プロキシ"]},
+    {"key": "vnq",      "id": "VNQ",      "source": "yf",   "name": "米REIT (VNQ)",           "sub": "Vanguard",       "tags": ["オルタナティブ", "不動産", "REIT"]},
+    {"key": "j_reit",   "id": "1343.T",   "source": "yf",   "name": "東証REIT指数 (1343)",   "sub": "NEXT FUNDS",     "tags": ["オルタナティブ", "不動産", "日本"]},
 ]
 
 

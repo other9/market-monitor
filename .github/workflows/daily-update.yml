@@ -54,6 +54,10 @@ jobs:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python scripts/fetch_central_banks.py
 
+      # ── 2d. オルタナティブ上場プロキシ (PSP/BIZD/IFRA/VNQ/1343.T 等) ──
+      - name: Fetch listed alternatives proxies
+        run: python scripts/fetch_listed_alts.py
+
       # ── 3. ニュース + 注目チャート3本選定 ──
       - name: Fetch & summarize news (Claude API)
         env:
@@ -73,6 +77,10 @@ jobs:
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python scripts/fetch_economic_chart.py
+
+      # ── 4c. 当日スナップショットを data/archive/YYYY-MM-DD/ に保存 ──
+      - name: Archive today's snapshot
+        run: python scripts/archive_data.py
 
       # ── 5. data/ をリポジトリに戻す ──
       - name: Commit updated data

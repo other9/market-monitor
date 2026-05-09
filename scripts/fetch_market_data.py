@@ -1,8 +1,9 @@
 """
-fetch_market_data.py  (v3)
+fetch_market_data.py  (v4 — adds MOVE / VIX3M / VIX9D for funding-vol section)
+
 yfinance で以下を取得し data/market.json に書き出す。
 
-- INSTRUMENTS: 16 指標の終値・1D / 1W / 1M / 6M リターン
+- INSTRUMENTS: 主要 18 指標 (株式・為替・金利・商品・ボラ・ボラ期間構造)
 - HISTORY: 6 指標の 5 年日次 (ダウンサンプルせず全期間保存)
 - SECTORS: 米セクター ETF 11本の 1D / 1W / 1M / YTD リターン (ヒートマップ用)
 """
@@ -35,6 +36,9 @@ INSTRUMENTS: list[dict[str, Any]] = [
     {"ticker": "GC=F",    "group": "コモディティ","name": "金",             "sub": "COMEX $/oz"},
     {"ticker": "BTC-USD", "group": "コモディティ","name": "ビットコイン",    "sub": "BTC/USD"},
     {"ticker": "^VIX",    "group": "ボラティリティ","name": "VIX",          "sub": "恐怖指数"},
+    {"ticker": "^VIX3M",  "group": "ボラティリティ","name": "VIX 3M",       "sub": "3ヶ月先物"},
+    {"ticker": "^VIX9D",  "group": "ボラティリティ","name": "VIX 9D",       "sub": "9日先物"},
+    {"ticker": "^MOVE",   "group": "ボラティリティ","name": "MOVE",         "sub": "国債ボラ指数"},
 ]
 
 # ─── 5年チャート (日次で保存) ───

@@ -1,5 +1,5 @@
 /* ================================================================
-   MarketMonitor.css — component styles
+   MarketMonitor.css — component styles (v12)
    Uses CSS variables defined in index.css (--bg, --fg, --accent, etc.)
    ================================================================ */
 
@@ -11,7 +11,49 @@
   padding: 28px 32px 60px 32px;
 }
 
-/* ── Masthead ── */
+/* ──────────────────────────────────────────────
+   Stale Data Warning Bar (v12 NEW)
+   ────────────────────────────────────────────── */
+.mm-stale-warning {
+  background: linear-gradient(180deg, rgba(192,57,43,0.12) 0%, rgba(192,57,43,0.05) 100%);
+  border: 1px solid var(--down);
+  border-left: 4px solid var(--down);
+  padding: 12px 18px;
+  margin-bottom: 18px;
+  font-family: var(--font-sans);
+}
+.mm-stale-warning-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.mm-stale-warning-icon {
+  font-size: 16px;
+  color: var(--down);
+}
+.mm-stale-warning-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  color: var(--down);
+  text-transform: uppercase;
+}
+.mm-stale-warning-body {
+  font-size: 12.5px;
+  color: var(--fg);
+  line-height: 1.55;
+}
+.mm-stale-warning-body strong {
+  color: var(--down);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+/* ──────────────────────────────────────────────
+   Masthead
+   ────────────────────────────────────────────── */
 .mm-masthead-meta {
   display: flex;
   justify-content: space-between;
@@ -49,7 +91,9 @@
   padding-bottom: 8px;
 }
 
-/* ── Epigraph ── */
+/* ──────────────────────────────────────────────
+   Epigraph
+   ────────────────────────────────────────────── */
 .mm-epigraph {
   margin: 32px 0 40px 0;
   padding: 36px 40px;
@@ -99,7 +143,9 @@
   max-width: 680px;
 }
 
-/* ── Ticker ── */
+/* ──────────────────────────────────────────────
+   Ticker
+   ────────────────────────────────────────────── */
 .mm-ticker {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -133,7 +179,9 @@
   font-weight: 500;
 }
 
-/* ── Section headers ── */
+/* ──────────────────────────────────────────────
+   Section headers
+   ────────────────────────────────────────────── */
 .mm-section-tag {
   font-family: var(--font-display);
   font-size: 13px;
@@ -161,7 +209,9 @@
 }
 .mm-section-lede strong { color: var(--fg); font-weight: 600; }
 
-/* ── Group head (株式 / 為替 / ...) ── */
+/* ──────────────────────────────────────────────
+   Group head (株式 / 為替 / ...)
+   ────────────────────────────────────────────── */
 .mm-group-head {
   border-bottom: 1px solid var(--border-strong);
   padding-bottom: 6px;
@@ -185,7 +235,9 @@
   text-transform: uppercase;
 }
 
-/* ── Indices table ── */
+/* ──────────────────────────────────────────────
+   Indices table
+   ────────────────────────────────────────────── */
 .mm-table { display: block; width: 100%; }
 .mm-table-row {
   display: grid;
@@ -204,7 +256,9 @@
 .mm-table-row .cell.r { text-align: right; }
 .mm-asof { font-family: var(--font-mono); font-size: 10px; color: var(--muted); white-space: nowrap; }
 
-/* ── Macro table ── */
+/* ──────────────────────────────────────────────
+   Macro table
+   ────────────────────────────────────────────── */
 .mm-macro-table { display: block; width: 100%; }
 .mm-macro-row {
   display: grid;
@@ -234,7 +288,9 @@
   white-space: nowrap;
 }
 
-/* ── Mobile cards ── */
+/* ──────────────────────────────────────────────
+   Mobile cards
+   ────────────────────────────────────────────── */
 .mm-cards { display: none; }
 .mm-card {
   border: 1px solid var(--border);
@@ -305,7 +361,9 @@
   margin-top: 10px;
 }
 
-/* ── Featured charts (3 big) ── */
+/* ──────────────────────────────────────────────
+   Featured charts (3 big)
+   ────────────────────────────────────────────── */
 .mm-featured-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -360,7 +418,9 @@
 }
 .mm-featured-last strong { color: var(--fg); font-size: 15px; font-weight: 600; }
 
-/* ── 5Y mini charts ── */
+/* ──────────────────────────────────────────────
+   5Y mini charts
+   ────────────────────────────────────────────── */
 .mm-chart-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -407,7 +467,9 @@
   text-align: right;
 }
 
-/* ── News grid ── */
+/* ──────────────────────────────────────────────
+   News grid
+   ────────────────────────────────────────────── */
 .mm-news-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -438,7 +500,9 @@
 .mm-news-link:hover { opacity: 0.65; }
 .mm-news-link::after { content: "\2197"; font-size: 11px; }
 
-/* ── Market Muse (3-column) ── */
+/* ──────────────────────────────────────────────
+   Market Muse (3-column)
+   ────────────────────────────────────────────── */
 .mm-muse-header { margin: 40px 0 18px 0; }
 .mm-muse-grid {
   display: grid;
@@ -499,7 +563,9 @@
 .mm-muse-link:hover { opacity: 0.65; }
 .mm-muse-link::after { content: "\2197"; font-size: 10px; }
 
-/* ── Footer ── */
+/* ──────────────────────────────────────────────
+   Footer / Loading / Error
+   ────────────────────────────────────────────── */
 .mm-footer {
   display: flex;
   justify-content: space-between;
@@ -509,9 +575,10 @@
   letter-spacing: 0.12em;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
 }
-
-/* ── Loading / Error ── */
 .mm-loading {
   padding: 120px 20px;
   text-align: center;
@@ -530,7 +597,9 @@
   margin-bottom: 24px;
 }
 
-/* ── Deep Dive (feature article) ── */
+/* ──────────────────────────────────────────────
+   Deep Dive
+   ────────────────────────────────────────────── */
 .mm-deepdive {
   margin: 48px 0;
   padding: 40px 48px;
@@ -635,7 +704,7 @@
   border: 1px solid var(--border);
   background: var(--bg-alt);
   padding: 3px 9px;
-  letterSpacing: 0.03em;
+  letter-spacing: 0.03em;
 }
 .mm-deepdive-source {
   margin-top: 22px;
@@ -654,7 +723,9 @@
 .mm-deepdive-source a::after { content: " \2197"; }
 .mm-deepdive-source a:hover { opacity: 0.65; }
 
-/* ── Sector Heatmap ── */
+/* ──────────────────────────────────────────────
+   Sector Heatmap
+   ────────────────────────────────────────────── */
 .mm-heatmap-wrap {
   margin-top: 18px;
   border: 1px solid var(--border);
@@ -736,7 +807,9 @@
   font-weight: 600;
 }
 
-/* ── Economic Chart of the Day ── */
+/* ──────────────────────────────────────────────
+   Economic Chart of the Day
+   ────────────────────────────────────────────── */
 .mm-econ-wrap {
   margin: 48px 0;
   padding: 32px 36px;
@@ -803,46 +876,9 @@
   text-transform: uppercase;
 }
 
-/* ── Valuation Gauges ── */
-.mm-val-wrap { margin-top: 18px; }
-.mm-val-stance {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  padding: 4px 12px;
-  border: 1px solid var(--border-strong);
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 14px;
-}
-.mm-val-stance.overvalued    { background: var(--down); color: #FFF; border-color: var(--down); }
-.mm-val-stance.somewhat-over { background: #F5D0CF; color: var(--down); border-color: var(--down); }
-.mm-val-stance.neutral       { background: var(--bg-alt); color: var(--fg); }
-.mm-val-stance.somewhat-under{ background: #D4E8DC; color: var(--up); border-color: var(--up); }
-.mm-val-stance.undervalued   { background: var(--up); color: #FFF; border-color: var(--up); }
-
-.mm-val-comment {
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: var(--fg);
-  font-family: var(--font-display);
-  font-style: italic;
-  margin-bottom: 26px;
-  padding: 16px 20px;
-  background: var(--bg-alt);
-  border-left: 3px solid var(--accent2);
-  max-width: 880px;
-}
-
-.mm-val-row {
-  display: grid;
-  grid-template-columns: minmax(180px, 1.6fr) minmax(160px, 2fr) 0.9fr 0.7fr 0.7fr 0.9fr 0.8fr;
-  border-bottom: 1px solid var(--border);
-  align-items: start;
-}
-.mm-val-row .cell { padding: 11px 12px; min-width: 0; overflow-wrap: anywhere; }
-.mm-val-row .cell.r { text-align: right; }
+/* ──────────────────────────────────────────────
+   Valuation Gauges
+   ────────────────────────────────────────────── */
 .mm-val-deviation {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -853,7 +889,6 @@
 }
 .mm-val-deviation.high { background: rgba(192,57,43,0.12); color: var(--down); }
 .mm-val-deviation.low  { background: rgba(45,106,79,0.12);  color: var(--up); }
-
 .mm-val-charts {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -861,7 +896,9 @@
   margin-top: 28px;
 }
 
-/* ── Central Bank Watch ── */
+/* ──────────────────────────────────────────────
+   Central Bank Watch
+   ────────────────────────────────────────────── */
 .mm-cb-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -937,23 +974,6 @@
   text-transform: uppercase;
   font-weight: 600;
 }
-.mm-cb-section {
-  margin-top: 12px;
-}
-.mm-cb-section-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  color: var(--muted);
-  text-transform: uppercase;
-  margin-bottom: 4px;
-  font-weight: 600;
-}
-.mm-cb-section-body {
-  font-size: 12.5px;
-  line-height: 1.55;
-  color: var(--fg);
-}
 .mm-cb-comment {
   margin-top: 14px;
   font-size: 13px;
@@ -971,15 +991,180 @@
   color: var(--muted);
   flex-wrap: wrap;
 }
-.mm-cb-meta-item {
-  white-space: nowrap;
+.mm-cb-meta-item { white-space: nowrap; }
+.mm-cb-meta-item strong { color: var(--fg); font-weight: 600; }
+
+/* ──────────────────────────────────────────────
+   Funding & Volatility panel (v12 NEW)
+   ────────────────────────────────────────────── */
+.mm-fundvol-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
 }
-.mm-cb-meta-item strong {
-  color: var(--fg);
+.mm-fundvol-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--accent);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.mm-fundvol-card.mm-fundvol-up   { border-top-color: var(--up); }
+.mm-fundvol-card.mm-fundvol-flat { border-top-color: var(--flat); }
+.mm-fundvol-card.mm-fundvol-down { border-top-color: var(--down); }
+
+.mm-fundvol-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 8px;
   font-weight: 600;
 }
+.mm-fundvol-value {
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--fg);
+  margin-bottom: 6px;
+  line-height: 1.0;
+}
+.mm-fundvol-regime {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  padding: 3px 8px;
+  font-weight: 600;
+  border-radius: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
+.mm-fundvol-regime.regime-up   { background: rgba(45,106,79,0.15);  color: var(--up); }
+.mm-fundvol-regime.regime-flat { background: var(--bg-alt);          color: var(--muted); }
+.mm-fundvol-regime.regime-down { background: rgba(192,57,43,0.15);  color: var(--down); }
 
-/* ── Alternatives Spotlight (PE/PD + Real Assets, 2-card grid) ── */
+.mm-fundvol-desc {
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--fg);
+  margin-bottom: 8px;
+}
+.mm-fundvol-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+}
+
+/* ──────────────────────────────────────────────
+   Listed Alternatives Proxies (v12 NEW)
+   ────────────────────────────────────────────── */
+.mm-alts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+.mm-alts-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent2);
+  padding: 16px 18px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.mm-alts-cat {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--accent2);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.mm-alts-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.mm-alts-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--fg);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.mm-alts-ticker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+}
+.mm-alts-close {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  color: var(--fg);
+  font-weight: 500;
+  text-align: right;
+  white-space: nowrap;
+}
+.mm-alts-desc {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 6px 0 10px 0;
+}
+.mm-alts-spark {
+  height: 50px;
+  margin: 4px -4px 8px -4px;
+}
+.mm-alts-perf {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+.mm-alts-perf-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  min-width: 0;
+}
+.mm-alts-perf-label {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.mm-alts-asof {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-top: 8px;
+  text-align: right;
+}
+
+/* ──────────────────────────────────────────────
+   Alternatives Spotlight (PE/PD + Real Assets)
+   ────────────────────────────────────────────── */
 .mm-alt-wrap {
   margin: 48px 0;
   padding: 36px 40px;
@@ -1022,8 +1207,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
-
-/* Single category card */
 .mm-alt-card {
   border: 1px solid var(--border);
   background: var(--bg-alt);
@@ -1056,8 +1239,6 @@
   text-transform: uppercase;
   margin-top: 4px;
 }
-
-/* Impact badge */
 .mm-alt-impact {
   display: inline-flex;
   align-items: center;
@@ -1075,8 +1256,6 @@
 .mm-alt-impact-positive { background: var(--up); color: #FFF; }
 .mm-alt-impact-negative { background: var(--down); color: #FFF; }
 .mm-alt-impact-neutral  { background: var(--muted); color: #FFF; }
-
-/* Impact summary line (one-liner) */
 .mm-alt-impact-summary {
   font-family: var(--font-display);
   font-style: italic;
@@ -1099,21 +1278,14 @@
   background: var(--bg-alt);
   border-left-color: var(--muted);
 }
-
 .mm-alt-body {
   font-size: 13.5px;
   line-height: 1.8;
   color: var(--fg);
   flex: 1;
 }
-.mm-alt-body p {
-  margin: 0 0 12px 0;
-}
-.mm-alt-body p:last-child {
-  margin-bottom: 0;
-}
-
-/* Sources */
+.mm-alt-body p { margin: 0 0 12px 0; }
+.mm-alt-body p:last-child { margin-bottom: 0; }
 .mm-alt-sources {
   margin-top: 18px;
   padding-top: 14px;
@@ -1155,10 +1327,14 @@
   border-bottom: none;
 }
 
-/* ============= Responsive ============= */
+/* ============================================================
+   Responsive
+   ============================================================ */
 @media (max-width: 1100px) {
   .mm-featured-grid { grid-template-columns: 1fr; }
   .mm-muse-grid { grid-template-columns: 1fr 1fr; }
+  .mm-alts-grid { grid-template-columns: 1fr 1fr; }
+  .mm-fundvol-grid { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 @media (max-width: 960px) {
@@ -1183,6 +1359,8 @@
   .mm-alt-wrap { padding: 28px 22px; }
   .mm-alt-title { font-size: 22px; }
   .mm-alt-grid { grid-template-columns: 1fr; gap: 16px; }
+  .mm-fundvol-grid { grid-template-columns: 1fr; }
+  .mm-alts-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {
@@ -1234,5 +1412,13 @@
   .mm-alt-card { padding: 18px 16px; }
   .mm-alt-card-title { font-size: 19px; }
   .mm-alt-card-head { flex-wrap: wrap; }
+  .mm-fundvol-card { padding: 14px 16px; }
+  .mm-fundvol-value { font-size: 24px; }
+  .mm-alts-card { padding: 14px 14px; }
+  .mm-alts-name { font-size: 15px; }
+  .mm-alts-perf { gap: 2px; }
+  .mm-alts-perf-label { font-size: 8px; }
+  .mm-stale-warning { padding: 10px 14px; margin-bottom: 12px; }
+  .mm-stale-warning-body { font-size: 11.5px; }
   .mm-footer { flex-direction: column; font-size: 9.5px; letter-spacing: 0.08em; }
 }

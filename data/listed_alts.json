@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-05-09T00:00:00+00:00",
+  "assets": [
+    {
+      "category": "Listed PE",
+      "ticker": "PSP",
+      "name": "Invesco Listed PE",
+      "sub": "上場PE株バスケット",
+      "desc": "Apollo, KKR, Brookfield 等の GP 株。プライベート市場のセンチメント・プロキシ",
+      "close": 0,
+      "asOf": "—",
+      "day": null, "week": null, "month": null, "threeM": null, "ytd": null,
+      "history": []
+    },
+    {
+      "category": "BDC (PD)",
+      "ticker": "BIZD",
+      "name": "VanEck BDC",
+      "sub": "米国 BDC ETF",
+      "desc": "ダイレクト・レンディング上場プロキシ。PD ファンドの絶対リターンと相関",
+      "close": 0,
+      "asOf": "—",
+      "day": null, "week": null, "month": null, "threeM": null, "ytd": null,
+      "history": []
+    },
+    {
+      "category": "Infra",
+      "ticker": "IFRA",
+      "name": "iShares US Infra",
+      "sub": "米国インフラ",
+      "desc": "電力・水・輸送インフラ株。利回り低下・財政出動局面で追い風",
+      "close": 0,
+      "asOf": "—",
+      "day": null, "week": null, "month": null, "threeM": null, "ytd": null,
+      "history": []
+    },
+    {
+      "category": "Infra",
+      "ticker": "NFRA",
+      "name": "FlexShares Global Infra",
+      "sub": "グローバル·インフラ",
+      "desc": "OECD インフラ株のグローバル・ポートフォリオ",
+      "close": 0,
+      "asOf": "—",
+      "day": null, "week": null, "month": null, "threeM": null, "ytd": null,
+      "history": []
+    },
+    {
+      "category": "US REIT",
+      "ticker": "VNQ",
+      "name": "Vanguard Real Estate",
+      "sub": "米REIT全体",
+      "desc": "米 REIT ベンチマーク。利回り敏感、商業不動産価格と連動",
+      "close": 0,
+      "asOf": "—",
+      "day": null, "week": null, "month": null, "threeM": null, "ytd": null,
+      "history": []
+    },
+    {
+      "category": "J-REIT",
+      "ticker": "1343.T",
+      "name": "NEXT FUNDS J-REIT",
+      "sub": "東証REIT指数",
+      "desc": "日本 REIT 指数 ETF。日本円ベースの不動産プロキシ",
+      "close": 0,
+      "asOf": "—",
+      "day": null, "week": null, "month": null, "threeM": null, "ytd": null,
+      "history": []
+    }
+  ]
+}

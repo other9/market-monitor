@@ -1,5 +1,5 @@
 """
-fetch_news.py  (v6)
+fetch_news.py  (v7 — opus-4-7, weekend/month-start cadence)
 
 RSSから直近ニュースを集め、Claude API で:
   1. epigraph             : 冒頭引用
@@ -8,8 +8,14 @@ RSSから直近ニュースを集め、Claude API で:
   4. funny_stories (3本)  : 市場関係者向け小話 + ソースURL
   5. charts_of_the_day (5-8候補): 注目チャートの候補を優先度順に列挙
                                 (個別銘柄・指数・指標を自由に指定可)
-  6. deep_dive            : 今日最も重要なニュース1本の解説記事
-                            (背景・市場への含意・注視ポイント)
+  6. deep_dive            : 今日の深掘り記事
+                            - 平日: 当日最重要ニュースの解説
+                            - 土曜: 週次総括 (前週の市場・経済・地政学を俯瞰)
+                            - 月初2日間: 前月総括 (月次パフォーマンス + 翌月の論点)
+  7. economic_chart_of_the_day
+  8. central_bank_watch (4本)
+  9. pe_pd_view
+ 10. real_assets_view
 
 data/news.json に書き出す。
 """
@@ -54,8 +60,36 @@ RSS_FEEDS: list[dict[str, str]] = [
 OUTPUT_PATH = Path("data/news.json")
 CB_PATH     = Path("data/central_banks.json")
 
-MODEL = "claude-opus-4-5"  # 深掘り解説の品質確保のため Opus を使用
+MODEL = "claude-opus-4-7"  # 深掘り解説の品質確保のため Opus 最新を使用
 MAX_TOKENS = 12000
+
+
+def determine_cadence() -> dict[str, Any]:
+    """週末/月初判定。JST基準。
+    - 土曜 (weekday == 5): 週次総括モード
+    - 月初2日間 (1日 or 2日): 前月総括モード
+    - それ以外: 通常モード
+    """
+    jst = timezone(timedelta(hours=9))
+    now_jst = datetime.now(jst)
+    weekday = now_jst.weekday()  # Mon=0, Sat=5, Sun=6
+    day_of_month = now_jst.day
+
+    if day_of_month in (1, 2):
+        prev_month = (now_jst.replace(day=1) - timedelta(days=1)).strftime("%Y年%m月")
+        return {
+            "mode": "monthly_review",
+            "label": f"前月 ({prev_month}) 総括",
+            "context": prev_month,
+        }
+    if weekday == 5:
+        week_label = now_jst.strftime("第%V週")
+        return {
+            "mode": "weekly_review",
+            "label": f"週次総括 ({week_label})",
+            "context": week_label,
+        }
+    return {"mode": "daily", "label": "通常", "context": ""}
 
 
 def fetch_rss_items(max_per_feed: int = 25, hours_window: int = 36) -> list[dict[str, str]]:
@@ -101,7 +135,91 @@ def fetch_rss_items(max_per_feed: int = 25, hours_window: int = 36) -> list[dict
     return items
 
 
-def build_system_prompt(cb_facts: str = "") -> str:
+def load_cb_facts() -> str:
+    """central_banks.json があれば、Claudeに渡す簡易ファクトテキストを生成。"""
+    if not CB_PATH.exists():
+        return ""
+    try:
+        cb_data = json.loads(CB_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+
+    lines = []
+    for cb in cb_data.get("central_banks", []):
+        code = cb.get("code", "")
+        name = cb.get("name", "")
+        rate_value = cb.get("rate_value")
+        rate_name  = cb.get("rate_name", "")
+        rate_asof  = cb.get("rate_asof", "")
+        last_change_amount = cb.get("last_change_amount")
+        last_change_date   = cb.get("last_change_date")
+        next_hint = cb.get("next_meeting_hint", "")
+
+        rate_str = f"{rate_value}%" if rate_value is not None else "未取得"
+        change_str = ""
+        if last_change_amount is not None and last_change_date:
+            sign = "+" if last_change_amount > 0 else ""
+            change_str = f", 直近の変動: {sign}{last_change_amount}% ({last_change_date})"
+
+        lines.append(f"- {code} ({name}): {rate_name}={rate_str} (asOf {rate_asof}){change_str}. {next_hint}")
+
+    return "\n".join(lines)
+
+
+def build_deep_dive_instructions(cadence: dict[str, Any]) -> str:
+    """deep_dive 要素の指示を、モードに応じて切り替える。"""
+    mode = cadence["mode"]
+
+    if mode == "weekly_review":
+        return f"""【要素6: deep_dive — 週次総括モード ({cadence['label']})】
+今日は土曜日。直近1週間の市場・経済・地政学の動きを俯瞰して総括する。
+当日の単一ニュースに絞らず、**週を通して何が起き、市場がどう反応したか**を構造的に整理する。
+
+deep_dive の構成:
+  - title          : 「{cadence['label']}: 〜」のような週総括らしい見出し (30〜50字)
+  - lede           : 週を象徴する一文 (80〜120字)
+  - background     : 週内の主要イベント・データ・要人発言を時系列または論点別に整理 (250〜350字)
+  - implications   : 来週以降の含意・残されたリスク・織り込みのギャップ (250〜350字)
+  - what_to_watch  : 来週注視すべきイベント・指標 (配列、3〜5個)
+  - related_keys   : 週を象徴する市場指標の key (候補リストから2〜4個)
+  - source_index   : 最も象徴的な一本の元記事インデックス (なければ null)
+"""
+
+    if mode == "monthly_review":
+        return f"""【要素6: deep_dive — 月次総括モード ({cadence['label']})】
+今日は月初。{cadence['context']} の月次総括を作成する。
+月間パフォーマンス・主要テーマ・政策決定・地政学イベントを俯瞰し、当月への論点を整理する。
+
+deep_dive の構成:
+  - title          : 「{cadence['label']}: 〜」のような月総括らしい見出し (30〜50字)
+  - lede           : 月を象徴する一文 (80〜120字)
+  - background     : 前月のアセットクラス別パフォーマンス、主要テーマ、政策決定、地政学を整理 (300〜400字)
+  - implications   : 当月以降の含意・主要日程・市場の織り込み (250〜350字)
+  - what_to_watch  : 当月注視すべきイベント・経済指標 (配列、4〜6個)
+  - related_keys   : 月を象徴する市場指標の key (候補リストから2〜4個)
+  - source_index   : 月を象徴する一本 (なければ null)
+"""
+
+    # daily
+    return """【要素6: deep_dive (1本)】
+今日最も重要で、掘り下げて解説する価値のあるニュースを**1本だけ**選び、解説記事を書く。
+- 金融政策・地政学・政策転換・大型決算・市場構造変化など、単なる速報で終わらせず
+  **背景から将来への含意まで**を見渡せる話題を選ぶ
+- 「なぜこのニュースが今重要なのか」の大局観を読者に提供する
+- 政治や政策が絡む場合も、党派性を排し市場インパクトに集中する
+
+deep_dive の構成:
+  - title          : 見出し (25〜40字、センセーショナルに走らず実直に)
+  - lede           : サブタイトル/リード文 (80〜120字、記事全体の要約)
+  - background     : 背景 (200〜300字、そのニュースの経緯と文脈)
+  - implications   : 市場への含意 (200〜300字、短期/中期/長期どれかまたは複数の視点)
+  - what_to_watch  : 注視すべきポイント (配列、3〜5個、今後のイベント・指標・数字)
+  - related_keys   : 関連する市場指標の key (候補リストから2〜4個)
+  - source_index   : 元記事のインデックス番号
+"""
+
+
+def build_system_prompt(cb_facts: str = "", cadence: dict[str, Any] | None = None) -> str:
     universe_prompt = chart_prompt_list()
     cb_section = ""
     if cb_facts:
@@ -114,8 +232,15 @@ def build_system_prompt(cb_facts: str = "") -> str:
 {cb_facts}
 """
 
+    cadence = cadence or {"mode": "daily", "label": "通常", "context": ""}
+    cadence_banner = ""
+    if cadence["mode"] != "daily":
+        cadence_banner = f"\n\n【今日の運用モード】\n本日は **{cadence['label']}** モードです。要素6 (deep_dive) は通常モードと異なる構成で書いてください (下記指示参照)。"
+
+    deep_dive_block = build_deep_dive_instructions(cadence)
+
     return f"""あなたは金融市場のアナリスト兼エディターです。
-直近24時間のニュース見出しを元に、マーケット日報の以下10要素を日本語で作成します。{cb_section}
+直近24時間のニュース見出しを元に、マーケット日報の以下10要素を日本語で作成します。{cb_section}{cadence_banner}
 
 ニュース一覧はインデックス番号 [N] 付きで提供されます。news / funny_stories / deep_dive では、
 参照した元記事のインデックス番号を source_index で返してください（元記事URLの紐付けに使います）。
@@ -160,21 +285,7 @@ def build_system_prompt(cb_facts: str = "") -> str:
 候補リスト (既存のプール、これ以外も指定可):
 {universe_prompt}
 
-【要素6: deep_dive (1本)】
-今日最も重要で、掘り下げて解説する価値のあるニュースを**1本だけ**選び、解説記事を書く。
-- 金融政策・地政学・政策転換・大型決算・市場構造変化など、単なる速報で終わらせず
-  **背景から将来への含意まで**を見渡せる話題を選ぶ
-- 「なぜこのニュースが今重要なのか」の大局観を読者に提供する
-- 政治や政策が絡む場合も、党派性を排し市場インパクトに集中する
-
-deep_dive の構成:
-  - title          : 見出し (25〜40字、センセーショナルに走らず実直に)
-  - lede           : サブタイトル/リード文 (80〜120字、記事全体の要約)
-  - background     : 背景 (200〜300字、そのニュースの経緯と文脈)
-  - implications   : 市場への含意 (200〜300字、短期/中期/長期どれかまたは複数の視点)
-  - what_to_watch  : 注視すべきポイント (配列、3〜5個、今後のイベント・指標・数字)
-  - related_keys   : 関連する市場指標の key (候補リストから2〜4個)
-  - source_index   : 元記事のインデックス番号
+{deep_dive_block}
 
 【要素7: economic_chart_of_the_day】
 今日のニュース文脈や経済カレンダーを踏まえ、**経済指標や政治関連の時系列データ**を1つ選び、
@@ -300,38 +411,7 @@ source の値:
 """
 
 
-def load_cb_facts() -> str:
-    """central_banks.json があれば、Claudeに渡す簡易ファクトテキストを生成。"""
-    if not CB_PATH.exists():
-        return ""
-    try:
-        cb_data = json.loads(CB_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        return ""
-
-    lines = []
-    for cb in cb_data.get("central_banks", []):
-        code = cb.get("code", "")
-        name = cb.get("name", "")
-        rate_value = cb.get("rate_value")
-        rate_name  = cb.get("rate_name", "")
-        rate_asof  = cb.get("rate_asof", "")
-        last_change_amount = cb.get("last_change_amount")
-        last_change_date   = cb.get("last_change_date")
-        next_hint = cb.get("next_meeting_hint", "")
-
-        rate_str = f"{rate_value}%" if rate_value is not None else "未取得"
-        change_str = ""
-        if last_change_amount is not None and last_change_date:
-            sign = "+" if last_change_amount > 0 else ""
-            change_str = f", 直近の変動: {sign}{last_change_amount}% ({last_change_date})"
-
-        lines.append(f"- {code} ({name}): {rate_name}={rate_str} (asOf {rate_asof}){change_str}. {next_hint}")
-
-    return "\n".join(lines)
-
-
-def summarize_with_claude(items: list[dict[str, str]]) -> dict[str, Any]:
+def summarize_with_claude(items: list[dict[str, str]], cadence: dict[str, Any]) -> dict[str, Any]:
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
         raise RuntimeError("ANTHROPIC_API_KEY is not set")
@@ -356,7 +436,7 @@ def summarize_with_claude(items: list[dict[str, str]]) -> dict[str, Any]:
     msg = client.messages.create(
         model=MODEL,
         max_tokens=MAX_TOKENS,
-        system=build_system_prompt(cb_facts),
+        system=build_system_prompt(cb_facts, cadence),
         messages=[{"role": "user", "content": user_msg}],
     )
 
@@ -389,7 +469,6 @@ def attach_source_urls(payload: dict[str, Any], items: list[dict[str, str]]) -> 
         return None, None
 
     def _get_list(indices):
-        """source_indices 配列を {link, source, title} のリストに変換。"""
         if not indices:
             return []
         result = []
@@ -429,7 +508,6 @@ def attach_source_urls(payload: dict[str, Any], items: list[dict[str, str]]) -> 
             dd["link"] = link
             dd["source"] = src
 
-    # オルタナティブ系: source_indices 配列に対応
     for key in ("pe_pd_view", "real_assets_view"):
         view = payload.get(key)
         if view and isinstance(view, dict):
@@ -483,7 +561,6 @@ def normalize_chart_candidates(payload: dict[str, Any]) -> dict[str, Any]:
             "rationale": c.get("rationale", ""),
         })
 
-    # 3本未満ならデフォルトを末尾に追加
     fallbacks = ["sp500", "usdjpy", "wti", "nikkei", "vix"]
     for k in fallbacks:
         if len(cleaned) >= 5:
@@ -509,12 +586,16 @@ def normalize_chart_candidates(payload: dict[str, Any]) -> dict[str, Any]:
 
 
 def main() -> None:
+    cadence = determine_cadence()
+    print(f"[INFO] Cadence: {cadence['mode']} ({cadence['label']})")
+
     items = fetch_rss_items()
 
     if not items:
         print("[WARN] No items fetched. Writing fallback.")
         payload = {
             "generatedAt": datetime.now(timezone.utc).isoformat(),
+            "cadence":     cadence,
             "epigraph": {
                 "quote": "最も重要なのは、分からないということを知っていることだ。",
                 "source": "ソクラテス",
@@ -534,11 +615,12 @@ def main() -> None:
             "deep_dive": None,
         }
     else:
-        summary = summarize_with_claude(items)
+        summary = summarize_with_claude(items, cadence)
         summary = attach_source_urls(summary, items)
         summary = normalize_chart_candidates(summary)
         payload = {
             "generatedAt": datetime.now(timezone.utc).isoformat(),
+            "cadence":     cadence,
             **summary,
         }
 
@@ -551,7 +633,8 @@ def main() -> None:
           f"{len(payload.get('news', []))} news + "
           f"{len(payload.get('funny_stories', []))} muse + "
           f"{len(payload.get('charts_of_the_day', []))} chart candidates + "
-          f"{'1' if payload.get('deep_dive') else '0'} deep_dive")
+          f"{'1' if payload.get('deep_dive') else '0'} deep_dive "
+          f"[mode: {cadence['mode']}]")
 
 
 if __name__ == "__main__":
