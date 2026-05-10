@@ -1,131 +1,131 @@
 {
-  "generatedAt": "2026-05-10T02:03:41.752866+00:00",
+  "generatedAt": "2026-05-10T10:42:07.102247+00:00",
   "cadence": {
     "mode": "daily",
     "label": "通常",
     "context": ""
   },
   "epigraph": {
-    "quote": "強気相場は悲観の中で生まれ、懐疑の中で育ち、楽観とともに成熟し、陶酔の中で死ぬ。",
-    "source": "ジョン・テンプルトン",
-    "connection": "S&P500の最高値更新と『1999年型バブル』警鐘が交錯する一日。テンプルトンが説いた相場の四季が、いま陶酔の入り口にあることを思い出させる。"
+    "quote": "市場は短期的には投票機だが、長期的には計量器である。",
+    "source": "ベンジャミン・グレアム『賢明なる投資家』",
+    "connection": "決算サプライズで株価最高値更新が続く一方、ホルムズ海峡情勢や関税で実体経済の重みが増す日。短期の人気投票と長期のファンダメンタルズが交錯する1日にちなんで。"
   },
-  "headline_of_the_day": "最高値と『バブル』警鐘の綱引き",
+  "headline_of_the_day": "ホルムズ緊迫続くも決算追い風で株は最高値圏",
   "news": [
     {
-      "tag": "金融政策",
-      "headline": "ゴールドマン、Fed利下げを12月・3月へ後ずれ予想",
-      "body": "ゴールドマン・サックスは関税起因のインフレ粘着を理由に、Fedの次回利下げ予想を12月、その次を来年3月に後ずれさせた。市場の年内利下げ織り込みに対し、慎重派の声が増えている。FF金利上限は現在3.75%。",
-      "impact": [
-        "米長期金利上昇圧力",
-        "ドル下支え一時後退",
-        "グロース株のバリュエーション再検証"
-      ],
-      "source_index": 58,
-      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMUlVZ2VzWGZqUklLcTN2SzdBTUp6ZlpQdHIzSW14YXRzcGlhM2l1NXdwcjNEV29QZWJWd3NYbmxseENvekQ0QTFkRWhpa3E0cW1pUzhmVWZqaDdidWpQSXotYzdXT21KLWRhR0IwTHlTYUlTaHNhcnFCZ0Nvd211WFQ0V2VWYkdNaXNqRFJCX1NQcWhyOV9OQjFuNHNQUkZPRElCYVN2ZUVucFFQdDl6MA?oc=5",
-      "source": "Bloomberg (via Google)"
-    },
-    {
       "tag": "地政学",
-      "headline": "ホルムズ衝突で停戦が揺らぎ、原油在庫バッファーが急減",
-      "body": "イラン関連の衝突がホルムズ海峡周辺で続き、世界の石油備蓄バッファーが過去にない速度で減少。英国は艦艇を中東に派遣、米国もイランの回答を待つ緊張局面。原油価格は中東リスクで小幅上昇した。",
+      "headline": "ホルムズ海峡、停戦綱渡り 米はイランの回答待ち",
+      "body": "ホルムズ海峡での衝突を受け米国はイランの回答を待つ局面。サウジアラムコは『海峡再開は即効薬にならない』と表明し、英国は警備艦を中東に派遣。カタールは戦争開始以降初のLNGをホルムズ経由で出荷した。",
       "impact": [
-        "原油・運賃の上振れ",
-        "化学品(硫黄)など供給制約",
-        "防衛・エネルギー株の物色継続"
+        "原油・天然ガスのリスクプレミアム継続",
+        "海運株・防衛株の物色",
+        "中東関連通貨・金の安全資産需要"
       ],
-      "source_index": 52,
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdmZYb0dtYlpySkRlWUhtR1ZSSkViNV96OTdMdHFGQWtNSEJVTnNLZDBfLWZTaHdYcUgzSXNaaU9rY05MQ1gyTF93aWVnMGtwX3VqR3R4SEdlNXIwRDE0LUl0ZTctWldOcGJwYVJlYVpCOS1seFlkdGYzMTlqcy11bThlMXFaMXllNkZXVnpqSno3RmI5TXJsY2hSMi1FWHNvOEptZnJ3UHIwRDJweVZvR3hB?oc=5",
+      "source_index": 61,
+      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQNm1XdzVFLWhOeGVQbW95OTVfUG1IMGxwZGowX25XdW1TNHlHRFlRTFBUMXVfcUxuMGtBV2p5LTlXYWxpdEU1QkN1VmxvMmhNbEdYWlE0QXV0dm1ETFZTczhVdmU4dUJCaWJaMEE3bXphdVVDOENBMHJ2dVc0TUR4Y01FUmxERm1qem9PdUlhZXNLSUxybVlxS21aWF81d0M5ekZwSWZ3cW5oblpVWGtmajJEeENDZw?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "中国",
-      "headline": "中国4月輸出14%増、米中首脳会談前の駆け込み",
-      "body": "中国の4月輸出は前年比14%増と加速。トランプ・習会談を前に駆け込み出荷が膨らんだ可能性が高い。一方、関税交渉の主要論点はイラン情勢に押されて後ろ倒しの懸念。レアアース・サプライチェーン議論は停滞リスク。",
+      "tag": "決算",
+      "headline": "決算サプライズ続々 想定外の利益爆発が記録的株高を牽引",
+      "body": "Bloombergによれば誰も予想しなかった決算ボーナスが世界株のレコードラリーを支えている。WSJも半導体株の勢いが衰えを見せないと指摘。AI需要・コスト規律が利益を押し上げ、グローバル投資家は次のレッグをアジアに求めている。",
       "impact": [
-        "香港株・中国関連の追い風",
-        "海運・輸送株の堅調",
-        "関税合意先送りリスク"
+        "S&P500・SOX強含み",
+        "アジア株への資金シフト",
+        "バリュエーション正当化の論拠"
       ],
-      "source_index": 119,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQTXNoaUJadU92UFJGZWJMM3g2enJuV2ZNUndPNUJXVUJDYldPUXR1RUFYZFJUb0Y3Y0lOLVdNRVRnSkNyM2RVaEpfck9TcGtoTmFpdDM5LUNsckRNWHEydlduUW92dElNaE1QY3dhcm9xV3ZWTHdQNGdIdXRxRjU0RWhmaDU?oc=5",
+      "source_index": 66,
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNdjZYWmlhS04yTWZrTXFncU5DcWgyR1RXSUM5NFRYclZTUVJsMTJxVUJaWUdna1pib09oTVl6NWFnSzNRV0MwQ0RVcWE4WTZWSzJyZ0JXOS00NWtxcGxMdENwazdjaDhwT1VEdjdZeXlEa3U2NHR6Rnd0UUc4V1ozR1NyZUYxTnVhbVdjQjJvbkdNcGt2YmVSV2tZM2VHSTByRml0RzlHUlVuY3R2anNJb2Z2cE8?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "資源・地政学",
+      "headline": "アラムコ純利益増 戦争由来の原油高で輸出減を相殺",
+      "body": "サウジアラムコの四半期利益は、イラン戦争に伴う原油価格急騰がパイプライン経由代替輸送と相まって、ホルムズ経由の輸出減少を相殺し増益。世界の原油バッファ(余剰生産能力)は前例ないペースで取り崩されているとBloombergが警告。",
+      "impact": [
+        "原油上値継続リスク",
+        "エネルギー株優位",
+        "インフレ再燃懸念"
+      ],
+      "source_index": 47,
+      "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOOFhkaFBPNHZHc2FtV1liN1lLMElONWx4aVd0WFRKcHA5bmVrSS1hR0YtR0t2dFBiTHVVMmRhX3ZFWnBGaTU5WFliUTl2OWFRcGFJUUI4RXAxRnd0akpETXJxRV9HZ3hXcm1lMlk4VXRKX1ZKRkxGSEFYRGFjaTdJQUphanR1eXpIQWVlU0lNY1ZvaEhjVTliSnlacWhqR3E3Wk11dEUzcF81U1UwU0NIOTFlUQ?oc=5",
+      "source": "Bloomberg (via Google)"
+    },
+    {
+      "tag": "通商・自動車",
+      "headline": "欧州自動車大手、トランプ関税で計80億ユーロの打撃",
+      "body": "FTによれば、トランプ関税により欧州主要自動車メーカーが合計80億ユーロの利益毀損。価格転嫁が遅れる中、収益見通しの下方修正が相次ぐ。ドイツはトマホーク調達でも対米調整を急ぐなど政治・通商の摩擦が続く。",
+      "impact": [
+        "欧州株(自動車)弱含み",
+        "ユーロの上値重い",
+        "サプライチェーン再編加速"
+      ],
+      "source_index": 96,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVklQZU5EOGl4Yk5vTHlKLWZXaUprX3NNVXJrSFp4X3BMYlJtdnU2ZXFIVUR1cy1HLVE5OE80VlhfaHpSUTVORGdkRVhJOEdtbjRocDlEZWVyTHc0cjNuQmE4c2xjMWdnZFdNTzlmMHdUdHpwcmF5b0ZsSXdyYUktSjFraDk?oc=5",
       "source": "Financial Times (via Google)"
     },
     {
-      "tag": "米国市場",
-      "headline": "決算ブームが米株最高値を支え、S&P 8000説も",
-      "body": "誰も予想しなかった決算サプライズが米株の連騰を演出。Kalshiでは2026年中にS&P500が8000を超える確率が50%超に。一方マイケル・バーリは『1999-2000年バブル末期のよう』と警鐘を鳴らす。",
+      "tag": "米国政治・経済",
+      "headline": "FT世論調査、米有権者の過半数がトランプ経済運営に不満",
+      "body": "FTの最新世論調査で、米有権者の過半数が現政権の経済運営を否定的に評価。インフレ圧力が消費者心理を蝕み続けているとBloombergも指摘。中間選挙で民主党は南部・ラストベルトの上院奪還を狙う動きが活発化している。",
       "impact": [
-        "モメンタム継続観測",
-        "ボラティリティ低位の長期化",
-        "リスクパリティ需要拡大"
+        "政策不確実性プレミアム",
+        "ドル指数のボラ拡大",
+        "国内消費関連株への重し"
       ],
-      "source_index": 18,
-      "link": "https://www.cnbc.com/2026/05/08/how-much-further-can-this-teflon-market-go-heres-what-traders-say.html",
-      "source": "CNBC Markets"
+      "source_index": 97,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdUJQOEJmb0FfSHlUdWphNnlWM0x0ZmdYek1HdDU2S29pT0xxRFRoNEhFZk4zeDF1SmR1ckF0VlJyZ09DR29ndmhyRTNib05aS0o1bHNOTFlBaTFXekdJbWVuVmVvczJlSjlVUDRkanhSSTlqMV9JbHVkcE42ZlRJNl9acVM?oc=5",
+      "source": "Financial Times (via Google)"
     },
     {
-      "tag": "金融安定",
-      "headline": "Fed金融安定報告、地政学と原油ショックを最大リスクに",
-      "body": "FRBの金融安定報告書では、地政学リスクと原油ショックがトップ懸念に挙げられた。プライベートクレジットからのリスクは『限定的かつ管理可能』と評価。インフレ期待の根強さも警戒材料として明記された。",
+      "tag": "金融政策・人事",
+      "headline": "FRB次期議長候補ウォーシュ氏、強気相場の終わりとなるか",
+      "body": "Yahoo Financeは、トランプ氏が指名する次期FRB議長候補ケビン・ウォーシュ氏が、現状3.75%(上限)のFF金利を巡り、市場のハト派期待と独立性のバランスをどう取るかが焦点と論じる。市場はFOMCの政治化リスクを警戒。",
       "impact": [
-        "クレジット市場の安心感",
-        "銀行・PD分野の規制議論",
-        "原油リンクのテールヘッジ需要"
+        "長期金利の期間プレミアム上昇",
+        "ドルへの長期重し",
+        "金・暗号資産への分散需要"
       ],
-      "source_index": 39,
-      "link": "https://finance.yahoo.com/sectors/energy/articles/geopolitical-risks-oil-shock-cited-200603103.html",
+      "source_index": 22,
+      "link": "https://finance.yahoo.com/economy/policy/articles/president-donald-trumps-pick-lead-082600667.html",
       "source": "Yahoo Finance US"
     },
     {
-      "tag": "欧州政治",
-      "headline": "英労働党ローカル選大敗、スターマー首相に造反の動き",
-      "body": "地方選挙での労働党の敗北を受け、スターマー首相は権威回復を狙ってゴードン・ブラウン元首相を国際金融特使として復帰させた。一方、党内議員からは党首信任を問う動きが浮上。ポンド・英国債に政治リスクが滲む。",
+      "tag": "オルタナティブ",
+      "headline": "個人投資家がPEから資金引き揚げ 流動性懸念再燃",
+      "body": "FTによれば、プライベート・エクイティ(PE)向けリテール商品から資金流入が鈍化、神経質な動きが広がっている。アイオワ州年金CIOの業績数値を巡る辞任もあり、オルタナティブ投資のガバナンス・流動性に再び目が向く。",
       "impact": [
-        "ポンド変動拡大",
-        "英国債需給の不透明感",
-        "欧州株への政治プレミアム"
+        "上場PE関連(PSP/BIZD等)に逆風",
+        "クレジットスプレッド拡大警戒",
+        "代替アセットの透明性議論再燃"
       ],
-      "source_index": 121,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZ3ZyMXhaWlNJRW04ZU41bVkyX0tNSS1oTlU0T2c3b3JISkdQMnctY3l2dlhtRUdZVTVucDdzcWswd3FDS0J1cGpKdDZ6cHJsamtLa2VvekJhcG9keU9DNGVmY3JXRHM1M1puUDBnUl9VNFVlcFl4YzVqU1ZwbVdGMXkwQVA?oc=5",
+      "source_index": 108,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPRFR2RU5oOG5PdVJrMFdWR0FHbU5pbUttZ2QwQWJIT1dFWWJkeXdKdHNEdEtIVnpVbm5PSnJIVFVSeWc3dmQ0WXRWZmRObzFMb1hKSWdRd1Y0SDZib3ZFaFFsNmVxM2YzZUpQY0hoVHdncjFoM3F5RXo3c0JBRlU5ZUlIeU4?oc=5",
       "source": "Financial Times (via Google)"
-    },
-    {
-      "tag": "コモディティ",
-      "headline": "中国の金生産が減少、投資家の地金・金貨需要が急増",
-      "body": "中国国内の金生産量が減少する一方、家計・投資家の現物地金・金貨買いが大幅に伸びている。地政学緊張・人民元懸念・株式バブル警戒を背景に、グローバルでセーフヘイブン需要が再び強まる構図。",
-      "impact": [
-        "金価格の下値堅さ",
-        "貴金属マイナーへの資金流入",
-        "実質金利との連動希薄化"
-      ],
-      "source_index": 62,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPVmdESkZjSDhJRUhrOEo1QkhZZkMzQmQ5SkwxUU5fQkFWSmszZUh4UDZpV1kxYnNzWXE5dkh6XzBuU2JIY2h2azZXcFpjV0JNaE1mc1FwcVZRX0hhcU5GMEVaenEyS2tsLVVpR3hhaDN4blcxMThfVkJtVWhxR2IxTVFSdXV2TEg4WlNyUi1oY1dRODN2WDY0SjYtV0lNTUg3ZF9RcGs5cUxWX3VfWDl6VWs2ODM?oc=5",
-      "source": "Bloomberg (via Google)"
     }
   ],
   "funny_stories": [
     {
-      "kind": "皮肉・風刺系",
-      "title": "ベアマーケットでラップダンス",
-      "body": "暗号資産業界はベア相場のど真ん中で、ラップダンス付きパーティーを開催したという。ロウソク足は下を向いていてもグラスは上がる。『規律ある業界に進化した』と胸を張る隣で、相変わらず派手な看板が光る。投資家は祈り、業者は踊る。なんとも分かりやすい役割分担である。",
-      "source_index": 59,
+      "kind": "皮肉",
+      "title": "弱気相場のラップダンス",
+      "body": "ビットコイン関連が冴えない中、Bloombergによれば暗号業界が豪華なラップダンス・パーティーを開催したという。『下落相場こそ景気よく』という業界の伝統芸が炸裂。投資家保護を語るカンファレンスの翌日にこれをやれるあたり、彼らの一貫性だけは爆下げしていない。",
+      "source_index": 65,
       "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSkxCeGxzN2RlXzFGejhwWmI1M2NRZjRYQ3VaNWlBQ3FRWl9SSG55Q0FfcXhjeXdnYllJZGE5X0pvbmFhMmtwZm01YnZkLVJTbDBTWmZudHI2cFZnaHFfbU5zdXRZYVpZbDMxeDQyUG4xUHBoTkViR05aaFF5emVsVzlDYmNlOFVWU3J2ZWhzRUtQWWJMRkR4ZnM2VmtvLXlCd2lDeGg3YXZrTjZROFhIM0ZQWlE?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "kind": "人間味・哀愁系",
-      "title": "Spiritの最終便、消えた100ドル恋路",
-      "body": "格安航空Spiritの行く末を惜しむのは、株主だけではないらしい。100ドルでパートナーに会いに行けた遠距離恋愛のカップルたちが『結婚式も葬式も同窓会も、Spiritがあったから成立した』と嘆いている。マーケットが効率化と呼ぶものは、誰かの人生では『会えない距離』に化ける。",
-      "source_index": 13,
+      "kind": "哀愁",
+      "title": "Spirit航空が消えた夜",
+      "body": "100ドル以下の航空券を武器に、遠距離恋愛と結婚式と葬式を支えてきた米Spirit航空。MarketWatchが伝えるそのお別れ記事には、安かろう悪かろうと笑われた航空会社が、実は誰かの人生の分岐点を運んでいた事実が滲む。LCCとは値段ではなく、距離と時間の翻訳機だったのかもしれない。",
+      "source_index": 17,
       "link": "https://www.marketwatch.com/story/spirits-cheap-flights-kept-long-distance-relationships-alive-now-these-couples-are-scrambling-to-stay-connected-ca7e4745?mod=mw_rss_topstories",
       "source": "MarketWatch Top"
     },
     {
-      "kind": "観察・再発見系",
-      "title": "AIで最高位なのに、職務記述書なし",
-      "body": "Anthropicから無名スタートアップまで、いま最も格の高いポジションは『Member of Technical Staff』だという。ただし、その肩書きが具体的に何をするのかは誰も説明できない。年収だけは確実に高い。市場が本当に値付けしているのは、能力ではなく『定義不能性プレミアム』なのかもしれない。",
-      "source_index": 8,
+      "kind": "観察",
+      "title": "肩書のないAIエリート",
+      "body": "MarketWatchによると、AnthropicからスタートアップまでがこぞってAI業界で最も権威ある肩書『member of technical staff』を求人中。ただし職務内容は誰も説明できないという。給与レンジだけは天文学的で、肩書のインフレ率はFRBの統計には乗らないが確実に上昇中。",
+      "source_index": 12,
       "link": "https://www.marketwatch.com/story/the-most-prestigious-job-in-ai-has-no-description-d517601f?mod=mw_rss_topstories",
       "source": "MarketWatch Top"
     }
@@ -133,27 +133,43 @@
   "charts_of_the_day": [
     {
       "source": "yf",
-      "ticker": "^GSPC",
-      "title": "S&P 500",
-      "name": "S&P 500",
-      "sub": "INDEX · USD",
-      "rationale": "最高値更新とバブル警鐘が交錯。本日の主役指数。"
-    },
-    {
-      "source": "yf",
       "ticker": "CL=F",
       "title": "WTI原油",
       "name": "WTI原油",
       "sub": "$/bbl · NY先物",
-      "rationale": "ホルムズ衝突と停戦動揺で原油バッファーが急減。"
+      "rationale": "ホルムズ海峡情勢の継続と世界の原油バッファ取り崩しを最も直接的に映す指標"
     },
     {
       "source": "yf",
-      "ticker": "^VIX",
-      "title": "VIX",
-      "name": "VIX",
-      "sub": "恐怖指数",
-      "rationale": "Burry警鐘下でも低位推移か、楽観の度合いを測る。"
+      "ticker": "BZ=F",
+      "title": "Brent原油",
+      "name": "Brent原油",
+      "sub": "$/bbl · 北海先物",
+      "rationale": "中東リスクプレミアムの国際ベンチマーク"
+    },
+    {
+      "source": "yf",
+      "ticker": "^GSPC",
+      "title": "S&P 500",
+      "name": "S&P 500",
+      "sub": "INDEX · USD",
+      "rationale": "決算ボーナスで記録的高値圏、地政学との綱引きを確認"
+    },
+    {
+      "source": "yf",
+      "ticker": "^SOX",
+      "title": "SOX (半導体)",
+      "name": "SOX (半導体)",
+      "sub": "INDEX · USD",
+      "rationale": "WSJが指摘するチップ株ジャガーノートの勢いを可視化"
+    },
+    {
+      "source": "fred",
+      "ticker": "DHHNGSP",
+      "title": "天然ガス",
+      "name": "天然ガス (Henry Hub)",
+      "sub": "$ / MMBtu",
+      "rationale": "カタールLNGホルムズ経由再開と欧州ガス価格の連動"
     },
     {
       "source": "yf",
@@ -161,114 +177,114 @@
       "title": "金",
       "name": "金 (COMEX)",
       "sub": "$/oz",
-      "rationale": "中国の地金・金貨需要急増、セーフヘイブン需要を確認。"
-    },
-    {
-      "source": "yf",
-      "ticker": "^TNX",
-      "title": "米10年金利",
-      "name": "米10年債利回り",
-      "sub": "%",
-      "rationale": "ゴールドマンの利下げ後ずれ予想を受けた金利感応度。"
-    },
-    {
-      "source": "yf",
-      "ticker": "^HSI",
-      "title": "ハンセン指数",
-      "name": "ハンセン指数",
-      "sub": "INDEX · HKD",
-      "rationale": "中国輸出14%増と米中首脳会談を控えた中国株感応度。"
+      "rationale": "中東情勢・FRB人事を巡る不確実性下での安全資産需要"
     },
     {
       "source": "yf",
       "ticker": "DX-Y.NYB",
-      "title": "ドル指数",
+      "title": "ドル指数(DXY)",
       "name": "ドル指数 (DXY)",
       "sub": "INDEX",
-      "rationale": "消費者センチメント悪化と株高でドル軟調、転換点を検証。"
+      "rationale": "FRB次期議長報道とトランプ経済評価低下を受けたドル動向"
     },
     {
-      "source": "fred",
-      "ticker": "BAMLH0A0HYM2",
-      "title": "HY社債スプレッド",
-      "name": "HY 社債スプレッド",
-      "sub": "% · OAS",
-      "rationale": "Fed金融安定報告下での信用リスク織り込みを点検。"
+      "source": "yf",
+      "ticker": "PSP",
+      "title": "上場PE(PSP)",
+      "name": "Listed PE (PSP)",
+      "sub": "Invesco · 上場PE",
+      "rationale": "リテールがPEから資金引き揚げる中での代替プロキシの動きを観察"
     }
   ],
   "deep_dive": {
-    "title": "ゴールドマン、利下げ後ずれ予想 — インフレ粘着とFedの忍耐",
-    "lede": "ゴールドマンは次回Fed利下げを12月、続いて来年3月へ後ずれさせた。関税起因のインフレ粘着が背景で、市場の楽観的な織り込みに冷水をかける可能性がある。",
-    "background": "Fedは2025年12月にFF金利上限を3.75%へ引き下げて以降、追加利下げは止まっている。市場は来春までの追加緩和を相応に織り込んできたが、関税が幅広い財・サービス価格に染み込み、サービスインフレも下げ渋り。Fed金融安定報告も地政学・原油ショックを主要リスクと指摘。ゴールドマンはこの環境を踏まえ、9月→12月→3月という以前の見通しから、後ろ倒しの12月→3月パスへ修正した。中東緊張による原油上振れリスクが、利下げ判断をさらに難しくしている。",
-    "implications": "短期的には、米株の連騰を支えてきた『早期利下げ期待』が一部剥落する可能性。ただし企業決算が想定外に強いため、株価の下押しは限定的との見方も多い。中期的には、長期金利が再び上振れしやすく、ハイパーグロース株のバリュエーションに重し。ドルは利下げ遅延でいったん下支えされる一方、米経済減速懸念が強まれば反転も。新興国・REIT・非上場資産にとって金利据え置き長期化は重しで、特にプライベート債務市場の借り手には信用コスト上昇が継続する。Burryの『バブル末期』警鐘とも重なり、リスクオン継続の質が問われる局面だ。",
+    "title": "ホルムズ海峡の戦時経済学 アラムコ増益と縮む世界の原油バッファ",
+    "lede": "イラン戦争開始以来初のホルムズ経由LNG出荷の裏で、世界の余剰生産能力は前例ないペースで蒸発。サウジアラムコは増益を確保したが『海峡再開は即効薬ではない』と警告した。",
+    "background": "ホルムズ海峡は世界の海上原油輸送の約2割が通る要衝。停戦の綱渡りが続く中、カタールが戦争開始後初のLNGを送り出し、英国は警備艦派遣で航行確保を支援する一方、米国はイランからの正式回答を待つ。アラムコは戦争由来の原油高がホルムズ輸出減を相殺、決算は増益。だが同社CEOは『海峡が再開してもすぐには元には戻らない』と発言し、サプライチェーンの傷の深さを示唆。世界の余剰生産能力(原油バッファ)は前例ないペースで取り崩されている。",
+    "implications": "短期では原油・天然ガス・船賃にリスクプレミアムが残り、エネルギー株が相対的に底堅い一方、欧州自動車のように関税と燃料コストの二重苦に晒されるセクターは利益見通しの下方修正リスク。中期では原油バッファの薄さがインフレの再燃を招き、FRBの利下げパス(現状FF金利上限3.75%)を制約しうる。長期では中東依存度の高い新興国の経常収支とドル流動性、さらに中国・インド・日本のエネルギー外交(日本は5月末にも当局者を露派遣を検討)が再編される構図。",
     "what_to_watch": [
-      "5月CPI・PCEのコア・サービス項目の粘着度",
-      "次回FOMC(6月)のドットプロット改定",
-      "原油価格(ホルムズ情勢)とブレークイーブン期待インフレ",
-      "雇用統計の賃金伸び率と労働参加率",
-      "Powell議長を含むFed要人発言のトーン変化"
+      "イランの正式回答と停戦継続可否",
+      "OPEC+の余剰生産能力とサウジ増産余地",
+      "WTI/Brentスプレッドと地域別需給",
+      "米10年ブレークイーブン(期待インフレ)の上振れ",
+      "FOMC議事要旨と次期議長人事の進展"
     ],
     "related_keys": [
-      "sp500",
-      "us10y",
-      "t10yie",
-      "dxy"
+      "wti",
+      "brent",
+      "natgas",
+      "t10yie"
     ],
     "source_index": 58,
-    "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMUlVZ2VzWGZqUklLcTN2SzdBTUp6ZlpQdHIzSW14YXRzcGlhM2l1NXdwcjNEV29QZWJWd3NYbmxseENvekQ0QTFkRWhpa3E0cW1pUzhmVWZqaDdidWpQSXotYzdXT21KLWRhR0IwTHlTYUlTaHNhcnFCZ0Nvd211WFQ0V2VWYkdNaXNqRFJCX1NQcWhyOV9OQjFuNHNQUkZPRElCYVN2ZUVucFFQdDl6MA?oc=5",
+    "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdmZYb0dtYlpySkRlWUhtR1ZSSkViNV96OTdMdHFGQWtNSEJVTnNLZDBfLWZTaHdYcUgzSXNaaU9rY05MQ1gyTF93aWVnMGtwX3VqR3R4SEdlNXIwRDE0LUl0ZTctWldOcGJwYVJlYVpCOS1seFlkdGYzMTlqcy11bThlMXFaMXllNkZXVnpqSno3RmI5TXJsY2hSMi1FWHNvOEptZnJ3UHIwRDJweVZvR3hB?oc=5",
     "source": "Bloomberg (via Google)"
   },
   "economic_chart_of_the_day": {
-    "series_id": "T10YIE",
-    "title": "10年ブレークイーブン・インフレ期待",
-    "subtitle": "日次, %",
-    "rationale": "ゴールドマンが利下げ後ずれを予想する根拠は『インフレ粘着』。市場の期待インフレが高止まりしているか確認することで、Fedのスタンスを読み解ける。",
-    "period_years": 3
+    "series_id": "DCOILWTICO",
+    "title": "WTI原油価格の推移",
+    "subtitle": "日次, ドル/バレル",
+    "rationale": "ホルムズ海峡情勢と世界の原油バッファ縮小を最も直接的に示す指標。インフレ・利下げパス・株式市場全体に波及するため、足元の値動きを長めの時系列で確認する意義が大きい。",
+    "period_years": 5
   },
   "central_bank_watch": [
     {
       "code": "FED",
-      "comment": "現在のFF金利上限は3.75%。昨年12月の利下げ以降は据え置きが続き、ゴールドマンは次回利下げを12月、その次を来年3月へ後ずれさせた。関税起因のインフレ粘着とサービス価格の下げ渋りが理由で、Fed自身の金融安定報告も地政学・原油ショックを最大リスクに挙げている。市場は年内追加緩和を相応に織り込んできたが、Burryの『バブル末期』警鐘や消費者センチメント悪化と相まって、Fedの忍耐がどこまで続くかが焦点。次回FOMCでのドットプロット修正と、CPI・PCEのコアサービス項目に注目が集まる。"
+      "comment": "FF金利の上限は12月の0.25%引き下げ後3.75%で据え置きの状態が続いており、市場は次回FOMCを6週間サイクルで控える。一方で、トランプ大統領が次期議長候補にケビン・ウォーシュ氏を据えるとの観測がYahoo Financeで再燃し、独立性とハト派化を巡る期待・警戒が同時に高まっている。Bloombergはインフレの太鼓が消費者心理を蝕み続けると指摘し、FT世論調査でも経済運営への不満が過半数。利下げを急ぎたい政治圧力と、原油高による期待インフレ上振れの板挟みで、市場はドットプロットよりも『誰が議長か』に視線を移している。"
     },
     {
       "code": "ECB",
-      "comment": "預金ファシリティ金利は2.0%で、6月の0.25%引き下げ以降は様子見が継続。ユーロ圏のディスインフレは概ね順調だが、エネルギー価格と中東リスクの再燃で見通しは曇りつつある。ハンガリーでマジャール新政権が誕生し『欧州への回帰』を掲げる一方、英スターマー政権は地方選で失速。政治不安が南北格差を広げる中、ECBは追加緩和の余地を残しつつも急がない構えだ。市場はあと1回の利下げを年内に織り込み、ユーロ円は対円で底堅い。次回理事会では成長見通しの下方修正が議論されるかが注目点。"
+      "comment": "預金ファシリティ金利は6月の0.25%下げ以降2.0%で据え置きが続き、利下げサイクルは事実上完了の様相。ただ、欧州自動車大手がトランプ関税で計80億ユーロの利益毀損を被るなど、外需ショックが景気下振れリスクとして再び意識されている。ホルムズ海峡情勢由来の原油高はディスインフレ進展を遅らせる方向に働き、ラガルド総裁の『データ依存』スタンスは当面維持されそう。市場は次回理事会よりも、独仏の防衛・関税対応がコアインフレに与える二次的効果に注目している。"
     },
     {
       "code": "BOJ",
-      "comment": "日銀は緩和的な金融環境を維持しつつ、インフレ動向と賃金交渉の二次効果を見極める局面。日本政府がロシアへの当局者派遣を検討するなど外交面の動きはあるが、金融政策への直接の影響は限定的。米Fedの利下げ後ずれ観測でドル円の上昇圧力は再燃しやすく、円安進行が輸入インフレを通じて日銀の判断材料に影響する可能性。市場は次回会合での追加利上げを慎重に織り込む段階で、植田総裁の発言・展望レポートでの基調的物価評価がキーとなる。サービス価格と賃金統計の動向に引き続き注目。"
+      "comment": "投機筋の円売り越しは5月5日週でも縮小傾向にあり、CFTCデータでは『日銀正常化』への期待が継続している様子が確認できる。日本政府が5月末にも当局者を露派遣を検討するとの報道もあり、エネルギー外交と為替政策が静かに連動。原油高で輸入インフレが下げ止まれば、賃金・物価の好循環確認後の追加利上げシナリオが補強される。植田総裁は引き続き『見極め』を強調する見通しだが、米FRB人事の不透明感はドル円ボラを高めやすく、為替経由で政策判断にプレッシャーがかかる構図が続く。"
     },
     {
       "code": "BOE",
-      "comment": "英国では地方選で労働党が大敗し、スターマー首相がブラウン元首相を国際金融特使に復帰させて権威回復を図るなど政治の流動化が進む。財政運営の不確実性が増す中、BOEは利下げ路線の継続と、インフレの粘着性とのバランスに苦慮。市場は次回MPCでの追加利下げを基本シナリオとするものの、賃金伸び率の高止まりとサービスCPIの粘り強さが警戒材料。スコットランド・ウェールズの独立志向の高まりは中長期的に英国債のリスクプレミアムを押し上げかねず、ベイリー総裁は政治と独立性の境界を慎重に見極める局面に入っている。"
+      "comment": "BOEは中東情勢を受けて英海軍の警備艦派遣が報じられるなど、地政学が金融政策にも間接的に絡む局面。原油・LNG価格の高止まりはインフレ目標達成の道筋を再び鈍らせる懸念があり、追加利下げ余地を狭める。一方、Farage旋風や独立志向政党の台頭(ウェールズ・スコットランド)など政治の不確実性も英国債のタームプレミアムに影響しうる。MPCは目先、エネルギー価格パススルーとサービス価格の粘着性、そして来週以降の英統計を慎重に見極めるとみられる。"
     }
   ],
   "pe_pd_view": {
-    "body": "本日のハイライトは、Fedの金融安定報告がプライベートクレジット(PD)からのリスクを『限定的かつ管理可能』と評価した点。PDとは銀行を介さず、ファンドが企業に直接融資する仕組み(ダイレクト・レンディング等)で、近年急成長してきました。ただBloombergは『プライベート・デット市場が縮小し、銀行が業務を取り戻している』と報じており、潮目の変化が見え始めています。\n\nまた、ベンチャーキャピタル(VC)では新興スターたちが台頭(40)、ドローン新興HelsingがVC評価額180億ドルへ(107)。さらにNYSEがウォール街でプライベート会員制クラブを開設(105)するなど、業界はさらに『社交化』が進んでいます。Fedは安心材料を出した一方、銀行への業務回帰はPDファンドのリターン圧迫要因となり得ます。初心者にとっての注目点は『金利据え置きが長期化すれば、借り手の利払い負担が積み上がる』というシンプルな構図です。",
-    "impact": "neutral",
-    "impact_summary": "Fedは安心評価、ただPDから銀行への業務回帰が逆風",
+    "body": "FTによれば、個人投資家(リテール)のプライベート・エクイティ(PE=未公開株への投資ファンド)向け商品の人気に陰りが出ています。背景には、近年BlackstoneやKKRなどが個人向けに開発した半流動性商品(『セミ・リキッド』ファンド)で、解約申請が解約上限に達するケースが続いていることがあります。アイオワ州年金CIOがオルタナ投資の業績数値を巡って辞任した件も、評価の透明性に対する不信感を煽りました。\n\nプライベート・デット(PD=銀行を介さない直接融資)では、GoldmanSachsが出資する英Lendableが米国進出を計画。銀行を上回るペースで融資を伸ばしており、ノンバンク信用の存在感は依然強い構図です。ただ、PEのドライパウダー(投資未実行資金)が積み上がる一方で、IPOやM&Aによる出口(エグジット)が滞れば、上場株市場へも資金循環の鈍化として波及する可能性があり、注視が必要です。",
+    "impact": "negative",
+    "impact_summary": "リテール離れと評価不信、エグジット停滞リスクが上場市場の重しに",
     "source_indices": [
-      34,
-      60,
-      40,
-      107,
-      105
+      108,
+      109,
+      118
     ],
     "sources": [
       {
-        "link": "https://finance.yahoo.com/economy/policy/article/fed-risks-from-private-credit-are-limited-and-manageable-200000556.html",
-        "source": "Yahoo Finance US",
-        "title": "Fed: Risks from private credit are 'limited and manageable'"
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPRFR2RU5oOG5PdVJrMFdWR0FHbU5pbUttZ2QwQWJIT1dFWWJkeXdKdHNEdEtIVnpVbm5PSnJIVFVSeWc3dmQ0WXRWZmRObzFMb1hKSWdRd1Y0SDZib3ZFaFFsNmVxM2YzZUpQY0hoVHdncjFoM3F5RXo3c0JBRlU5ZUlIeU4?oc=5",
+        "source": "Financial Times (via Google)",
+        "title": "Retail investors cool on private equity as jitters spread - Financial Times"
       },
       {
-        "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcjdZaVB3TWVPSmV1UVFvNXhxdURzc3k2NVRPWW16dUc0QjBKQUNKSGUtMXRoTnBGcjJITDJObTRqWV80aW80OUdrMDB4V2lOWk1LdDlodG5jTVItdUlocjQ4elhqUjgyLW1ZaHhoVDNKSlN5eERVUUF6czRLNUZqMmJRTFdkVU8tM21vazBVdV8wX0piNTJhUlZWUjA0VlpnN2YtUW9YZ1d5c0hwUDBjWlVB?oc=5",
-        "source": "Bloomberg (via Google)",
-        "title": "Banks Win More Business as Private Debt Shrinks - Bloomberg.com"
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQS2M4S0Vac3JJZDZDaFBXT0dnS0p3eWpVTS0wM2U3WlFzUWtIX0ltR19VZExVS1l4dlJScnQ1ZVpoTmp2S0hVaDlyTjEwYlVVU3YxU2I2NGVnV2NjQ01PMEhwYU81SW95RHFTb08yTGR3TTA0d1FoX0ZYb1l5am9IaDM2UG8?oc=5",
+        "source": "Financial Times (via Google)",
+        "title": "Goldman-backed Lendable plots US expansion after outpacing banks on loans - Financial Times"
       },
       {
-        "link": "https://finance.yahoo.com/sectors/technology/articles/meet-vc-firms-rising-stars-190055155.html",
-        "source": "Yahoo Finance US",
-        "title": "Meet VC firms' new rising stars"
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPOTFESWJRWG1tQkI5cXgxN0JIWVN6dGo4SDA5Y1Fta1d3Ukt4LUdPNHY2Y2NGUEpQRzVrVlFBSmNZbHVsNURCeGJpbGN1bktNc2FOQ19lMkFPcG5PZm5oczA1bm50SG1FQjZ4dTRUd3VlbGxSdF9YSGRZQ2t4YmZPakhRM0U?oc=5",
+        "source": "Financial Times (via Google)",
+        "title": "Iowa pension chief resigns amid concerns about performance figures - Financial Times"
+      }
+    ]
+  },
+  "real_assets_view": {
+    "body": "本日のニュースで特筆されるのは、地政学とインフラ投資の交差です。アフリカ最大の富豪ダンゴテ氏がケニアでの新製油所を検討、Helsing(ドローン新興)は防衛ブームで180億ドル評価へ向かうなど、エネルギー・防衛インフラに資金が集中しています。これらは伝統的な空港・港湾・有料道路だけでなく、エネルギー安全保障や次世代防衛が『新インフラ』として投資テーマ化していることを示唆します。\n\n不動産面では、米HELOC市場で『エクイティ・リッチ』(住宅価値が住宅ローンを大幅に上回る)世帯数が減少しており、住宅市場のピーク感が出てきています。30年住宅ローン金利が6.37%へ上昇しているのも逆風です。一方、米山火事が10年来の高水準に達しており、保険コストの上昇は商業不動産・REITの利回りを侵食する要因に。金利高止まりとエネルギーコスト上昇の組み合わせは、不動産・インフラ双方にとって『金利低下=追い風』の構図が描きにくい局面が続きます。",
+    "impact": "neutral",
+    "impact_summary": "防衛・エネルギーインフラに追い風、住宅・REITは金利と保険費に逆風",
+    "source_indices": [
+      98,
+      101,
+      39,
+      116
+    ],
+    "sources": [
+      {
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPSTlEc3c4Yms2LTV5OUo5eXFlZjVlUW9aNGVNRW92R09ZbW9WWkVDdHlvcFcyZ3h3Wl9CN3hWSWdGUXFHSUtHTmYzN3BialdQMkp1WlFXMHM4S3J6SkhrRmxhTVZsMW1aZnhDTDJZSmJPLWZKMFhnWWJ1eGpyM2JhaWRFOGo?oc=5",
+        "source": "Financial Times (via Google)",
+        "title": "Africa’s richest man eyes Kenya for new refinery - Financial Times"
       },
       {
         "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNeVpPRzBBX1czVjdFalRnaG1Bc01USUxVUm9BZXdSQUlweTdjNXgzaERNNzhnTXo2aUN5eEd5S3ZlQnVRS1lrQWgyTUZFMWdDQ3kwajRabzJJcmFyX2p5Qm5zV2tRcnRKUlV4WXM5dnlZWnJqa19tNXFhRG5tbWtIcHpNNG0?oc=5",
@@ -276,48 +292,14 @@
         "title": "Drone start-up Helsing set for $18bn valuation as investors pile into defence - Financial Times"
       },
       {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPRnViNmNlOHdCam5yenAwWTlmbTFOSTExWnV1ZUhRbS05akxYdGxOUkR6NlU0NDd6bVNpYzFhUS1aR003c1FNVTRucm1heWc4Z2NuRW1fSGt3Ml9jMzFwc2c4THByVk9WWGNYb013dDR6ZDZzekRvZS1UZU02TFdMRE5lN3Y?oc=5",
-        "source": "Financial Times (via Google)",
-        "title": "New York Stock Exchange to open private members’ club on Wall Street - Financial Times"
-      }
-    ]
-  },
-  "real_assets_view": {
-    "body": "本日の不動産・インフラ関連で目を引くのは、英フィナンシャル・タイムズの『個人投資家が商業不動産ファンドから手を引いている』との報道(117)。コロナ後のオフィス需要減退と金利高止まりで、商業用不動産(CRE)の評価損問題は完全には解消していません。一方、米国の住宅ローン金利は6.37%まで上昇(14)し、家計の住宅取得意欲を冷やしています。バフェットも住宅金融について率直なコメントを発信(22)。\n\nインフラ面では、米国の山火事が10年ぶり高水準(111)で電力網・保険業界へのコストが増す可能性、防衛関連ではドローンHelsingが180億ドル評価へ(107)。Standard LifeとCVCが確定給付年金(DB)案件で協業(115)するなど、年金マネーがオルタナティブへ流れる構造は続いています。Fedの利下げ後ずれ観測は不動産・REITには逆風ですが、データセンター・防衛インフラといったテーマ別需要は底堅く、選別色が強まる相場が続きそうです。",
-    "impact": "negative",
-    "impact_summary": "金利高止まりでCREに逆風、個人マネーも流出",
-    "source_indices": [
-      117,
-      14,
-      22,
-      111,
-      115
-    ],
-    "sources": [
-      {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNcmtBam1pdXNnekRCbHFIODZadW8wTDVnVWhKSkNOYmZWZmZfa2FMbHVDS2t3d3BLdzM3bVd0WmoxVkVHZlF3dUwwZm9TTFgzYVRvTWtiVC1RZHA5bV80ZWo1WW4zczMzdFVya2xzX05PMTlKUkRaaUM0QjVmd3ByWG11QkY?oc=5",
-        "source": "Financial Times (via Google)",
-        "title": "Retail investors turn away from commercial property holdings - Financial Times"
-      },
-      {
-        "link": "https://www.marketwatch.com/story/is-now-a-good-time-to-lock-in-your-mortgage-rate-heres-what-to-know-68af7d76?mod=mw_rss_topstories",
-        "source": "MarketWatch Top",
-        "title": "As mortgage rates move up to 6.37%, is now a good time to lock in your rate?"
-      },
-      {
-        "link": "https://finance.yahoo.com/markets/options/articles/warren-buffett-sends-blunt-message-140700722.html",
+        "link": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-home-equity-loan-interest-rates-today-saturday-may-9-2026-100000312.html",
         "source": "Yahoo Finance US",
-        "title": "Warren Buffett sends blunt message on mortgages, home financing"
+        "title": "HELOC and home equity loan rates Saturday, May 9, 2026: Number of 'equity-rich' homeowners falls"
       },
       {
         "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNRE5GSEoteGxfakU3QkFub0VXUzRxbE9YMzgyZkltYTNMLXMydDU5T0U5X3FXb2FLeTU3NVJxRXZENDlNQmF3QnBReWlIVDRpRjQ4emJMNlBYRTRxLWhPMndCcWRPMEtBbngwbTZYZnlBV0dWYjl0dnZqdHhWZHdwLU1lWXc?oc=5",
         "source": "Financial Times (via Google)",
         "title": "US wildfires surge to decade high as drought fuels fears of brutal summer - Financial Times"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQVWZSOFdobEI1dDVlWThhdTZCUHlkSEx3S3JWWlVmQUsycGJuVlh0d0x1NTFfZmYyX1hoS21zYU5rVDlwOTlkd1BWT3NIU0xTRmtZOGJlSk9oQW9MSl9fekM1UTItWEZhSDk5SklkQ3dmTlVnVkV3NEQtMFpydEktRDhZZjA?oc=5",
-        "source": "Financial Times (via Google)",
-        "title": "Standard Life and CVC square the circle on defined-benefit pensions - Financial Times"
       }
     ]
   }
