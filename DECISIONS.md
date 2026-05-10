@@ -5,6 +5,182 @@
 
 ---
 
+## v13.1.2 で導入された決定
+
+### [DECISION v13.1.2-01] フロント分割は最終的に 4 段階に拡張 (3 → 4)
+- **背景**: ROADMAP 当初の「3 段」(v13.1.0 / v13.1.1 / v13.1.2) では、v13.1.2 で 13 セクション全部を一括抽出する想定だった
+- **判断**: v13.1.2 で 6 セクションだけ抽出 (Phase 1)、残り 8 セクションは v13.1.3 (Phase 2) に分離して **4 段** とする
+- **理由**:
+  - 1 回のチャットで 13 セクションを抽出するのは context window と認知負荷の両方で重い
+  - 独立性の高いセクションを先にやることで、Phase 1 で抽出パターンの妥当性を確認 → Phase 2 でリスクの高い (Recharts チャート抱え, サブコンポーネント抱え) セクションに進める
+  - 各 Phase で snapshot を取って実機照合すれば、回帰の切り分けが容易
+- **トレードオフ**: チャット数が 1 つ増えるが、各回の作業は 1500 字以下の自然な粒度に収まる
+
+### [DECISION v13.1.2-02] 切り出しは「独立性順」(Phase 1 と Phase 2 の振り分け基準)
+- **判断**: 「props で受けた値しか使わない / 内部にチャート系の subcomponent を持たない / 共通サブを共有しない」を基準に、**独立性が高いものから先に抽出**
+- **Phase 1 (v13.1.2)** に入れたもの (6 個):
+  - `MastheadSection` — props は news/market のみ、JSX のみ
+  - `EconomicChartSection` — props は econ のみ、内部 Recharts は単独使用
+  - `DeepDiveSection` — props は article/chartUniverse/cadence、JSX のみ
+  - `AlternativesSpotlightSection` — props は pePd/realAssets、内部 sub (`AltCategoryCard`) は他から参照されない
+  - `MarketMuseSection` — props は news のみ、JSX のみ
+  - `FooterSection` — props なし、JSX のみ
+- **Phase 2 (v13.1.3)** に回したもの (10 個):
+  - `FeaturedCharts` (FeaturedChart 内包、Recharts 重い)
+  - `MarketTable + IndicesGroup` (テーブル+カード両表示で複雑)
+  - `SectorHeatmap` (heatmap 算出ロジックあり)
+  - `MacroBarometer` (FRED 18 指標で表が大きい)
+  - `FundingVol` (Recharts チャート + 期間構造ロジック)
+  - `Valuations` (MiniChart を共有、テーブル+カード+チャートのトリプル表示)
+  - `CentralBanks` (`watch` と `factsByCode` の合成プロップ)
+  - `IndicatorCharts` (現状 inline JSX、新規抽出が必要)
+  - `News` (現状 inline JSX、impact バッジロジックあり)
+  - `ListedAlts` (`ListedAltsPanel` + `ListedAltCard` の 2 段、Recharts 軸ロジックあり)
+- **意図**: Phase 2 のものは内部に共通可能なサブコンポーネントを抱えているため、抽出時に「これは sections 内に隠すか、common に昇格させるか」の判断が必要。Phase 1 が安定してから腰を据えて取り組む
+
+### [DECISION v13.1.2-03] Masthead/Epigraph/Ticker は 1 つのセクションに統合
+- **判断**: ROADMAP の初期計画では 3 セクションとして並んでいた (Masthead / Epigraph / Ticker) が、`MastheadSection` 1 つにまとめた
+- **理由**:
+  - 視覚的に新聞紙面のヘッダ部 (見出し+引用+ティッカー) として一体運用される
+  - Epigraph は条件付きレンダリング (`news.epigraph` がある時だけ)、Ticker は market から派生 — 個別 props にすると orchestrator 側のグルーが煩雑に
+  - 「Masthead を変えたい」と言われた時、3 ファイル横断より 1 ファイル内のほうが AI 補助が安定
+- **トレードオフ**: 単一テスト時、Epigraph だけ単独で render したい場面では `news.epigraph` モックが必要になる。だが運用上そんな単独テストは想定していない
+- **Fragment 戻り値**: `<>...</>` で 3 ブロックを返すため、wrapper div を増やさずに済んでいる
+
+### [DECISION v13.1.2-04] AltCategoryCard と ALT_IMPACT_CONFIG は section 内部に隠蔽
+- **判断**: `AlternativesSpotlightSection.jsx` 1 ファイルに `ALT_IMPACT_CONFIG` (定数) + `AltCategoryCard` (内部関数) を同居させ、export しない
+- **理由**:
+  - `AltCategoryCard` は本セクション以外から参照されないため、`@/components/common` に上げる必要がない
+  - `ALT_IMPACT_CONFIG` も同様、PE/PD と Real Assets 両方で使うが、その両方が同セクション内
+  - 公開 API (`AlternativesSpotlightSection`) を small surface に保つ
+- **将来の昇格条件**: 別セクションでも impact 表示が必要になったら `@/components/common` 行き
+
+### [DECISION v13.1.2-05] FooterSection に version プロップを予約 (default 維持で挙動不変)
+- **判断**: `<FooterSection version="v13.0" />` のように外から差し込み可能だが、`version="v13.0"` を default にして見た目を完全維持
+- **理由**:
+  - v13.1 系は内部リファクタなのでフッターのバージョン文字列は据え置き (kk のポリシー: ビルド出力を変えない)
+  - 将来「自動でバージョンを刻む」ようにしたくなった時、orchestrator から渡せばよい
+  - default 値の上書きで段階移行できる柔軟性を予約
+- **不採用案**: `package.json` から動的読み出し (Vite で可能だが build constraint が増えるのでスキップ)
+
+### [DECISION v13.1.2-06] `nowJst` / `latestAsOf` / `tickerCells` の算出を MastheadSection 内部に移す
+- **判断**: 元々 `MarketMonitor` の本体関数で計算していた 3 つの派生値を `MastheadSection` 内部に移動
+- **理由**:
+  - これらは Masthead のヘッダー表示にしか使われていない (純粋に Masthead の責務)
+  - orchestrator 側に残すと「セクション化したのに props 4 つも渡している」状態になる
+  - props は `news` と `market` の 2 つだけに収まり、責務分離が明確に
+- **トレードオフ**: `MarketMonitor.jsx` から `pickTicker` ヘルパーが消える分、本体がさらに薄くなる (304 行削減の一部)
+
+### [DECISION v13.1.2-07] `museStories` 算出を MarketMuseSection 内部に移す
+- **判断**: `news.funny_stories || (news.funny_story ? [news.funny_story] : [])` の旧単数→複数 fallback ロジックを `MarketMuseSection` 内部に隠蔽
+- **理由**:
+  - この fallback はほぼ歴史的経緯 (single→multi 移行時の互換) で、本セクション以外から参照されない
+  - orchestrator 側に置いておくと、責務漏れに見えてきっかけがあれば移動したくなる。最初から正しい場所に置く
+- **また**: `KIND_FALLBACKS = ["皮肉", "人間味", "観察"]` も同ファイル内のモジュールスコープ定数に格上げ (元は inline 配列リテラル)
+
+---
+
+## v13.1.1 で導入された決定
+
+### [DECISION v13.1.1-01] CHART_UNIVERSE_LABELS の v13.1.0 不一致を修正
+- **背景**: v13.1.0 で `theme.js` を新設した際、Project Knowledge にあった
+  古い MarketMonitor.jsx (v5/v11 想定) を参照したため、`CHART_UNIVERSE_LABELS` の内容が
+  実機 (v12 系) のものと乖離していた:
+  - **誤**: `us02y: "米3ヶ月T-Bill"`
+  - **正**: `us02y: "米2年債"`
+  - **欠落**: `vix3m`, `move`, `emoas` の 3 エントリ
+- **影響**: v13.1.0 では `theme.js` が `MarketMonitor.jsx` から未使用のため本番影響ゼロ。
+  v13.1.1 で import を有効化する前に修正する必要があった
+- **対応**: `theme.js` の `CHART_UNIVERSE_LABELS` を実機の本物に合わせて差し替え
+- **副次効果**: v13.0 比でも改善 — Deep Dive の関連 key 表示で、これまで raw key 表示だった
+  `vix3m / move / emoas` が日本語化される
+- **再発防止**: snapshot 取得→実機ファイルを基準に編集する運用を徹底。
+  Project Knowledge にあるコードは古い場合があるため、最新は必ず snapshot で確認する
+
+### [DECISION v13.1.1-02] URL 定数は MarketMonitor.jsx に残す
+- **判断**: `MARKET_URL`, `NEWS_URL` などのデータ取得先 URL は分離せず本体に維持
+- **理由**:
+  - データ取得は `MarketMonitor.jsx` のトップレベル `useEffect` 一箇所に集約されている
+  - URL 定数を別ファイルに切り出すと、その別ファイルが MarketMonitor.jsx と
+    `import.meta.env.BASE_URL` の両方に依存することになり、責務が曖昧になる
+  - 一覧性: 「このアプリが何を fetch しているか」が一画面で見える方が良い
+- **代替案**: `src/dataSources.js` のようなファイルを作る案もあったが上記理由で却下
+
+### [DECISION v13.1.1-03] v12 → v13.1.x のヘッダコメントは履歴形式に変更
+- **判断**: 冒頭コメントを単純な「v12」表記から、層状の履歴形式に変更
+  ```jsx
+  // MARKET MONITOR — v13.1.2
+  //   • v12: Section numbering, ...
+  //   • v13.1.0–.1: theme/utils/common を別ファイル化 + import 付け替え
+  //   • v13.1.2: Masthead / EconomicChart / DeepDive / Alternatives / Muse / Footer
+  //             を @/components/sections/ に切り出し (このファイル)
+  ```
+- **理由**: バージョンが進むごとに「このファイルで何が起きたか」が一目で分かる。
+  詳細は `DECISIONS.md` に記録、ヘッダはサマリだけ
+- **運用**: v13.1.3 以降も同形式を踏襲。古い行は適宜要約・削除して 5 行程度に保つ
+  (実例: v13.1.2 では「v13.1.0 (土台ファイル新設) + v13.1.1 (import 付け替え)」を 1 行に圧縮した)
+
+---
+
+## v13.1 で導入された決定
+
+### [DECISION v13.1-01] フロント分割は `@/` 単一エイリアスで進める
+- **判断**: `@components/`, `@utils/` のような細分化はせず、`@/` → `src/` の 1 本のみ
+- **実装**: `vite.config.js` の `resolve.alias` に 1 行追加
+  ```js
+  resolve: { alias: { "@": path.resolve(__dirname, "src") } }
+  ```
+- **理由**:
+  - 設定が増えるとエイリアスの解決ルールが重複しやすく、IDE 補完や TypeScript 移行 (将来) の互換性も損なわれる
+  - `@/components/common`, `@/utils`, `@/theme` のように長さも許容範囲
+  - 単一の規則 ("@" は src ルート) なので新規ファイル追加時の判断が不要
+- **トレードオフ**: import パスが微妙に長くなる場面はあるが、相対パス (`../../../utils`) を回避できる利点が勝る
+
+### [DECISION v13.1-02] フロント分割は段階的に細分化
+- **背景**: ROADMAP 当初は「3〜4 段階」と記載。MarketMonitor.jsx 約 1500 行を一発で分割するとリスクが高い
+- **段階** (v13.1.2-01 で 4 段階に確定):
+  - **v13.1.0**: 土台ファイルの新設のみ (本番に push してもビルド出力不変)
+  - **v13.1.1**: MarketMonitor.jsx 冒頭の import 付け替え (JSX 本体は不変)
+  - **v13.1.2**: 独立性の高い 6 セクションを切り出し (Phase 1)
+  - **v13.1.3**: 残り 10 セクションを切り出し (Phase 2)
+- **意図**: 各段階で `bash scripts/take_snapshot.sh` → 実機照合 → 次へ、の検証サイクルを回す
+- **検証コスト**: 4 段階それぞれで動作確認するため検証回数が増えるが、回帰時のロールバック範囲が小さい利点が大きい
+
+### [DECISION v13.1-03] コンポーネント間の依存方向を単方向に固定
+- **規則**:
+  ```
+  theme.js (依存なし)
+    ← utils.js
+      ← components/common/*
+        ← components/sections/* (v13.1.2 以降)
+          ← MarketMonitor.jsx
+  ```
+- **理由**: 循環参照の余地をゼロにする。逆方向の import を見つけたら設計ミスのシグナル
+- **検査コマンド**:
+  ```bash
+  grep -rn "from \"@/components/sections" src/{utils.js,theme.js,components/common} 2>/dev/null
+  ```
+  上記が何かヒットしたら違反。CI に組み込むかは v13.1.3 完了時に再検討
+- **検証実績 (v13.1.2)**: grep で違反ゼロを確認
+
+### [DECISION v13.1-04] `tone()` は utils.js に置く (色判定だが純関数優先)
+- **判断**: 色を返す関数だが utils.js 側に配置 (theme.js には置かない)
+- **理由**:
+  - `tone()` の本質は「数値の符号 → 何かを返す」ロジックで、戻り値が色なのは偶然
+  - theme.js は値の集合 (定数のみ)、utils.js は変換関数の集合、という線引きを保つ
+  - utils.js が theme.js を import する向きにすれば依存方向は単方向
+- **代替案**: theme.js に置く案もあったが、theme.js を「色のテーブル」だけに留めた方が将来の差し替えがしやすい
+
+### [DECISION v13.1-05] PALETTE は CSS 変数と二重定義のまま維持
+- **背景**: `index.css` の `:root` と `theme.js` の `PALETTE` で同じ値を 2 箇所書く
+- **理由**: Recharts や inline style は CSS 変数を直接読めないため、JS 値が必要
+  - HTML/CSS 側 (UI 全般): CSS 変数 `var(--accent)`
+  - JS 側 (Recharts の `stroke`, inline `style`): `PALETTE.accent`
+- **同期義務**: 値を変える時は両方を必ず一致させる。`theme.js` の冒頭コメントに明記
+- **将来**: CSS 変数を JS 側から `getComputedStyle(document.documentElement).getPropertyValue('--accent')` で読む手もあるが、SSR や初期描画前のレースを考えるとリスクが大きい。現状維持で良い
+
+---
+
 ## v13.0 で導入された決定
 
 ### [DECISION v13.0-01] 「土台拡充フェーズ」を機能追加と分離する

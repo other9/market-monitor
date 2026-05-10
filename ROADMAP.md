@@ -4,11 +4,11 @@
 バージョンが進むたびに、完了したものは「✅ 完了」マークを付け、
 変更があれば該当バージョンを編集する。
 
-最終更新: 2026-05-09 (v13.0 リリース時)
+最終更新: 2026-05-10 (v13.1.2 リリース時)
 
 ---
 
-## 現状認識 (v13.0 完了時点)
+## 現状認識 (v13.1.2 完了時点)
 
 Market Monitor は v12 系で機能拡充がひと段落し、
 
@@ -51,7 +51,7 @@ Market Monitor は v12 系で機能拡充がひと段落し、
 - [x] `ROADMAP.md` 新設 (この文書)
 
 **意図的にやらなかったこと**: 既存 `fetch_*.py` のリファクタは v13.0 では行わない。
-`common.py` の関数を呼ぶ形への置換は v13.1 で慎重に行う。
+`common.py` の関数を呼ぶ形への置換は v13.3 以降で慎重に行う。
 リスク管理として「土台を作る」と「土台に乗せ替える」を分離。
 
 ---
@@ -61,46 +61,77 @@ Market Monitor は v12 系で機能拡充がひと段落し、
 **目的**: `MarketMonitor.jsx` (約 1500 行) をセクション単位で分割し、
 セクション単位の改修・AI 補助の精度を上げる。
 
-### 計画
+### 進捗
 
-`src/components/` 配下に以下を配置:
+ROADMAP 当初の「3〜4 段階」を **4 段** に確定 (詳細は `DECISIONS.md` v13.1-02, v13.1.2-01)。
+
+#### v13.1.0 — 土台ファイル新設 ✅ 完了 (2026-05-10)
+
+- [x] `vite.config.js` に `@/` → `src/` のエイリアス追加
+- [x] `src/theme.js` 新設 — `PALETTE` / `FONT_MONO` / `CHART_UNIVERSE_LABELS`
+- [x] `src/utils.js` 新設 — `fmt` / `fmtPct` / `fmtSigned` / `tone` / `fmtDate` / `fmtDay` / `safe`
+- [x] `src/components/common/` 新設 — `Pct.jsx` / `Signed.jsx` / `MiniChart.jsx` / `StaleDataWarning.jsx` + barrel `index.js`
+- [x] `MarketMonitor.jsx` は **不変** (新ファイルは未使用、tree-shaking で除外されるためバンドル不変)
+
+#### v13.1.1 — MarketMonitor.jsx の import 付け替え ✅ 完了 (2026-05-10)
+
+- [x] 冒頭インライン定義 (`PALETTE`, `FONT_MONO`, `CHART_UNIVERSE_LABELS`, formatters, `Pct`, `Signed`, `MiniChart`, `StaleDataWarning`) を削除
+- [x] `@/utils`, `@/theme`, `@/components/common` から import に書き換え
+- [x] JSX 本体および各セクション関数 (`FeaturedChart`, `IndicesGroup`, `MacroBarometer`, ...) は不変
+- [x] **副次的バグ修正**: v13.1.0 の `theme.js` で `CHART_UNIVERSE_LABELS` の内容が実機と不一致だった問題を修正
+- [x] 行数削減: 1513 → 1263 行 (-250)
+
+#### v13.1.2 — セクションコンポーネント切り出し Phase 1 ✅ 完了 (2026-05-10)
+
+「独立性の高いセクションから先に」方針で、6 つを `src/components/sections/` に切り出し。
+挙動・見た目は完全不変 (ロジックの単純な lift-and-shift)。
+
+- [x] `MastheadSection.jsx` 新設 — Masthead + Epigraph + Ticker (3 ブロック統合、`nowJst`/`latestAsOf`/`tickerCells` を内包化)
+- [x] `EconomicChartSection.jsx` 新設 — 既存 `EconomicChart` を移動
+- [x] `DeepDiveSection.jsx` 新設 — 既存 `DeepDive` を移動
+- [x] `AlternativesSpotlightSection.jsx` 新設 — `ALT_IMPACT_CONFIG` + `AltCategoryCard` + `AlternativesSection` をまとめて移動
+- [x] `MarketMuseSection.jsx` 新設 — inline JSX → コンポーネント化、`museStories` 算出ロジックを内包
+- [x] `FooterSection.jsx` 新設 — inline JSX → コンポーネント化、`version` プロップ予約 (default `"v13.0"` で挙動不変)
+- [x] `src/components/sections/index.js` (barrel) 新設
+- [x] `MarketMonitor.jsx` から該当ブロックを削除し、import + 呼び出しに置換
+- [x] 行数削減: 1263 → 959 行 (-304)
+- [x] 依存方向 [DECISION v13.1-03] の単方向ルール維持を grep で検査済
+
+#### v13.1.3 — セクションコンポーネント切り出し Phase 2 (未着手)
+
+残り 8 セクションを順次抽出 (依存ルール上、共通サブコンポーネントを共有するため Phase 1 より中リスク):
 
 ```
-src/
-├── MarketMonitor.jsx               (ルート、各セクションを結線するだけに)
-├── components/
-│   ├── common/
-│   │   ├── Pct.jsx                 (前日比表示)
-│   │   ├── MiniChart.jsx           (汎用ミニチャート)
-│   │   ├── StaleDataWarning.jsx
-│   │   └── ...
-│   ├── MastheadSection.jsx
-│   ├── FeaturedChartsSection.jsx        (1)
-│   ├── MarketTableSection.jsx           (2)
-│   ├── MacroBarometerSection.jsx        (3)
-│   ├── FundingVolSection.jsx            (4)
-│   ├── ValuationsSection.jsx            (5)
-│   ├── CentralBanksSection.jsx          (6)
-│   ├── IndicatorChartsSection.jsx       (7)
-│   ├── NewsSection.jsx                  (8)
-│   ├── ListedAltsSection.jsx            (9)
-│   ├── DeepDiveSection.jsx
-│   ├── EconomicChartSection.jsx
-│   ├── AlternativesSpotlightSection.jsx
-│   ├── MarketMuseSection.jsx
-│   └── FooterSection.jsx
-├── utils.js                        (fmt, fmtDay 等の純関数)
-└── ...
+sections/
+├── FeaturedChartsSection.jsx        (1 本日の注目チャート — FeaturedChart 内包)
+├── MarketTableSection.jsx           (2 昨日の主要市場 — IndicesGroup 内包)
+├── SectorHeatmapSection.jsx         (2 のサブ — SectorHeatmap)
+├── MacroBarometerSection.jsx        (3 マクロ・バロメーター)
+├── FundingVolSection.jsx            (4 ボラティリティ・流動性)
+├── ValuationsSection.jsx            (5 バリュエーション・ゲージ)
+├── CentralBanksSection.jsx          (6 中央銀行ウォッチ)
+├── IndicatorChartsSection.jsx       (7 重要指標・5年チャート — inline JSX のため新規抽出)
+├── NewsSection.jsx                  (8 市場を動かしたニュース — inline JSX のため新規抽出)
+└── ListedAltsSection.jsx            (9 — ListedAltsPanel + ListedAltCard 内包)
 ```
 
-各 Section コンポーネントは props で必要なデータだけを受け取り、
-**MarketMonitor.jsx** は 200 行程度の薄いオーケストレータに縮小する。
+完了時点で `MarketMonitor.jsx` は **200 行程度の薄いオーケストレータ** になる予定。
 
-### リスクと対策
+**v13.1.3 は新しいチャットで開始** (context window 圧迫回避)。
+特に `FundingVolSection` と `ListedAltsSection` は Recharts チャート + 内部サブコンポーネントを抱えており、最後にやるのが安全。
 
-- **リスク**: 1500 行の分割で細かいバグが出やすい
-- **対策**: 1 セクションずつ抽出 → snapshot 取得 → 動作確認 → 次のセクション、を繰り返す
-  - 1 つの zip で全分割するのではなく、3〜4 段階に分けて v13.1 → v13.1.1 → v13.1.2 と進める
+### 依存方向の規則 (v13.1-03)
+
+```
+theme.js (依存なし)
+  ← utils.js
+    ← components/common/*
+      ← components/sections/*
+        ← MarketMonitor.jsx
+```
+
+逆方向の import を見つけたら設計ミスのシグナル。
+`grep -r "from \"@/components/sections" src/{utils.js,theme.js,components/common}` で違反検出可能。
 
 ### 期待効果
 

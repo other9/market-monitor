@@ -18,11 +18,22 @@ import { PALETTE, FONT_MONO, CHART_UNIVERSE_LABELS } from "@/theme";
 import { fmt, fmtPct, fmtSigned, tone, fmtDate, fmtDay, safe } from "@/utils";
 import { Pct, Signed, MiniChart, StaleDataWarning } from "@/components/common";
 
+// v13.1.2 で切り出した独立性の高いセクション (6本)
+import {
+  MastheadSection,
+  EconomicChartSection,
+  DeepDiveSection,
+  AlternativesSpotlightSection,
+  MarketMuseSection,
+  FooterSection,
+} from "@/components/sections";
+
 // =====================================================
-// MARKET MONITOR — v13.1.1
+// MARKET MONITOR — v13.1.2
 //   • v12: Section numbering, Stale Data warning, Funding & Volatility, Listed Alts
-//   • v13.1.0: theme/utils/common を別ファイル化 (新ファイル新設のみ)
-//   • v13.1.1: 上記モジュールから import するよう書き換え (このファイル)
+//   • v13.1.0–.1: theme/utils/common を別ファイル化 + import 付け替え
+//   • v13.1.2: Masthead / EconomicChart / DeepDive / Alternatives / Muse / Footer
+//             を @/components/sections/ に切り出し (このファイル)
 // =====================================================
 
 // ─────────────────────────────────────────
@@ -557,150 +568,6 @@ function SectorHeatmap({ sectors }) {
 }
 
 // ─────────────────────────────────────────
-// Economic chart of the day
-// ─────────────────────────────────────────
-function EconomicChart({ econ }) {
-  if (!econ || !econ.chart || !econ.chart.history || econ.chart.history.length === 0) return null;
-  const c = econ.chart;
-
-  const MAX_POINTS = 400;
-  const stride = Math.max(1, Math.floor(c.history.length / MAX_POINTS));
-  const sampled = c.history.length > MAX_POINTS
-    ? c.history.filter((_, i) => i % stride === 0 || i === c.history.length - 1)
-    : c.history;
-
-  const vals = sampled.map((d) => d.v);
-  const min = Math.min(...vals);
-  const max = Math.max(...vals);
-  const pad = (max - min) * 0.08;
-
-  const tickFormat = (v) => {
-    const p = v.split("-");
-    return p.length >= 2 ? `${p[0].slice(2)}/${p[1]}` : v;
-  };
-
-  return (
-    <div className="mm-econ-wrap">
-      <div className="mm-econ-kicker">▲ Economic Indicator · 今日の経済指標</div>
-      <div className="mm-econ-title">{c.title}</div>
-      <div className="mm-econ-subtitle">
-        {c.subtitle || c.units} · {c.frequency} · FRED: {c.series_id}
-      </div>
-      {c.rationale && <div className="mm-econ-rationale">{c.rationale}</div>}
-
-      <div className="mm-econ-last">
-        <span className="mm-econ-last-val">{fmt(c.last, 3)}</span>
-        {c.diff != null && (
-          <span className="mm-econ-last-diff" style={{ color: tone(c.diff) }}>
-            {fmtSigned(c.diff, 3)} (前回比)
-          </span>
-        )}
-      </div>
-
-      <div style={{ height: 240, marginLeft: -8 }}>
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={sampled} margin={{ top: 8, right: 8, left: 8, bottom: 0 }}>
-            <CartesianGrid stroke={PALETTE.border} strokeDasharray="2 4" vertical={false} />
-            <XAxis
-              dataKey="d"
-              tick={{ fontSize: 10, fill: PALETTE.muted, fontFamily: FONT_MONO }}
-              stroke={PALETTE.dim}
-              tickFormatter={tickFormat}
-              interval={Math.max(1, Math.floor(sampled.length / 8))}
-            />
-            <YAxis
-              tick={{ fontSize: 10, fill: PALETTE.muted, fontFamily: FONT_MONO }}
-              stroke={PALETTE.dim}
-              domain={[min - pad, max + pad]}
-              width={52}
-            />
-            <Tooltip
-              contentStyle={{ background: PALETTE.panel, border: `1px solid ${PALETTE.borderStrong}`, fontFamily: FONT_MONO, fontSize: 11, color: PALETTE.fg }}
-              labelStyle={{ color: PALETTE.muted }}
-              formatter={(v) => [fmt(v, 3), c.title]}
-            />
-            <Line
-              type="monotone"
-              dataKey="v"
-              stroke={PALETTE.accent2}
-              strokeWidth={2}
-              dot={false}
-              activeDot={{ r: 3, fill: PALETTE.accent2, stroke: PALETTE.panel }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-
-      <div className="mm-econ-meta">
-        期間 {c.period_years}年 · 取得 {c.asOf} · {c.official_title || "FRED"}
-      </div>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────
-// Deep Dive
-// ─────────────────────────────────────────
-function DeepDive({ article, chartUniverse, cadence }) {
-  if (!article || !article.title) return null;
-
-  const relatedLabels = (article.related_keys || [])
-    .slice(0, 4)
-    .map((k) => {
-      const item = chartUniverse.find((c) => c.key === k);
-      return item ? item.name : k;
-    });
-
-  const cadenceMode = cadence?.mode || "daily";
-  const kicker = cadenceMode === "weekly_review" ? "▨ Deep Dive · 週次総括"
-    : cadenceMode === "monthly_review" ? "▨ Deep Dive · 月次総括"
-    : "▨ Deep Dive · 今日の深掘り";
-
-  return (
-    <div className="mm-deepdive">
-      <div className="mm-deepdive-kicker">{kicker}</div>
-      <h2 className="mm-deepdive-title">{article.title}</h2>
-      {article.lede && <p className="mm-deepdive-lede">{article.lede}</p>}
-
-      <div className="mm-deepdive-grid">
-        <div>
-          <div className="mm-deepdive-section-head">— 背景</div>
-          <div className="mm-deepdive-body">{article.background}</div>
-        </div>
-        <div>
-          <div className="mm-deepdive-section-head">— 市場への含意</div>
-          <div className="mm-deepdive-body">{article.implications}</div>
-        </div>
-      </div>
-
-      {article.what_to_watch && article.what_to_watch.length > 0 && (
-        <div>
-          <div className="mm-deepdive-section-head">— 注視すべきポイント</div>
-          <ul className="mm-deepdive-watch">
-            {article.what_to_watch.map((w, i) => <li key={i}>{w}</li>)}
-          </ul>
-        </div>
-      )}
-
-      {relatedLabels.length > 0 && (
-        <div className="mm-deepdive-related">
-          <span className="mm-deepdive-related-label">関連指標</span>
-          {relatedLabels.map((label, i) => (
-            <span key={i} className="mm-deepdive-related-chip">{label}</span>
-          ))}
-        </div>
-      )}
-
-      {article.link && (
-        <div className="mm-deepdive-source">
-          ソース: <a href={article.link} target="_blank" rel="noopener noreferrer">{article.source || "元記事"}</a>
-        </div>
-      )}
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────
 // Valuation Section
 // ─────────────────────────────────────────
 function ValuationSection({ valuations }) {
@@ -876,92 +743,6 @@ function CentralBankWatch({ watch, factsByCode }) {
   );
 }
 
-// ─────────────────────────────────────────
-// Alternatives Spotlight (PE/PD + Real Assets)
-// ─────────────────────────────────────────
-const ALT_IMPACT_CONFIG = {
-  positive: { label: "POSITIVE", className: "positive", arrow: "▲" },
-  negative: { label: "NEGATIVE", className: "negative", arrow: "▼" },
-  neutral:  { label: "NEUTRAL",  className: "neutral",  arrow: "■" },
-};
-
-function AltCategoryCard({ view, title, subtitle }) {
-  if (!view || !view.body) return null;
-  const paragraphs = view.body.split(/\n\n+|\n/).map((p) => p.trim()).filter(Boolean);
-  const impactKey = (view.impact || "neutral").toLowerCase();
-  const impactCfg = ALT_IMPACT_CONFIG[impactKey] || ALT_IMPACT_CONFIG.neutral;
-  const sources = view.sources || [];
-
-  return (
-    <div className="mm-alt-card">
-      <div className="mm-alt-card-head">
-        <div>
-          <div className="mm-alt-card-title">{title}</div>
-          {subtitle && <div className="mm-alt-card-subtitle">{subtitle}</div>}
-        </div>
-        <div className={`mm-alt-impact mm-alt-impact-${impactCfg.className}`}>
-          <span className="mm-alt-impact-arrow">{impactCfg.arrow}</span>
-          <span className="mm-alt-impact-label">{impactCfg.label}</span>
-        </div>
-      </div>
-
-      {view.impact_summary && (
-        <div className={`mm-alt-impact-summary mm-alt-impact-${impactCfg.className}-bg`}>
-          {view.impact_summary}
-        </div>
-      )}
-
-      <div className="mm-alt-body">
-        {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
-      </div>
-
-      {sources.length > 0 && (
-        <div className="mm-alt-sources">
-          <div className="mm-alt-sources-label">— ソース</div>
-          <ul className="mm-alt-sources-list">
-            {sources.map((s, i) => (
-              <li key={i}>
-                <a href={s.link} target="_blank" rel="noopener noreferrer" className="mm-alt-source-link">
-                  <span className="mm-alt-source-title">{s.title}</span>
-                  {s.source && <span style={{ fontSize: 10, color: PALETTE.muted, marginLeft: 6 }}>— {s.source}</span>}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function AlternativesSection({ pePd, realAssets }) {
-  if (!pePd && !realAssets) return null;
-
-  return (
-    <div className="mm-alt-wrap">
-      <div className="mm-alt-kicker">▨ Alternatives Spotlight · オルタナティブの今</div>
-      <h2 className="mm-alt-title">プライベート市場ウォッチ</h2>
-      <p className="mm-alt-lede">
-        PE・PD と 不動産・インフラの2カテゴリーを、初心者向けに丁寧に解説。
-        各カードに「マーケットへのインパクト方向」と一言サマリ付き。
-      </p>
-
-      <div className="mm-alt-grid">
-        <AltCategoryCard
-          view={pePd}
-          title="PE / PD"
-          subtitle="プライベート・エクイティ&デット"
-        />
-        <AltCategoryCard
-          view={realAssets}
-          title="不動産 / インフラ"
-          subtitle="Real Assets"
-        />
-      </div>
-    </div>
-  );
-}
-
 // =====================================================
 // MAIN
 // =====================================================
@@ -997,27 +778,12 @@ export default function MarketMonitor() {
   if (error) return <div className="mm-root"><div className="mm-error">データ読み込みエラー: {error}</div></div>;
   if (!market || !news) return <div className="mm-root"><div className="mm-loading">Loading market data…</div></div>;
 
-  const pickTicker = (name) => market.indices.find((r) => r.name === name);
-  const tickerCells = [
-    { n: "日経平均", data: pickTicker("日経平均") },
-    { n: "S&P 500", data: pickTicker("S&P 500") },
-    { n: "USD/JPY", data: pickTicker("USD/JPY") },
-    { n: "WTI", data: pickTicker("WTI原油") },
-  ];
-
+  // 主要市場テーブル用のグループ分け (本ファイルにある IndicesGroup でそのまま使う)
   const groups = ["株式", "為替", "金利", "コモディティ", "ボラティリティ"];
   const byGroup = groups
     .map((g) => ({ title: g, rows: market.indices.filter((r) => r.group === g) }))
     .filter((g) => g.rows.length > 0);
-  const asOfList = market.indices.map((i) => i.asOf).filter(Boolean).sort();
-  const latestAsOf = asOfList.at(-1) || "—";
 
-  const nowJst = new Date().toLocaleDateString("ja-JP", {
-    timeZone: "Asia/Tokyo",
-    year: "numeric", month: "long", day: "numeric", weekday: "long",
-  });
-
-  const museStories = news.funny_stories || (news.funny_story ? [news.funny_story] : []);
   const cadence = news.cadence || { mode: "daily" };
 
   return (
@@ -1025,51 +791,8 @@ export default function MarketMonitor() {
       {/* Stale Data Warning */}
       <StaleDataWarning market={market} news={news} />
 
-      {/* Masthead */}
-      <header style={{ marginBottom: 18 }}>
-        <div className="mm-masthead-meta">
-          <span>Market Monitor · 東京版</span>
-          <span>{nowJst}</span>
-          <span>As of {latestAsOf} close</span>
-        </div>
-        <div style={{ borderTop: `1px solid ${PALETTE.borderStrong}`, margin: "12px 0 14px 0" }} />
-        <div className="mm-masthead-main">
-          <h1 className="mm-title">
-            <em>Market</em><br />Monitor<span style={{ color: PALETTE.accent }}>.</span>
-          </h1>
-          <p className="mm-lede">
-            {news.headline_of_the_day || "本日のマーケット総括"}。<br />
-            主要指標・マクロ指標・Claude が選ぶ注目チャート・ニュース7本を掲載。
-          </p>
-        </div>
-        <div style={{ borderTop: `3px double ${PALETTE.borderStrong}`, margin: "18px 0 0 0" }} />
-      </header>
-
-      {/* Epigraph */}
-      {news.epigraph && (
-        <div className="mm-epigraph">
-          <div className="mm-epigraph-quote">{news.epigraph.quote}</div>
-          <div className="mm-epigraph-source">{news.epigraph.source}</div>
-          {news.epigraph.connection && (
-            <div className="mm-epigraph-connection">— {news.epigraph.connection}</div>
-          )}
-        </div>
-      )}
-
-      {/* Ticker */}
-      <div className="mm-ticker">
-        {tickerCells.map((x, i) => (
-          <div key={i} className="mm-ticker-cell">
-            <div className="mm-ticker-label">{x.n}</div>
-            <div className="mm-ticker-row">
-              <div className="mm-ticker-val">
-                {x.data ? fmt(x.data.close, x.data.close > 1000 ? 2 : 3) : "—"}
-              </div>
-              <Pct n={x.data?.day} big />
-            </div>
-          </div>
-        ))}
-      </div>
+      {/* Masthead + Epigraph + Ticker (v13.1.2) */}
+      <MastheadSection news={news} market={market} />
 
       {/* 1. Featured charts */}
       {featured?.featured && featured.featured.length > 0 && (
@@ -1214,50 +937,23 @@ export default function MarketMonitor() {
       {/* 9. Listed Alternatives Proxies (NEW) */}
       <ListedAltsPanel alts={listedAlts} />
 
-      {/* Deep Dive article */}
-      <DeepDive article={news.deep_dive} chartUniverse={CHART_UNIVERSE_LABELS} cadence={cadence} />
+      {/* Deep Dive article (v13.1.2) */}
+      <DeepDiveSection article={news.deep_dive} chartUniverse={CHART_UNIVERSE_LABELS} cadence={cadence} />
 
-      {/* Economic indicator chart (daily pick) */}
-      <EconomicChart econ={economic} />
+      {/* Economic indicator chart (daily pick) (v13.1.2) */}
+      <EconomicChartSection econ={economic} />
 
-      {/* Alternatives Spotlight */}
-      <AlternativesSection
+      {/* Alternatives Spotlight (v13.1.2) */}
+      <AlternativesSpotlightSection
         pePd={news.pe_pd_view}
         realAssets={news.real_assets_view}
       />
 
-      {/* Market Muse (3 cards) */}
-      {museStories.length > 0 && (
-        <div>
-          <div className="mm-muse-header">
-            <div className="mm-section-tag">▨ Market Muse</div>
-            <div className="mm-section-head"><em>クスッと、</em> 市場の小話 三題。</div>
-            <div className="mm-section-lede">市場の小話・観察・人間味の三題。</div>
-          </div>
-          <div className="mm-muse-grid">
-            {museStories.slice(0, 3).map((s, i) => (
-              <div key={i} className="mm-muse-card">
-                <div className="mm-muse-kind">— {s.kind || ["皮肉", "人間味", "観察"][i] || "小話"}</div>
-                <div className="mm-muse-title">{s.title}</div>
-                <div className="mm-muse-body">{s.body}</div>
-                {s.link && (
-                  <div>
-                    <a href={s.link} target="_blank" rel="noopener noreferrer" className="mm-muse-link">
-                      {s.source || "記事元"}
-                    </a>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      {/* Market Muse (v13.1.2) */}
+      <MarketMuseSection news={news} />
 
-      {/* Footer */}
-      <footer className="mm-footer">
-        <div>Market Monitor · 東京版 · v13.0 · auto-updated 08:00 JST</div>
-        <div>Data: yfinance / FRED / Anthropic Claude API</div>
-      </footer>
+      {/* Footer (v13.1.2) */}
+      <FooterSection />
     </div>
   );
 }
