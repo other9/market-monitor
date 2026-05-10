@@ -1,159 +1,117 @@
 {
-  "generatedAt": "2026-05-10T11:10:00.175696+00:00",
+  "generatedAt": "2026-05-10T11:59:42.546251+00:00",
   "cadence": {
     "mode": "daily",
     "label": "通常",
     "context": ""
   },
   "epigraph": {
-    "quote": "戦争においては、勝利者は買い手の手に、敗北者は売り手の手にある。",
-    "source": "ジェシー・リバモア『投機の王者』",
-    "connection": "ホルムズ海峡の緊張で原油・LNGが動揺する一方、株式は最高値圏。市場の値付けは恐怖と強欲のあいだで揺れている。"
+    "quote": "市場は短期的には投票機だが、長期的には体重計である。",
+    "source": "ベンジャミン・グレアム『賢明なる投資家』",
+    "connection": "イラン戦争による原油バッファー枯渇、関税の重圧、AI/半導体の決算サプライズが交錯する中で、株価は最高値を更新。短期の熱狂と長期のファンダメンタルズの乖離を意識すべき局面。"
   },
-  "headline_of_the_day": "ホルムズ緊迫、株は最高値の綱渡り",
+  "headline_of_the_day": "原油逼迫と決算好調、最高値の綱渡り",
   "news": [
     {
-      "tag": "地政学",
-      "headline": "米、イラン回答待ち ホルムズ衝突で停戦に綻び",
-      "body": "米政府はホルムズ海峡を巡るイランからの回答を待つ局面。アラムコは「海峡再開は短期解決にあらず」と警告し、英国は警戒のため軍艦を中東に派遣。緊張は原油バッファを史上稀なペースで枯渇させているとの指摘も出ている。",
+      "tag": "地政学・原油",
+      "headline": "イラン戦争で世界の原油バッファー過去最速で枯渇",
+      "body": "ホルムズ海峡を巡る緊張で各国の余剰生産能力と備蓄が前例のないペースで取り崩されている。米国はイランの回答を待つ一方、英国は軍艦をホルムズに派遣、カタールは戦争開始以来初のLNG出荷を実施。",
       "impact": [
-        "原油高止まり",
-        "中東リスクプレミアム拡大",
-        "防衛・タンカー関連物色"
+        "原油価格の高止まり",
+        "エネルギー株上昇圧力",
+        "インフレ再燃懸念"
       ],
-      "source_index": 46,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNMTJOQ0VyempuN2w0bjhvRzkxYUxIREdqMGtuZFhaWjRoMGVpbWFxNzctU1owaDU2c2N5ZThqcElrYm1JU0xEcDF2QVNWNDl6T3dudUZPNDBuamNQMHpHalpYMVl6QVA4QzFDeHJqUmU2LWVZaGlXclU3QnlnajVXT3ZLOVdtSE1ENnJnbUVwcjI0MVBIYjBZbzZOUXdjM0F5cF95Z1hNZlZXc2JrcDRVNG1oSk4?oc=5",
+      "source_index": 55,
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdmZYb0dtYlpySkRlWUhtR1ZSSkViNV96OTdMdHFGQWtNSEJVTnNLZDBfLWZTaHdYcUgzSXNaaU9rY05MQ1gyTF93aWVnMGtwX3VqR3R4SEdlNXIwRDE0LUl0ZTctWldOcGJwYVJlYVpCOS1seFlkdGYzMTlqcy11bThlMXFaMXllNkZXVnpqSno3RmI5TXJsY2hSMi1FWHNvOEptZnJ3UHIwRDJweVZvR3hB?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "エネルギー",
-      "headline": "カタール、開戦後初のLNGをホルムズ経由で出荷",
-      "body": "カタールが戦争開始以来初めてホルムズ海峡を通じてLNG出荷を実施。物流の部分的正常化を示す一方、ロシア籍タンカーが米制裁対象ガスを積載した模様との報道もあり、エネルギー供給網の歪みは継続。",
+      "tag": "決算・米株",
+      "headline": "予想外の決算ラッシュが米株最高値更新を演出",
+      "body": "誰も予想しなかった企業利益の伸びが米株のラリーを支え、S&P500は記録更新。半導体株は依然として勢いを失わず、トレーダーは次のリーダーをアジアに求めている。",
       "impact": [
-        "LNG価格の振れ",
-        "欧州ガス需給に影響",
-        "制裁網の実効性に疑問"
+        "S&P500最高値更新",
+        "アジア株への資金流入",
+        "半導体セクター強気継続"
       ],
-      "source_index": 47,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQS1lxMXJZMFNDWFhjdWtCSzczZkwwODB2ZlU5Q2VmamhNWk5Sdmk5TldSak5wZVNrV1F4NWw3eHBhaWZKdnViVk4zTzk0SEhTaDVVa3dXRzBnNTZQZXhXM1A5NUFhcTBfb0dfWklvMS1ubkJCdGQ1RlVybVZuRjFjOUJtT3ZndVNnNE1CQjhPXzJFTUh6Y2pHM0VwY1ZkTkRTT29wOTB0SzgzVTQ4SW5ZMGxoMEY?oc=5",
-      "source": "Bloomberg (via Google)"
-    },
-    {
-      "tag": "決算",
-      "headline": "サウジアラムコ、戦時の原油高で増益 輸出減を相殺",
-      "body": "アラムコ決算は、イラン戦争による原油価格上昇とパイプライン経由の出荷拡大が、ホルムズ経由輸出減少を相殺し増益。世界最大の産油会社の収益構造が地政学プレミアムに支えられている構図が鮮明に。",
-      "impact": [
-        "エネルギー株の支援材料",
-        "産油国財政の改善",
-        "原油デカップリング進行"
-      ],
-      "source_index": 113,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQUy0tSGN4NFV6YWQ1YVdYZGNEYmRjaWtvb0JmWVo3WEFGVENZOF80b3FuOFBGRmZHRWw1Tm1mNmFOakdwMHNZbGVQN3hJT3hZaUhJWTl1NVJKLUMyd1djX1FHTU5Pc3Z6Yy11MkZ6NlZwdndYVFJheFh0Wm1DSnQ2czJPQjM?oc=5",
-      "source": "Financial Times (via Google)"
-    },
-    {
-      "tag": "米株式",
-      "headline": "予想外の決算ラッシュが米株を最高値へ押し上げ",
-      "body": "ウォール街が見落としていた強い企業業績が、株式の連騰を支えている。半導体株は減速の兆しなく上昇継続。アジアへの次の脚を狙う動きも出始め、グローバルラリーの主役交代が議論されている。",
-      "impact": [
-        "S&P500最高値圏維持",
-        "リスクオン継続",
-        "アジア株への資金回帰観測"
-      ],
-      "source_index": 66,
+      "source_index": 63,
       "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNdjZYWmlhS04yTWZrTXFncU5DcWgyR1RXSUM5NFRYclZTUVJsMTJxVUJaWUdna1pib09oTVl6NWFnSzNRV0MwQ0RVcWE4WTZWSzJyZ0JXOS00NWtxcGxMdENwazdjaDhwT1VEdjdZeXlEa3U2NHR6Rnd0UUc4V1ozR1NyZUYxTnVhbVdjQjJvbkdNcGt2YmVSV2tZM2VHSTByRml0RzlHUlVuY3R2anNJb2Z2cE8?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "通商",
+      "tag": "関税・欧州",
       "headline": "欧州自動車メーカー、トランプ関税で80億ユーロの打撃",
-      "body": "FT報道によれば欧州主要自動車メーカーはトランプ関税で合計80億ユーロの収益毀損。一方FT世論調査では米有権者の過半が大統領の経済運営を不支持と回答し、関税政策の国内政治コストも顕在化しつつある。",
+      "body": "FT報道によれば、欧州主要カーメーカーはトランプ政権の関税により総額80億ユーロの負担を被った。米国の貿易政策が世界の製造業マージンに本格的に効き始めている。",
       "impact": [
-        "欧州自動車株に重し",
-        "EUR/USD不安定化",
-        "関税継続リスクの再評価"
+        "欧州自動車株下押し",
+        "EU-米通商緊張",
+        "サプライチェーン再編加速"
       ],
-      "source_index": 97,
+      "source_index": 94,
       "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNVklQZU5EOGl4Yk5vTHlKLWZXaUprX3NNVXJrSFp4X3BMYlJtdnU2ZXFIVUR1cy1HLVE5OE80VlhfaHpSUTVORGdkRVhJOEdtbjRocDlEZWVyTHc0cjNuQmE4c2xjMWdnZFdNTzlmMHdUdHpwcmF5b0ZsSXdyYUktSjFraDk?oc=5",
       "source": "Financial Times (via Google)"
     },
     {
-      "tag": "為替",
-      "headline": "投機筋の円売り越し縮小、CFTCデータ",
-      "body": "5日までのCFTC週間データで投機筋の円売り越しポジションが縮小。日銀の追加正常化観測と地政学リスクが安全通貨需要を後押し。ドル円のキャリー解消圧力が緩やかに継続している。",
+      "tag": "原油・企業",
+      "headline": "サウジ・アラムコ増益、原油高がイラン戦争の輸出減を相殺",
+      "body": "アラムコは戦時下の原油価格上昇とパイプライン稼働により利益を伸ばした。一方でホルムズ正常化は短期では見込めず、構造的な供給リスクを示唆。",
       "impact": [
-        "ドル円の上値重く",
-        "円キャリー巻き戻し警戒",
-        "日本株への逆風"
+        "エネルギー株底堅さ",
+        "中東配当銘柄に追い風",
+        "原油高シナリオ継続"
       ],
-      "source_index": 8,
-      "link": "https://jp.reuters.com/opinion/NRS35NPQC5OJVEGFUXSG2ORMWI-2026-05-09/",
-      "source": "Reuters Japan Markets"
+      "source_index": 111,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQUy0tSGN4NFV6YWQ1YVdYZGNEYmRjaWtvb0JmWVo3WEFGVENZOF80b3FuOFBGRmZHRWw1Tm1mNmFOakdwMHNZbGVQN3hJT3hZaUhJWTl1NVJKLUMyd1djX1FHTU5Pc3Z6Yy11MkZ6NlZwdndYVFJheFh0Wm1DSnQ2czJPQjM?oc=5",
+      "source": "Financial Times (via Google)"
     },
     {
-      "tag": "中国",
-      "headline": "中国、地方政府債務のデリスキングを推進と表明",
-      "body": "中国政府は地方政府の債務リスク解消を引き続き進めると表明。第1四半期の婚姻登録件数は過去最低となり構造的な需要弱化も浮き彫りに。米中首脳会談も控え、株式トレーダーは航路を慎重に検討中。",
+      "tag": "米中・政治",
+      "headline": "トランプ・習会談を前に株式トレーダーが身構える",
+      "body": "高ステークスの米中首脳会談を前に、市場参加者はテクノロジー輸出規制や関税緩和の可能性を織り込み始めた。中国は地方政府債務削減の取り組み加速も表明。",
       "impact": [
-        "香港株の方向感まちまち",
-        "人民元の安定化策織り込み",
-        "コモディティ需要見通しに影響"
+        "中国株ボラ拡大",
+        "半導体規制関連株変動",
+        "アジア通貨に影響"
       ],
-      "source_index": 63,
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPbDlsMmJVR0lCY0JEc3hpa1NnR1lCd3FzN1d1VHFpTF9HdjRjTVd4RHNWa25jb2lLNnRqMXNWMHI4M3FTUW15dVQzMjQ0eWJIaFRHY2xSYk4xc2ZYcnZlQUxFa2FwaWJxUldLMklzcENjZnZSa1FOSkxZeE5kSGxSVEdiUm0zOHVqdXVDY1FFTlZNM2M5Q010bnRDOVlKVmpiMmFOYklWS0FpYmF0STdLN2VB?oc=5",
-      "source": "Bloomberg (via Google)"
-    }
-  ],
-  "funny_stories": [
-    {
-      "kind": "皮肉",
-      "title": "弱気相場でラップダンス",
-      "body": "暗号資産業界は弱気相場のど真ん中で、ラップダンス付きのパーティーを開いていたという。BTCのチャートが沈むほど、業界のパーティー予算は不思議と上振れる。「強気相場で稼ぎ、弱気相場で踊る」――それが第二の格言になりつつあるのかもしれない。",
-      "source_index": 65,
-      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSkxCeGxzN2RlXzFGejhwWmI1M2NRZjRYQ3VaNWlBQ3FRWl9SSG55Q0FfcXhjeXdnYllJZGE5X0pvbmFhMmtwZm01YnZkLVJTbDBTWmZudHI2cFZnaHFfbU5zdXRZYVpZbDMxeDQyUG4xUHBoTkViR05aaFF5emVsVzlDYmNlOFVWU3J2ZWhzRUtQWWJMRkR4ZnM2VmtvLXlCd2lDeGg3YXZrTjZROFhIM0ZQWlE?oc=5",
+      "source_index": 52,
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQNXVFQU1lUjZaRmM2ZzAtN2J1RmZGVU83d2UyOTdIRjhkRWNSbEdUVldSWWpVWHlnVUVUUTFvQTZkczljRmMtcUloYTltYnp3S0RBa2lDbkFDNm9xTTdGS21HY1c1WDQtT19ocjZkenh2bWd2NzhuYnFLR29oNGg3Y09vLVpFOGNzbFNFY0ZHSk5JOFBFVXQ0UXFzRjVLRVlzWjN5Z3JQZXhram5yV1dsazB3?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "kind": "哀愁",
-      "title": "スピリット航空が消え、遠距離恋愛も終わる",
-      "body": "100ドル以下の格安便で恋人に会いに行っていたカップルたちが、Spirit航空の終焉に静かに泣いている。結婚式、葬儀、同窓会、そして週末の逢瀬――その全てを支えていたのは、座席が硬くて有料の機内Wi-Fiも遅い、あの黄色い飛行機だった。資本主義の効率化は、時に人の心の航路を閉ざす。",
-      "source_index": 17,
-      "link": "https://www.marketwatch.com/story/spirits-cheap-flights-kept-long-distance-relationships-alive-now-these-couples-are-scrambling-to-stay-connected-ca7e4745?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
+      "tag": "米経済・政策",
+      "headline": "米有権者の過半数がトランプの経済運営を不支持—FT世論調査",
+      "body": "FT調査でトランプの経済運営を「不支持」とする回答が過半数を超え、消費者にはインフレへの警戒感が根強く残る。インフレ圧力と政策不信が政権の手足を縛る。",
+      "impact": [
+        "ドル指数の重し",
+        "中間選挙までのリスクプレミアム上昇",
+        "金の支援材料"
+      ],
+      "source_index": 93,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOdUJQOEJmb0FfSHlUdWphNnlWM0x0ZmdYek1HdDU2S29pT0xxRFRoNEhFZk4zeDF1SmR1ckF0VlJyZ09DR29ndmhyRTNib05aS0o1bHNOTFlBaTFXekdJbWVuVmVvczJlSjlVUDRkanhSSTlqMV9JbHVkcE42ZlRJNl9acVM?oc=5",
+      "source": "Financial Times (via Google)"
     },
     {
-      "kind": "観察",
-      "title": "AIの最高位は職務記述書なし",
-      "body": "AnthropicからスタートアップまでがこぞってMember of Technical Staffを募集している。ところが、その役割が何なのかは誰も明確に説明できないらしい。報酬は破格、肩書はミステリー。AI業界では「やることが定義できないことこそ、最も儲かる」という新しい労働経済学が誕生しつつある。",
-      "source_index": 12,
-      "link": "https://www.marketwatch.com/story/the-most-prestigious-job-in-ai-has-no-description-d517601f?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
+      "tag": "オルタナ・市場心理",
+      "headline": "個人投資家、プライベートエクイティに冷ややか",
+      "body": "市場の動揺がオルタナ商品に波及し、リテールマネーのPE離れが鮮明に。リスクオン継続の裏で、流動性の薄い領域では先行きへの懐疑が広がっている。",
+      "impact": [
+        "上場PEプロキシに売り圧力",
+        "オルタナ募集の鈍化",
+        "BDC・REITスプレッド注視"
+      ],
+      "source_index": 104,
+      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPRFR2RU5oOG5PdVJrMFdWR0FHbU5pbUttZ2QwQWJIT1dFWWJkeXdKdHNEdEtIVnpVbm5PSnJIVFVSeWc3dmQ0WXRWZmRObzFMb1hKSWdRd1Y0SDZib3ZFaFFsNmVxM2YzZUpQY0hoVHdncjFoM3F5RXo3c0JBRlU5ZUlIeU4?oc=5",
+      "source": "Financial Times (via Google)"
     }
   ],
   "charts_of_the_day": [
-    {
-      "source": "yf",
-      "ticker": "CL=F",
-      "title": "WTI原油",
-      "name": "WTI原油",
-      "sub": "$/bbl · NY先物",
-      "rationale": "ホルムズ海峡の緊張とアラムコ決算で原油プレミアムの動向が最重要。"
-    },
     {
       "source": "yf",
       "ticker": "BZ=F",
       "title": "Brent原油",
       "name": "Brent原油",
       "sub": "$/bbl · 北海先物",
-      "rationale": "中東リスクが直接反映される国際指標としてWTIと並んで必見。"
-    },
-    {
-      "source": "fred",
-      "ticker": "DHHNGSP",
-      "title": "天然ガス",
-      "name": "天然ガス (Henry Hub)",
-      "sub": "$ / MMBtu",
-      "rationale": "カタールLNG出荷再開と制裁ガス報道で需給見通しが揺れている。"
+      "rationale": "ホルムズ緊張継続と原油バッファー枯渇報道。中東地政学の最前線指標。"
     },
     {
       "source": "yf",
@@ -161,31 +119,31 @@
       "title": "S&P 500",
       "name": "S&P 500",
       "sub": "INDEX · USD",
-      "rationale": "想定外の決算ラッシュで最高値圏。地政学とのデカップリングを観察。"
+      "rationale": "予想外の決算ラッシュで最高値更新中。米株ラリー検証。"
     },
     {
       "source": "yf",
       "ticker": "^SOX",
-      "title": "SOX (半導体)",
+      "title": "SOX半導体指数",
       "name": "SOX (半導体)",
       "sub": "INDEX · USD",
-      "rationale": "WSJが半導体ジャガーノートの勢いを指摘、ラリーの中核。"
+      "rationale": "WSJ「半導体株の勢い止まらず」。AI/データセンター需要の温度計。"
     },
     {
       "source": "yf",
-      "ticker": "JPY=X",
-      "title": "USD/JPY",
-      "name": "USD/JPY",
-      "sub": "ドル円",
-      "rationale": "CFTC円売り越し縮小、円キャリー巻き戻しの兆しを確認。"
+      "ticker": "2222.SR",
+      "title": "サウジ・アラムコ",
+      "name": "サウジ・アラムコ",
+      "sub": "",
+      "rationale": "戦時原油高で増益決算。中東エネルギーの代表銘柄。"
     },
     {
       "source": "yf",
-      "ticker": "^VIX",
-      "title": "VIX",
-      "name": "VIX",
-      "sub": "恐怖指数",
-      "rationale": "最高値圏と地政学リスクの板挟みでボラの織り込みを見たい。"
+      "ticker": "STLA",
+      "title": "ステランティス",
+      "name": "ステランティス",
+      "sub": "",
+      "rationale": "欧州自動車メーカー80億ユーロの関税打撃の象徴。"
     },
     {
       "source": "yf",
@@ -193,64 +151,72 @@
       "title": "ハンセン指数",
       "name": "ハンセン指数",
       "sub": "INDEX · HKD",
-      "rationale": "中国の地方債対策と米中首脳会談を控え、アジア株の温度感を確認。"
+      "rationale": "トランプ・習会談を前にアジア株が次のリーダー候補と目される。"
+    },
+    {
+      "source": "yf",
+      "ticker": "^TNX",
+      "title": "米10年債利回り",
+      "name": "米10年債利回り",
+      "sub": "%",
+      "rationale": "原油高・インフレ警戒・最高値更新の3要素を映す金利の本丸。"
+    },
+    {
+      "source": "yf",
+      "ticker": "PSP",
+      "title": "上場PE (PSP)",
+      "name": "上場PE (PSP)",
+      "sub": "",
+      "rationale": "個人投資家のPE離れ報道。オルタナ需要の代理指標。"
     }
   ],
   "deep_dive": {
-    "title": "ホルムズ封鎖リスクと最高値株式の不協和音",
-    "lede": "中東で原油バッファが史上最速で枯渇する一方、米株は決算好調で最高値更新。地政学プレミアムと業績相場が共存する異例の局面を読み解く。",
-    "background": "イラン戦争の継続でホルムズ海峡の通航は不安定化し、米国はイランからの回答を待つ膠着状態。アラムコは「海峡の正常化は短期解決にならない」と警告し、英国は警戒のため軍艦を派遣、カタールが戦争開始後初めてLNGを通過させるなど、供給網は綱渡りで動いている。世界の原油在庫バッファは前例のないペースで取り崩されているとの指摘もある。一方で米企業決算は予想外に堅調で、半導体株を中心に株式市場は最高値を更新。エネルギー価格の上昇がアラムコなど産油側の収益を押し上げる構図も鮮明だ。",
-    "implications": "短期的には、原油の供給ショックが顕在化すれば、最高値圏のリスク資産はバリュエーション調整を強いられる可能性がある。特にエネルギーコストに敏感な欧州自動車（既にトランプ関税で80億ユーロの打撃）や輸送・化学セクターは脆弱だ。中期的には、地政学プレミアムが恒常化すればインフレ期待の再上昇を通じてFed利下げ余地を狭め、長期金利の上昇圧力に転じうる。逆にホルムズ通航が安定化すれば、リスクプレミアムの剥落でリスク資産は更なる上値追いも。投資家は「決算のサプライズ」と「地政学のテイルリスク」のどちらが先に主役になるかを見極める必要がある。",
+    "title": "ホルムズ海峡緊迫化、世界の原油バッファーを蝕む",
+    "lede": "イラン戦争でホルムズ海峡の緊張が続き、世界の余剰原油在庫は前例ないペースで減少。Aramco増益とLNG再開の裏で、原油・インフレ・地政学リスクが市場を揺らす。",
+    "background": "中東情勢を巡る最大の焦点はホルムズ海峡だ。米国はイランの停戦受け入れの返答を待っているが、海峡では衝突が続き停戦は不安定なまま。Bloombergによれば、イラン戦争は世界の原油バッファーを「前例ない速度」で消費しており、Aramcoは戦争による原油高がパイプライン経由の輸出減を相殺し増益を確保した。一方カタールは戦争開始以来初のLNG出荷をホルムズ経由で再開、英国は警戒任務のため軍艦を派遣、パナマ運河の収入も最大15%増加するなど、海上物流の再編が進む。世界で最も使用される化学品である硫酸も供給逼迫が報じられ、産業サプライチェーンへの波及も顕在化しつつある。",
+    "implications": "短期的にはホルムズ海峡の不確実性が原油価格にリスクプレミアムを上乗せし、エネルギー株とインフレ連動資産の追い風となる。米CPIの粘着性が指摘される中、エネルギー高は実質金利低下圧力と期待インフレ上昇を同時に招き、Fedの利下げ織り込みを複雑化させる。中期的には、海峡封鎖シナリオが現実化すれば原油100ドル超への急騰とリスクオフが避けられず、VIX急伸・ドル高・新興国スプレッド拡大が想定される。一方、停戦が定着すれば溜まったショートカバーで株式の record run が継続する可能性も高く、シナリオ分岐に応じたポジション設計が問われる局面だ。",
     "what_to_watch": [
-      "イランの公式回答と停戦の維持可否",
-      "ホルムズ海峡通航量と原油在庫の週次データ",
-      "米CPI・PCEを通じた地政学起因のインフレ波及",
-      "S&P500決算サプライズ率と利益見通し改定",
-      "VIXとMOVEの乖離（株式と債券のリスク認識の差）"
+      "イランの停戦正式受諾の有無と米側の対応",
+      "ホルムズ海峡の通航量とタンカー保険料の推移",
+      "WTI/Brentのスプレッドおよびバックワーデーション深度",
+      "OPEC+の追加増産判断と米SPR動向",
+      "次回米CPI・期待インフレ(10Y BEI)の反応"
     ],
     "related_keys": [
       "wti",
-      "sp500",
-      "vix",
-      "us10y"
+      "brent",
+      "t10yie",
+      "vix"
     ],
-    "source_index": 58,
+    "source_index": 55,
     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOdmZYb0dtYlpySkRlWUhtR1ZSSkViNV96OTdMdHFGQWtNSEJVTnNLZDBfLWZTaHdYcUgzSXNaaU9rY05MQ1gyTF93aWVnMGtwX3VqR3R4SEdlNXIwRDE0LUl0ZTctWldOcGJwYVJlYVpCOS1seFlkdGYzMTlqcy11bThlMXFaMXllNkZXVnpqSno3RmI5TXJsY2hSMi1FWHNvOEptZnJ3UHIwRDJweVZvR3hB?oc=5",
     "source": "Bloomberg (via Google)"
-  },
-  "economic_chart_of_the_day": {
-    "series_id": "DCOILWTICO",
-    "title": "WTI原油価格 (日次)",
-    "subtitle": "$/bbl, FREDベース",
-    "rationale": "ホルムズ海峡の緊張とアラムコ決算が示す通り、原油価格は今最も市場とインフレ・金利見通しを左右する変数。中期トレンドで地政学プレミアムを可視化したい。",
-    "period_years": 3
   },
   "central_bank_watch": [
     {
       "code": "FED",
-      "comment": "FRBはFF金利上限3.75%（昨年12月に0.25%利下げ）で据え置きの公算。本日のニュースでは、トランプ大統領の次期FRB議長候補とされるケビン・ウォーシュ氏に関する報道があり、市場では政治的独立性をめぐる不安が燻る。一方、想定外の好決算で米株は最高値、消費者のインフレ警戒は依然根強く、Fedとしては利下げを急ぐ材料に乏しい。ホルムズ海峡情勢が原油高を通じてインフレ期待を再加速させるかが、次回FOMCに向けた最大の論点となる。市場は年内追加利下げの織り込みをやや後退させ、長期金利は粘着的な水準で推移している。"
+      "comment": "FRBは直近のFOMC（5月9日）でFF金利上限を3.75%に据え置いた。イラン戦争に起因するホルムズ海峡の緊張が原油・LNG供給に影響し、インフレ再燃リスクが意識されている。ブルームバーグが報じるように「インフレ持続への懸念が米消費者を揺さぶっている」状況下、パウエル議長は利下げを急がない姿勢を維持するとみられる。市場は2025年内の利下げ回数を絞り込んでおり、次回6月のFOMCでの据え置きをほぼ織り込んだ状態だ。米中貿易協議の行方も不確実性要因として残り、インフレと成長の二律背反に対するFEDの対応が引き続き焦点となっている。"
     },
     {
       "code": "ECB",
-      "comment": "ECBは預金ファシリティ金利2.0%で据え置きが続き、追加緩和の議論は後景に退いている。本日のFT報道では欧州自動車メーカーがトランプ関税で80億ユーロの打撃を受けたことが明らかになり、ユーロ圏の成長下振れリスクは無視できない水準。一方で原油上昇とエネルギー供給の不安定化はインフレ再燃の懸念材料で、ラガルド総裁ら理事会は「成長鈍化」と「インフレ粘着」のジレンマに直面する。市場は次回会合での据え置き継続を織り込みつつ、関税の波及度合いとホルムズ情勢を見極めるモードに入っている。"
+      "comment": "ECBは5月8日に預金ファシリティ金利を2.0%に据え置き、直近の利下げは2025年6月（▲0.25%）だった。欧州自動車メーカーがトランプ関税で約80億ユーロの打撃を受けたとFTが報じており、ユーロ圏の輸出競争力への下押し圧力が意識される。一方でホルムズ海峡情勢がエネルギーコスト押し上げに働くため、ECBは利下げと物価安定の両立を慎重に判断する局面が続く。市場は今夏以降の追加利下げを緩やかに織り込みつつあるが、地政学リスクが長期化すれば利下げペースの減速も視野に入る。次回理事会に向けては、インフレ見通しの修正幅とPMI動向が注目点だ。"
     },
     {
       "code": "BOJ",
-      "comment": "日銀の政策スタンスは正常化方向を維持。本日のCFTCデータでは投機筋の円売り越しポジションが縮小しており、市場は日銀の追加利上げ余地を一定程度織り込み始めている。日本がロシアへの当局者派遣を月末に検討との報道もあり、エネルギー安全保障と円相場の交点が改めて意識される。植田総裁は物価の基調的な上昇とサービス価格・賃金動向を慎重に見極める姿勢を継続しており、次回会合では声明文の「上振れリスク」表現が修正されるかが焦点。為替が再び160円方向へ向かえば、財務省・日銀の連携牽制も再点灯しうる。"
+      "comment": "日銀の政策金利データは今回未取得だが、市場では超緩和からの段階的な正常化路線が継続しているとの見方が支配的だ。ホルムズ海峡の緊張を背景に資源輸入国である日本のコスト負担増が懸念される一方、円安修正が輸入物価の一部を和らげる構図も残る。ブルームバーグによれば日本は5月末にもロシアへ外交官を派遣する方向で、エネルギー調達の多元化に向けた外交的布石とも読める。次回金融政策決定会合では、物価目標の持続的達成に向けた進捗と賃上げの定着度合いが焦点となる。追加利上げの時期を巡る市場の読みは年内1回程度に収れんしつつある。"
     },
     {
       "code": "RBA",
-      "comment": "豪中銀（RBA）は、チャーマーズ財務相が「容認できない」と評する住宅市場の高騰と、原油高による交易条件改善という二律背反に直面。豪政府はオーストラリアの「石油外交」で燃料供給不安を緩和したと伝えられ、一定のマクロ安定要因となっている。一方で住宅・家計部門のインフレ圧力は粘着的で、市場は当面据え置きを軸に、次回声明でのタカ派寄り表現修正を注視。豪ドルは資源高の支援を受けつつ、米中協議の行方とアジア株への資金回帰観測に揺れる展開が続きそうだ。"
+      "comment": "オーストラリアは総選挙後、チャーマーズ財務相が「受け入れ難い」住宅市場に対する政策対応を明言し、財政・住宅政策が注目を集めている。またFTが報じた豪州の「石油外交（petro-diplomacy）」は燃料不足懸念を和らげ、エネルギーインフレへの波及を抑制する効果が期待される。RBAはキャッシュレート目標を引き下げる局面が続いているとみられるが、住宅価格の高止まりや根強いサービス物価が利下げペースの制約となりうる。右派政党が議席を初獲得したとの報道もあり、政治環境の変化がRBAの独立性や財政スタンスへの影響として市場に意識される可能性がある。次回会合での判断材料として雇用統計とCPIが注目される。"
     }
   ],
   "pe_pd_view": {
-    "body": "本日はFT報道で「個人投資家がプライベート・エクイティ（PE：未上場企業に投資し、経営改善後に売却で利益を狙うファンド）から距離を置き始めている」との観測が出ました。背景には金利が高止まりしファンドの保有資産売却（エグジット）が滞り、投資家が約束した期間内に資金を回収しづらくなっている点があります。\n\nまた、ゴールドマン出資のオンライン消費者金融Lendableが米国進出を計画との報道は、銀行を出し抜くダイレクト・レンディング（ノンバンクが企業や消費者に直接貸し付けるプライベート・デットの一形態）の勢いを示しています。さらにドローン新興企業Helsingが180億ドル評価で資金調達中とのニュースもあり、防衛分野は依然として未上場マネーの吸引役。\n\n初心者向けに言えば、PE/PDは銀行融資や上場株の代わりに資金が流れる「もう一つの金融」。リテール離れが進めば未上場の評価額調整が表面化し、上場株のバリュエーションにも波及しうる点で重要です。",
+    "body": "FT報道によると、個人投資家（リテール投資家）のプライベート・エクイティ（PE）に対する関心が冷え込んでいるとの記事が注目される（[104]）。PE各社は近年、富裕層向けの半流動型ファンドを通じて個人マネーを取り込む戦略を加速していたが、市場の不透明感やバリュエーション（資産価値の評価）の不確実性を背景に資金流入が鈍化している模様だ。これは「ドライパウダー」（PEファンドが調達済みながらまだ投資に使っていない待機資金）の積み上がりを長期化させる要因にもなりえる。\n\nプライベート・デット（PD）の分野では、ゴールドマン・サックス出資のLendableが銀行融資を上回るスピードで貸付を拡大し、米国展開を計画しているとFTが報じた（[106]）。直接融資（ダイレクト・レンディング）はリテール銀行が後退した市場の空白を埋める存在として機能しており、高金利環境が続く中でもPDの利回り魅力は維持されている。ただし金利が緩やかに低下すれば、PDの相対的な優位性は縮小しうる点に留意が必要だ。全体としてPEへのリテール資金流入鈍化は上場市場への間接的な影響（PE保有企業のIPO延期など）をもたらす可能性があり、やや慎重な視点が求められる局面だ。",
     "impact": "negative",
-    "impact_summary": "個人のPE離れとエグジット停滞、上場市場にも波及リスク",
+    "impact_summary": "リテール投資家のPE離れ、資金流入鈍化に警戒",
     "source_indices": [
-      108,
-      110,
-      103
+      104,
+      106
     ],
     "sources": [
       {
@@ -262,34 +228,42 @@
         "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQS2M4S0Vac3JJZDZDaFBXT0dnS0p3eWpVTS0wM2U3WlFzUWtIX0ltR19VZExVS1l4dlJScnQ1ZVpoTmp2S0hVaDlyTjEwYlVVU3YxU2I2NGVnV2NjQ01PMEhwYU81SW95RHFTb08yTGR3TTA0d1FoX0ZYb1l5am9IaDM2UG8?oc=5",
         "source": "Financial Times (via Google)",
         "title": "Goldman-backed Lendable plots US expansion after outpacing banks on loans - Financial Times"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNeVpPRzBBX1czVjdFalRnaG1Bc01USUxVUm9BZXdSQUlweTdjNXgzaERNNzhnTXo2aUN5eEd5S3ZlQnVRS1lrQWgyTUZFMWdDQ3kwajRabzJJcmFyX2p5Qm5zV2tRcnRKUlV4WXM5dnlZWnJqa19tNXFhRG5tbWtIcHpNNG0?oc=5",
-        "source": "Financial Times (via Google)",
-        "title": "Drone start-up Helsing set for $18bn valuation as investors pile into defence - Financial Times"
       }
     ]
   },
   "real_assets_view": {
-    "body": "本日は不動産・インフラ周辺で複数の論点が浮かびました。米国ではHELOC（住宅を担保にした融資枠）金利の上昇と、住宅ローン金利が6.37%へ再上昇している中で「エクイティリッチ」（住宅評価額が住宅ローン残高を大きく上回る世帯）が減少しているとの報道。住宅価格の調整局面入りを示唆する一方、再ファイナンス需要は冷え込んでいます。\n\n豪州ではチャーマーズ財務相が「容認できない」住宅高騰への対策を表明し、政策不確実性が高まりました。インフラ面では、ナイジェリアのダンゴテ氏（アフリカ最大の富豪）がケニアに新製油所を検討との報道、Helsingなど防衛インフラへの資金流入加速も観察されます。\n\n初心者向けに補足すると、不動産・インフラは長期金利と「逆相関」しやすい資産です。米10年金利が高止まりするほど、REITやインフラ・ファンドの分配金利回りの相対的魅力は薄れます。逆に、地政学リスク下のエネルギーインフラ（パイプライン、LNG基地、製油所）は、足元の原油高でキャッシュフローの追い風を受けやすい局面にあります。",
+    "body": "不動産セクターでは、ZillowのCEOがQ2見通しを軟調と示し、住宅購入の手頃さ（アフォーダビリティ）が依然として消費者を圧迫していると語った（[18]）。米国の住宅ローン金利が6.37%前後で推移しており（[16]）、高金利が購買意欲の回復を阻んでいる状況だ。豪州でもチャーマーズ財務相が住宅市場を「受け入れ難い」と表現し、政策介入の必要性を示唆しており（[53]）、英語圏全般で住宅取得困難の問題が浮き彫りになっている。\n\nインフラ分野では、データセンター向け建設需要が引き続き強い。Quanta Services（PWR）やEMCOR（EME）、AECOM（ACM）などデータセンターインフラに関わる建設株のアナリスト目標株価引き上げが複数報じられており（[19][24][30]）、AIブームを背景としたデジタルインフラへの投資意欲は旺盛だ。WSJのビリオネア投資家インタビューでもデータセンターブームへの言及があった（[82][85]）。ホルムズ海峡緊張によるパナマ運河収入増（最大15%増、[96]）は輸送インフラの地政学プレミアムを示す事例だ。金利の高止まりが不動産バリュエーションには逆風となる一方、デジタル・輸送インフラへの需要は構造的に強く、セクター内での温度差が鮮明になっている。",
     "impact": "neutral",
-    "impact_summary": "住宅は逆風、エネルギーインフラは追い風で方向感まちまち",
+    "impact_summary": "住宅市場に逆風、データセンターインフラは堅調二極化",
     "source_indices": [
-      35,
-      38,
-      57,
-      98
+      16,
+      18,
+      19,
+      24,
+      53,
+      82,
+      96
     ],
     "sources": [
       {
-        "link": "https://finance.yahoo.com/personal-finance/mortgages/article/heloc-home-equity-loan-interest-rates-today-saturday-may-9-2026-100000312.html",
-        "source": "Yahoo Finance US",
-        "title": "HELOC and home equity loan rates Saturday, May 9, 2026: Number of 'equity-rich' homeowners falls"
+        "link": "https://www.marketwatch.com/story/is-now-a-good-time-to-lock-in-your-mortgage-rate-heres-what-to-know-68af7d76?mod=mw_rss_topstories",
+        "source": "MarketWatch Top",
+        "title": "As mortgage rates move up to 6.37%, is now a good time to lock in your rate?"
       },
       {
-        "link": "https://finance.yahoo.com/personal-finance/mortgages/article/mortgage-refinance-interest-rates-today-saturday-may-9-2026-100000903.html",
+        "link": "https://finance.yahoo.com/markets/stocks/articles/zillow-ceo-says-housing-affordability-104524005.html",
         "source": "Yahoo Finance US",
-        "title": "Mortgage and refinance interest rates today, May 9, 2026: 30- and 15-year rates move back up"
+        "title": "Zillow CEO Says Housing Affordability Still Pressuring Buyers Amid Soft Q2 Outlook: 'Seeing Very Modest Gains…'"
+      },
+      {
+        "link": "https://finance.yahoo.com/markets/stocks/articles/aecom-acm-best-construction-stock-105349525.html",
+        "source": "Yahoo Finance US",
+        "title": "Is AECOM (ACM) the Best Construction Stock for Data Center Infrastructure?"
+      },
+      {
+        "link": "https://finance.yahoo.com/markets/stocks/articles/why-emcor-eme-among-10-105419600.html",
+        "source": "Yahoo Finance US",
+        "title": "Here is Why EMCOR (EME) is Among the 10 Best Construction Stocks for Data Center Infrastructure"
       },
       {
         "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdWJLTFJqVlBTR1VvSmczUU9rbmJBaWhoamVpaVI3by1qZ1cxT2t6Ty1JWDNwdFpLZmk4aFFaSXVxNzVSelUtQjhRVk01VDhYYzExdGxTVV8xWmdEWUhLSkpxWk8xbnZfdERmSVVXWTlYNVhtZm9HZEdLbDhnZktXRFZJYnVSQWMzbFdNR0ppRkFhMjQ0VmFrRnAtb1NIb0R4X1BXSXZTeWhDdnRDQ1ZxRXZR?oc=5",
@@ -297,10 +271,48 @@
         "title": "Australia to Tackle ‘Unacceptable’ Housing Market, Chalmers Says - Bloomberg.com"
       },
       {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPSTlEc3c4Yms2LTV5OUo5eXFlZjVlUW9aNGVNRW92R09ZbW9WWkVDdHlvcFcyZ3h3Wl9CN3hWSWdGUXFHSUtHTmYzN3BialdQMkp1WlFXMHM4S3J6SkhrRmxhTVZsMW1aZnhDTDJZSmJPLWZKMFhnWWJ1eGpyM2JhaWRFOGo?oc=5",
+        "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOVG1waDN6OGM1OTlQQXQ0WEVaTFFEM0pOalRkT3hqaTBVSUJ3cThkTkVvc3VYMzJXYy00OGc4S1UwVUQ5STFpakRFenczOWJ0VlJ5S3U4MUZyaGJTRnEyMlBuN0RKa01QZHF2VU5Eb2kySjFzR2JHMFZnRFRwOXFPS3Z0SWkxQURFREVGNmFmOEQxXzl5TkowbjVWMi1jRi1VbXFNTGNKZmFyektoMHdnSlZZYUlZcl9DZ3R0TWxHT2NKV1FQU3haS2xSVGhSUmk2YkFDcnM5dXp0R190ck5UbGhIUEM?oc=5",
+        "source": "WSJ Markets (via Google)",
+        "title": "Billionaire Investor on the Data Center Boom and Oil's Breaking Point - WSJ"
+      },
+      {
+        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxONFFvNEhXTXBwdEY1ZDNmVTV5QVBwOG9jeTk0VnlsQ1l4WjV1QWFXU2FUVl95cjdiNk5qZ0hqSTVpRDZtMF9ILTdNVjROWVBNM0h3MGp6YmtPN2RHbFpkNWcyZjFLbXNiZHZKa2lDYUpLWEY1UlV2UXN2Qll2YXlOUFFNaVo?oc=5",
         "source": "Financial Times (via Google)",
-        "title": "Africa’s richest man eyes Kenya for new refinery - Financial Times"
+        "title": "Iran war boosts Panama Canal’s revenues by up to 15% - Financial Times"
       }
     ]
+  },
+  "funny_stories": [
+    {
+      "kind": "皮肉",
+      "title": "パンダ外交の経済学",
+      "body": "白浜町のアドベンチャーワールド、パンダ不在でも客足好調とのこと。つまり、中国の外交カードであるパンダがいなくても、日本の観光地は繁盛する。これは地政学的には何を意味するのか。答え：現在の国際関係では、パンダより「円安」の方が観光客を呼ぶということ。",
+      "source_index": 1,
+      "link": "https://news.yahoo.co.jp/pickup/6579509?source=rss",
+      "source": "Yahoo!ファイナンス"
+    },
+    {
+      "kind": "人間味",
+      "title": "失業から10%資産増の奇跡",
+      "body": "米国では失業後に資産を10%以上増やした人がいるという。多くの人なら失業は人生の谷だが、この人にとっては「強制貯蓄」と「人生リセット」のチャンスになった。職を失うことで、初めて自分の人生に真摯に向き合える—市場も人生も、時には「下落」が最高の買い場になるのだ。",
+      "source_index": 12,
+      "link": "https://www.marketwatch.com/story/americans-love-their-rose-colored-glasses-i-was-a-slave-to-credit-card-debt-then-i-got-laid-off-and-turned-my-life-around-32ba4d4c?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
+    },
+    {
+      "kind": "観察",
+      "title": "暗号資産業界の矛盾劇",
+      "body": "弱気相場の最中に暗号資産業界が派手なパーティーを開いたらしい。下り坂で踊るほど人間は楽観的—或いは現実逃避的。これはマーケット心理学の教科書的な図版：底値圏での狂乱が、実は反転の兆しであることもあれば、単なる『絶望の宴』であることもある。",
+      "source_index": 62,
+      "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPSkxCeGxzN2RlXzFGejhwWmI1M2NRZjRYQ3VaNWlBQ3FRWl9SSG55Q0FfcXhjeXdnYllJZGE5X0pvbmFhMmtwZm01YnZkLVJTbDBTWmZudHI2cFZnaHFfbU5zdXRZYVpZbDMxeDQyUG4xUHBoTkViR05aaFF5emVsVzlDYmNlOFVWU3J2ZWhzRUtQWWJMRkR4ZnM2VmtvLXlCd2lDeGg3YXZrTjZROFhIM0ZQWlE?oc=5",
+      "source": "Bloomberg (via Google)"
+    }
+  ],
+  "economic_chart_of_the_day": {
+    "series_id": "DCOILWTICO",
+    "title": "WTI原油価格の推移",
+    "subtitle": "日次, ドル/バレル",
+    "rationale": "イラン紛争によるホルムズ海峡の海上輸送リスクが顕著化。エネルギー市場の地政学的リスク、世界的な供給ショック、インフレ圧力の連鎖を可視化するため、現物原油価格の動きは必見。今後の金融政策と実質金利の行方も左右される。",
+    "period_years": 3
   }
 }
