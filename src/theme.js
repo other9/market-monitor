@@ -1,5 +1,5 @@
 // =====================================================
-// theme.js — UI トークン (v13.1 で MarketMonitor.jsx から切り出し)
+// theme.js — UI トークン
 // =====================================================
 //
 // このファイルは Recharts や inline style で JS から色を直接参照する箇所のみで使う。
@@ -8,8 +8,11 @@
 // !! 重要: PALETTE の各値は src/index.css の :root と必ず一致させること !!
 // 不整合が起きるとセクター・ヒートマップや Recharts の色が UI と噛み合わない。
 //
-// v12.2 でバーガンディ→ブルー、銅→セージティールに変更した。
-// 上昇緑/下落赤は慣習色なので維持する。
+// 履歴:
+//   v12.2: バーガンディ→ブルー、銅→セージティールに変更
+//   v13.1.0: MarketMonitor.jsx から PALETTE/FONT_MONO/CHART_UNIVERSE_LABELS を切り出し
+//   v13.1.1: CHART_UNIVERSE_LABELS の内容を実機のものと完全一致するよう修正
+//            (us02y のラベル、vix3m/move/emoas の追加漏れを修正)
 //
 
 export const PALETTE = {
@@ -30,8 +33,7 @@ export const PALETTE = {
 export const FONT_MONO = "'JetBrains Mono', 'Menlo', ui-monospace, monospace";
 
 // Deep Dive の related_keys 表示などで key→日本語名を引くためのテーブル。
-// chart_universe.py の universe と対応するが、UI 表示用なので完全一致は不要。
-// 過不足は適宜追加して良い。
+// chart_universe.py の universe と対応。新しい銘柄を追加する時は両方に追加すること。
 export const CHART_UNIVERSE_LABELS = [
   { key: "nikkei",  name: "日経平均" },
   { key: "topix",   name: "TOPIX" },
@@ -52,14 +54,17 @@ export const CHART_UNIVERSE_LABELS = [
   { key: "copper",  name: "銅" },
   { key: "btc",     name: "ビットコイン" },
   { key: "us10y",   name: "米10年債" },
-  { key: "us02y",   name: "米3ヶ月T-Bill" },
+  { key: "us02y",   name: "米2年債" },
   { key: "us30y",   name: "米30年債" },
   { key: "vix",     name: "VIX" },
+  { key: "vix3m",   name: "VIX 3M" },
+  { key: "move",    name: "MOVE" },
   { key: "t10y2y",  name: "10Y-2Yスプレッド" },
   { key: "t10yie",  name: "10年ブレークイーブン" },
   { key: "dfii10",  name: "10年実質金利" },
   { key: "hyoas",   name: "HY社債スプレッド" },
   { key: "igoas",   name: "IG社債スプレッド" },
+  { key: "emoas",   name: "EM社債スプレッド" },
   { key: "nfci",    name: "Chicago Fed金融環境" },
   { key: "stlfsi",  name: "St. Louis金融ストレス" },
   { key: "sofr",    name: "SOFR" },
