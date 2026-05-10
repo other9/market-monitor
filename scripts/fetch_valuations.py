@@ -1,5 +1,5 @@
 """
-fetch_valuations.py
+fetch_valuations.py  (v13.3 — common.py 利用)
 バリュエーション指標を取得し、data/valuations.json に書き出す。
 
 取得対象:
@@ -30,69 +30,49 @@ import pandas as pd
 import requests
 import yfinance as yf
 
+# v13.3: common.py を使う
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scripts.common import (
+    fred_observations, extract_close_series,
+    log_ok, log_warn, log_info, utc_now_iso,
+)
+
 
 OUTPUT_PATH = Path("data/valuations.json")
-FRED_BASE = "https://api.stlouisfed.org/fred/series/observations"
 
 
 # ─────────────────────────────────────────────────────────
 # FRED ヘルパー
 # ─────────────────────────────────────────────────────────
 def fetch_fred(series_id: str, api_key: str, years: int = 10) -> pd.Series:
-    params = {
-        "series_id":         series_id,
-        "api_key":           api_key,
-        "file_type":         "json",
-        "observation_start": (datetime.now() - pd.DateOffset(years=years)).strftime("%Y-%m-%d"),
-    }
+    """v13.3: common.fred_observations の薄いラッパ (戻り値 pd.Series 維持)。"""
     try:
-        r = requests.get(FRED_BASE, params=params, timeout=15)
-        r.raise_for_status()
-        data = r.json()
+        obs = fred_observations(
+            series_id, api_key=api_key,
+            observation_start=(datetime.now() - pd.DateOffset(years=years)).strftime("%Y-%m-%d"),
+        )
     except Exception as e:
-        print(f"[WARN] FRED {series_id}: {e}", file=sys.stderr)
+        log_warn(f"FRED {series_id}: {e}")
         return pd.Series(dtype="float64")
-
-    rows = []
-    for o in data.get("observations", []):
-        if o.get("value") in (".", "", None):
-            continue
-        try:
-            rows.append((pd.Timestamp(o["date"]), float(o["value"])))
-        except (ValueError, TypeError):
-            continue
-
-    if not rows:
+    pairs = [(pd.Timestamp(o["date"]), o["value"])
+             for o in obs if o["value"] is not None]
+    if not pairs:
         return pd.Series(dtype="float64")
-    return pd.Series(dict(rows)).sort_index().dropna()
+    return pd.Series(dict(pairs)).sort_index().dropna()
 
 
 # ─────────────────────────────────────────────────────────
 # yfinance ヘルパー
 # ─────────────────────────────────────────────────────────
 def yf_close(ticker: str, period: str = "5y", interval: str = "1mo") -> pd.Series:
+    """v13.3: common.extract_close_series 利用。"""
     try:
         df = yf.download(ticker, period=period, interval=interval,
                          progress=False, auto_adjust=False)
     except Exception as e:
-        print(f"[WARN] yf {ticker}: {e}", file=sys.stderr)
+        log_warn(f"yf {ticker}: {e}")
         return pd.Series(dtype="float64")
-
-    if df is None or df.empty:
-        return pd.Series(dtype="float64")
-
-    if isinstance(df.columns, pd.MultiIndex):
-        if "Close" in df.columns.get_level_values(0):
-            close_df = df.xs("Close", axis=1, level=0)
-            if isinstance(close_df, pd.DataFrame) and close_df.shape[1] > 0:
-                return close_df.iloc[:, 0].dropna()
-        return pd.Series(dtype="float64")
-
-    if "Close" in df.columns:
-        s = df["Close"]
-        return s.iloc[:, 0].dropna() if isinstance(s, pd.DataFrame) else s.dropna()
-
-    return pd.Series(dtype="float64")
+    return extract_close_series(df)
 
 
 # ─────────────────────────────────────────────────────────
@@ -104,7 +84,7 @@ def fetch_shiller_cape() -> pd.Series:
     try:
         tables = pd.read_html(url)
         if not tables:
-            print("[WARN] Shiller CAPE: no tables found")
+            log_warn("Shiller CAPE: no tables found")
             return pd.Series(dtype="float64")
 
         df = tables[0]
@@ -121,7 +101,7 @@ def fetch_shiller_cape() -> pd.Series:
         return df["Value"].dropna()
 
     except Exception as e:
-        print(f"[WARN] Shiller CAPE fetch failed: {e}", file=sys.stderr)
+        log_warn(f"Shiller CAPE fetch failed: {e}")
         return pd.Series(dtype="float64")
 
 
@@ -208,7 +188,7 @@ def main() -> None:
             )
             if entry:
                 out.append(entry)
-                print(f"[OK]  S&P 500 配当利回り: {entry['value']}%")
+                log_ok(f"S&P 500 配当利回り: {entry['value']}%")
 
     # ── 2. Shiller CAPE ──
     cape = fetch_shiller_cape()
@@ -224,7 +204,7 @@ def main() -> None:
         )
         if entry:
             out.append(entry)
-            print(f"[OK]  Shiller CAPE: {entry['value']}x")
+            log_ok(f"Shiller CAPE: {entry['value']}x")
 
     # ── 3. Buffett Indicator (Wilshire 5000 ÷ GDP) ──
     if fred_key:
@@ -245,7 +225,7 @@ def main() -> None:
             )
             if entry:
                 out.append(entry)
-                print(f"[OK]  Buffett Indicator: {entry['value']}")
+                log_ok(f"Buffett Indicator: {entry['value']}")
 
     # ── 4. Fed Model: Earnings Yield - 10Y ──
     if fred_key:
@@ -280,9 +260,9 @@ def main() -> None:
                     )
                     if entry:
                         out.append(entry)
-                        print(f"[OK]  Fed Model: {entry['value']}%")
+                        log_ok(f"Fed Model: {entry['value']}%")
         except Exception as e:
-            print(f"[WARN] Fed Model calculation: {e}", file=sys.stderr)
+            log_warn(f"Fed Model calculation: {e}")
 
     # ── 5. VIX / VVIX 比率 ──
     vix  = yf_close("^VIX",  period="5y", interval="1mo")
@@ -301,7 +281,7 @@ def main() -> None:
         )
         if entry:
             out.append(entry)
-            print(f"[OK]  VVIX/VIX: {entry['value']}")
+            log_ok(f"VVIX/VIX: {entry['value']}")
 
     payload = {
         "generatedAt": now.isoformat(),
@@ -313,7 +293,7 @@ def main() -> None:
         json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"\nWrote {OUTPUT_PATH}: {len(out)} valuation indicators.")
+    log_info(f"Wrote {OUTPUT_PATH}: {len(out)} valuation indicators.")
 
 
 if __name__ == "__main__":

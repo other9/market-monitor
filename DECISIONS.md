@@ -5,6 +5,120 @@
 
 ---
 
+## v13.3 で導入された決定
+
+### [DECISION v13.3-01] 各 `fetch_*.py` を `common.py` の薄いラッパに置き換え (FRED 直叩き廃止)
+- **背景**: 5 つのスクリプト (`fetch_macro_indicators.py`, `fetch_valuations.py`, `fetch_central_banks.py`, `fetch_economic_chart.py`, `fetch_featured_charts.py`) が個別に FRED API を直叩きしており、コード重複 + 細かな書式揺れがあった
+- **判断**: 各ファイルの `fetch_fred*` 関数を `scripts.common.fred_observations` を呼ぶ薄いラッパに置換
+- **戻り値の維持**: 各スクリプトが期待する戻り値型 (`pd.Series` または `[{d, v}]`) は呼び出し側で整形 — 関数シグネチャ・呼び出し箇所は不変
+- **効果**: FRED API クライアントを 1 箇所で管理 (将来のリトライ・タイムアウト調整が容易)
+- **不採用案**: 各スクリプトを丸ごと `common.py` 経由に書き換える案もあったが、戻り値整形ロジックは個別スクリプトに残し、ライブラリ層 (`common.py`) は薄く保つ方針
+
+### [DECISION v13.3-02] `extract_close_series` の inline 定義を削除し、`common.py` から import に統一
+- **対象**: `fetch_market_data.py` (16行)、`fetch_listed_alts.py` (16行)、`fetch_featured_charts.py` (yfinance パスは独自に実装していた、これも置換)、`fetch_valuations.py` (yf_close 内のロジックを `extract_close_series` で簡潔に)
+- **判断**: `pd.MultiIndex` 列の吸収は微妙なバグの温床なので、テスト済みの 1 箇所に集約
+- **効果**: 将来 yfinance の API 仕様が変わった時に 1 箇所修正で済む
+- **テスト**: `tests/test_common.py::TestExtractCloseSeries` の 7 ケースが全 fetch スクリプトの挙動を担保
+
+### [DECISION v13.3-03] `print(f"[OK]/[WARN]/[SKIP]/[INFO] ...")` を `log_*` に統一
+- **背景**: 9 ファイル × 平均 4 箇所 = 約 40 箇所で `print` のフォーマットが微妙に揃っていなかった (`[OK] ` vs `[OK]   ` (3 spaces) の混在など)
+- **判断**: `scripts.common` の `log_ok / log_warn / log_skip / log_info` に全置換
+- **副次効果**: stderr 振り分け (`log_warn` だけ stderr) の一貫性が確保される
+- **互換性**: 出力フォーマット (`[OK]   message`) は v13.0 当時の慣習と完全互換
+
+### [DECISION v13.3-04] `datetime.now(timezone(timedelta(hours=9)))` を `jst_now()` / `jst_today_iso()` に集約
+- **対象**: `fetch_news.py`, `archive_data.py`
+- **判断**: JST タイムゾーン定義を `common.py` の `JST` 定数 1 箇所に集約
+- **効果**: 「JST = 日本時間」という暗黙知のコード化、将来 DST がある国に展開する場合も `common.py` の `JST` を差し替えるだけ
+- **また**: `datetime.now(timezone.utc).isoformat()` も `utc_now_iso()` に統一 (8 ファイル横断)
+
+### [DECISION v13.3-05] `scripts/__init__.py` は新規追加しない (PEP 420 namespace package のまま)
+- **背景**: `from scripts.common import ...` を成立させるには `scripts/__init__.py` を作るのが教科書的
+- **判断**: 作らない。PEP 420 の namespace package 機能で十分動く
+- **理由**:
+  - 既存の `tests/conftest.py` は ROOT を sys.path に追加することで `scripts.common` を namespace package として解決
+  - 各 `fetch_*.py` は冒頭で `sys.path.insert(0, str(Path(__file__).resolve().parent.parent))` する
+  - `__init__.py` を追加すると、Actions の workflow で `PYTHONPATH=scripts` 環境変数を使った `from chart_universe import ...` のような sibling import の挙動が変わる懸念がある
+- **検証**: pytest 18 ケース全 PASS、mock import で 10 モジュール全成功
+
+---
+
+## v13.2 で導入された決定
+
+### [DECISION v13.2-01] Claude API を 4 分割 (1 回の Opus → Opus×2 + Sonnet + Haiku)
+- **背景**: v7 の単一 Opus 呼び出しでは「Deep Dive 生成失敗 → 全コンテンツが消える」リスクがあった。また Muse のような軽い創作タスクに Opus は過剰
+- **判断**: 4 つの呼び出しに分割。役割別モデル選択でコスト効率も改善
+  - Call 1 (Opus 4.7): epigraph + headline + news + charts_of_the_day (最重要)
+  - Call 2 (Opus 4.7): deep_dive (cadence 切替で平日/週次/月次)
+  - Call 3 (Sonnet 4.6): central_bank_watch + pe_pd_view + real_assets_view
+  - Call 4 (Haiku 4.5): funny_stories + economic_chart_of_the_day
+- **失敗の独立性**: 各 try/except で独立処理。1 つ失敗しても他は生成される
+  ([DECISION v13.2-02] の fallback 戦略と組み合わせ)
+- **トレードオフ**:
+  - メリット: 失敗独立性、Haiku/Sonnet でコスト ~30% 削減見込み、各 prompt が専用化されて品質向上余地
+  - デメリット: ニュース一覧 (~6-8k tokens) を 4 回送る重複コスト、orchestration 複雑度↑
+- **JSON schema 不変性**: 出力 `data/news.json` のキー構成は v7 と同一 — フロント側の改修不要
+
+### [DECISION v13.2-02] 各 call が失敗した時の fallback dict をモジュール定数化
+- **判断**: `_FALLBACK_NEWS_AND_CHARTS`, `_FALLBACK_DEEP_DIVE`, `_FALLBACK_CB_AND_ALTS`, `_FALLBACK_MUSE_AND_ECON` を上書き用 dict として固定
+- **理由**:
+  - call ごとに「何をフォールバックするか」が違う (例: news+charts 失敗時の epigraph は短い inspirational メッセージにする)
+  - `result.update(_FALLBACK_X)` 1 行で merge できる
+  - テスト時にも fallback 内容を assert できる
+- **後続処理 (`attach_source_urls` / `normalize_chart_candidates`) は耐性あり**: news[] が空でも壊れないことを確認
+
+### [DECISION v13.2-03] `_call_claude` ヘルパで 4 callers の共通処理を集約
+- **判断**: 各 caller (`call_news_and_charts` 等) は (model, max_tokens, system, user_msg, label) を渡すだけ。msg.create + JSON 抽出 + コードブロック除去 + parse + ログは `_call_claude` に集約
+- **効果**: 各 caller が ~15 行で済み、JSON parse のミスは 1 箇所で修正可能
+- **`label` パラメータ**: ログ ([news+charts]) と error meta に使う。デバッグ時にどの call で失敗したかが即わかる
+
+### [DECISION v13.2-04] `build_news_list()` で 4 callers の共通インプットを生成
+- **背景**: 4 つの call はすべて「[N] 付きニュース一覧」を必要とする。各 caller でループを書くと重複
+- **判断**: `build_news_list(items, max_items=150)` を共通ヘルパとして用意
+- **効果**: items の整形ロジック変更 (例: max_items 調整、要約長カット) が 1 箇所で完結
+
+### [DECISION v13.2-05] `determine_cadence()` は top-level に残置 (テスト互換性)
+- **背景**: `tests/test_common.py` が `from scripts.fetch_news import determine_cadence` で import している
+- **判断**: 4 分割後も `determine_cadence` を fetch_news.py の top-level で公開し続ける
+- **不採用案**: `cadence.py` モジュールに切り出す案もあったが、テスト import パスを変えると CI が壊れる懸念があり保留
+
+---
+
+## v13.1.3 で導入された決定
+
+### [DECISION v13.1.3-01] 残り 10 セクションを一括抽出 (4 段階フロント分割の最終段)
+- **背景**: v13.1.2 で 6 セクション (独立性高) を抽出済み。残り 10 セクションは「内部にチャート系の subcomponent を持つ」「inline JSX のため新規抽出が必要」などの理由で後回しになっていた
+- **判断**: 1 チャットでまとめて抽出 (= Phase 2 を完了)
+- **理由**: パターンが Phase 1 で確立済 → Phase 2 を細分化する追加リスクは小さい
+- **検証**: 17 ファイル (16 sections + main) の esbuild parse / 完全バンドル / 依存方向 grep / brace カウントで全 PASS
+
+### [DECISION v13.1.3-02] `IndicatorChartsSection` と `NewsSection` は inline JSX → 新規抽出 (リネームではない)
+- **背景**: 既存セクションのうち 2 つ (Section 7「重要指標・5年チャート」と Section 8「市場を動かしたニュース」) は MarketMonitor.jsx の inline JSX として書かれており、独立した関数定義がなかった
+- **判断**: これらは新規コンポーネントとして抽出
+- **副次設計**:
+  - `IndicatorChartsSection`: `CHARTS` 定数 (6 銘柄 × 6 列タプル) と `HIGHLIGHT_DATE = "2026-02-27"` をモジュールスコープに格上げ
+  - `NewsSection`: inline スタイル ({fontFamily, fontSize, color, ...}) をそのまま保持 (CSS module 化はスコープ外)
+- **将来**: `mm-news-cell` の inline スタイルを CSS class に追い出すリファクタは v13.x ではやらない (動作不変原則)
+
+### [DECISION v13.1.3-03] `SectorHeatmapSection` は内部 `useState` を持つ (sections の中で唯一の state-ful)
+- **判断**: 期間タブ切替 (`day` / `week` / `month` / `ytd`) は 1 セクション内のローカル UI 状態として `useState` で管理
+- **理由**: 親 (MarketMonitor) に lift up する必要がない。他のセクションが知る必要のない内部状態
+- **副次設計**: `PERIOD_TABS` (タブ定義) と `PERIOD_CAP` (色強度の上限値) をモジュールスコープ定数化
+
+### [DECISION v13.1.3-04] `ValuationSection` → `ValuationsSection`、`CentralBankWatch` → `CentralBanksSection` にリネーム
+- **背景**: ROADMAP の命名規則が `XxxSection` に統一されている。リネーム済の 6 ファイルとも整合
+- **判断**: import 名と export 名を `ValuationsSection` / `CentralBanksSection` に変更 (複数形 + Section suffix)
+- **トレードオフ**: git diff が「ファイル名変更」+「中身も少し変わる」の混合になるが、命名一貫性のメリットが上回る
+
+### [DECISION v13.1.3-05] `MarketTableSection` は Fragment を返す (heading + N 個の IndicesGroup)
+- **判断**: section heading (`<div className="mm-section-tag">`) と複数の `IndicesGroup` を `<>...</>` で包む
+- **理由**:
+  - heading は単一セクションに 1 個、IndicesGroup は 5 個 (株式/為替/金利/コモディティ/ボラ) — outer div で wrap すると見た目の margin が変わる可能性
+  - Fragment なら DOM 構造完全不変
+- **MastheadSection の v13.1.2 設計と一貫**: 複数論理ブロックを 1 セクションコンポーネントで Fragment 返却
+
+---
+
 ## v13.1.2 で導入された決定
 
 ### [DECISION v13.1.2-01] フロント分割は最終的に 4 段階に拡張 (3 → 4)

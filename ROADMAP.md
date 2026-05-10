@@ -4,11 +4,11 @@
 バージョンが進むたびに、完了したものは「✅ 完了」マークを付け、
 変更があれば該当バージョンを編集する。
 
-最終更新: 2026-05-10 (v13.1.2 リリース時)
+最終更新: 2026-05-10 (v13.3 リリース時)
 
 ---
 
-## 現状認識 (v13.1.2 完了時点)
+## 現状認識 (v13.3 完了時点)
 
 Market Monitor は v12 系で機能拡充がひと段落し、
 
@@ -97,28 +97,30 @@ ROADMAP 当初の「3〜4 段階」を **4 段** に確定 (詳細は `DECISIONS
 - [x] 行数削減: 1263 → 959 行 (-304)
 - [x] 依存方向 [DECISION v13.1-03] の単方向ルール維持を grep で検査済
 
-#### v13.1.3 — セクションコンポーネント切り出し Phase 2 (未着手)
+#### v13.1.3 — セクションコンポーネント切り出し Phase 2 ✅ 完了 (2026-05-10)
 
-残り 8 セクションを順次抽出 (依存ルール上、共通サブコンポーネントを共有するため Phase 1 より中リスク):
+残り 10 セクションを切り出し、`MarketMonitor.jsx` を 200 行のオーケストレータに収束 (実際は 134 行 まで縮んだ)。
 
 ```
 sections/
-├── FeaturedChartsSection.jsx        (1 本日の注目チャート — FeaturedChart 内包)
-├── MarketTableSection.jsx           (2 昨日の主要市場 — IndicesGroup 内包)
-├── SectorHeatmapSection.jsx         (2 のサブ — SectorHeatmap)
-├── MacroBarometerSection.jsx        (3 マクロ・バロメーター)
-├── FundingVolSection.jsx            (4 ボラティリティ・流動性)
-├── ValuationsSection.jsx            (5 バリュエーション・ゲージ)
-├── CentralBanksSection.jsx          (6 中央銀行ウォッチ)
-├── IndicatorChartsSection.jsx       (7 重要指標・5年チャート — inline JSX のため新規抽出)
-├── NewsSection.jsx                  (8 市場を動かしたニュース — inline JSX のため新規抽出)
-└── ListedAltsSection.jsx            (9 — ListedAltsPanel + ListedAltCard 内包)
+├── FeaturedChartsSection.jsx        (1, FeaturedChart 内包)
+├── MarketTableSection.jsx           (2, IndicesGroup 内包)
+├── SectorHeatmapSection.jsx         (2 sub, period state を内包)
+├── MacroBarometerSection.jsx        (3)
+├── FundingVolSection.jsx            (4, FundingVolPanel 内包)
+├── ValuationsSection.jsx            (5, ValuationSection をリネーム)
+├── CentralBanksSection.jsx          (6, CentralBankWatch をリネーム)
+├── IndicatorChartsSection.jsx       (7, inline JSX → 新規抽出)
+├── NewsSection.jsx                  (8, inline JSX → 新規抽出)
+└── ListedAltsSection.jsx            (9, ListedAltsPanel + ListedAltCard 内包)
 ```
 
-完了時点で `MarketMonitor.jsx` は **200 行程度の薄いオーケストレータ** になる予定。
+行数推移: 1513 (v13.0) → 1263 (v13.1.1) → 959 (v13.1.2) → **134 (v13.1.3)** = -91%
 
-**v13.1.3 は新しいチャットで開始** (context window 圧迫回避)。
-特に `FundingVolSection` と `ListedAltsSection` は Recharts チャート + 内部サブコンポーネントを抱えており、最後にやるのが安全。
+完成形では `MarketMonitor.jsx` は薄いオーケストレータ:
+- URL 定数定義
+- `useEffect` でのデータ取得 (Promise.all)
+- 16 セクションを props 経由で並べる JSX
 
 ### 依存方向の規則 (v13.1-03)
 
@@ -135,53 +137,67 @@ theme.js (依存なし)
 
 ### 期待効果
 
-- 「Funding/Vol セクションだけ修正してほしい」のような依頼の精度向上
-- ファイル単位の git diff が読みやすくなる
-- 将来のテスト追加時、コンポーネント単位でテスト可能
+- 「Funding/Vol セクションだけ修正してほしい」のような依頼の精度向上 ✅
+- ファイル単位の git diff が読みやすくなる ✅
+- 将来のテスト追加時、コンポーネント単位でテスト可能 ✅
 
 ---
 
-## v13.2 — Claude API 呼び出しの分割 (中リスク・コスト削減効果)
+## v13.2 — Claude API 呼び出しの分割 ✅ 完了 (2026-05-10)
 
-**目的**: 現在 `fetch_news.py` で 1 回の Claude API 呼び出しに詰め込んでいる
-9 種類のコンテンツ生成を、4 つの呼び出しに分割。役割専用 prompt とモデル
-使い分けで品質と費用効率を改善。
+**目的**: 1 回の Claude API 呼び出しに詰め込んでいた 9 種類のコンテンツ生成を、
+4 つの呼び出しに分割。役割専用 prompt とモデル使い分けで品質と費用効率を改善。
 
-### 計画
+### 実装内容
 
-| 呼び出し | 内容 | モデル | 想定 in/out tokens |
-|---------|------|-------|-------------------|
-| `call_news_and_charts` | ニュース 7 本選定+要約、注目チャート 3 候補 | Opus 4.7 | 入力 ~8k / 出力 ~2k |
-| `call_deep_dive` | Deep Dive 解説 (土曜は週次総括) | Opus 4.7 | 入力 ~5k / 出力 ~2k |
-| `call_central_banks_and_alts` | CB watch 4 行 + PE/PD/Real Assets コメント | Sonnet 4.6 | 入力 ~4k / 出力 ~1k |
-| `call_muse_and_economic` | Muse 3 片 + 経済指標短評 | **Haiku 4.5** | 入力 ~2k / 出力 ~500 |
+| 呼び出し | 内容 | モデル | max_tokens |
+|---------|------|-------|-----------|
+| `call_news_and_charts` | epigraph + headline + news(7) + charts_of_the_day | claude-opus-4-7 | 3500 |
+| `call_deep_dive` | deep_dive (cadence 切替) | claude-opus-4-7 | 2500 |
+| `call_cb_and_alts` | central_bank_watch + pe_pd_view + real_assets_view | claude-sonnet-4-6 | 2500 |
+| `call_muse_and_economic` | funny_stories + economic_chart_of_the_day | claude-haiku-4-5 | 1500 |
 
-### メリット
+### 主要設計判断
 
-- **失敗の独立性**: Deep Dive 失敗で全コンテンツが消える現状を回避
-- **コスト削減**: Muse など軽い創作タスクを Haiku に切替で対象部分を 1/15 に
-  - 月額 ~1,600 円 → ~1,000〜1,200 円見込み
-- **品質向上**: 各呼び出しが専用 system prompt で迷いなく書ける
+- **失敗の独立性**: 各 try/except で独立処理。1 つ失敗しても他は生成される
+  ([DECISION v13.2-01])
+- **`_call_claude` ヘルパ**: 4 callers の共通処理 (msg.create + JSON 抽出 + parse + ログ) を統合
+- **`run_all_calls` orchestrator**: 4 つを sequential 実行、各失敗を独立 catch
+- **JSON schema 不変**: 出力 `data/news.json` のキー構成は v7 と完全に同じ (フロント影響なし)
+- **fallback dict**: 失敗時のために `_FALLBACK_*` モジュール定数を 4 つ用意
 
-### デメリット
+### コスト削減効果 (見込み)
 
-- 共通入力 (ニュースリスト等) の重複送信でトークンが少し増える
-- 実装複雑度の増加 (4 つの戻り値を集約するロジック)
-
-### サブエージェント機能との関係
-
-これは Claude Code subagents や Anthropic Agent SDK subagents の機能を
-**使うわけではない**。単なる Python の複数 API call 化。
-理由は `DECISIONS.md` と本 README の議論を参照。
+- Muse + Economic を Haiku 4.5 に切替で対象部分のコスト 1/15
+- 月額 ~1,600 円 → ~1,000〜1,200 円見込み (要モニタ)
 
 ---
 
-## v13.3 (任意) — エラーハンドリング統一
+## v13.3 — エラーハンドリング統一 + common.py 全面活用 ✅ 完了 (2026-05-10)
 
-各 `fetch_*.py` を `scripts/common.py` の共通ロガーに完全移行する。
-`try/except` の書式も統一し、Actions ログの可読性を上げる。
+**目的**: 各 `fetch_*.py` を `scripts/common.py` の共通関数に乗せ替え、
+コード重複と書式の揺れを解消する。
 
-優先度低 (運用上、現状でも致命的問題はない)。
+### 実装内容
+
+| ファイル | 変更点 |
+|---------|--------|
+| `fetch_market_data.py` | inline `extract_close_series` 削除 → import に。`print` → `log_*` |
+| `fetch_listed_alts.py` | 同上 |
+| `fetch_macro_indicators.py` | inline FRED 直叩き → `fred_observations` ラッパに置換 |
+| `fetch_central_banks.py` | 同上 |
+| `fetch_economic_chart.py` | 同上 (+ metadata 取得は requests のまま) |
+| `fetch_featured_charts.py` | 同上 + `extract_close_series` も置換 |
+| `fetch_valuations.py` | 同上 (yfinance 部分も `extract_close_series` 化) |
+| `fetch_news.py` | `print` → `log_*`、`datetime.now(JST)` → `jst_now()`、`utc_now_iso()` 利用 |
+| `archive_data.py` | `jst_today_iso()` / `utc_now_iso()` / `log_*` 全面利用 |
+
+### 期待効果
+
+- Actions ログの可読性向上 (`[OK]/[WARN]/[SKIP]/[INFO]` 書式統一)
+- FRED API クライアントを一箇所で管理 (将来のリトライ・タイムアウト調整が容易)
+- yfinance MultiIndex 列吸収のロジックを1箇所に集約 (バグ修正の波及範囲を最小化)
+- `extract_close_series` の動作テストは `tests/test_common.py` の 7 ケースで担保 (今後も全 fetch スクリプトに自動波及)
 
 ---
 

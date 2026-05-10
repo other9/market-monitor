@@ -1,5 +1,5 @@
 """
-fetch_listed_alts.py
+fetch_listed_alts.py  (v13.3 — common.py 利用)
 オルタナティブ資産の上場プロキシ ETF を yfinance で取得し、
 data/listed_alts.json に書き出す。
 
@@ -25,8 +25,13 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
+import sys
 import pandas as pd
 import yfinance as yf
+
+# v13.3: common.py を使う
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scripts.common import extract_close_series, log_ok, log_warn, log_info, utc_now_iso
 
 
 OUTPUT_PATH = Path("data/listed_alts.json")
@@ -43,24 +48,7 @@ LISTED_ALTS: list[dict[str, str]] = [
 ]
 
 
-def extract_close_series(df: pd.DataFrame) -> pd.Series:
-    if df is None or df.empty:
-        return pd.Series(dtype="float64")
-    if isinstance(df.columns, pd.MultiIndex):
-        if "Close" in df.columns.get_level_values(0):
-            close_df = df.xs("Close", axis=1, level=0)
-            if isinstance(close_df, pd.DataFrame) and close_df.shape[1] > 0:
-                return close_df.iloc[:, 0].dropna()
-        return pd.Series(dtype="float64")
-    if "Close" in df.columns:
-        s = df["Close"]
-        if isinstance(s, pd.DataFrame):
-            return s.iloc[:, 0].dropna() if s.shape[1] > 0 else pd.Series(dtype="float64")
-        return s.dropna()
-    if df.shape[1] >= 4:
-        return df.iloc[:, 3].dropna()
-    return pd.Series(dtype="float64")
-
+# v13.3: extract_close_series は scripts/common.py から import 済み
 
 def pct_change(now: float, then: float) -> float | None:
     if then is None or then == 0 or pd.isna(then) or pd.isna(now):
@@ -80,12 +68,12 @@ def main() -> None:
             df = yf.download(ticker, period="1y", interval="1d",
                              progress=False, auto_adjust=False)
         except Exception as e:
-            print(f"[WARN] {ticker} fetch failed: {e}")
+            log_warn(f"{ticker} fetch failed: {e}")
             continue
 
         close = extract_close_series(df)
         if close.empty or len(close) < 5:
-            print(f"[WARN] {ticker} empty.")
+            log_warn(f"{ticker} empty.")
             continue
 
         last_date = close.index[-1].to_pydatetime()
@@ -128,10 +116,10 @@ def main() -> None:
             "history":  history,
         }
         out.append(entry)
-        print(f"[OK]  {ticker:8s} {last_close:>9.2f}  1D={entry['day']}  YTD={entry['ytd']}")
+        log_ok(f"{ticker:8s} {last_close:>9.2f}  1D={entry['day']}  YTD={entry['ytd']}")
 
     payload = {
-        "generatedAt": today.isoformat(),
+        "generatedAt": utc_now_iso(),
         "assets":      out,
     }
 
@@ -140,7 +128,7 @@ def main() -> None:
         json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"\nWrote {OUTPUT_PATH}: {len(out)} listed alt proxies")
+    log_info(f"Wrote {OUTPUT_PATH}: {len(out)} listed alt proxies")
 
 
 if __name__ == "__main__":

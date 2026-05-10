@@ -1,22 +1,31 @@
 """
-fetch_market_data.py  (v4 — adds MOVE / VIX3M / VIX9D for funding-vol section)
+fetch_market_data.py  (v13.3 — common.py 利用)
 
 yfinance で以下を取得し data/market.json に書き出す。
 
 - INSTRUMENTS: 主要 18 指標 (株式・為替・金利・商品・ボラ・ボラ期間構造)
 - HISTORY: 6 指標の 5 年日次 (ダウンサンプルせず全期間保存)
 - SECTORS: 米セクター ETF 11本の 1D / 1W / 1M / YTD リターン (ヒートマップ用)
+
+歴史:
+  v4   : MOVE / VIX3M / VIX9D を Funding & Volatility セクション用に追加
+  v13.3: scripts/common.py の extract_close_series / log_ok 等に乗せ替え
 """
 
 from __future__ import annotations
 
 import json
+import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 import yfinance as yf
+
+# v13.3: common.py を使う
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scripts.common import extract_close_series, log_ok, log_warn, log_info, utc_now_iso
 
 
 # ─── メイン指標 ───
@@ -69,27 +78,7 @@ SECTORS: list[dict[str, str]] = [
 OUTPUT_PATH = Path("data/market.json")
 
 
-def extract_close_series(df: pd.DataFrame) -> pd.Series:
-    """yfinance の DataFrame から Close Series を取り出す (MultiIndex 対応)。"""
-    if df is None or df.empty:
-        return pd.Series(dtype="float64")
-
-    if isinstance(df.columns, pd.MultiIndex):
-        if "Close" in df.columns.get_level_values(0):
-            close_df = df.xs("Close", axis=1, level=0)
-            if isinstance(close_df, pd.DataFrame) and close_df.shape[1] > 0:
-                return close_df.iloc[:, 0].dropna()
-        return pd.Series(dtype="float64")
-
-    if "Close" in df.columns:
-        s = df["Close"]
-        if isinstance(s, pd.DataFrame):
-            return s.iloc[:, 0].dropna() if s.shape[1] > 0 else pd.Series(dtype="float64")
-        return s.dropna()
-
-    if df.shape[1] >= 4:
-        return df.iloc[:, 3].dropna()
-    return pd.Series(dtype="float64")
+# v13.3: extract_close_series は scripts/common.py から import 済み (上部参照)
 
 
 def pct_change(now: float, then: float, *, is_yield: bool = False) -> float | None:
@@ -131,12 +120,12 @@ def main() -> None:
         try:
             df = fetch_daily(ticker)
         except Exception as e:
-            print(f"[WARN] {ticker} fetch failed: {e}")
+            log_warn(f"{ticker} fetch failed: {e}")
             continue
 
         close = extract_close_series(df)
         if close.empty:
-            print(f"[WARN] {ticker} empty.")
+            log_warn(f"{ticker} empty.")
             continue
 
         last_date = close.index[-1].to_pydatetime()
@@ -168,16 +157,16 @@ def main() -> None:
             row["isYield"] = True
 
         indices_out.append(row)
-        print(f"[OK]  {ticker:12s} {last_close:>12.2f}  (asOf {last_date.date()})")
+        log_ok(f"{ticker:12s} {last_close:>12.2f}  (asOf {last_date.date()})")
 
     # ── 5年チャート (日次) ──
     history_out: dict[str, list[dict[str, Any]]] = {}
     for key, ticker in CHART_TICKERS.items():
         try:
             history_out[key] = fetch_5y_daily(ticker)
-            print(f"[OK]  history/{key:10s} {len(history_out[key]):>4d} points (daily)")
+            log_ok(f"history/{key:10s} {len(history_out[key]):>4d} points (daily)")
         except Exception as e:
-            print(f"[WARN] history {ticker} failed: {e}")
+            log_warn(f"history {ticker} failed: {e}")
             history_out[key] = []
 
     # ── セクター ETF (ヒートマップ用) ──
@@ -188,7 +177,7 @@ def main() -> None:
         try:
             df = fetch_daily(sec["ticker"])
         except Exception as e:
-            print(f"[WARN] sector {sec['ticker']}: {e}")
+            log_warn(f"sector {sec['ticker']}: {e}")
             continue
 
         close = extract_close_series(df)
@@ -224,10 +213,10 @@ def main() -> None:
             "ytd":    pct_change(last_close, ytd_start_val) if ytd_start_val else None,
             "asOf":   last_date.strftime("%Y-%m-%d"),
         })
-        print(f"[OK]  sector/{sec['ticker']:5s}  1D={sectors_out[-1]['day']}")
+        log_ok(f"sector/{sec['ticker']:5s}  1D={sectors_out[-1]['day']}")
 
     payload = {
-        "generatedAt": today.isoformat(),
+        "generatedAt": utc_now_iso(),
         "indices":     indices_out,
         "history":     history_out,
         "sectors":     sectors_out,
@@ -238,7 +227,7 @@ def main() -> None:
         json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"\nWrote {OUTPUT_PATH} ({len(indices_out)} instruments, "
+    log_info(f"Wrote {OUTPUT_PATH} ({len(indices_out)} instruments, "
           f"{sum(len(h) for h in history_out.values())} history points, "
           f"{len(sectors_out)} sectors).")
 

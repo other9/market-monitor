@@ -1,39 +1,35 @@
 import React, { useEffect, useState } from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  ReferenceLine,
-  CartesianGrid,
-  AreaChart,
-  Area,
-} from "recharts";
 import "./MarketMonitor.css";
 
-// v13.1.1 で切り出した共通モジュール
-import { PALETTE, FONT_MONO, CHART_UNIVERSE_LABELS } from "@/theme";
-import { fmt, fmtPct, fmtSigned, tone, fmtDate, fmtDay, safe } from "@/utils";
-import { Pct, Signed, MiniChart, StaleDataWarning } from "@/components/common";
-
-// v13.1.2 で切り出した独立性の高いセクション (6本)
+import { CHART_UNIVERSE_LABELS } from "@/theme";
+import { safe } from "@/utils";
+import { StaleDataWarning } from "@/components/common";
 import {
   MastheadSection,
-  EconomicChartSection,
+  FeaturedChartsSection,
+  MarketTableSection,
+  SectorHeatmapSection,
+  MacroBarometerSection,
+  FundingVolSection,
+  ValuationsSection,
+  CentralBanksSection,
+  IndicatorChartsSection,
+  NewsSection,
+  ListedAltsSection,
   DeepDiveSection,
+  EconomicChartSection,
   AlternativesSpotlightSection,
   MarketMuseSection,
   FooterSection,
 } from "@/components/sections";
 
 // =====================================================
-// MARKET MONITOR — v13.1.2
+// MARKET MONITOR — v13.1.3
 //   • v12: Section numbering, Stale Data warning, Funding & Volatility, Listed Alts
 //   • v13.1.0–.1: theme/utils/common を別ファイル化 + import 付け替え
-//   • v13.1.2: Masthead / EconomicChart / DeepDive / Alternatives / Muse / Footer
-//             を @/components/sections/ に切り出し (このファイル)
+//   • v13.1.2: 独立性の高い 6 セクションを @/components/sections/ に切り出し
+//   • v13.1.3: 残り 10 セクションを @/components/sections/ に切り出し
+//             (このファイルは 16 セクションを結線するオーケストレータに収束)
 // =====================================================
 
 // ─────────────────────────────────────────
@@ -48,700 +44,6 @@ const ECONOMIC_URL   = `${BASE}data/economic.json`;
 const VALUATIONS_URL = `${BASE}data/valuations.json`;
 const CB_URL         = `${BASE}data/central_banks.json`;
 const ALTS_URL       = `${BASE}data/listed_alts.json`;
-
-// ─────────────────────────────────────────
-// Featured 1Y daily big chart
-// ─────────────────────────────────────────
-function FeaturedChart({ pick }) {
-  const data = pick.history || [];
-  if (data.length === 0) {
-    return (
-      <div className="mm-featured-card">
-        <div className="mm-featured-title">{pick.title}</div>
-        <div style={{ padding: "40px 0", textAlign: "center", color: PALETTE.muted, fontFamily: FONT_MONO, fontSize: 12 }}>
-          データ取得失敗
-        </div>
-      </div>
-    );
-  }
-  const vals = data.map((d) => d.v);
-  const min = Math.min(...vals);
-  const max = Math.max(...vals);
-  const pad = (max - min) * 0.08;
-  const last = pick.last;
-  const pct = pick.pct1y;
-
-  return (
-    <div className="mm-featured-card">
-      <div className="mm-featured-head">
-        <div className="mm-featured-title">{pick.title}</div>
-        <div className="mm-featured-sub">{pick.name} · {pick.sub} · 1Y Daily</div>
-      </div>
-      <div style={{ height: 180, marginLeft: -8 }}>
-        <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={data} margin={{ top: 8, right: 8, left: 8, bottom: 0 }}>
-            <CartesianGrid stroke={PALETTE.border} strokeDasharray="2 4" vertical={false} />
-            <XAxis
-              dataKey="d"
-              tick={{ fontSize: 9, fill: PALETTE.muted, fontFamily: FONT_MONO }}
-              stroke={PALETTE.dim}
-              tickFormatter={(v) => v.slice(5, 7) + "/" + v.slice(8, 10)}
-              interval={Math.floor(data.length / 6)}
-            />
-            <YAxis
-              tick={{ fontSize: 9, fill: PALETTE.muted, fontFamily: FONT_MONO }}
-              stroke={PALETTE.dim}
-              domain={[min - pad, max + pad]}
-              tickFormatter={(v) => v > 10000 ?
-                `${(v / 1000).toFixed(0)}k` : fmt(v, 1)}
-              width={40}
-            />
-            <Tooltip
-              contentStyle={{ background: PALETTE.panel, border: `1px solid ${PALETTE.borderStrong}`, fontFamily: FONT_MONO, fontSize: 11, color: PALETTE.fg }}
-              labelStyle={{ color: PALETTE.muted }}
-              formatter={(v) => [fmt(v, 2), pick.title]}
-            />
-            <Line
-              type="monotone"
-              dataKey="v"
-              stroke={PALETTE.accent}
-              strokeWidth={2}
-              dot={false}
-              activeDot={{ r: 3, fill: PALETTE.accent, stroke: PALETTE.panel }}
-            />
-          </LineChart>
-        </ResponsiveContainer>
-      </div>
-      <div className="mm-featured-last">
-        <span>現在値 <strong>{fmt(last, 2)}</strong></span>
-        <Pct n={pct} big />
-      </div>
-      {pick.rationale && <div className="mm-featured-rationale">{pick.rationale}</div>}
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────
-// Indices group (株式・為替・金利・コモディティ・ボラ)
-// ─────────────────────────────────────────
-function IndicesGroup({ title, rows }) {
-  return (
-    <div style={{ marginBottom: 28 }}>
-      <div className="mm-group-head">
-        <div className="mm-group-title">{title}</div>
-        <div className="mm-group-marker">▽ Section</div>
-      </div>
-      <div className="mm-table">
-        <div className="mm-table-row mm-table-header">
-          <div className="cell">Instrument</div>
-          <div className="cell r">Close</div>
-          <div className="cell r">1D</div>
-          <div className="cell r">1W</div>
-          <div className="cell r">1M</div>
-          <div className="cell r">6M</div>
-          <div className="cell r">As of</div>
-        </div>
-        {rows.map((r, i) => {
-          const priceDecimals = r.isYield ? 3 : r.close > 1000 ? 2 : 4;
-          return (
-            <div
-              key={i}
-              className="mm-table-row"
-              style={{ background: i % 2 === 0 ? PALETTE.panel : PALETTE.bg }}
-            >
-              <div className="cell">
-                <div style={{ fontWeight: 500 }}>{r.name}</div>
-                <div style={{ fontSize: 10, color: PALETTE.muted }}>{r.sub}</div>
-              </div>
-              <div className="cell r" style={{ fontFamily: FONT_MONO }}>
-                {fmt(r.close, priceDecimals)}{r.unit || ""}
-              </div>
-              <div className="cell r"><Pct n={r.day} /></div>
-              <div className="cell r"><Pct n={r.week} /></div>
-              <div className="cell r"><Pct n={r.month} /></div>
-              <div className="cell r"><Pct n={r.sixM} /></div>
-              <div className="cell r" style={{ fontFamily: FONT_MONO, fontSize: 10.5, color: PALETTE.muted }}>
-                {fmtDay(r.asOf)}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-      {/* Mobile cards */}
-      <div className="mm-cards">
-        {rows.map((r, i) => {
-          const priceDecimals = r.isYield ? 3 : r.close > 1000 ? 2 : 4;
-          return (
-            <div key={i} className="mm-card">
-              <div className="mm-card-head">
-                <div style={{ minWidth: 0, flex: 1 }}>
-                  <div className="mm-card-name">{r.name}</div>
-                  <div className="mm-card-sub">{r.sub}</div>
-                  <div className="mm-card-asof">As of {fmtDay(r.asOf)}</div>
-                </div>
-                <div className="mm-card-close">{fmt(r.close, priceDecimals)}{r.unit || ""}</div>
-              </div>
-              <div className="mm-card-grid">
-                {[
-                  { l: "1D", v: r.day },
-                  { l: "1W", v: r.week },
-                  { l: "1M", v: r.month },
-                  { l: "6M", v: r.sixM },
-                ].map((x, j) => (
-                  <div key={j} className="mm-card-cell">
-                    <span className="mm-card-cell-label">{x.l}</span>
-                    <Pct n={x.v} />
-                  </div>
-                ))}
-              </div>
-              {r.note && <div className="mm-note-inline">{r.note}</div>}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────
-// Macro barometer
-// ─────────────────────────────────────────
-function MacroBarometer({ macro }) {
-  if (!macro || !macro.indicators || macro.indicators.length === 0) {
-    return <div style={{ color: PALETTE.muted, fontFamily: FONT_MONO, fontSize: 12, padding: "20px 0" }}>macro data unavailable</div>;
-  }
-
-  const groups = ["金利・期待", "信用市場", "金融環境", "為替・実物"];
-  const byGroup = groups
-    .map((g) => ({ title: g, rows: macro.indicators.filter((r) => r.group === g) }))
-    .filter((g) => g.rows.length > 0);
-
-  return (
-    <div>
-      {byGroup.map((g, gi) => (
-        <div key={gi} style={{ marginBottom: 22 }}>
-          <div className="mm-group-head">
-            <div className="mm-group-title">{g.title}</div>
-            <div className="mm-group-marker">▽ {g.rows.length} indicators</div>
-          </div>
-          <div className="mm-macro-table">
-            <div className="mm-macro-row mm-table-header">
-              <div className="cell">Indicator</div>
-              <div className="cell">Description</div>
-              <div className="cell r">Value</div>
-              <div className="cell r">1D</div>
-              <div className="cell r">1W</div>
-              <div className="cell r">As of</div>
-            </div>
-            {g.rows.map((r, i) => (
-              <div
-                key={i}
-                className="mm-macro-row"
-                style={{ background: i % 2 === 0 ? PALETTE.panel : PALETTE.bg }}
-              >
-                <div className="cell">
-                  <div style={{ fontWeight: 500 }}>
-                    {r.name}
-                    <span className="mm-freq-badge">{r.freq}</span>
-                  </div>
-                </div>
-                <div className="cell" style={{ fontSize: 11.5, color: PALETTE.muted }}>{r.desc}</div>
-                <div className="cell r" style={{ fontFamily: FONT_MONO, fontWeight: 500 }}>
-                  {fmt(r.value, 3)}{r.unit === "%" ? "%" : ""}
-                </div>
-                <div className="cell r"><Signed n={r.diff1d} d={3} /></div>
-                <div className="cell r"><Signed n={r.diff7d} d={3} /></div>
-                <div className="cell r" style={{ fontFamily: FONT_MONO, fontSize: 10.5, color: PALETTE.muted }}>
-                  {fmtDay(r.asOf)}
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* Mobile cards */}
-          <div className="mm-cards">
-            {g.rows.map((r, i) => (
-              <div key={i} className="mm-card">
-                <div className="mm-card-head">
-                  <div style={{ minWidth: 0, flex: 1 }}>
-                    <div className="mm-card-name">{r.name}<span className="mm-freq-badge">{r.freq}</span></div>
-                    <div className="mm-card-sub">{r.desc}</div>
-                    <div className="mm-card-asof">{r.unit} · As of {fmtDay(r.asOf)}</div>
-                  </div>
-                  <div className="mm-card-close">{fmt(r.value, 3)}</div>
-                </div>
-                <div className="mm-card-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-                  <div className="mm-card-cell"><span className="mm-card-cell-label">1D</span><Signed n={r.diff1d} d={3} /></div>
-                  <div className="mm-card-cell"><span className="mm-card-cell-label">1W</span><Signed n={r.diff7d} d={3} /></div>
-                  <div className="mm-card-cell"><span className="mm-card-cell-label">1M</span><Signed n={r.diff30d} d={3} /></div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────
-// Funding & Volatility panel  (NEW)
-//   • VIX 期間構造 (VIX vs VIX3M ratio)
-//   • MOVE 指数 (国債ボラ)
-//   • SOFR - IORB スプレッド (ファンディング逼迫)
-// ─────────────────────────────────────────
-function FundingVolPanel({ market, macro }) {
-  if (!market || !market.indices) return null;
-
-  const findInst = (name) => market.indices.find((r) => r.name === name);
-  const vix    = findInst("VIX");
-  const vix3m  = findInst("VIX 3M");
-  const move   = findInst("MOVE");
-  const findMacro = (id) => (macro?.indicators || []).find((r) => r.id === id);
-  const sofr = findMacro("SOFR");
-  const iorb = findMacro("IORB");
-
-  // VIX term structure ratio (>1 = contango = リスクオン, <1 = backwardation = リスクオフ)
-  const vixRatio = vix?.close && vix3m?.close ? vix3m.close / vix.close : null;
-  const vixRegime = vixRatio == null ? null : vixRatio < 1.0 ? "BACKWARDATION" : vixRatio < 1.10 ? "FLAT" : "CONTANGO";
-
-  // SOFR - IORB spread (bp). 通常はマイナス〜ゼロ近辺、プラスはファンディング逼迫
-  const fundingSpread = sofr?.value != null && iorb?.value != null
-    ? Math.round((sofr.value - iorb.value) * 100)  // basis points
-    : null;
-  const fundingState = fundingSpread == null ? null
-    : fundingSpread > 5 ? "STRESSED"
-    : fundingSpread > -5 ? "NEUTRAL"
-    : "EASY";
-
-  const cards = [
-    {
-      label: "VIX 期間構造 (3M ÷ 1M)",
-      value: vixRatio,
-      decimals: 3,
-      regime: vixRegime,
-      regimeMap: { CONTANGO: "up", FLAT: "flat", BACKWARDATION: "down" },
-      desc: vixRatio == null ? "—"
-        : vixRatio < 1.0
-          ? "バックワーデーション。短期不安が中期を上回る、リスクオフ警戒"
-          : vixRatio < 1.10
-            ? "フラット。市場は中立、テールリスクは織り込み中"
-            : "コンタンゴ。短期は静か、市場はリスクオン姿勢",
-      sub: vix && vix3m ? `VIX ${fmt(vix.close, 2)} / 3M ${fmt(vix3m.close, 2)}` : "data unavailable",
-    },
-    {
-      label: "MOVE (国債ボラ指数)",
-      value: move?.close,
-      decimals: 1,
-      regime: move?.close == null ? null
-        : move.close > 130 ? "ELEVATED"
-        : move.close > 100 ? "NORMAL"
-        : "CALM",
-      regimeMap: { ELEVATED: "down", NORMAL: "flat", CALM: "up" },
-      desc: move?.close == null ? "—"
-        : move.close > 130
-          ? "国債ボラ高水準、金利の方向観に確信なし"
-          : move.close > 100
-            ? "通常レンジ。Fed パスは織り込み済み"
-            : "国債ボラ低位、低ボラ環境",
-      sub: move?.day != null ? `1日: ${fmtPct(move.day)}` : "",
-    },
-    {
-      label: "SOFR − IORB (bp)",
-      value: fundingSpread,
-      decimals: 0,
-      unit: "bp",
-      regime: fundingState,
-      regimeMap: { STRESSED: "down", NEUTRAL: "flat", EASY: "up" },
-      desc: fundingSpread == null ? "—"
-        : fundingSpread > 5
-          ? "ファンディング逼迫の早期シグナル。準備預金不足の可能性"
-          : fundingSpread > -5
-            ? "中立水準。米短期市場は機能正常"
-            : "潤沢な準備、ドル流動性緩和的",
-      sub: sofr && iorb ? `SOFR ${fmt(sofr.value, 3)} / IORB ${fmt(iorb.value, 3)}` : "",
-    },
-  ];
-
-  return (
-    <div style={{ marginTop: 36, marginBottom: 32 }}>
-      <div className="mm-group-head" style={{ marginTop: 0 }}>
-        <div className="mm-group-title">ボラティリティ・ファンディング</div>
-        <div className="mm-group-marker">▽ stress detectors</div>
-      </div>
-      <div className="mm-fundvol-grid">
-        {cards.map((c, i) => {
-          const regimeKey = c.regime ? c.regimeMap[c.regime] : "flat";
-          return (
-            <div key={i} className={`mm-fundvol-card mm-fundvol-${regimeKey}`}>
-              <div className="mm-fundvol-label">{c.label}</div>
-              <div className="mm-fundvol-value">
-                {c.value != null
-                  ? `${c.value > 0 && c.unit === "bp" ? "+" : ""}${fmt(c.value, c.decimals)}${c.unit ? c.unit : ""}`
-                  : "—"}
-              </div>
-              {c.regime && <div className={`mm-fundvol-regime regime-${regimeKey}`}>{c.regime}</div>}
-              <div className="mm-fundvol-desc">{c.desc}</div>
-              {c.sub && <div className="mm-fundvol-sub">{c.sub}</div>}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────
-// Listed Alternatives Proxies panel  (NEW)
-// ─────────────────────────────────────────
-function ListedAltsPanel({ alts }) {
-  if (!alts || !alts.assets || alts.assets.length === 0) return null;
-
-  // Group by category
-  const order = ["Listed PE", "BDC (PD)", "Infra", "US REIT", "J-REIT"];
-  const byCat = order
-    .map((c) => ({ cat: c, rows: alts.assets.filter((a) => a.category === c) }))
-    .filter((g) => g.rows.length > 0);
-
-  return (
-    <div style={{ marginTop: 48, marginBottom: 24 }}>
-      <div className="mm-section-tag">9. 上場プロキシ・ボード</div>
-      <div className="mm-section-head"><em>非上場の鏡像、</em> 日次で値付くオルタナ。</div>
-      <div className="mm-section-lede">
-        プライベート資産は日次の値段が出ない。<strong>上場 ETF / 関連株のバスケット</strong>を
-        日次プロキシとして並べることで、PE / PD / インフラ / 不動産 (米・日) の温度感を一目で読む。
-        Alternatives Spotlight (下) の解説と合わせて読むと立体的になる。
-        {alts.generatedAt && <>{" "}取得: {fmtDate(alts.generatedAt)}</>}
-      </div>
-
-      <div className="mm-alts-grid">
-        {byCat.flatMap((g) => g.rows.map((row) => <ListedAltCard key={row.ticker} row={row} category={g.cat} />))}
-      </div>
-    </div>
-  );
-}
-
-function ListedAltCard({ row, category }) {
-  const data = row.history || [];
-  const vals = data.map((d) => d.v);
-  const min = vals.length ? Math.min(...vals) : 0;
-  const max = vals.length ? Math.max(...vals) : 0;
-  const pad = (max - min) * 0.10;
-
-  return (
-    <div className="mm-alts-card">
-      <div className="mm-alts-cat">{category}</div>
-      <div className="mm-alts-head">
-        <div style={{ minWidth: 0, flex: 1 }}>
-          <div className="mm-alts-name">{row.name}</div>
-          <div className="mm-alts-ticker">{row.ticker} · {row.sub}</div>
-        </div>
-        <div className="mm-alts-close">{fmt(row.close, 2)}</div>
-      </div>
-      <div className="mm-alts-desc">{row.desc}</div>
-      <div className="mm-alts-spark">
-        {data.length > 0 && (
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data} margin={{ top: 6, right: 6, left: 0, bottom: 0 }}>
-              <CartesianGrid stroke={PALETTE.border} strokeDasharray="2 4" vertical={false} />
-              <XAxis
-                dataKey="d"
-                tick={{ fontSize: 8.5, fill: PALETTE.muted, fontFamily: FONT_MONO }}
-                stroke={PALETTE.dim}
-                tickFormatter={(v) => v.slice(5, 7) + "/" + v.slice(2, 4)}
-                interval={Math.max(1, Math.floor(data.length / 4))}
-                minTickGap={20}
-              />
-              <YAxis
-                orientation="right"
-                tick={{ fontSize: 8.5, fill: PALETTE.muted, fontFamily: FONT_MONO }}
-                stroke={PALETTE.dim}
-                domain={[min - pad, max + pad]}
-                tickFormatter={(v) => fmt(v, v > 100 ? 0 : 1)}
-                width={32}
-                tickCount={4}
-              />
-              <Tooltip
-                contentStyle={{ background: PALETTE.panel, border: `1px solid ${PALETTE.borderStrong}`, fontFamily: FONT_MONO, fontSize: 11, color: PALETTE.fg, padding: "4px 8px" }}
-                labelStyle={{ color: PALETTE.muted }}
-                formatter={(v) => [fmt(v, 2), row.ticker]}
-              />
-              <Area
-                type="monotone"
-                dataKey="v"
-                stroke={PALETTE.accent2}
-                strokeWidth={1.6}
-                fill={PALETTE.accent2}
-                fillOpacity={0.12}
-                dot={false}
-                activeDot={{ r: 3, fill: PALETTE.accent2, stroke: PALETTE.panel }}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        )}
-      </div>
-      <div className="mm-alts-perf">
-        {[
-          { l: "1D", v: row.day },
-          { l: "1W", v: row.week },
-          { l: "1M", v: row.month },
-          { l: "3M", v: row.threeM },
-          { l: "YTD", v: row.ytd },
-        ].map((x, j) => (
-          <div key={j} className="mm-alts-perf-cell">
-            <div className="mm-alts-perf-label">{x.l}</div>
-            <Pct n={x.v} />
-          </div>
-        ))}
-      </div>
-      <div className="mm-alts-asof">As of {fmtDay(row.asOf)}</div>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────
-// Sector heatmap
-// ─────────────────────────────────────────
-function SectorHeatmap({ sectors }) {
-  const [period, setPeriod] = useState("day");
-
-  const colorFor = (v) => {
-    if (v == null) return PALETTE.bg;
-    const cap = period === "ytd" ? 30 : period === "month" ? 10 : period === "week" ? 5 : 3;
-    const t = Math.max(-1, Math.min(1, v / cap));
-    if (t > 0) {
-      const a = Math.abs(t);
-      return `rgba(45, 106, 79, ${0.18 + a * 0.7})`;
-    } else if (t < 0) {
-      const a = Math.abs(t);
-      return `rgba(192, 57, 43, ${0.18 + a * 0.7})`;
-    }
-    return PALETTE.bg;
-  };
-
-  const textFor = (v) => {
-    if (v == null) return PALETTE.muted;
-    const cap = period === "ytd" ? 30 : period === "month" ? 10 : period === "week" ? 5 : 3;
-    const t = Math.max(-1, Math.min(1, v / cap));
-    return Math.abs(t) > 0.55 ? "#FFF" : PALETTE.fg;
-  };
-
-  return (
-    <div className="mm-heatmap-wrap">
-      <div className="mm-heatmap-head">
-        <div className="mm-heatmap-title">米セクター・ヒートマップ</div>
-        <div className="mm-heatmap-legend">SPDRセクターETF · {sectors[0]?.asOf || "—"}</div>
-      </div>
-      <div className="mm-heatmap-tabs">
-        {[
-          { k: "day",   l: "1日" },
-          { k: "week",  l: "1週" },
-          { k: "month", l: "1ヶ月" },
-          { k: "ytd",   l: "年初来" },
-        ].map((x) => (
-          <div
-            key={x.k}
-            className={`mm-heatmap-tab ${period === x.k ? "active" : ""}`}
-            onClick={() => setPeriod(x.k)}
-          >
-            {x.l}
-          </div>
-        ))}
-      </div>
-      <div className="mm-heatmap-grid">
-        {sectors.map((s, i) => {
-          const v = s[period];
-          return (
-            <div
-              key={i}
-              className="mm-heatmap-cell"
-              style={{ background: colorFor(v), color: textFor(v) }}
-              title={`${s.name} (${s.ticker}): ${fmtPct(v)}`}
-            >
-              <span className="mm-heatmap-cell-name">{s.short}</span>
-              <span className="mm-heatmap-cell-val">{fmtPct(v)}</span>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────
-// Valuation Section
-// ─────────────────────────────────────────
-function ValuationSection({ valuations }) {
-  if (!valuations || !valuations.indicators || valuations.indicators.length === 0) {
-    return null;
-  }
-
-  const indicators = valuations.indicators;
-  const groups = ["米国バリュエーション", "ボラティリティ"];
-  const byGroup = groups
-    .map((g) => ({ title: g, rows: indicators.filter((r) => r.group === g) }))
-    .filter((g) => g.rows.length > 0);
-
-  const chartCandidates = indicators.filter((i) => i.history && i.history.length >= 12).slice(0, 4);
-
-  return (
-    <div style={{ marginTop: 48, marginBottom: 24 }}>
-      <div className="mm-section-tag">5. バリュエーション・ゲージ</div>
-      <div className="mm-section-head"><em>5指標で測る、</em> 株式の高低。</div>
-      <div className="mm-section-lede">
-        Shiller CAPE / Buffett Indicator / Fed Model / 配当利回り / VVIX-VIX 比率。
-        水準と5年中央値からの乖離で「いま割高/割安なのか」を読む。
-        {valuations?.generatedAt && <>{" "}取得: {fmtDate(valuations.generatedAt)}</>}
-      </div>
-
-      <div>
-        {byGroup.map((g, gi) => (
-          <div key={gi} style={{ marginBottom: 22 }}>
-            <div className="mm-group-head">
-              <div className="mm-group-title">{g.title}</div>
-              <div className="mm-group-marker">▽ {g.rows.length} indicators</div>
-            </div>
-            <div className="mm-macro-table">
-              <div className="mm-macro-row mm-table-header">
-                <div className="cell">Indicator</div>
-                <div className="cell">Description</div>
-                <div className="cell r">Value</div>
-                <div className="cell r">1M</div>
-                <div className="cell r">1Y</div>
-                <div className="cell r">5Y中央値乖離</div>
-              </div>
-              {g.rows.map((r, i) => (
-                <div
-                  key={i}
-                  className="mm-macro-row"
-                  style={{ background: i % 2 === 0 ? PALETTE.panel : PALETTE.bg }}
-                >
-                  <div className="cell">
-                    <div style={{ fontWeight: 500 }}>
-                      {r.name}
-                      <span className="mm-freq-badge">{r.freq}</span>
-                    </div>
-                  </div>
-                  <div className="cell" style={{ fontSize: 11.5, color: PALETTE.muted }}>{r.desc}</div>
-                  <div className="cell r" style={{ fontFamily: FONT_MONO, fontWeight: 500 }}>
-                    {fmt(r.value, 2)}{r.unit === "%" ? "%" : r.unit === "x" ? "x" : ""}
-                  </div>
-                  <div className="cell r"><Signed n={r.diff1m} d={2} /></div>
-                  <div className="cell r"><Signed n={r.diff1y} d={2} /></div>
-                  <div className="cell r">
-                    {r.deviation != null && (
-                      <span className={`mm-val-deviation ${r.deviation > 0 ? "high" : "low"}`}>
-                        {fmtSigned(r.deviation, 2)}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mm-cards">
-              {g.rows.map((r, i) => (
-                <div key={i} className="mm-card">
-                  <div className="mm-card-head">
-                    <div style={{ minWidth: 0, flex: 1 }}>
-                      <div className="mm-card-name">{r.name}<span className="mm-freq-badge">{r.freq}</span></div>
-                      <div className="mm-card-sub">{r.desc}</div>
-                      <div className="mm-card-asof">{r.unit} · As of {fmtDay(r.asOf)}</div>
-                    </div>
-                    <div className="mm-card-close">{fmt(r.value, 2)}</div>
-                  </div>
-                  <div className="mm-card-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-                    <div className="mm-card-cell"><span className="mm-card-cell-label">1M</span><Signed n={r.diff1m} d={2} /></div>
-                    <div className="mm-card-cell"><span className="mm-card-cell-label">1Y</span><Signed n={r.diff1y} d={2} /></div>
-                    <div className="mm-card-cell">
-                      <span className="mm-card-cell-label">乖離</span>
-                      {r.deviation != null && (
-                        <span className={`mm-val-deviation ${r.deviation > 0 ? "high" : "low"}`}>
-                          {fmtSigned(r.deviation, 2)}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {chartCandidates.length > 0 && (
-        <div className="mm-val-charts">
-          {chartCandidates.map((ind, i) => (
-            <MiniChart
-              key={i}
-              title={ind.name}
-              sub={`${ind.unit} · 過去 ${ind.history.length} ヶ月`}
-              data={ind.history}
-              current={ind.value}
-              decimals={2}
-              freqLabel="5Y Monthly"
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────
-// Central Bank Watch
-// ─────────────────────────────────────────
-function CentralBankWatch({ watch, factsByCode }) {
-  if (!watch || watch.length === 0) return null;
-
-  return (
-    <div style={{ marginTop: 48, marginBottom: 24 }}>
-      <div className="mm-section-tag">6. 中央銀行ウォッチ</div>
-      <div className="mm-section-head"><em>Fed・ECB・BOJ + α、</em> 政策の今を読む。</div>
-      <div className="mm-section-lede">
-        主要3中銀 (Fed, ECB, BOJ) は常設、4枚目は<strong>その日のニュース文脈で日替わり</strong>に選定。
-        各カードの解説はAIが直近の決定・要人発言・市場の見方を織り込んで一文で整理。
-      </div>
-
-      <div className="mm-cb-grid">
-        {watch.map((cb, i) => {
-          const facts = factsByCode[cb.code] || {};
-          const isRotating = facts.always_show === false;
-          return (
-            <div key={i} className={`mm-cb-card ${isRotating ? "rotating" : ""}`}>
-              {isRotating && <span className="mm-cb-rotating-badge">▲ 日替わり</span>}
-              <div className="mm-cb-head">
-                <div style={{ minWidth: 0, flex: 1 }}>
-                  <div className="mm-cb-name">{facts.name || cb.code}</div>
-                  <div className="mm-cb-country">{facts.country || ""}</div>
-                </div>
-                {facts.rate_value != null && (
-                  <div className="mm-cb-rate">
-                    <div className="mm-cb-rate-val">{fmt(facts.rate_value, 2)}%</div>
-                    <div className="mm-cb-rate-name">{facts.rate_name || "Policy Rate"}</div>
-                  </div>
-                )}
-              </div>
-
-              {cb.comment && (
-                <div className="mm-cb-comment">{cb.comment}</div>
-              )}
-
-              <div className="mm-cb-meta">
-                {facts.next_meeting_hint && (
-                  <span className="mm-cb-meta-item">頻度: <strong>{facts.next_meeting_hint}</strong></span>
-                )}
-                {facts.last_change && facts.last_change_date && (
-                  <span className="mm-cb-meta-item">
-                    直近の変更: <strong>{facts.last_change}</strong> ({facts.last_change_amount > 0 ? "+" : ""}{facts.last_change_amount}%, {facts.last_change_date})
-                  </span>
-                )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
 
 // =====================================================
 // MAIN
@@ -778,181 +80,54 @@ export default function MarketMonitor() {
   if (error) return <div className="mm-root"><div className="mm-error">データ読み込みエラー: {error}</div></div>;
   if (!market || !news) return <div className="mm-root"><div className="mm-loading">Loading market data…</div></div>;
 
-  // 主要市場テーブル用のグループ分け (本ファイルにある IndicesGroup でそのまま使う)
-  const groups = ["株式", "為替", "金利", "コモディティ", "ボラティリティ"];
-  const byGroup = groups
-    .map((g) => ({ title: g, rows: market.indices.filter((r) => r.group === g) }))
-    .filter((g) => g.rows.length > 0);
-
   const cadence = news.cadence || { mode: "daily" };
+  const factsByCode = Object.fromEntries(
+    (centralBanks?.central_banks || []).map((c) => [c.code, c])
+  );
 
   return (
     <div className="mm-root">
-      {/* Stale Data Warning */}
       <StaleDataWarning market={market} news={news} />
 
-      {/* Masthead + Epigraph + Ticker (v13.1.2) */}
       <MastheadSection news={news} market={market} />
 
-      {/* 1. Featured charts */}
-      {featured?.featured && featured.featured.length > 0 && (
-        <div style={{ marginBottom: 48 }}>
-          <div className="mm-section-tag">1. 本日の注目チャート</div>
-          <div className="mm-section-head"><em>Claude AI が選ぶ、</em> 今日見るべき3本。</div>
-          <div className="mm-section-lede">
-            直近のニュース文脈から、今日のマーケットを理解するうえで押さえておくべきチャートを AI が選定。1年日次データで最近の動きを細かく表示。
-          </div>
-          <div className="mm-featured-grid">
-            {featured.featured.map((p, i) => <FeaturedChart key={i} pick={p} />)}
-          </div>
-        </div>
-      )}
+      <FeaturedChartsSection featured={featured} />
 
-      {/* 2. Indices */}
-      <div style={{ marginBottom: 12 }}>
-        <div className="mm-section-tag">2. 昨日の主要市場</div>
-        <div className="mm-section-head"><em>{news.headline_of_the_day || "—"}</em></div>
-        <div className="mm-section-lede">
-          株式・為替・金利・コモディティ・ボラティリティの引値と、1日/1週/1ヶ月/6ヶ月のリターン。
-          最新データ取得: {fmtDate(market.generatedAt)}
-        </div>
-      </div>
-      {byGroup.map((g, i) => <IndicesGroup key={i} title={g.title} rows={g.rows} />)}
+      <MarketTableSection market={market} news={news} />
+      <SectorHeatmapSection sectors={market.sectors} />
 
-      {/* Sector heatmap */}
-      {market.sectors && market.sectors.length > 0 && (
-        <div style={{ marginTop: 28 }}>
-          <div className="mm-group-head">
-            <div className="mm-group-title">米セクター・ヒートマップ</div>
-            <div className="mm-group-marker">▽ SPDR Sectors</div>
-          </div>
-          <SectorHeatmap sectors={market.sectors} />
-        </div>
-      )}
+      <MacroBarometerSection macro={macro} />
 
-      {/* 3. Macro barometer */}
-      <div style={{ marginTop: 48, marginBottom: 24 }}>
-        <div className="mm-section-tag">3. マクロ・バロメーター</div>
-        <div className="mm-section-head"><em>FRED 18指標で読む、</em> 地合いの温度。</div>
-        <div className="mm-section-lede">
-          St. Louis Fed の FRED から取得した<strong>金利・期待</strong>、<strong>信用市場</strong> (HY / IG / EM 社債スプレッド)、
-          <strong>金融環境</strong>、<strong>為替・実物</strong>の代表指標。
-          信用市場グループはプライベート・デットの絶対リターンを規定する公的市場の状態を映す。
-          {macro?.generatedAt && <>{" "}取得: {fmtDate(macro.generatedAt)}</>}
-        </div>
-        <MacroBarometer macro={macro} />
-      </div>
+      <FundingVolSection market={market} macro={macro} />
 
-      {/* 4. Funding & Volatility (NEW) */}
-      <div style={{ marginTop: 48, marginBottom: 24 }}>
-        <div className="mm-section-tag">4. ボラティリティ・ファンディング</div>
-        <div className="mm-section-head"><em>クロスアセットのボラ・レジーム、</em> 流動性逼迫の早期警報。</div>
-        <div className="mm-section-lede">
-          VIX 期間構造でリスクオン/オフ、MOVE で国債ボラ、SOFR-IORB スプレッドで米短期市場のファンディング状況を読む。
-          東京の機関投資家にとって、円ヘッジコストや海外債券判断の前提となる3指標。
-        </div>
-        <FundingVolPanel market={market} macro={macro} />
-      </div>
+      <ValuationsSection valuations={valuations} />
 
-      {/* 5. Valuation gauges */}
-      <ValuationSection valuations={valuations} />
-
-      {/* 6. Central Bank Watch */}
-      <CentralBankWatch
+      <CentralBanksSection
         watch={news.central_bank_watch || []}
-        factsByCode={Object.fromEntries((centralBanks?.central_banks || []).map((c) => [c.code, c]))}
+        factsByCode={factsByCode}
       />
 
-      {/* 7. 5Y charts */}
-      <div style={{ marginTop: 48, marginBottom: 24 }}>
-        <div className="mm-section-tag">7. 重要指標・5年チャート</div>
-        <div className="mm-section-head"><em>俯瞰で見る、</em> 5年の地殻変動。</div>
-        <div className="mm-section-lede">
-          主要指標の月末値推移。<span style={{ color: PALETTE.accent, fontWeight: 600 }}>● 橙破線</span>
-          は2026年2月末の米・イラン紛争開始点。
-        </div>
-        <div className="mm-chart-grid">
-          <MiniChart title="日経平均"      sub="¥ · JPY"     data={market.history.nikkei} current={market.history.nikkei?.at(-1)?.v} decimals={0} highlight="2026-02-27" />
-          <MiniChart title="S&P 500"       sub="INDEX · USD" data={market.history.sp500}  current={market.history.sp500?.at(-1)?.v}  decimals={0} highlight="2026-02-27" />
-        </div>
-        <div className="mm-chart-grid">
-          <MiniChart title="USD/JPY"       sub="ドル円"       data={market.history.usdjpy} current={market.history.usdjpy?.at(-1)?.v} decimals={1} highlight="2026-02-27" />
-          <MiniChart title="米10年債利回り" sub="%"           data={market.history.us10y}  current={market.history.us10y?.at(-1)?.v}  decimals={2} highlight="2026-02-27" />
-        </div>
-        <div className="mm-chart-grid">
-          <MiniChart title="WTI原油"       sub="$ / bbl"     data={market.history.wti}    current={market.history.wti?.at(-1)?.v}    decimals={0} unit="$" highlight="2026-02-27" />
-          <MiniChart title="金 (COMEX)"    sub="$ / oz"      data={market.history.gold}   current={market.history.gold?.at(-1)?.v}   decimals={0} unit="$" highlight="2026-02-27" />
-        </div>
-      </div>
+      <IndicatorChartsSection market={market} />
 
-      {/* 8. News */}
-      <div style={{ marginTop: 56 }}>
-        <div className="mm-section-tag">8. 市場を動かしたニュース</div>
-        <div className="mm-section-head"><em>Claude AIが選ぶ、</em> 本日の7本。</div>
-        <div className="mm-section-lede">
-          直近24時間の主要メディアから AI が選定した、マーケットに影響を与えた / 与えうる重要ニュース。
-        </div>
-        <div className="mm-news-grid">
-          {(news.news || []).map((n, i) => (
-            <div key={i} className="mm-news-cell">
-              <div style={{ fontFamily: FONT_MONO, fontSize: 9.5, color: PALETTE.accent, letterSpacing: "0.2em", marginBottom: 8, fontWeight: 600 }}>
-                — {n.tag}
-              </div>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: 19, lineHeight: 1.25, color: PALETTE.fg, fontWeight: 500, marginBottom: 10 }}>
-                {n.headline}
-              </div>
-              <div style={{ fontSize: 13, lineHeight: 1.6, color: PALETTE.muted, marginBottom: 14 }}>{n.body}</div>
-              {n.impact && (
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
-                  {n.impact.map((x, j) => (
-                    <span
-                      key={j}
-                      style={{
-                        fontFamily: FONT_MONO,
-                        fontSize: 10.5,
-                        color: PALETTE.fg,
-                        border: `1px solid ${PALETTE.borderStrong}`,
-                        padding: "3px 8px",
-                        letterSpacing: "0.02em",
-                        fontWeight: 500,
-                      }}
-                    >
-                      {x}
-                    </span>
-                  ))}
-                </div>
-              )}
-              {n.link && (
-                <div>
-                  <a href={n.link} target="_blank" rel="noopener noreferrer" className="mm-news-link">
-                    {n.source || "記事元"}
-                  </a>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+      <NewsSection news={news} />
 
-      {/* 9. Listed Alternatives Proxies (NEW) */}
-      <ListedAltsPanel alts={listedAlts} />
+      <ListedAltsSection alts={listedAlts} />
 
-      {/* Deep Dive article (v13.1.2) */}
-      <DeepDiveSection article={news.deep_dive} chartUniverse={CHART_UNIVERSE_LABELS} cadence={cadence} />
+      <DeepDiveSection
+        article={news.deep_dive}
+        chartUniverse={CHART_UNIVERSE_LABELS}
+        cadence={cadence}
+      />
 
-      {/* Economic indicator chart (daily pick) (v13.1.2) */}
       <EconomicChartSection econ={economic} />
 
-      {/* Alternatives Spotlight (v13.1.2) */}
       <AlternativesSpotlightSection
         pePd={news.pe_pd_view}
         realAssets={news.real_assets_view}
       />
 
-      {/* Market Muse (v13.1.2) */}
       <MarketMuseSection news={news} />
 
-      {/* Footer (v13.1.2) */}
       <FooterSection />
     </div>
   );

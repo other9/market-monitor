@@ -1,5 +1,5 @@
 """
-fetch_central_banks.py
+fetch_central_banks.py  (v13.3 — common.py 利用)
 主要中央銀行の政策金利を FRED から取得し、data/central_banks.json に書き出す。
 
 - 常設: Fed, ECB, BOJ
@@ -21,9 +21,12 @@ from typing import Any
 import pandas as pd
 import requests
 
+# v13.3: common.py を使う
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scripts.common import fred_observations, log_ok, log_warn, log_info, utc_now_iso
+
 
 OUTPUT_PATH = Path("data/central_banks.json")
-FRED_BASE = "https://api.stlouisfed.org/fred/series/observations"
 
 
 # ─────────────────────────────────────────────────────────
@@ -76,37 +79,26 @@ CENTRAL_BANKS: list[dict[str, Any]] = [
 
 
 def fetch_fred(series_id: str, api_key: str, years: int = 2) -> pd.Series:
-    params = {
-        "series_id":         series_id,
-        "api_key":           api_key,
-        "file_type":         "json",
-        "observation_start": (datetime.now() - pd.DateOffset(years=years)).strftime("%Y-%m-%d"),
-    }
+    """v13.3: common.fred_observations の薄いラッパ (戻り値 pd.Series 維持)。"""
     try:
-        r = requests.get(FRED_BASE, params=params, timeout=15)
-        r.raise_for_status()
-        data = r.json()
+        obs = fred_observations(
+            series_id,
+            api_key=api_key,
+            observation_start=(datetime.now() - pd.DateOffset(years=years)).strftime("%Y-%m-%d"),
+        )
     except Exception as e:
-        print(f"[WARN] FRED {series_id}: {e}", file=sys.stderr)
+        log_warn(f"FRED {series_id}: {e}")
         return pd.Series(dtype="float64")
-
-    rows = []
-    for o in data.get("observations", []):
-        if o.get("value") in (".", "", None):
-            continue
-        try:
-            rows.append((pd.Timestamp(o["date"]), float(o["value"])))
-        except (ValueError, TypeError):
-            continue
-    if not rows:
+    pairs = [(pd.Timestamp(o["date"]), o["value"])
+             for o in obs if o["value"] is not None]
+    if not pairs:
         return pd.Series(dtype="float64")
-    return pd.Series(dict(rows)).sort_index().dropna()
+    return pd.Series(dict(pairs)).sort_index().dropna()
 
 
 def main() -> None:
     api_key = os.environ.get("FRED_API_KEY", "")
     out: list[dict[str, Any]] = []
-    now = datetime.now(timezone.utc)
 
     for cb in CENTRAL_BANKS:
         entry: dict[str, Any] = {
@@ -146,9 +138,9 @@ def main() -> None:
                     "last_change_amount": last_change_amount,
                     "last_change_date":   last_change_date,
                 })
-                print(f"[OK]  {cb['code']:5s} {cb['rate_name']:20s} {last:>6.3f}%  asOf {last_date.date()}")
+                log_ok(f"{cb['code']:5s} {cb['rate_name']:20s} {last:>6.3f}%  asOf {last_date.date()}")
             else:
-                print(f"[WARN] {cb['code']}: no rate data")
+                log_warn(f"{cb['code']}: no rate data")
                 entry["rate_value"] = None
         else:
             entry["rate_value"] = None
@@ -156,7 +148,7 @@ def main() -> None:
         out.append(entry)
 
     payload = {
-        "generatedAt":   now.isoformat(),
+        "generatedAt":   utc_now_iso(),
         "central_banks": out,
     }
 
@@ -165,7 +157,7 @@ def main() -> None:
         json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"\nWrote {OUTPUT_PATH}: {len(out)} central banks")
+    log_info(f"Wrote {OUTPUT_PATH}: {len(out)} central banks")
 
 
 if __name__ == "__main__":

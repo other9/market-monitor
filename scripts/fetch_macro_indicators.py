@@ -1,8 +1,12 @@
 """
-fetch_macro_indicators.py  (v3 — adds IORB for SOFR-IORB funding stress)
+fetch_macro_indicators.py  (v13.3 — common.py 利用)
 
 FRED API から 18 指標を取得し、data/macro.json に書き出す。
 金利・期待 / 信用市場 / 金融環境 / 為替・実物 をカバー。
+
+歴史:
+  v3   : IORB を SOFR-IORB ファンディング・ストレス用に追加
+  v13.3: scripts/common.py の fred_observations / log_ok 等に乗せ替え
 """
 
 from __future__ import annotations
@@ -10,16 +14,21 @@ from __future__ import annotations
 import json
 import os
 import sys
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
-import requests
+
+# v13.3: common.py を使う
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from scripts.common import (
+    fred_observations,
+    log_ok, log_warn, log_info,
+    utc_now_iso,
+)
 
 
 OUTPUT_PATH = Path("data/macro.json")
-FRED_BASE = "https://api.stlouisfed.org/fred/series/observations"
 
 
 INDICATORS: list[dict[str, Any]] = [
@@ -52,32 +61,27 @@ INDICATORS: list[dict[str, Any]] = [
 
 
 def fetch_fred_series(series_id: str, api_key: str) -> pd.Series:
-    params = {
-        "series_id":         series_id,
-        "api_key":           api_key,
-        "file_type":         "json",
-        "observation_start": (datetime.now() - pd.DateOffset(years=2)).strftime("%Y-%m-%d"),
-    }
+    """FRED 系列を pd.Series で取得 (v13.3: common.fred_observations の薄いラッパ)。
+
+    diff_at が pandas Timedelta arithmetic を使うため戻り値は pd.Series 維持。
+    """
+    import pandas as pd  # local import to satisfy lint
+    from datetime import datetime
     try:
-        r = requests.get(FRED_BASE, params=params, timeout=15)
-        r.raise_for_status()
-        data = r.json()
+        obs = fred_observations(
+            series_id,
+            api_key=api_key,
+            observation_start=(datetime.now() - pd.DateOffset(years=2)).strftime("%Y-%m-%d"),
+        )
     except Exception as e:
-        print(f"[WARN] FRED {series_id}: {e}", file=sys.stderr)
+        log_warn(f"FRED {series_id}: {e}")
         return pd.Series(dtype="float64")
 
-    rows = []
-    for o in data.get("observations", []):
-        if o.get("value") in (".", "", None):
-            continue
-        try:
-            rows.append((pd.Timestamp(o["date"]), float(o["value"])))
-        except (ValueError, TypeError):
-            continue
-
-    if not rows:
+    pairs = [(pd.Timestamp(o["date"]), o["value"])
+             for o in obs if o["value"] is not None]
+    if not pairs:
         return pd.Series(dtype="float64")
-    return pd.Series(dict(rows)).sort_index().dropna()
+    return pd.Series(dict(pairs)).sort_index().dropna()
 
 
 def diff_at(series: pd.Series, days_back: int) -> float | None:
@@ -94,22 +98,21 @@ def diff_at(series: pd.Series, days_back: int) -> float | None:
 def main() -> None:
     api_key = os.environ.get("FRED_API_KEY")
     if not api_key:
-        print("[ERROR] FRED_API_KEY is not set", file=sys.stderr)
+        log_warn("FRED_API_KEY is not set")
         OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
         OUTPUT_PATH.write_text(json.dumps({
-            "generatedAt": datetime.now(timezone.utc).isoformat(),
+            "generatedAt": utc_now_iso(),
             "indicators": [],
             "error": "FRED_API_KEY not set",
         }, ensure_ascii=False, indent=2), encoding="utf-8")
         return
 
-    now = datetime.now(timezone.utc)
     out: list[dict[str, Any]] = []
 
     for ind in INDICATORS:
         s = fetch_fred_series(ind["id"], api_key)
         if s.empty or len(s) < 2:
-            print(f"[WARN] {ind['id']}: insufficient data")
+            log_warn(f"{ind['id']}: insufficient data")
             continue
 
         last = float(s.iloc[-1])
@@ -136,10 +139,10 @@ def main() -> None:
             "asOf":     s.index[-1].strftime("%Y-%m-%d"),
         }
         out.append(entry)
-        print(f"[OK]  {ind['id']:15s} {last:>8.3f}  d1={entry['diff1d']}  asOf {entry['asOf']}  [{ind['freq']}]")
+        log_ok(f"{ind['id']:15s} {last:>8.3f}  d1={entry['diff1d']}  asOf {entry['asOf']}  [{ind['freq']}]")
 
     payload = {
-        "generatedAt": now.isoformat(),
+        "generatedAt": utc_now_iso(),
         "indicators":  out,
     }
 
@@ -148,7 +151,7 @@ def main() -> None:
         json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
-    print(f"\nWrote {OUTPUT_PATH}: {len(out)} indicators.")
+    log_info(f"Wrote {OUTPUT_PATH}: {len(out)} indicators.")
 
 
 if __name__ == "__main__":
