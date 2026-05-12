@@ -124,9 +124,9 @@ Pensions & Investments / DailyAlts / PE Hub / AltAssets PE
 - 軽い修正は v13.4.1 のような小数刻みも可
 
 ## 現状のステータス
-最新バージョン: **v13.4.0** — Linter/Formatter + Dependabot + CI ワークフロー分離 完了
+最新バージョン: **v13.4.1** — 共通 component 抽出 + Vitest + mypy strict + B023 修正 完了
 
-v13 系統 (土台拡充) は v13.3 で完了し、Phase 1 (v13.4) に着手。**v13.4.0 で Tier 1 のうち linter/formatter 系を完了**。
+v13 系統 (土台拡充) は v13.3 で完了し、Phase 1 (v13.4) に着手。**v13.4.0 で linter/formatter インフラ、v13.4.1 で共通 component + テスト + 型強化** を完了。
 全体方針は [`ROADMAP.md`](ROADMAP.md) を、決定経緯は [`DECISIONS.md`](DECISIONS.md) を参照。
 
 ### Phase 1-5 全体像
@@ -141,7 +141,7 @@ v13 系統 (土台拡充) は v13.3 で完了し、Phase 1 (v13.4) に着手。*
 
 合計 9 リリース、8-10 ヶ月相当。
 
-### 次の一歩 — v13.4.1 着手予定
+### 次の一歩 — v13.4.2 着手予定
 
 v13.4.0 で完了:
 - ✅ Ruff (Python lint、45 件自動修正適用済)
@@ -151,34 +151,36 @@ v13.4.0 で完了:
 - ✅ CI ワークフロー新設 (`.github/workflows/ci.yml`、PR + non-main push 発火)
 - ✅ daily-update.yml に Ruff lint ステップ追加
 
-v13.4.1 で導入予定:
-- 共通 component 抽出 (3-5 個、`@/components/common`)
-- Vitest スナップショットテスト (5-10 件)
-- `scripts/common.py` の mypy strict 化
-- B023 の default-arg pattern 修正 (`fetch_listed_alts.py`、修正後 pyproject.toml の ignore から外す)
+v13.4.1 で完了:
+- ✅ 共通 component 3 個追加 (`SectionHeader` / `GroupHeader` / `ExternalLink`、19 箇所の置換)
+- ✅ Vitest スナップショット 16 件 (共通 component + 4 セクション、ExternalLink のリグレッションガード含む)
+- ✅ `scripts/common.py` の mypy strict 化 (`pandas-stubs` + `types-requests` 依存、CI/daily-update に mypy ステップ)
+- ✅ B023 default-arg pattern 修正 (`fetch_listed_alts.py` + `fetch_market_data.py`、`pyproject.toml` の ignore から削除)
 
 v13.4.2 で導入予定:
 - Python 統合テスト (5-10 件、mock yfinance + mock FRED)
 - ブランチ保護ルール + CODEOWNERS (kk = sole reviewer、zip + 直 push と両立する設定)
 - `docs/RUNBOOK.md` 新設
 
-### v13.4.0 で日常運用に追加されたコマンド
+### v13.4.0/.1 で日常運用に追加されたコマンド
 
 ```bash
-# Python lint チェック
-ruff check .
-ruff check . --fix      # 自動修正
+# Python lint + 型チェック + テスト
+ruff check .                                    # lint チェック
+ruff check . --fix                              # 自動修正
+mypy                                            # 型チェック (scripts/common.py のみ)
+pytest tests/ -v
 
-# JS lint チェック
-npm run lint
-npm run lint:fix        # 自動修正
-
-# Prettier (任意、手動で整形したい時)
-npm run format          # src/**/*.{js,jsx,css} と *.{js,json} を書き換え
-npm run format:check    # check のみ
+# JS lint + テスト + 整形
+npm run lint                                    # ESLint チェック
+npm run lint:fix                                # ESLint 自動修正
+npm run test                                    # Vitest watch モード
+npm run test:ci                                 # Vitest 1 回実行 (CI 用)
+npm run test:ui                                 # Vitest ブラウザ UI
+npm run format                                  # Prettier で整形 (任意)
 ```
 
-PR を作ると CI で Ruff + ESLint + pytest + Vite build が自動実行される。
+PR を作ると CI で **Ruff + mypy + pytest + ESLint + Vitest + Vite build** が自動実行される。
 
 ## やらないこと (Tier 3 — 明示的に除外)
 
@@ -236,8 +238,11 @@ PR を作ると CI で Ruff + ESLint + pytest + Vite build が自動実行され
 - 中央銀行ウォッチ (Fed/ECB/BOJ + 日替わり 1 中銀)
 
 ## 次回以降の開発で気を付けたいこと
-- 現在地は **v13.4.0 完了、v13.4.1 (共通 component 抽出 + Vitest + mypy strict) に着手予定** の状態
-- **PR を作ると CI で Ruff + ESLint + pytest + Vite build が自動実行される**。push 前に `ruff check .` と `npm run lint` でローカル確認すると速い
+- 現在地は **v13.4.1 完了、v13.4.2 (Python 統合テスト + ブランチ保護 + RUNBOOK) に着手予定** の状態
+- **PR を作ると CI で Ruff + mypy + pytest + ESLint + Vitest + Vite build が自動実行される**。push 前に `ruff check . && mypy && npm run lint && npm run test:ci` でローカル確認すると速い
+- **共通 component の使い方** (v13.4.1 で抽出): セクション見出しは `<SectionHeader>` を、グループ見出しは `<GroupHeader>` を、外部リンクは必ず `<ExternalLink>` を使う (生の `<a target="_blank">` は禁止、セキュリティ属性の付け忘れを構造的に防止)
+- **Vitest スナップショット**: 新規セクション追加時は `src/__tests__/sections.test.jsx` にエントリを 1 件追加。意図的な UI 変更後は `npm run test:ci -- -u` で更新
+- **mypy 段階展開**: 新規 fetch スクリプト追加時は最初から型注釈を書き、安定したら `pyproject.toml` の `[tool.mypy] files = [...]` に追加
 - **大型改修は新しい Claude チャットで開始** (context window 圧迫回避)
 - **改修毎に `bash scripts/take_snapshot.sh` で snapshot を取得** し Claude 側で実機照合
 - **新規 fetch スクリプト追加時は最初から `scripts/common.py` を使う** (DECISION v13.3-01..05)

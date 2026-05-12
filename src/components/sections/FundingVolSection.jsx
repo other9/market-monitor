@@ -13,6 +13,7 @@
 //
 
 import React from "react";
+import { SectionHeader, GroupHeader } from "@/components/common";
 import { fmt, fmtPct } from "@/utils";
 
 function FundingVolPanel({ market, macro }) {
@@ -90,10 +91,7 @@ function FundingVolPanel({ market, macro }) {
 
   return (
     <div style={{ marginTop: 36, marginBottom: 32 }}>
-      <div className="mm-group-head" style={{ marginTop: 0 }}>
-        <div className="mm-group-title">ボラティリティ・ファンディング</div>
-        <div className="mm-group-marker">▽ stress detectors</div>
-      </div>
+      <GroupHeader title="ボラティリティ・ファンディング" marker="▽ stress detectors" style={{ marginTop: 0 }} />
       <div className="mm-fundvol-grid">
         {cards.map((c, i) => {
           const regimeKey = c.regime ? c.regimeMap[c.regime] : "flat";
@@ -119,7 +117,7 @@ function FundingVolPanel({ market, macro }) {
 export function FundingVolSection({ market, macro }) {
   return (
     <div style={{ marginTop: 48, marginBottom: 24 }}>
-      <div className="mm-section-tag">4. ボラティリティ・ファンディング</div>
+      <SectionHeader>4. ボラティリティ・ファンディング</SectionHeader>
       <div className="mm-section-head"><em>クロスアセットのボラ・レジーム、</em> 流動性逼迫の早期警報。</div>
       <div className="mm-section-lede">
         VIX 期間構造でリスクオン/オフ、MOVE で国債ボラ、SOFR-IORB スプレッドで米短期市場のファンディング状況を読む。

@@ -12,6 +12,7 @@
 //
 
 import React from "react";
+import { SectionHeader, ExternalLink } from "@/components/common";
 
 const KIND_FALLBACKS = ["皮肉", "人間味", "観察"];
 
@@ -22,7 +23,7 @@ export function MarketMuseSection({ news }) {
   return (
     <div>
       <div className="mm-muse-header">
-        <div className="mm-section-tag">▨ Market Muse</div>
+        <SectionHeader marker="▨">Market Muse</SectionHeader>
         <div className="mm-section-head"><em>クスッと、</em> 市場の小話 三題。</div>
         <div className="mm-section-lede">市場の小話・観察・人間味の三題。</div>
       </div>
@@ -34,9 +35,9 @@ export function MarketMuseSection({ news }) {
             <div className="mm-muse-body">{s.body}</div>
             {s.link && (
               <div>
-                <a href={s.link} target="_blank" rel="noopener noreferrer" className="mm-muse-link">
+                <ExternalLink href={s.link} className="mm-muse-link">
                   {s.source || "記事元"}
-                </a>
+                </ExternalLink>
               </div>
             )}
           </div>

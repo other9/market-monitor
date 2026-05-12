@@ -33,6 +33,9 @@ jobs:
       - name: Ruff lint
         run: ruff check .
 
+      - name: Mypy strict (scripts/common.py)
+        run: mypy
+
       - name: Pytest
         run: pytest tests/ --tb=short
 
@@ -56,6 +59,9 @@ jobs:
 
       - name: ESLint
         run: npm run lint
+
+      - name: Vitest (snapshot tests)
+        run: npm run test:ci
 
       - name: Build check
         run: npm run build

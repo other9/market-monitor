@@ -36,6 +36,10 @@ jobs:
       - name: Ruff lint
         run: ruff check .
 
+      # ── 0a-2. Mypy strict (v13.4.1 で追加、scripts/common.py のみ) ──
+      - name: Mypy strict
+        run: mypy
+
       # ── 0b. Python smoke test (import チェック + 単体テスト) ──
       - name: Python smoke test
         run: |

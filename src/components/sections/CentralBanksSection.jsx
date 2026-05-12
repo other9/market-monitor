@@ -12,6 +12,7 @@
 //
 
 import React from "react";
+import { SectionHeader } from "@/components/common";
 import { fmt } from "@/utils";
 
 export function CentralBanksSection({ watch, factsByCode }) {
@@ -19,7 +20,7 @@ export function CentralBanksSection({ watch, factsByCode }) {
 
   return (
     <div style={{ marginTop: 48, marginBottom: 24 }}>
-      <div className="mm-section-tag">6. 中央銀行ウォッチ</div>
+      <SectionHeader>6. 中央銀行ウォッチ</SectionHeader>
       <div className="mm-section-head"><em>Fed・ECB・BOJ + α、</em> 政策の今を読む。</div>
       <div className="mm-section-lede">
         主要3中銀 (Fed, ECB, BOJ) は常設、4枚目は<strong>その日のニュース文脈で日替わり</strong>に選定。

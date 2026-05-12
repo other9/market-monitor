@@ -7,6 +7,69 @@
 
 ---
 
+## v13.4.1 で導入された決定 (2026-05-12)
+
+v13.4.0 (linter インフラ) を土台に、共通 component 抽出 + テストインフラ + 型強化を一括導入。
+
+### [DECISION v13.4.1-01] 共通 component 抽出は 3 個に留める (SectionHeader / GroupHeader / ExternalLink)
+- **背景**: ROADMAP は「3-5 個」を提示。16 セクションを横断調査し、繰り返しパターン 5 候補を評価した
+- **採用**:
+  - **SectionHeader** (10 箇所) — `<div className="mm-section-tag">N. Title</div>` を `<SectionHeader>1. 本日の注目チャート</SectionHeader>` に。`marker` プロップで MarketMuse の "▨ Market Muse" にも対応
+  - **GroupHeader** (5 箇所) — `mm-group-head` + title + marker の 3 要素 div を `<GroupHeader title="株式" marker="▽ Section" />` に。FundingVol の marginTop オーバーライド用に `style` プロップ対応
+  - **ExternalLink** (4 箇所) — `<a target="_blank" rel="noopener noreferrer">` を `<ExternalLink href={url} className="...">` に。`rel="noopener noreferrer"` の付け忘れを構造的に防止
+- **不採用**:
+  - **TableHeader** — クラス名 (`mm-table-row` vs `mm-macro-row`) と列構成が個別に異なり、抽象化コストが高く効果も限定的
+  - **EmptyState** — 全セクションが `return null` で揃っており、抽出不要
+- **方針**: ROADMAP の「3-5 個」下限。これ以上は過剰汎化のリスクが上回るため意図的に止める
+- **結果**: 全 19 箇所の置換が完了。`grep -rn 'mm-section-tag\|mm-group-head\|target="_blank"' src/components/sections/` で 0 件確認
+
+### [DECISION v13.4.1-02] B023 を default-arg binding pattern で正しく fix し、ignore から外す
+- **背景**: v13.4.0 では `B023` を pyproject.toml で ignore していた (fetch_listed_alts.py の closure pattern が flag されていた)
+- **判断**: ループ内で定義されている内部関数 `_at()` / `_at_date()` に default-arg binding を追加:
+  ```python
+  def _at(days_back: int, *, close=close, last_date=last_date) -> float | None:
+      ...
+  ```
+- **動作**: ループ内で即時消費される従来挙動と完全に同一。default 値はループ反復時の `close` / `last_date` に明示的に束縛される
+- **副次発見**: `fetch_market_data.py` にも同じ closure pattern が 2 箇所あったことを Ruff が検知 (initial migration では見落としていた)。同様に修正
+- **結果**: pyproject.toml の `ignore` から `B023` を削除。`ruff check .` がクリーンに通る
+
+### [DECISION v13.4.1-03] mypy strict は `scripts/common.py` のみに限定 (段階展開)
+- **背景**: ROADMAP は「`scripts/common.py` の mypy strict 化」を v13.4 のスコープとした。他の fetch スクリプトは含まれない
+- **判断**:
+  - `[tool.mypy]` の `files = ["scripts/common.py"]` で対象を明示的に限定
+  - 他の fetch スクリプトは v13.5 以降の段階展開時にコメント (`# files = [...]`) を更新するだけで拡張できる構造
+- **依存追加**: `pandas-stubs` + `types-requests` (両者とも公式メンテナンスされている stubs)
+- **`warn_unreachable = true` の効果**: `extract_close_series` 内の `isinstance(s, pd.DataFrame)` 防御チェックが「unreachable」と判定された。これは pandas-stubs が `df["Close"]` を Series と型推論する一方、yfinance の MultiIndex ケースでは DataFrame が返る runtime 実態とのギャップ
+- **対処**: `# type: ignore[unreachable]` をコメント付きで 2 行追加。runtime 防御はそのまま残す ( `test_close_column_with_dataframe_value` が covers するケース)
+- **不採用案**:
+  - `warn_unreachable` を `false` にする: 型システムの保証が弱まる
+  - 防御チェックを削除して型に従う: 既存テストが落ちる + yfinance のランタイム実態と乖離
+
+### [DECISION v13.4.1-04] Vitest を採用、jsdom + @testing-library/react の標準構成
+- **背景**: ROADMAP の Vitest スナップショット 5-10 件
+- **判断**: Vitest 2.x + jsdom 25 + @testing-library/react 16 + @testing-library/jest-dom 6
+- **構成**:
+  - `vitest.config.js` で `@/` エイリアスと jsdom 環境を vite と同設定で共有
+  - `src/__tests__/setup.js` で jest-dom matcher を拡張
+  - `src/__tests__/fixtures.js` で代表データ (data/*.json のミニマル抜粋) を提供
+- **テスト構成**: 計 16 件 (snapshot 13 件 + 動作検証 2 件 + リグレッションガード 1 件)
+  - `common.test.jsx` (9): SectionHeader x2, GroupHeader x2, ExternalLink x1 (target/rel 必須属性のリグレッションガード含む), Pct x3, Signed x1
+  - `sections.test.jsx` (6): NewsSection x2 (null-guard 含む), MarketMuseSection x1, DeepDiveSection x2 (null-guard 含む), FooterSection x1
+- **CI 統合**: `ci.yml` の Frontend ジョブに `npm run test:ci` ステップを追加
+- **css 無効化**: `vitest.config.js` で `css: false`。スナップショットは class 名と DOM 構造の固定が目的、CSS は対象外
+- **不採用案**:
+  - Jest + ts-jest: ESM 周りで設定が重い。Vite と統合された Vitest が新規導入には素直
+  - Playwright (E2E): Tier 3 として明示的に不採用 (ROADMAP)
+
+### [DECISION v13.4.1-05] ExternalLink のリグレッションガードテスト
+- **背景**: `target="_blank"` 単独の使用は脆弱性 (tabnabbing) の原因。`rel="noopener noreferrer"` を必ず併用する必要がある
+- **判断**: スナップショットだけでなく、`a.getAttribute("target") === "_blank"` と `a.getAttribute("rel") === "noopener noreferrer"` を明示的に assert
+- **理由**: スナップショットは「変化を検知する」テストであり、「正しい値を保証する」テストではない。誰かが ExternalLink から rel を消しても、スナップショットを更新すれば pass してしまう。明示的な assert がないとリグレッションを許す
+- **波及**: 今後 ExternalLink を改変する PR では、この assert を見て意図的な変更か否かを判断できる
+
+---
+
 ## v13.4.0 で導入された決定 (実装フェーズ着手)
 
 v13.4 計画フェーズ (v13.4-plan-01 〜 06) の方針を踏まえ、Tier 1 の中でも特に
