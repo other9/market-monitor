@@ -14,6 +14,7 @@
 import React, { useState } from "react";
 import { PALETTE } from "@/theme";
 import { fmtPct } from "@/utils";
+import { GroupHeader } from "@/components/common";
 
 const PERIOD_TABS = [
   { k: "day",   l: "1日" },
@@ -52,10 +53,7 @@ export function SectorHeatmapSection({ sectors }) {
 
   return (
     <div style={{ marginTop: 28 }}>
-      <div className="mm-group-head">
-        <div className="mm-group-title">米セクター・ヒートマップ</div>
-        <div className="mm-group-marker">▽ SPDR Sectors</div>
-      </div>
+      <GroupHeader title="米セクター・ヒートマップ" marker="▽ SPDR Sectors" />
       <div className="mm-heatmap-wrap">
         <div className="mm-heatmap-head">
           <div className="mm-heatmap-title">米セクター・ヒートマップ</div>

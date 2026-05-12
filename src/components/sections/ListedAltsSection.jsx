@@ -20,7 +20,7 @@ import {
 } from "recharts";
 import { PALETTE, FONT_MONO } from "@/theme";
 import { fmt, fmtDate, fmtDay } from "@/utils";
-import { Pct } from "@/components/common";
+import { Pct, SectionHeader} from "@/components/common";
 
 const CATEGORY_ORDER = ["Listed PE", "BDC (PD)", "Infra", "US REIT", "J-REIT"];
 
@@ -111,7 +111,7 @@ export function ListedAltsSection({ alts }) {
 
   return (
     <div style={{ marginTop: 48, marginBottom: 24 }}>
-      <div className="mm-section-tag">9. 上場プロキシ・ボード</div>
+      <SectionHeader>9. 上場プロキシ・ボード</SectionHeader>
       <div className="mm-section-head"><em>非上場の鏡像、</em> 日次で値付くオルタナ。</div>
       <div className="mm-section-lede">
         プライベート資産は日次の値段が出ない。<strong>上場 ETF / 関連株のバスケット</strong>を

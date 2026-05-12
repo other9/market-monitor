@@ -1,232 +1,259 @@
 # Roadmap — Market Monitor
 
-土台拡充フェーズ (v13 系) と将来構想 (v14+) の方針を記録する。
-バージョンが進むたびに、完了したものは「✅ 完了」マークを付け、
-変更があれば該当バージョンを編集する。
+v13 系土台拡充フェーズ (v13.0–v13.3) の完了を踏まえ、業界標準対応 (Tier 1/2) と Japan Equities Layer (TOB / 小型株) の並行進行を基本方針とする。
+バージョンが進むたびに、完了したものは「✅ 完了」マークを付け、変更があれば該当バージョンを編集する。
 
-最終更新: 2026-05-10 (v13.3 リリース時)
+最終更新: 2026-05-12 (v13.4.1 完了時)
 
 ---
 
 ## 現状認識 (v13.3 完了時点)
 
-Market Monitor は v12 系で機能拡充がひと段落し、
+v13 系統 (土台拡充フェーズ) が完了し、以下の状態に到達:
 
 - セクション 9 つ + 補助セクション (Deep Dive、Economic、Alternatives、Muse) の本体
 - 平日/週末/月初の cadence 切替で生成内容を変える Deep Dive
 - Stale Data 警告と archive レイヤで運用品質と歴史性を担保
 - Listed Alternatives Proxies で機関投資家用途に対応
 - Funding & Volatility パネルで円ヘッジ・海外債券判断の前提を可視化
-- ブルー×グリーンの機関投資家トーン (v12.2)
+- ブルー×グリーンの機関投資家トーン
+- **MarketMonitor.jsx**: 1513 行 → 134 行の薄いオーケストレータ + 16 セクションコンポーネント (v13.1 系)
+- **Claude API 4 分割** (Opus×2 + Sonnet + Haiku) — 失敗の独立性とコスト効率 (v13.2)
+- **全 fetch スクリプトが `scripts/common.py` を活用** (v13.3)
+- **pytest 18 ケース** + Actions smoke test
 
-を備えた状態にある。これ以降は **新機能より土台整備を 1 ラウンド入れる** 方針。
+### 客観評価サマリ (Phase 1 着手前時点)
 
-### 客観評価サマリ (Claude による所見, 2026-05-09)
-
-| 観点 | 評価 |
-|------|------|
-| データ層と UI 層の疎結合 | A |
-| 意思決定の追跡可能性 (DECISIONS.md) | A |
-| ドキュメント整備 | A- |
-| コスト効率 | A |
-| 運用品質の担保 | B+ |
-| フロント保守性 (1500 行単一 JSX) | B → 分割で A 化目標 |
-| Python 共通化 | C → v13.0 で C+, v13.1 で B 化目標 |
-| エラーハンドリング統一性 | C → 共通ロガー導入で B 化 |
-| データソース冗長性 (yfinance 単一依存) | C → v14 課題 |
-| テスト | D → v13.0 で D+, 今後 C へ |
-
----
-
-## v13.0 — 共通基盤の足場 ✅ 完了
-
-**目的**: コード重複を解消する仕組みを導入し、改修フローを定着させる。動作は変えない。
-
-- [x] `scripts/common.py` 新設 — FRED API 呼び出し / yfinance MultiIndex 吸収 / 共通ロガー / 日付ヘルパー
-- [x] `scripts/take_snapshot.sh` — 改修確認用 zip を 1 コマンド化
-- [x] `tests/` ディレクトリと最小 pytest (`extract_close_series`, 日付ヘルパー, ロガー, `determine_cadence`)
-- [x] `.github/workflows/daily-update.yml` に Python smoke test ステップ追加
-- [x] `requirements.txt` に `pytest` 追加
-- [x] README にトラブルシュート章を厚く
-- [x] `ROADMAP.md` 新設 (この文書)
-
-**意図的にやらなかったこと**: 既存 `fetch_*.py` のリファクタは v13.0 では行わない。
-`common.py` の関数を呼ぶ形への置換は v13.3 以降で慎重に行う。
-リスク管理として「土台を作る」と「土台に乗せ替える」を分離。
+| 観点 | 評価 | 備考 |
+|------|------|------|
+| データ層と UI 層の疎結合 | A | 維持 |
+| 意思決定の追跡可能性 | A | DECISIONS.md の三層構造 |
+| ドキュメント整備 | A | ROADMAP / DECISIONS / PROJECT_INSTRUCTIONS |
+| コスト効率 | A+ | モデル使い分けで月 1,000–1,200 円 |
+| 運用品質の担保 | A- | ログ統一 + pytest smoke 完了 |
+| フロント保守性 | A | 134 行 + 16 セクション |
+| Python 共通化 | A- | 全 fetch が common.py 利用 |
+| エラーハンドリング統一性 | B+ | log_* / JST ヘルパ集約済 |
+| **データソース冗長性** | C | yfinance 単一依存 (v14.x で対応) |
+| **テスト** | C+ | 18 ケース (Phase 1 で B 化目標) |
+| **Linter / 型チェック** | 未導入 | Phase 1 で導入 |
+| **エラー監視** | 未導入 | Phase 2 で Sentry 導入 |
+| **個人投資 (TOB/小型株) 機能** | 未着手 | Phase 2-3 で v16 系 |
 
 ---
 
-## v13.1 — フロントのコンポーネント分割 (中リスク・大効果)
+## 基本方針 (Phase 1-5)
 
-**目的**: `MarketMonitor.jsx` (約 1500 行) をセクション単位で分割し、
-セクション単位の改修・AI 補助の精度を上げる。
+業界標準の最低水準対応 (Tier 1/2) と、kk の個人投資ニーズ (Japan Equities Layer) を交互に挟む構成。
+Tier 3 (大規模開発標準のうち個人プロジェクトには過剰なもの) は明示的に「やらない」。
 
-### 進捗
+| Phase | 主眼 | バージョン |
+|---|---|---|
+| Phase 1: 業界標準の足場固め | 保守性・観測性の底上げ | v13.4, v13.5 |
+| Phase 2: Japan Equities Layer 第一段 | 個人投資ニーズへの即応 | v16.0 |
+| Phase 3: archive UI + Japan 拡張 | 蓄積資産活用 + TOB 機能 | v14.0, v16.1 |
+| Phase 4: 大型構造改革 | AI 補助精度の本格向上 | v17.0 (TypeScript 移行) |
+| Phase 5: 残務処理 | データ冗長化と運用課題 | v14.x, v16.2, v15 |
 
-ROADMAP 当初の「3〜4 段階」を **4 段** に確定 (詳細は `DECISIONS.md` v13.1-02, v13.1.2-01)。
+合計 9 リリース、8-10 ヶ月相当を見込む。
+詳細な選定理由は `DECISIONS.md` の v13.4-plan-01 ~ v13.4-plan-05 を参照。
 
-#### v13.1.0 — 土台ファイル新設 ✅ 完了 (2026-05-10)
+---
 
-- [x] `vite.config.js` に `@/` → `src/` のエイリアス追加
-- [x] `src/theme.js` 新設 — `PALETTE` / `FONT_MONO` / `CHART_UNIVERSE_LABELS`
-- [x] `src/utils.js` 新設 — `fmt` / `fmtPct` / `fmtSigned` / `tone` / `fmtDate` / `fmtDay` / `safe`
-- [x] `src/components/common/` 新設 — `Pct.jsx` / `Signed.jsx` / `MiniChart.jsx` / `StaleDataWarning.jsx` + barrel `index.js`
-- [x] `MarketMonitor.jsx` は **不変** (新ファイルは未使用、tree-shaking で除外されるためバンドル不変)
+## v13.4 — リファクタウィンドウ + Tier 1 一括導入
 
-#### v13.1.1 — MarketMonitor.jsx の import 付け替え ✅ 完了 (2026-05-10)
+**目的**: 業界標準の最低水準のうち、コスト低・効果大の項目を一括導入。次フェーズの新機能追加 (v16.0) の土台を整える。
 
-- [x] 冒頭インライン定義 (`PALETTE`, `FONT_MONO`, `CHART_UNIVERSE_LABELS`, formatters, `Pct`, `Signed`, `MiniChart`, `StaleDataWarning`) を削除
-- [x] `@/utils`, `@/theme`, `@/components/common` から import に書き換え
-- [x] JSX 本体および各セクション関数 (`FeaturedChart`, `IndicesGroup`, `MacroBarometer`, ...) は不変
-- [x] **副次的バグ修正**: v13.1.0 の `theme.js` で `CHART_UNIVERSE_LABELS` の内容が実機と不一致だった問題を修正
-- [x] 行数削減: 1513 → 1263 行 (-250)
+v13.4 着手にあたり、context window と diff レビューの粒度を考慮して **3 段階に分割** する:
 
-#### v13.1.2 — セクションコンポーネント切り出し Phase 1 ✅ 完了 (2026-05-10)
+| サブバージョン | スコープ | ステータス |
+|---|---|---|
+| **v13.4.0** | Linter/Formatter 導入 + Dependabot + CI ワークフロー分離 | ✅ 完了 (2026-05-12) |
+| **v13.4.1** | 共通 component 抽出 + Vitest スナップショット + mypy strict + B023 修正 | ✅ 完了 (2026-05-12) |
+| **v13.4.2** | Python 統合テスト + RUNBOOK.md + ブランチ保護設定 + CODEOWNERS | 未着手 |
 
-「独立性の高いセクションから先に」方針で、6 つを `src/components/sections/` に切り出し。
-挙動・見た目は完全不変 (ロジックの単純な lift-and-shift)。
+### 実装内容 (v13.4 全体)
 
-- [x] `MastheadSection.jsx` 新設 — Masthead + Epigraph + Ticker (3 ブロック統合、`nowJst`/`latestAsOf`/`tickerCells` を内包化)
-- [x] `EconomicChartSection.jsx` 新設 — 既存 `EconomicChart` を移動
-- [x] `DeepDiveSection.jsx` 新設 — 既存 `DeepDive` を移動
-- [x] `AlternativesSpotlightSection.jsx` 新設 — `ALT_IMPACT_CONFIG` + `AltCategoryCard` + `AlternativesSection` をまとめて移動
-- [x] `MarketMuseSection.jsx` 新設 — inline JSX → コンポーネント化、`museStories` 算出ロジックを内包
-- [x] `FooterSection.jsx` 新設 — inline JSX → コンポーネント化、`version` プロップ予約 (default `"v13.0"` で挙動不変)
-- [x] `src/components/sections/index.js` (barrel) 新設
-- [x] `MarketMonitor.jsx` から該当ブロックを削除し、import + 呼び出しに置換
-- [x] 行数削減: 1263 → 959 行 (-304)
-- [x] 依存方向 [DECISION v13.1-03] の単方向ルール維持を grep で検査済
+#### v13.4.0 で完了したもの
+- [x] **Ruff** 導入 (Python: pycodestyle + pyflakes + isort + bugbear + pyupgrade + simplify + comprehensions + pie + ruff-specific)
+- [x] **ESLint v9 flat config** 導入 (JS/JSX: react + react-hooks + react-refresh)
+- [x] **Prettier** 導入 (config のみ、CI では check しない方針 — DECISION v13.4.0-05 参照)
+- [x] **Dependabot** 設定 (`.github/dependabot.yml`、npm/pip/actions の週次 minor/patch 監視)
+- [x] **CI ワークフロー新設** (`.github/workflows/ci.yml`、PR + non-main push で発火)
+- [x] **`daily-update.yml` に Ruff lint ステップ追加** (main 直 push でも lint 違反を検知)
+- [x] **`ruff check --fix` の自動修正適用** (45 件、import 並び替え + 未使用 import 削除 + `datetime.UTC` 化)
 
-#### v13.1.3 — セクションコンポーネント切り出し Phase 2 ✅ 完了 (2026-05-10)
+#### v13.4.1 で完了したもの
+- [x] **共通 component 抽出** (3 個、`@/components/common` に `SectionHeader` / `GroupHeader` / `ExternalLink`)
+  - 19 箇所の置換が完了 (SectionHeader 10 + GroupHeader 5 + ExternalLink 4)
+- [x] **Vitest スナップショットテスト** 導入 (16 件 = snapshot 13 + 動作検証 3)
+  - `src/__tests__/common.test.jsx` (9 件、新規共通コンポーネント + Pct/Signed)
+  - `src/__tests__/sections.test.jsx` (6 件、News/MarketMuse/DeepDive/Footer)
+  - ExternalLink のリグレッションガード (target=_blank + rel noopener noreferrer の必須属性 assert)
+- [x] **`scripts/common.py` の mypy strict 化** (`pandas-stubs` + `types-requests` 依存追加、CI/daily-update 両方に mypy ステップ)
+- [x] **B023 default-arg pattern 修正** (`fetch_listed_alts.py` + `fetch_market_data.py` の 3 closure、pyproject.toml の ignore から削除)
 
-残り 10 セクションを切り出し、`MarketMonitor.jsx` を 200 行のオーケストレータに収束 (実際は 134 行 まで縮んだ)。
-
-```
-sections/
-├── FeaturedChartsSection.jsx        (1, FeaturedChart 内包)
-├── MarketTableSection.jsx           (2, IndicesGroup 内包)
-├── SectorHeatmapSection.jsx         (2 sub, period state を内包)
-├── MacroBarometerSection.jsx        (3)
-├── FundingVolSection.jsx            (4, FundingVolPanel 内包)
-├── ValuationsSection.jsx            (5, ValuationSection をリネーム)
-├── CentralBanksSection.jsx          (6, CentralBankWatch をリネーム)
-├── IndicatorChartsSection.jsx       (7, inline JSX → 新規抽出)
-├── NewsSection.jsx                  (8, inline JSX → 新規抽出)
-└── ListedAltsSection.jsx            (9, ListedAltsPanel + ListedAltCard 内包)
-```
-
-行数推移: 1513 (v13.0) → 1263 (v13.1.1) → 959 (v13.1.2) → **134 (v13.1.3)** = -91%
-
-完成形では `MarketMonitor.jsx` は薄いオーケストレータ:
-- URL 定数定義
-- `useEffect` でのデータ取得 (Promise.all)
-- 16 セクションを props 経由で並べる JSX
-
-### 依存方向の規則 (v13.1-03)
-
-```
-theme.js (依存なし)
-  ← utils.js
-    ← components/common/*
-      ← components/sections/*
-        ← MarketMonitor.jsx
-```
-
-逆方向の import を見つけたら設計ミスのシグナル。
-`grep -r "from \"@/components/sections" src/{utils.js,theme.js,components/common}` で違反検出可能。
+#### v13.4.2 で実装予定
+- [ ] **Python 統合テスト** 追加 (5-10 件)
+  - mock yfinance + mock FRED で fetch_market_data / fetch_macro_indicators の主要パス
+- [ ] **ブランチ保護ルール** (main 直 push 禁止、CODEOWNERS で kk を sole reviewer に)
+  - 注: zip + main 直 push のフローと両立させるため、kk アカウントは bypass 許可
+- [ ] **`docs/RUNBOOK.md`** 新設 (README のトラブルシュート章を独立・拡充)
 
 ### 期待効果
 
-- 「Funding/Vol セクションだけ修正してほしい」のような依頼の精度向上 ✅
-- ファイル単位の git diff が読みやすくなる ✅
-- 将来のテスト追加時、コンポーネント単位でテスト可能 ✅
+- リファクタ時の回帰検知が現実的に
+- AI 生成コードの品質底上げ (linter で機械的にチェック)
+- 既存スクリプトの誤用検知 (mypy で common.py の interface 違反を事前検知)
+- 障害時の対応時間短縮 (RUNBOOK で過去経験を時系列記録)
 
 ---
 
-## v13.2 — Claude API 呼び出しの分割 ✅ 完了 (2026-05-10)
+## v13.5 — 監視・観測レイヤ導入
 
-**目的**: 1 回の Claude API 呼び出しに詰め込んでいた 9 種類のコンテンツ生成を、
-4 つの呼び出しに分割。役割専用 prompt とモデル使い分けで品質と費用効率を改善。
-
-### 実装内容
-
-| 呼び出し | 内容 | モデル | max_tokens |
-|---------|------|-------|-----------|
-| `call_news_and_charts` | epigraph + headline + news(7) + charts_of_the_day | claude-opus-4-7 | 3500 |
-| `call_deep_dive` | deep_dive (cadence 切替) | claude-opus-4-7 | 2500 |
-| `call_cb_and_alts` | central_bank_watch + pe_pd_view + real_assets_view | claude-sonnet-4-6 | 2500 |
-| `call_muse_and_economic` | funny_stories + economic_chart_of_the_day | claude-haiku-4-5 | 1500 |
-
-### 主要設計判断
-
-- **失敗の独立性**: 各 try/except で独立処理。1 つ失敗しても他は生成される
-  ([DECISION v13.2-01])
-- **`_call_claude` ヘルパ**: 4 callers の共通処理 (msg.create + JSON 抽出 + parse + ログ) を統合
-- **`run_all_calls` orchestrator**: 4 つを sequential 実行、各失敗を独立 catch
-- **JSON schema 不変**: 出力 `data/news.json` のキー構成は v7 と完全に同じ (フロント影響なし)
-- **fallback dict**: 失敗時のために `_FALLBACK_*` モジュール定数を 4 つ用意
-
-### コスト削減効果 (見込み)
-
-- Muse + Economic を Haiku 4.5 に切替で対象部分のコスト 1/15
-- 月額 ~1,600 円 → ~1,000〜1,200 円見込み (要モニタ)
-
----
-
-## v13.3 — エラーハンドリング統一 + common.py 全面活用 ✅ 完了 (2026-05-10)
-
-**目的**: 各 `fetch_*.py` を `scripts/common.py` の共通関数に乗せ替え、
-コード重複と書式の揺れを解消する。
+**目的**: Tier 2 の中で個人プロジェクトでも価値が出る監視レイヤを導入。Stale Data 警告では捕捉できない種類の障害を可視化する。
 
 ### 実装内容
 
-| ファイル | 変更点 |
-|---------|--------|
-| `fetch_market_data.py` | inline `extract_close_series` 削除 → import に。`print` → `log_*` |
-| `fetch_listed_alts.py` | 同上 |
-| `fetch_macro_indicators.py` | inline FRED 直叩き → `fred_observations` ラッパに置換 |
-| `fetch_central_banks.py` | 同上 |
-| `fetch_economic_chart.py` | 同上 (+ metadata 取得は requests のまま) |
-| `fetch_featured_charts.py` | 同上 + `extract_close_series` も置換 |
-| `fetch_valuations.py` | 同上 (yfinance 部分も `extract_close_series` 化) |
-| `fetch_news.py` | `print` → `log_*`、`datetime.now(JST)` → `jst_now()`、`utc_now_iso()` 利用 |
-| `archive_data.py` | `jst_today_iso()` / `utc_now_iso()` / `log_*` 全面利用 |
+- [ ] **Sentry 連携** (`@sentry/react`, free tier)
+  - フロントの未捕捉例外を翌朝までにメール通知
+  - data 取得失敗 / JSON parse エラー / Recharts 例外などを補足
+- [ ] **Lighthouse CI** (Actions ステップに組み込み)
+  - Pages デプロイのたびにパフォーマンス・SEO・アクセシビリティ計測
+  - 前回比でスコア低下時に PR で warning
+- [ ] **Codecov 連携** (public repo は無料)
+  - `pytest --cov` の結果を可視化
+  - 厳密な閾値 enforce は当面なし、まず可視化のみ
+- [ ] **Cloudflare Pages の PR preview 環境** 設定
+  - PR ごとに preview URL を自動生成
+  - merge 前の実機確認用
 
 ### 期待効果
 
-- Actions ログの可読性向上 (`[OK]/[WARN]/[SKIP]/[INFO]` 書式統一)
-- FRED API クライアントを一箇所で管理 (将来のリトライ・タイムアウト調整が容易)
-- yfinance MultiIndex 列吸収のロジックを1箇所に集約 (バグ修正の波及範囲を最小化)
-- `extract_close_series` の動作テストは `tests/test_common.py` の 7 ケースで担保 (今後も全 fetch スクリプトに自動波及)
+- データは新しいが UI が壊れているケースの検知 (Sentry)
+- バンドルサイズ肥大化など定量メトリクスでの回帰検知 (Lighthouse)
+- テスト不足の客観的可視化 (Codecov)
+- 大型変更の merge 前確認手段 (PR preview)
+
+### 月額コスト追加: 0 円 (全て free tier 内)
 
 ---
 
-## v14+ — 本格機能追加と構造改革
+## v16.0 — EDINET + TDnet データ取り込み (Japan Equities Layer 第一段)
 
-### v14: archive 閲覧 UI
+**目的**: kk の個人投資ニーズ (TOB / リサーチ不足小型株) に応える日本株専用情報レイヤの起点。
 
-`?date=YYYY-MM-DD` のような URL パラメータで過去の Deep Dive を呼び出せる
-UI を追加。`data/archive/` に蓄積されているデータを活用。
+### 実装内容
 
-### v14.x: yfinance fallback
+- [ ] **`scripts/fetch_edinet_filings.py`** 新設
+  - EDINET API 経由で大量保有報告書 + 公開買付届出書を日次取得
+  - 5% ルール新規開示 / 追加開示 / 保有目的変更を検知
+  - **アクティビスト watchlist**: シティインデックス系 / ダルトン / Strategic Capital / 3D Investment Partners / エフィッシモ / オアシス / 村上系
+- [ ] **`scripts/fetch_tdnet_disclosures.py`** 新設
+  - TDnet 適時開示 RSS を filter
+  - キーワード: 自己株式取得 / 業績予想修正 / 公開買付 / MBO / 株主提案 / 資本業務提携
+- [ ] **`data/edinet.json`** / **`data/tdnet.json`** の schema 設計
+- [ ] フロントに **新セクション 10. 日本株ウォッチ** を追加
+  - 直近 24 時間の該当開示を一覧化
+  - アクティビスト動向と対象企業の自己株買い等を時系列で重ねて表示
+- [ ] 設計原則: **「シグナル」「アラート」のような断定的ラベルは避け、「最近の開示」「該当企業」の中立的表現で統一**
 
-yfinance 単一依存を解消するための 2 系統化:
+### 期待効果
+
+- TOB に向かう動きの早期捕捉 (大量保有 + 適時開示の組み合わせ)
+- 自己株買い / MBO 検討 / 株主提案の速報入手
+
+### 月額コスト追加: 0 円 (EDINET / TDnet とも無料公開)
+
+---
+
+## v14.0 — archive 閲覧 UI + 全文検索
+
+**目的**: 半年以上蓄積されている `data/archive/` を読める資産にする。
+
+### 実装内容
+
+- [ ] `?date=YYYY-MM-DD` URL パラメータで過去 Deep Dive 表示
+- [ ] クライアントサイド全文検索 (lunr.js などのライブラリ)
+- [ ] アーカイブインデックス (`data/archive/index.json`) を活用したカレンダー UI
+
+---
+
+## v16.1 — TOB スプレッド + 小型株スクリーナー
+
+**目的**: Japan Equities Layer の第二段。TOB アービトラージ視点と「リサーチ不足小型株」の発見機能。
+
+### 実装内容
+
+- [ ] **`scripts/fetch_tob_active.py`** — アクティブ TOB のスプレッド (買付価格 vs 直近終値)、残存日数、出来高変化
+- [ ] **`scripts/fetch_jp_screener.py`** — アナリストカバレッジ薄 + PBR < 1 ネットキャッシュ判定
+- [ ] フロント「日本株ウォッチ」セクションを拡張
+
+---
+
+## v17.0 — TypeScript 移行 (大型・別枝)
+
+**目的**: AI 補助時代の個人開発における最大の投資。フロント全体の型化で、リファクタ安全性と AI 補助精度を一段引き上げる。
+
+### 実装内容
+
+- [ ] フロント 16 セクション全部の TSX 化
+- [ ] `types/` ディレクトリ新設、各セクションの props 型を定義
+- [ ] `data/*.json` のスキーマ型化 (Vite + TS で fetch 結果の型保証)
+- [ ] `tsconfig.json` で `allowJs: true` から開始 (gradual)、最終的に strict 化
+- [ ] **複数 PR に分割** (1 PR で 1-2 セクション)
+
+### 期間目安: 2-4 週間 (5-8 PR)
+
+---
+
+## v14.x — yfinance fallback
+
+**目的**: 評価表で C のまま残るデータソース冗長性を解消。
+
 - 主: yfinance (現状維持)
 - 副: Alpha Vantage (無料 25 calls/day) または Polygon.io (無料 5 calls/min)
+- 主が失敗した銘柄だけ副で取得を試みる
 
-主が失敗した銘柄だけ副で取得を試みる。
+---
 
-### v15: archive ストレージ問題への対処
+## v16.2 — PBR/ROE 改善要請 dashboard
 
-`data/archive/` は 1 日 1 ディレクトリ × 8 ファイルずつ蓄積。
-1 年運用で約 365 ディレクトリ × 8 = 約 3,000 ファイル。
-リポジトリサイズ・clone 時間の問題が出る前に対処:
+**目的**: TSE が要請している企業の対応状況を可視化。今後 2-3 年の構造テーマ。
 
-- 候補 A: 別リポジトリ `market-monitor-archive` に分離 (submodule or 単純な別レポ)
-- 候補 B: git-lfs で保管
-- 候補 C: 月単位で 1 つの zip にまとめる (`archive/2026-05.zip` のように)
+- 改善計画開示済み vs 未開示
+- 開示後の株価パフォーマンス追跡
+- 自社株買い・配当増配を実施した企業のリスト
+
+---
+
+## v15 — archive ストレージ問題対処
+
+**目的**: 1 年運用で約 3,000 ファイルになる archive のサイズ問題に対処。
+
+候補:
+- A: 別リポジトリ `market-monitor-archive` に分離
+- B: git-lfs で保管
+- C: 月単位で 1 つの zip にまとめる (`archive/2026-05.zip`)
 
 判断は v15 着手時の運用実績を見て決める。
+
+---
+
+## 明示的にやらないこと (Tier 3)
+
+業界標準の大規模開発で行われるが、個人プロジェクトには過剰と判断した項目。
+これらは「やらない」と明示的に決めておくことで、ロードマップ完遂後も「未達成項目」として気にならない状態にする。
+
+| 項目 | やらない理由 |
+|---|---|
+| **E2E テスト (Playwright / Cypress)** | 維持コストが極めて高く、kk の朝の目視で代替可能。Vitest スナップショットで十分 |
+| **構造化ログ集約 (CloudWatch / Datadog Logs)** | GitHub Actions ログで足りる。集約基盤は組織規模で初めて意味が出る |
+| **Feature flag (LaunchDarkly 等)** | リリースが日次ベース、A/B テストするユーザーもいない |
+| **SLO / SLA の明文化** | 法的拘束力のある相手がいない。「毎日 8 時に更新成功した日数」程度の内部 KPI で十分 |
+| **専任の人間レビュアー** | 物理的に不在。Claude が現実的代替 |
+| **Performance monitoring (Datadog APM)** | 静的サイトに APM は不要。Lighthouse で足りる |
+| **有料 SaaS** | 月コスト 0 円維持を方針とする。Sentry / Codecov / Cloudflare は全て free tier |
 
 ---
 
@@ -236,16 +263,17 @@ yfinance 単一依存を解消するための 2 系統化:
 
 | 用途 | 必要性 | 理由 |
 |------|-------|------|
-| **Claude Code subagents** (開発側) | 不要 | プロジェクト規模 (Python 10 本 / JSX 1 ファイル) で並列探索や code-reviewer subagent が要らない。コンポーネント分割後のファイル数増加 (v13.1 後) で再検討の余地 |
-| **API multi-call 化** (= subagent 機能ではない) | あり | v13.2 で実装。詳細は上記 |
+| **Claude Code subagents** (開発側) | 不要 | プロジェクト規模で並列探索や code-reviewer subagent が要らない |
+| **API multi-call 化** | 完了 | v13.2 で実装済 |
 | **Anthropic Agent SDK subagents** | 不要 | 本プロジェクトは ETL パイプラインで、対話的 agent 機能の必要なし |
 
 ---
 
-## 改善の基本姿勢
+## 改善の基本姿勢 (Phase 1-5 共通)
 
 1. **動作を変えずに足場を作る** → **足場に乗せ替える** の順で 1 段ずつ
 2. 改修ごとに `bash scripts/take_snapshot.sh` でスナップショットを取り、Claude 側で実機照合
-3. 各バージョンの決定理由は `DECISIONS.md` に記録 (この ROADMAP は方針、DECISIONS は経緯)
-4. PROJECT_INSTRUCTIONS.md は最新ステータスのみ書く (履歴は DECISIONS / ROADMAP)
-5. 大きな改修は **新しい Claude チャット** で始める (context window 圧迫回避)
+3. 各バージョンの決定理由は `DECISIONS.md` に記録 (ROADMAP は方針、DECISIONS は経緯)
+4. `PROJECT_INSTRUCTIONS.md` は最新ステータスのみ書く (履歴は DECISIONS / ROADMAP)
+5. **大きな改修は新しい Claude チャットで始める** (context window 圧迫回避)
+6. **PR フローは段階的にハイブリッド運用**: 小修正は zip + 直 push、中規模変更は PR、大型変更は複数 PR 分割 (DECISION v13.4-plan-02 参照)

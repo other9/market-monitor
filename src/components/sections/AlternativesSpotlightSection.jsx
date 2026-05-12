@@ -18,6 +18,7 @@
 
 import React from "react";
 import { PALETTE } from "@/theme";
+import { ExternalLink } from "@/components/common";
 
 const ALT_IMPACT_CONFIG = {
   positive: { label: "POSITIVE", className: "positive", arrow: "▲" },
@@ -61,10 +62,10 @@ function AltCategoryCard({ view, title, subtitle }) {
           <ul className="mm-alt-sources-list">
             {sources.map((s, i) => (
               <li key={i}>
-                <a href={s.link} target="_blank" rel="noopener noreferrer" className="mm-alt-source-link">
+                <ExternalLink href={s.link} className="mm-alt-source-link">
                   <span className="mm-alt-source-title">{s.title}</span>
                   {s.source && <span style={{ fontSize: 10, color: PALETTE.muted, marginLeft: 6 }}>— {s.source}</span>}
-                </a>
+                </ExternalLink>
               </li>
             ))}
           </ul>

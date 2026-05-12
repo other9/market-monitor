@@ -19,7 +19,7 @@ import {
 } from "recharts";
 import { PALETTE, FONT_MONO } from "@/theme";
 import { fmt } from "@/utils";
-import { Pct } from "@/components/common";
+import { Pct, SectionHeader} from "@/components/common";
 
 function FeaturedChart({ pick }) {
   const data = pick.history || [];
@@ -95,7 +95,7 @@ export function FeaturedChartsSection({ featured }) {
 
   return (
     <div style={{ marginBottom: 48 }}>
-      <div className="mm-section-tag">1. 本日の注目チャート</div>
+      <SectionHeader>1. 本日の注目チャート</SectionHeader>
       <div className="mm-section-head"><em>Claude AI が選ぶ、</em> 今日見るべき3本。</div>
       <div className="mm-section-lede">
         直近のニュース文脈から、今日のマーケットを理解するうえで押さえておくべきチャートを AI が選定。1年日次データで最近の動きを細かく表示。
