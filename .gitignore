@@ -40,3 +40,9 @@ npm-debug.log*
 # Archives (in case someone accidentally commits them)
 *.zip
 *.tar.gz
+
+# Coverage (v13.5 で追加、ローカル生成物)
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
