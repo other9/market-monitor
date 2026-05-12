@@ -1,324 +1,231 @@
 {
-  "generatedAt": "2026-05-11T23:48:19.773625+00:00",
+  "generatedAt": "2026-05-12T10:47:13.787519+00:00",
   "cadence": {
     "mode": "daily",
     "label": "通常",
     "context": ""
   },
   "epigraph": {
-    "quote": "強欲を拒絶せよ。放物線を描いて上昇するあらゆる株式について、ポジションをほぼ全て減らすべきだ。",
-    "source": "マイケル・バーリ（『世紀の空売り』モデルとなった投資家のX投稿より）",
-    "connection": "S&P500が史上初の7,400超えで終えた一方、バーリが2000年ピーク類似のクラッシュを警告。AI熱狂と中東リスクの間で、市場が『どちらに賭けるか』を問われている空気を象徴。"
+    "quote": "市場は、最も楽観的な瞬間に最大のリスクを抱える。",
+    "source": "ハワード・マークス『市場サイクルを極める』",
+    "connection": "AIブームの陶酔と、英国債危機・イラン情勢という亀裂が同居する一日。Burryの『貪欲を拒め』という警告が市場全体に重く響く。"
   },
-  "headline_of_the_day": "最高値とホルムズ封鎖、引き裂かれる市場",
+  "headline_of_the_day": "AI熱狂に陰り、英国債と原油が軋む",
   "news": [
     {
-      "tag": "米国株",
-      "headline": "S&P500が初の7,400超え、VIXも同時急騰",
-      "body": "イラン情勢が長期化する中でもS&P500は史上初めて7,400を上回って終了。一方で『恐怖指数』VIXも跳ね上がり、強気と警戒が同居する異例の構図に。マイケル・バーリは『2000年のピークに似ている』としてクラッシュ警告を発し、放物線銘柄からの撤退を訴えた。",
+      "tag": "金融政策・指標",
+      "headline": "米CPI公表前夜、S&P500・ナスダック先物が下落",
+      "body": "ウォール街は米CPI発表を前に身構え、ナスダック・S&P500先物は下落。米国債利回りは上昇し、インフレ指標がFedの利下げパス見通しを左右する局面となっている。",
       "impact": [
-        "AI主導ラリーの持続性が焦点",
-        "VIX上昇でテールリスクヘッジ需要",
-        "ハイベータ・大型テックに利益確定圧力"
+        "米株式",
+        "米国債",
+        "ドル"
       ],
-      "source_index": 13,
-      "link": "https://www.marketwatch.com/story/stocks-are-hitting-record-highs-even-as-iran-war-drags-on-how-long-can-it-last-f65cf2d5?mod=mw_rss_topstories",
-      "source": "MarketWatch Top"
+      "source_index": 34,
+      "link": "https://finance.yahoo.com/economy/live/stock-market-today-nasdaq-sp-500-futures-fall-dow-stalls-as-wall-street-braces-for-cpi-inflation-data-224350740.html",
+      "source": "Yahoo Finance US"
+    },
+    {
+      "tag": "地政学・英国",
+      "headline": "スターマー英首相に退陣圧力、英30年債利回りが1998年以来の高水準",
+      "body": "スターマー首相が党内造反で進退の岐路に立ち、ポンド・英国株・ギルトが同時安。30年債利回りは1998年以来の高水準に達し、財政懸念と政治空白がトリプル安を招いている。",
+      "impact": [
+        "ギルト",
+        "ポンド",
+        "欧州株"
+      ],
+      "source_index": 36,
+      "link": "https://finance.yahoo.com/economy/policy/articles/uk-30-yields-top-1998-082903329.html",
+      "source": "Yahoo Finance US"
     },
     {
       "tag": "地政学・原油",
-      "headline": "ホルムズ封鎖続く、アラムコ『週1億バレル喪失』",
-      "body": "トランプ大統領がイランの和平案回答を『受け入れ難い』と拒否し、停戦は『生命維持装置の上』と表現。サウジアラムコはホルムズ閉鎖が続けば週1億バレルの供給喪失と試算。WTI・ブレントは反発し、米海軍は同海峡警護コスト増に直面、欧州石油メジャーはボラ取引で最大47.5億ドルを稼いだ。",
+      "headline": "ホルムズ膠着で原油2%高、サウジアラムコが供給警告",
+      "body": "トランプ大統領がイランの和平案回答を『受け入れ難い』と拒否し停戦は『生命維持装置』状態。アラムコはホルムズ閉鎖が続けば週1億バレルが市場から失われると警告し、WTIは上昇。米国は緊急備蓄を再放出し燃料税停止も検討。",
       "impact": [
-        "原油上振れリスク継続",
-        "エネルギー株・石油トレーダーに追い風",
-        "航空・物流コスト懸念"
+        "原油",
+        "エネルギー株",
+        "インフレ"
       ],
-      "source_index": 77,
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPQzBETm9xM1ZiUUFQampsUzdqUlIwOURtUVRHdGJWT2VtRFdGbmV0WThXLXJyaUVxYW9DbWx6c0xyLUxkb195RXU5Z29IWlFkenpMbEtmbDgzY1pPRUttR0xFQ21TelR3YjVWanYtR2sxNG9pdmVMeHJ5a1Z5bjFiS2RYekx6dkIybzg0R2s0ZU5STHQwU3Y1dlJsWlF0aVdmNFRnbkRvemR2SWxtWDhnal93M012Zw?oc=5",
+      "source_index": 87,
+      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPU2JRdWlBZXNNbWttVWF5NS1ONmY2U240Zjc1d3JCaVoxQUxXR0ZTbDJtMU9YeVJvaVI1TGNRdkFtcUZFZnlDQWFKeTg1SGhZdi15X1cwY0JyU2xVRTNEdXZIai1WZTd4NWZxb1B3dlFzMkgxS2N4aUlyd0RKdVpNLWNqdUpkTW9XNzJVa1M4ZUlvUFdpd0tvSENjMFRjTkpYZGpWdGxjLV9nYUd6cDZZb3JJUkZmckJDY292N0R0b1BxQkUwTy1WR2pR?oc=5",
+      "source": "WSJ Markets (via Google)"
+    },
+    {
+      "tag": "米中・地政学",
+      "headline": "トランプ・習近平が木曜に北京で首脳会談、貿易デタント期待で中国株上昇",
+      "body": "週末にかけ北京で米中首脳会談が開催予定。中国投資家は貿易デタント延長を織り込み、香港株が買われる一方、エヌビディアCEOは訪中見送り。フォードのCATL提携は雪解け象徴と見られる。",
+      "impact": [
+        "中国株",
+        "香港株",
+        "半導体"
+      ],
+      "source_index": 62,
+      "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONWtVM0dJb3d0WklNcU9CZ21YdzJ1YTIzNHFLclNfbkEyQXdadjJHQklWUmUtdUVxYXpBMUlEcS1EY0hiR0dMa1dtbnRET254UTZrNDZCalU5UV9hNklGb015N2M4SDhKMjhOXzlJUEpsYWUwaG5iWGRfQ2ctcWtmajExMk15MXpsQ2ZpNzV2N3F1eURfNW1vanJlNHNGVnVIWU81b1BYam5lVE0t?oc=5",
       "source": "Bloomberg (via Google)"
     },
     {
-      "tag": "米財政・インフレ",
-      "headline": "トランプ氏、ガソリン税の一時停止を検討",
-      "body": "イラン戦争でポンプ価格が高騰する中、トランプ大統領は連邦ガソリン税の一時停止を打ち出した。米国債利回りはCPI公表を控え上昇、ドル指数も中東和平期待後退でじり高。期待インフレ・実質金利の動きが焦点。",
+      "tag": "為替",
+      "headline": "日米財務相、行き過ぎた為替変動は望ましくないと確認",
+      "body": "ベッセント米財務長官は日本と『過度なFX変動は望ましくない』との認識で一致したと表明。日本側も為替での米国との連携継続を確認し、ドル円の上値抑制材料となっている。",
       "impact": [
-        "短期インフレ期待を抑制も中長期では財政悪化懸念",
-        "国債利回り・ドル底堅い",
-        "ガソリン関連・消費関連に影響"
+        "ドル円",
+        "日本株",
+        "日銀政策"
       ],
-      "source_index": 119,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOTmFFLTFfUXRYTzFNRUJDZHVLZmlhUUJJUzB6WmgzMU52bGt4aS05V2xvRHJIVTdac2lFdDRRYmdyOUZGOUpCSFJqVE9Cakxyd2xNSGEySmNKWEFTVXNTVlFudDhtX25QX0JlTG9Yd19OeE9PYzVDQVAxcVowbzkySHlfMVU?oc=5",
-      "source": "Financial Times (via Google)"
+      "source_index": 35,
+      "link": "https://finance.yahoo.com/markets/currencies/articles/japan-us-affirm-close-cooperation-021900312.html",
+      "source": "Yahoo Finance US"
     },
     {
-      "tag": "米中外交",
-      "headline": "人民元基準値を3年ぶり高水準に設定、トランプ・習会談前哨戦",
-      "body": "中国人民銀行はトランプ・習会談を前に人民元基準値を3年ぶりの高値に設定。米中ホワイトハウスはマスク氏、クック氏らをサミット同行と発表。一方、米産業界はFTで『中国の産業支配が拡大』と警告。WSJは中国を『輝くテクノロジーと軍事力、しかし経済は混迷』と評した。",
+      "tag": "市場警戒",
+      "headline": "マイケル・バーリ『放物線状の株は手仕舞え』、AIバブル警告",
+      "body": "『マネー・ショート』のバーリ氏は『貪欲を拒否せよ』とAI関連の急騰株を縮小すべきと警告。ウォール街でも1999年類似論が再燃する中、Iren株はNvidia提携の代償としての債務負担で下落。",
       "impact": [
-        "ドル/人民元・アジア通貨にインプリ",
-        "テクノロジー輸出規制議論再燃",
-        "Magnificent 7の中国収益感応度に注目"
+        "半導体",
+        "ハイテク",
+        "ボラティリティ"
       ],
-      "source_index": 109,
-      "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPMExJMXRHcjU1NkMxLTVNdVhyMmg3cmZ2T3BOR1psNV91WElYTGlscEtYVEp2NW5pT3FjYnV6VDdHNHRjLW9nTlhXbmZxUmhpSlZhc3FHcWJac1VUUzUyUUpZd183NEdJQVE1ZHozSjd4TUtmQkM1YlJJRUtHUGZEc3FDN1Y?oc=5",
-      "source": "Financial Times (via Google)"
-    },
-    {
-      "tag": "AI・PE",
-      "headline": "OpenAI、TPG主導PE陣から40億ドル超を調達",
-      "body": "OpenAIはTPGをリードに、Advent・Bain Capital・Brookfieldを共同主導とする40億ドル超の調達で『OpenAI Deployment Company』を立ち上げ。マイクロソフトの初期OpenAI投資は920億ドルのリターンを狙う設計だったとBloomberg。Cerebrasは48億ドル調達でIPO価格引き上げ、AI関連の資本フローは過熱。",
-      "impact": [
-        "AIインフラ投資の継続",
-        "プライベートクレジット・PEのテック比率上昇",
-        "半導体・データセンター関連にスピルオーバー"
-      ],
-      "source_index": 48,
-      "link": "https://www.pehub.com/openai-raises-more-than-4bn-from-tpg-led-pe-investor-group-to-launch-openai-deployment-company/",
-      "source": "PE Hub"
-    },
-    {
-      "tag": "クレジット・PE",
-      "headline": "JPMが主導行団、KKRのプライベートクレジットFSKに信用枠縮小",
-      "body": "JPモルガン主導の銀行団が、損失拡大するKKR系BDC『FSK』への与信枠を絞り込んだ。アポロも30億ドル規模のプライベートクレジット・ファンド売却を協議中とWSJ。プライベートクレジット市場のクラックが可視化されており、HYスプレッドとBDCプロキシの動向が試金石。",
-      "impact": [
-        "プライベートクレジット・BDCの再評価",
-        "HYスプレッド拡大リスク",
-        "オルタナティブ調達コスト上昇"
-      ],
-      "source_index": 19,
-      "link": "https://www.cnbc.com/2026/05/11/kkr-private-credit-fund-fsk-jpmorgan-chase-credit.html",
+      "source_index": 21,
+      "link": "https://www.cnbc.com/2026/05/11/michael-burry-is-not-a-believer-for-any-stocks-going-parabolic-reduce-positions-almost-entirely.html",
       "source": "CNBC Markets"
     },
     {
-      "tag": "米住宅",
-      "headline": "米4月中古住宅販売は横ばい、春商戦は『空振り』",
-      "body": "米4月中古住宅販売はかろうじて上昇に留まり、春の最盛期は不振の様相。高金利と価格高止まりで需要が冷え込む一方、UBSは2000年代半ばに建てられた住宅の老朽化で修繕需要が転換点を迎え、Home Depot・Lowe'sが恩恵を受けると指摘。",
+      "tag": "クレジット・PE",
+      "headline": "JPM主導の銀行団、KKRプライベートクレジット・ファンドへの与信を縮小",
+      "body": "KKR運営のFSKに対し、損失拡大を受けJPMチェース率いる銀行団が与信枠を絞り込んだ。プライベートクレジット市場の信用断層線として可視化されつつあり、オルタナティブ資産への波及リスクが意識される。",
       "impact": [
-        "住宅セクターは弱さ継続もリフォーム関連にチャンス",
-        "30年住宅ローン金利・建材関連に注目",
-        "Fedの利下げ議論に追い風"
+        "クレジット",
+        "BDC",
+        "PE"
       ],
-      "source_index": 86,
-      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNbXdmTW82NVZ3UUh1LXl4U1dLMjJVQUJ4a2w2WHp1VkNHWjBuUFBxZTluNW9NQ0lUQUZ3NjhPUDAtTHpmY0dycEdTcldFUEdzMW9nRktncmhicmRDZGlMZFZSNnI3TE1fWEMtTWJ2ZmpDZGZRalN4YmNURU14NVNEeXc2S0ZHWkkyZUZsU0VIY0J5SHhBUzB6Vnh1X0hZbGdXT2FFcnpYa3lEdDhBWVNGNmRzbWx1WGlFVTY0?oc=5",
-      "source": "WSJ Markets (via Google)"
+      "source_index": 20,
+      "link": "https://www.cnbc.com/2026/05/11/kkr-private-credit-fund-fsk-jpmorgan-chase-credit.html",
+      "source": "CNBC Markets"
     }
   ],
   "charts_of_the_day": [
     {
-      "source": "yf",
-      "ticker": "^GSPC",
-      "title": "S&P 500",
-      "name": "S&P 500",
-      "sub": "INDEX · USD",
-      "rationale": "史上初の7,400超え。VIXとの同時上昇は天井サインか継続か、最重要チャート。"
-    },
-    {
-      "source": "yf",
-      "ticker": "^VIX",
-      "title": "VIX",
-      "name": "VIX",
-      "sub": "恐怖指数",
-      "rationale": "最高値更新とともに恐怖指数も急騰。ヘッジ需要の高まりを可視化。"
-    },
-    {
-      "source": "yf",
-      "ticker": "BZ=F",
-      "title": "Brent原油",
-      "name": "Brent原油",
-      "sub": "$/bbl · 北海先物",
-      "rationale": "ホルムズ封鎖継続・トランプの和平案拒否で原油の地政学プレミアム再評価。36年ぶりのテクニカルパターンも話題。"
-    },
-    {
-      "source": "yf",
-      "ticker": "^TNX",
-      "title": "米10年債利回り",
-      "name": "米10年債利回り",
-      "sub": "%",
-      "rationale": "CPI公表前に上昇。中東和平後退とガソリン税減免議論で期待インフレ要因が複雑化。"
-    },
-    {
       "source": "fred",
-      "ticker": "BAMLH0A0HYM2",
-      "title": "HY社債スプレッド",
-      "name": "HY 社債スプレッド",
-      "sub": "% · OAS",
-      "rationale": "KKR系BDC FSKの信用枠縮小、Apolloの売却検討などプライベートクレジット動揺の波及確認。"
+      "ticker": "DGS30",
+      "title": "米30年債利回り",
+      "name": "米30年債利回り",
+      "sub": "% · 超長期",
+      "rationale": "英30年債が1998年以来の高水準に。長期金利の世界連動とCPI前夜の動向を確認"
     },
     {
       "source": "yf",
-      "ticker": "NVDA",
-      "title": "NVIDIA",
-      "name": "NVIDIA",
+      "ticker": "CL=F",
+      "title": "WTI原油",
+      "name": "WTI原油",
+      "sub": "$/bbl · NY先物",
+      "rationale": "ホルムズ膠着・米イラン停戦『生命維持』状態・アラムコ警告で供給リスクが再燃"
+    },
+    {
+      "source": "yf",
+      "ticker": "^SOX",
+      "title": "SOX半導体指数",
+      "name": "SOX (半導体)",
+      "sub": "INDEX · USD",
+      "rationale": "Burry警告・Iren下落・Nvidia訪中見送りでAIラリーの息切れを点検"
+    },
+    {
+      "source": "yf",
+      "ticker": "JPY=X",
+      "title": "ドル円",
+      "name": "USD/JPY",
+      "sub": "ドル円",
+      "rationale": "日米財務相が過度なFX変動を望まずと確認、円高圧力を測る"
+    },
+    {
+      "source": "yf",
+      "ticker": "^HSI",
+      "title": "ハンセン指数",
+      "name": "ハンセン指数",
+      "sub": "INDEX · HKD",
+      "rationale": "トランプ・習近平首脳会談を前に中国株がデタント期待で上昇"
+    },
+    {
+      "source": "yf",
+      "ticker": "BIZD",
+      "title": "BDC ETF (BIZD)",
+      "name": "BDC ETF (BIZD)",
       "sub": "",
-      "rationale": "AI熱狂の象徴銘柄。バーリの『放物線銘柄を減らせ』警告と最も照らし合わせるべき銘柄。"
+      "rationale": "KKRプライベートクレジット・ファンドの与信縮小、PDの亀裂を象徴"
     },
     {
       "source": "yf",
-      "ticker": "CNY=X",
-      "title": "USD/CNY",
-      "name": "USD/CNY",
+      "ticker": "^FTSE",
+      "title": "FTSE100",
+      "name": "FTSE100",
       "sub": "",
-      "rationale": "中国がトランプ・習会談前に基準値を3年ぶり高値に。米中通貨外交の前哨戦。"
+      "rationale": "スターマー退陣危機で英国株・通貨・債券のトリプル安局面"
     },
     {
       "source": "yf",
-      "ticker": "SI=F",
-      "title": "銀",
-      "name": "銀",
+      "ticker": "GC=F",
+      "title": "金",
+      "name": "金 (COMEX)",
       "sub": "$/oz",
-      "rationale": "WSJが需要見通しで急騰と報道。貴金属・コモディティ全体の動きを補強。"
+      "rationale": "ホルムズ・インフレ懸念・英政治不安で安全資産需要を確認"
     }
   ],
   "deep_dive": {
-    "title": "ホルムズ封鎖長期化リスク、原油市場に潜む「週1億バレル消失」シナリオ",
-    "lede": "サウジ・アラムコがホルムズ海峡閉鎖の継続で週1億バレルの供給喪失と試算。停戦は『生命維持装置』状態とトランプ氏が発言し、地政学プレミアムが市場の死角となりつつある。",
-    "background": "イラン情勢を巡り、トランプ大統領はイランの和平提案への回答を『受け入れ難い』として停戦は『生命維持装置』状態にあると発言。イランはホルムズ海峡支配の手段として小型潜水艦の展開を発表し、海峡封鎖リスクが現実味を帯びる。サウジアラムコは海峡閉鎖が継続すれば世界市場から週1億バレルの原油供給が失われると試算。米海軍はホルムズ任務のコスト増に直面し、トランプ政権はガソリン高騰を受け一時的な燃料税停止を検討。航空各社は燃料コスト高への警戒から値下げで予約を呼び込もうとしているが、世界の株式市場はAI関連の物色で記録的高値を維持しており、地政学リスクの織り込みが極端に乖離している状況にある。",
-    "implications": "短期的には、停戦が崩壊しホルムズが本格封鎖される事態となれば、原油価格は急騰しブレント・WTIともに技術的なブレイクアウトに繋がる可能性が高い。FTが指摘するように『AI熱狂が地政学打撃を覆い隠している』状況は持続困難で、エネルギー価格上昇はインフレ再加速を通じて米長期金利の上昇圧力となり、ハイテク株のバリュエーション調整を誘発しうる。中期的には、欧州石油メジャーが既にトレーディングで最大47.5億ドルの収益を計上したように、ボラティリティ自体が新たな収益源化している一方、新興国・インドなどの輸入国では通貨と財政の二重圧力が顕在化。Burry氏らが警告する『2000年型バブル』との類似性も、地政学ショックを引き金に意識されるリスクがある。",
+    "title": "英国債危機再来──スターマー政権動揺で30年債利回りが1998年以来の高水準",
+    "lede": "スターマー首相の続投が危ぶまれる中、英30年債利回りは1998年以来の高水準に急騰。ポンドと株式も下落し、政治不安が金融市場に直接波及する英国特有の脆弱性が再び露呈した。",
+    "background": "労働党のスターマー首相は、財政運営と党内統制を巡る不満から指導者交代論に直面し、10日には辞任観測まで浮上。これを受けてギルト市場は急落し、30年債利回りは1998年以来の高水準を突破した。英国債市場は2022年トラス・ショック以来、財政リスクと政治不安への耐性が著しく低下しており、わずかな政治イベントでもタームプレミアムが拡大しやすい構造にある。今回は秋季予算編成を控え、増税・歳出計画への信認が問われる局面と重なり、市場の警戒感が一気に表面化した形だ。",
+    "implications": "短期的にはギルト売り・ポンド安・英株安のトリプル安が継続するリスクが高く、英国資産のリスクプレミアム拡大は欧州債券市場全般のセンチメントを悪化させる。長期金利上昇はモーゲージ金利を押し上げ、すでに減速する住宅市場と消費に追い打ちをかける。中期的には、先進国でも財政規律への市場の許容度が急速に低下していることを示す象徴的事例となり、日本を含む高債務国の超長期金利にもスピルオーバーが及ぶ可能性がある。為替面ではポンド安がユーロ・ドル指数にも影響し、リスクオフ局面ではゴールドへの資金流入を後押ししよう。",
     "what_to_watch": [
-      "ホルムズ海峡の通航量とタンカー保険料率の推移",
-      "ブレント原油の36年ぶりに出現した強気テクニカルパターンの確認",
-      "米CPIなどインフレ指標と原油高の波及度合い",
-      "OPEC+の追加増産アナウンスとサウジの余剰生産能力活用",
-      "VIX・MOVE指数の上昇余地と株式市場のリスクプレミアム再評価"
+      "スターマー首相の進退に関する閣議・労働党内の動き",
+      "英30年債利回りが5%台定着するか、追加売りで歴史的水準を更新するか",
+      "GBP/USDおよびEUR/GBPの動向、英中銀の口先介入の有無",
+      "秋季予算（Autumn Budget）に向けた財政計画の具体化",
+      "ギルト・ショックが米超長期債・日本の超長期債利回りへ波及するか"
     ],
     "related_keys": [
-      "brent",
-      "wti",
-      "vix",
-      "sp500"
+      "us30y",
+      "dxy",
+      "gold",
+      "move"
     ],
-    "source_index": 88,
-    "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPU2JRdWlBZXNNbWttVWF5NS1ONmY2U240Zjc1d3JCaVoxQUxXR0ZTbDJtMU9YeVJvaVI1TGNRdkFtcUZFZnlDQWFKeTg1SGhZdi15X1cwY0JyU2xVRTNEdXZIai1WZTd4NWZxb1B3dlFzMkgxS2N4aUlyd0RKdVpNLWNqdUpkTW9XNzJVa1M4ZUlvUFdpd0tvSENjMFRjTkpYZGpWdGxjLV9nYUd6cDZZb3JJUkZmckJDY292N0R0b1BxQkUwTy1WR2pR?oc=5",
-    "source": "WSJ Markets (via Google)"
+    "source_index": 67,
+    "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNR1FNS2pZLXhMc2loVUtuM1Jpd3l4N0dOS0hRZkYxWDVmd0tWRTAyYU5Zbk12NDh6N0V4X1k3OS1sbnpMNGM3eWpxeHlVaV9GR2RfdzBQUDFYNW94ZklYdDJCUzJBbkhSb1NKUE1oM0Z2YnJPZ2s2SndReHFCS3RLNUVUU1ZLUFAwT0hYSUZFaUczN0VQdGl0eUVPZjJLSTBJVmEwQzB3X1VXdTJHZnIzeFhnLTk?oc=5",
+    "source": "Bloomberg (via Google)"
   },
-  "central_bank_watch": [
-    {
-      "code": "FED",
-      "comment": "FRBは現在FF金利（上限）を3.75%に据え置いており、直近の変動は2025年12月の▲0.25%にとどまる。米国債利回りはイランとの和平交渉が暗礁に乗り上げたことで中東リスクが意識され、インフレ再燃懸念も重なって小幅上昇した。市場参加者はCPIなどインフレ指標を注視しており、次回FOMC（約6週間ごと）での追加利下げ余地を見極めようとしている。マイケル・バーリが株価急騰局面での「グリード排除」を警告するなど、AI相場の過熱感が金融安定リスクとしてFRB内部でも議論される可能性があり、利下げ再開時期の見通しはなお不透明だ。"
-    },
-    {
-      "code": "ECB",
-      "comment": "ECBは預金ファシリティ金利を2.0%に設定しており、直近では2025年6月に▲0.25%の利下げを実施した。当日の注目ニュースは、ECB高官がドイツ政府によるユニクレジットのコメルツバンク買収阻止への反対姿勢を公に批判したことで、欧州銀行セクターのクロスボーダー統合を巡る政治的摩擦が改めて浮き彫りになった。ユーロ圏ではエネルギー価格がイラン情勢による原油・ガス相場の高止まりに影響を受けており、ECBが次回理事会で追加利下げに踏み切れるかどうか、インフレの粘着性が鍵を握る展開が続いている。"
-    },
-    {
-      "code": "BOJ",
-      "comment": "日本銀行は無担保コール翌日物金利の誘導目標を段階的に引き上げる方針を維持しているが、ホンダが3月期に約4000億円規模の営業赤字を計上するなど国内製造業の業績悪化が相次いでいる。中東情勢の緊迫化による円安・エネルギー高リスクと、国内需要の弱さというジレンマの中で、次回の金融政策決定会合（年8回）に向けて追加利上げの是非を慎重に見極める必要がある。米中首脳会談の動向や円相場の推移も政策判断に影響しうるため、市場は引き続きBOJの情報発信に敏感に反応する状況が続いている。"
-    },
-    {
-      "code": "BOC",
-      "comment": "カナダ銀行（BOC）について、市場参加者は次回の利上げ開始時期を2027年3月と見込んでいることが報じられた。これは、現時点では緩和サイクルが当面継続するとの見方が支配的であることを示している。カナダ経済は米国の貿易政策リスクや原油価格動向の影響を受けやすく、イラン情勢に伴うエネルギー価格の変動が輸出収入に直結するため、BOCは慎重な姿勢を維持している。利上げ再開が2027年以降に後ずれするとの織り込みは、カナダドルや債券市場に対し当面中立〜やや緩和的な環境を示唆している。"
-    }
-  ],
-  "pe_pd_view": {
-    "body": "直近24時間のPE（プライベート・エクイティ）市場では、大型ディールと資金調達が相次いだ。最大の注目はOpenAIがTPG主導のPE投資家グループから40億ドル超を調達し、「OpenAI Deployment Company」を設立したこと（[48]）。Advent、Bain Capital、Brookfieldが共同リード出資者として参加しており、AI産業へのPE資金流入がさらに加速している。また、BlackstoneとHalliburtonがデータセンター・マイクログリッド向け電力ソリューション企業VoltaGridに10億ドルを共同投資することも発表された（[46]）。\n\nプライベート・デット（PD）分野では、KKR傘下の上場BDC（事業開発会社）であるFSK（FS KKR Capital）に対し、JPモルガン主導の銀行グループが損失拡大を受けてクレジットラインを縮小したと報じられた（[19]）。FSKはプライベートクレジット市場の脆弱性を示す事例として注目されており、ダイレクト・レンディング（直接融資）の信用リスクを再評価する動きが広がる可能性がある。一方、Apolloが30億ドル規模のプライベートクレジットファンドの売却交渉を進めているとも伝わっており（[93]）、大手が既存ポートフォリオの再編を進めている。\n\nQIA（カタール投資庁）がGeneral Atlanticに5億ドルをコミットするなど中東系SWF（政府系ファンド）のPEへの資金流入も継続しており（[55]）、ドライパウダー（投資未実行の資金）の積み上がりは上場株市場への間接的な買い圧力にもなりうる。",
-    "impact": "positive",
-    "impact_summary": "AI・インフラ向けPE投資加速、ただしPDの信用懸念が一部浮上",
-    "source_indices": [
-      19,
-      46,
-      48,
-      55,
-      93
-    ],
-    "sources": [
-      {
-        "link": "https://www.cnbc.com/2026/05/11/kkr-private-credit-fund-fsk-jpmorgan-chase-credit.html",
-        "source": "CNBC Markets",
-        "title": "JPMorgan Chase-led bank group reins in credit line to troubled KKR private credit fund as losses mount"
-      },
-      {
-        "link": "https://www.pehub.com/blackstone-and-halliburton-to-invest-1bn-in-voltagrid/",
-        "source": "PE Hub",
-        "title": "Blackstone and Halliburton to invest $1bn in VoltaGrid"
-      },
-      {
-        "link": "https://www.pehub.com/openai-raises-more-than-4bn-from-tpg-led-pe-investor-group-to-launch-openai-deployment-company/",
-        "source": "PE Hub",
-        "title": "OpenAI raises more than $4bn from TPG-led PE investor group to launch OpenAI Deployment Company"
-      },
-      {
-        "link": "https://www.pehub.com/qia-commits-500m-to-general-atlantics-global-growth-investment-strategies/",
-        "source": "PE Hub",
-        "title": "QIA commits $500m to General Atlantic’s global growth investment strategies"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOS3B2UUVERG5XMm5XV0VteEN3Q3pzWXdsZURmNlVhOG9HWFJ6ZFJoYy11UVVRek9jVmJfcmMxaGFRdzgydjZxVHdYT0FfWWZhVXkxRFkwOGxsam1oc05HNnZnU1dURTNCWjJKa2lJV3VIZXprTWZjeFoxbk9FM2Q3WDlXSUVNQllBT1h0RF9iU1hBdW5RR2lWeFZXX2lmNG44TzBycXFn?oc=5",
-        "source": "WSJ Markets (via Google)",
-        "title": "Apollo Holds Talks to Sell $3 Billion Private Credit Fund - WSJ"
-      }
-    ]
-  },
-  "real_assets_view": {
-    "body": "不動産市場では、米国の住宅販売が4月にほぼ横ばいで推移し、春の繁忙シーズンが「不発」に終わったとWSJが報じた（[86][80]）。在庫不足と高水準の住宅ローン金利が購買意欲を抑制しており、Home DepotやLowe'sなどリフォーム関連株への期待は一部残るものの、新規成約件数の回復は見込みにくい状況だ。金利が高止まりする局面では、不動産価格や取引量は抑制されやすいという基本的な関係が改めて意識されている。\n\nインフラ・エネルギー分野では、BlackstoneとHalliburtonによるVoltaGrid（データセンター・マイクログリッド向け電力）への10億ドル投資（[46]）が象徴するように、AIデータセンターの急拡大に伴う「電力インフラ」需要が投資テーマとして定着しつつある。MayfairエクイティがOVOの小売エネルギー事業をEONに売却するなど欧州エネルギーインフラの再編も続いている（[50]）。また、Sonyがblackstoneの音楽著作権ポートフォリオを約40億ドルで買収する契約を締結しており（[112]）、オルタナティブ資産としての著作権・知的財産権への注目度も高まっている。イラン情勢に伴うホルムズ海峡リスクはエネルギーインフラへの需要を長期的に高める可能性があり、再エネや分散型電源への投資加速につながりうる点でインフラ投資家には注目材料だ。",
-    "impact": "neutral",
-    "impact_summary": "住宅市場は低調続くもデータセンター電力インフラ投資は活発化",
-    "source_indices": [
-      46,
-      50,
-      80,
-      86,
-      112
-    ],
-    "sources": [
-      {
-        "link": "https://www.pehub.com/blackstone-and-halliburton-to-invest-1bn-in-voltagrid/",
-        "source": "PE Hub",
-        "title": "Blackstone and Halliburton to invest $1bn in VoltaGrid"
-      },
-      {
-        "link": "https://www.pehub.com/mayfair-equity-partners-to-sell-ovo-retail-energy-business-to-eon/",
-        "source": "PE Hub",
-        "title": "Mayfair Equity Partners to sell OVO retail energy business to EON"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQYWZNbjRFdWlBVTI3RmFPd3c2cjRtTWs1bnZibUNBMi04NXl6Y3VOeG9ZTzdTeHlJTFF6Wmd0NzhjcG1ScmJSUkcxTDNlMy1ndnpya3pMWVVrQVcyeEc5bkdoaU5ydjlvX2hJYjhVbHR5dFRKZzBRLXRqbTZIcmdvOFJrNzFmTndGQk9QVXc1bmVSWDZRYzFGa3JNOHZvY04temVnamVGQWxHVWV1ZDdpcmpUTnk?oc=5",
-        "source": "Bloomberg (via Google)",
-        "title": "US Existing-Home Sales Barely Rise as Key Selling Season Begins - Bloomberg.com"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNbXdmTW82NVZ3UUh1LXl4U1dLMjJVQUJ4a2w2WHp1VkNHWjBuUFBxZTluNW9NQ0lUQUZ3NjhPUDAtTHpmY0dycEdTcldFUEdzMW9nRktncmhicmRDZGlMZFZSNnI3TE1fWEMtTWJ2ZmpDZGZRalN4YmNURU14NVNEeXc2S0ZHWkkyZUZsU0VIY0J5SHhBUzB6Vnh1X0hZbGdXT2FFcnpYa3lEdDhBWVNGNmRzbWx1WGlFVTY0?oc=5",
-        "source": "WSJ Markets (via Google)",
-        "title": "Housing Market’s Spring Is Shaping Up as a Bust After April Sales Were Flat - WSJ"
-      },
-      {
-        "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZ0RTVGxkcEZndzVub2tVZDhUNmFMVWF3enhUc3h6ZmdFdl9XSmJ4eERJTGJCV0FLTTAzZU9CNjZaN0hjYUlLdE84eU40LVZ4eVF4eHNCMjVYcFNBZ2ZDel9XN2JWQllpQS1YcnF4UDJRVFd0QU5FOVJuNlYzLTBwdkZ2a04?oc=5",
-        "source": "Financial Times (via Google)",
-        "title": "Sony strikes almost $4bn deal to buy Blackstone’s portfolio of music rights - Financial Times"
-      }
-    ]
-  },
+  "central_bank_watch": [],
+  "pe_pd_view": null,
+  "real_assets_view": null,
   "funny_stories": [
     {
       "kind": "皮肉",
-      "title": "白黒の袋詰め作戦",
-      "body": "カルビーがナフサ不足で袋を白黒に。一方でAIバブルは色とりどり。原材料難で地味になる商品パッケージ、でも株価は派手に上昇。経済のカラーコントラストが逆転する珍しい時代。",
+      "title": "白黒映画の時代へ",
+      "body": "カルビーのかっぱえびせん、イラン情勢でインク不足のため袋が白黒に。マーケット関係者は「まるで経済危機を映画化したようだ」と。技術革新の時代に、袋の色まで地政学リスクに左右される。景気後退を視覚化するより効果的なシグナルはないだろう。",
       "source_index": 0,
-      "link": "https://news.yahoo.co.jp/pickup/6579720?source=rss",
+      "link": "https://news.yahoo.co.jp/pickup/6579834?source=rss",
       "source": "Yahoo!ファイナンス"
     },
     {
       "kind": "人間味",
-      "title": "農家の暴落懸念",
-      "body": "新米価格が「たぶん暴落」と農家。その言葉に隠された不安と疲労感。OpenAIは40億ドル調達で浮かれ、一方で田んぼの主は冷徹な現実を見つめる。市場の幸福度は、どこに向かっているのか。",
-      "source_index": 3,
-      "link": "https://news.yahoo.co.jp/pickup/6579704?source=rss",
-      "source": "Yahoo!ファイナンス"
+      "title": "退職金が自分より働く",
+      "body": "MarketWatchの記事より：「退職ファンドは、自分がもう働けないときも働き続けるAI版の自分」。市場関係者にはグッとくる言葉だ。24時間休まない市場、眠らないAI、でも人間は疲れている。お金の世話をしないのは、自分の世話をしないのと同じ。そんな真理に、ふと肩が落ちる。",
+      "source_index": 8,
+      "link": "https://www.marketwatch.com/story/my-retirement-fund-is-like-an-ai-version-of-me-it-keeps-working-when-im-not-able-to-6d053f9d?mod=mw_rss_topstories",
+      "source": "MarketWatch Top"
     },
     {
       "kind": "観察",
-      "title": "秒単位の経営判断",
-      "body": "路線バス、最大14秒早く発車して処分。一方、高周波取引は秒単位で数十億利益。同じ時間軸なのに、罰せられる者と褒められる者がいる。市場の効率性とは、結局のところ誰の時間か。",
-      "source_index": 4,
-      "link": "https://news.yahoo.co.jp/pickup/6579711?source=rss",
-      "source": "Yahoo!ファイナンス"
+      "title": "AI税から市民配当へ",
+      "body": "韓国が「AI税による市民配当」をぶち上げた。テック企業の超利益を国民全体で分配しようという発想。一方、米国でも「AIの電力インフラコスト誰が払う問題」が浮上中。共通項は「テックバブルの果実をどう分けるか」という古くて新しい問題。市場を動かすのは、もはや技術より政治。",
+      "source_index": 61,
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPRVhsOU5FamdDblV1RWxCNXhhWl9VWVJRWFdkOUxRU0hBV1VLaVFkZWlPOFVNVzdyMWNBdXJ4U0tWRXd0ZXp3NGwzQlBmRGZtYkVzQnk2TVZKWnJkMHhXOGcxdHNZTlo2Q2NHMjBiZWRVWFBKYjFhQXl4cFdsRU53cXdHeS1nbV9laFRHVHNLYXYzd0tzdGViaFZFcUtMNW56RENxMEkwWDlCdzgwWTVacQ?oc=5",
+      "source": "Bloomberg (via Google)"
     }
   ],
   "economic_chart_of_the_day": {
-    "series_id": "DCOILWTICO",
-    "title": "WTI原油価格の推移",
-    "subtitle": "日次, ドル/バレル",
-    "rationale": "ホルムズ海峡情勢の緊迫化により地政学リスクが急速に高まっている。アラムコが週100万バレルの損失可能性を指摘。イラン核交渉が「生命維持装置上」とトランプが発言。このエネルギー危機が市場全体に与える影響を視覚的に把握する必要がある。",
-    "period_years": 2
+    "series_id": "CPIAUCSL",
+    "title": "米国CPI（コア含む）の推移",
+    "subtitle": "前年比 %, 月次",
+    "rationale": "本24時間のニュースでCPI発表が迫っている旨が複数報道されており、市場がインフレデータを強く注視している状況。イラン情勢でのエネルギー価格上昇懸念も加わり、物価圧力がマーケット動向の主軸。過去3～5年のCPI推移は景気・金融政策判断の核となる。",
+    "period_years": 3
   }
 }
