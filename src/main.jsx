@@ -2,10 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import { initSentry, ErrorBoundary } from "./sentry";
+import { ErrorBoundary } from "./ErrorBoundary";
 
-// v13.5: Sentry を最初に初期化 (DSN 未設定環境では no-op)
-initSentry();
+// v13.5.1: Sentry を取り下げ、vanilla ErrorBoundary に置き換え (DECISION v13.5.1-01)
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

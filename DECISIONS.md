@@ -7,6 +7,42 @@
 
 ---
 
+## v13.5.1 で導入された決定 (2026-05-12)
+
+v13.5 のうち Sentry 部分のみ撤回。
+
+### [DECISION v13.5.1-01] Sentry を取り下げ、vanilla React ErrorBoundary に置き換え
+- **背景**: v13.5 で Sentry を導入したが、kk が実際に signup を試みたところ、新規アカウントは **14 日 Business trial に強制 enroll** され、その間「trial 終了まで残り X 日」のリマインダーやクレカ入力プロンプトが続く UX だった
+- **事実関係**: Sentry の Developer plan (無料、5K events/月、1 user、30 日 retention) は **公式には存在する** が、signup フローでは trial-first に誘導される。trial 終了後は自動で Developer plan に降格するという公式ドキュメント記載あり
+- **判断**: 取り下げる
+  - 月コスト 0 円維持 (DECISION v13.4-plan-06) との衝突
+  - 個人プロジェクトの「set it and forget it」原則に反する trial 圧力
+  - 仮に trial を放置しても、14 日間の心理的負担と「無料に降格できているか」を確認する手間が発生
+- **代替**: `src/ErrorBoundary.jsx` (vanilla React class component、20 行) で React render エラーをキャッチし、既存の fallback UI (クリーム背景 + ネイビー文字) を維持
+- **撤回しても失わないもの**:
+  - React render エラー検知 — ErrorBoundary 経由で fallback 表示
+  - 未捕捉例外のローカル確認 — ブラウザ DevTools の console.error
+  - データ取得失敗 — UI 上部の Stale Data 警告 (36 時間閾値)
+  - Actions ワークフロー失敗 — GitHub の自動通知メール
+  - 動作確認 — kk の毎朝目視 (8 時更新)
+- **撤回で失うもの (許容)**:
+  - 翌朝までの remote 通知 — 24 時間以内に kk が気付くので個人プロジェクトとしては許容
+  - 30 日のエラー履歴ダッシュボード — 必要ならブラウザ console で再現確認
+- **検討した代替 SaaS** (将来再検討用):
+  - GlitchTip (hosted): 1K events/月、Sentry 互換 SDK、Sentry より UX がドライ
+  - Rollbar: 5K events/月、トラフィック想定にちょうど合う
+  - Highlight.io: 500 sessions + 1K errors、session replay 付き
+  - GlitchTip self-host: 0 円だが Fly.io / Railway 等で運用負荷
+- **再導入時の構造的考慮**: ErrorBoundary を `src/ErrorBoundary.jsx` に分離してあるので、将来エラー監視 SDK を入れたら main.jsx の import 先を差し替えるだけで再導入できる (DSN-gated 設計の名残)
+- **波及更新**:
+  - `package.json`: `@sentry/react` を dependencies から削除
+  - `src/sentry.js`: 削除
+  - `src/main.jsx`: `./sentry` → `./ErrorBoundary` に import を差し替え
+  - `.github/workflows/daily-update.yml`: build ステップの `VITE_SENTRY_DSN` env を削除
+  - `docs/MONITORING.md`: Sentry 節を「採用見送り + 代替検討記録」に書き換え、項目数 4 → 3 に縮小
+
+---
+
 ## v13.5 で導入された決定 (2026-05-12)
 
 Phase 1 後半の監視・観測レイヤ。Tier 2 の中で個人プロジェクトでも価値が出るものに絞って導入。

@@ -65,7 +65,7 @@ GitHub Actions の自動コミット (`chore: update market data ...`) との競
 6. **GitHub Actions cron は数〜十数分遅延**: バッファを見込んだ設計
 7. **Claude API**: モデルは役割別に `claude-opus-4-7` / `claude-sonnet-4-6` / `claude-haiku-4-5` を使い分け (v13.2 以降)
 8. **Public リポジトリの安全性**: Forkリポジトリでは Secrets が読めない仕様 (Anthropic API キー悪用は不可能)
-9. **モニタリング無し**: Actions失敗の即時検知は GitHub の通知メール頼み。代わりに UI 側で `generatedAt` が古ければ Stale Data 警告を出す。v13.5 で Sentry を追加予定
+9. **モニタリング無し**: Actions 失敗の即時検知は GitHub の通知メール頼み。代わりに UI 側で `generatedAt` が古ければ Stale Data 警告を出す。v13.5 で Sentry を導入試みたが v13.5.1 で取り下げ — ErrorBoundary fallback + 朝の目視で代替 (DECISION v13.5.1-01)
 10. **プレースホルダ JSON**: 専用ディレクトリは存在せず、コミット済みの `data/*.json` 自体が二重の役割 (本番データ兼初期表示) を担う
 11. **依存方向ルール**: `theme.js → utils.js → components/common → components/sections → MarketMonitor.jsx` の単方向。grep で違反検出可能 (DECISION v13.1-03 参照)
 12. **scripts/__init__.py は作らない**: PEP 420 namespace package で動作している (DECISION v13.3-05 参照)
@@ -124,7 +124,7 @@ Pensions & Investments / DailyAlts / PE Hub / AltAssets PE
 - 軽い修正は v13.4.1 のような小数刻みも可
 
 ## 現状のステータス
-最新バージョン: **v13.5** — **Phase 1 全完了 ✅** (土台拡充 + 業界標準対応 + 監視・観測レイヤ)
+最新バージョン: **v13.5.1** — **Phase 1 全完了 ✅** (土台拡充 + 業界標準対応 + 監視・観測レイヤ、Sentry のみ取り下げ)
 
 v13 系統 (土台拡充 + Phase 1) が全完了。次は **Phase 2 = v16.0 (Japan Equities Layer 第一段)** に進むフェーズ。
 全体方針は [`ROADMAP.md`](ROADMAP.md) を、決定経緯は [`DECISIONS.md`](DECISIONS.md) を、運用は [`docs/RUNBOOK.md`](docs/RUNBOOK.md) / [`docs/MONITORING.md`](docs/MONITORING.md) / [`docs/BRANCH_PROTECTION.md`](docs/BRANCH_PROTECTION.md) を参照。
@@ -133,13 +133,13 @@ v13 系統 (土台拡充 + Phase 1) が全完了。次は **Phase 2 = v16.0 (Jap
 
 | Phase | 主眼 | バージョン | ステータス |
 |---|---|---|---|
-| **Phase 1: 業界標準の足場固め** | 保守性・観測性の底上げ | v13.4 (.0/.1/.2), v13.5 | ✅ 完了 |
+| **Phase 1: 業界標準の足場固め** | 保守性・観測性の底上げ | v13.4 (.0/.1/.2), v13.5, v13.5.1 | ✅ 完了 |
 | Phase 2: Japan Equities Layer 第一段 | 個人投資ニーズへの即応 | v16.0 | 次着手 |
 | Phase 3: archive UI + Japan 拡張 | 蓄積資産活用 + TOB 機能 | v14.0, v16.1 | 未着手 |
 | Phase 4: 大型構造改革 | AI 補助精度の本格向上 | v17.0 (TS 移行) | 未着手 |
 | Phase 5: 残務処理 | データ冗長化と運用課題 | v14.x, v16.2, v15 | 未着手 |
 
-Phase 1 全完了 = 9 リリース中 4 リリース消化 (v13.4.0/.1/.2/v13.5)。
+Phase 1 全完了 = 9 リリース中 4 リリース消化 (v13.4.0/.1/.2/v13.5、v13.5.1 は v13.5 の小修正)。
 
 ### Phase 1 完了サマリ
 
@@ -149,8 +149,9 @@ Phase 1 全完了 = 9 リリース中 4 リリース消化 (v13.4.0/.1/.2/v13.5)
 | **v13.4.1** | 共通 component 3 個抽出 (19 箇所置換) + Vitest 16 件 + `common.py` の mypy strict 化 + B023 fix |
 | **v13.4.2** | Python 統合テスト 17 件 (計 35 件) + `docs/RUNBOOK.md` + `.github/CODEOWNERS` + `docs/BRANCH_PROTECTION.md` |
 | **v13.5** | Sentry (DSN-gated) + Codecov (可視化) + Lighthouse CI (warn 閾値) + Cloudflare Pages PR preview + `docs/MONITORING.md` |
+| **v13.5.1** | Sentry を取り下げ → vanilla React ErrorBoundary に置き換え (DECISION v13.5.1-01)、`docs/MONITORING.md` を 4 → 3 サービスに縮小 |
 
-### Quality gates 一覧 (v13.5 完了時点)
+### Quality gates 一覧 (v13.5.1 完了時点)
 
 | 種類 | コマンド | 件数 / 結果 |
 |---|---|---|
@@ -162,7 +163,7 @@ Phase 1 全完了 = 9 リリース中 4 リリース消化 (v13.4.0/.1/.2/v13.5)
 | JS スナップショット (Vitest) | `npm run test:ci` | **15 件 PASS** |
 | Lighthouse CI | PR ごとに自動 | warn 閾値 (perf 0.5、他 0.85) |
 | Vite build | `npm run build` | OK |
-| Sentry | (本番のみ、DSN-gated) | 未捕捉例外 / Promise rejection / ErrorBoundary 補足 |
+| Sentry | ~~削除~~ | v13.5.1 で取り下げ、`src/ErrorBoundary.jsx` の fallback UI で代替 |
 
 ### 次の一歩 — v16.0 (Japan Equities Layer 第一段)
 
@@ -195,7 +196,7 @@ npm run format                                  # Prettier 整形 (任意)
 ```
 
 PR を作ると CI で **Ruff + mypy + pytest + Codecov + ESLint + Vitest + Vite build + Lighthouse CI** が自動実行される。
-本番 deploy 時は Sentry が未捕捉例外を捕捉。Cloudflare Pages 連携で PR ごとに preview URL が自動生成。
+本番 deploy 時は ErrorBoundary fallback が React render エラーをキャッチ (Sentry は v13.5.1 で取り下げ)。Cloudflare Pages 連携で PR ごとに preview URL が自動生成。
 
 ## やらないこと (Tier 3 — 明示的に除外)
 
@@ -207,7 +208,7 @@ PR を作ると CI で **Ruff + mypy + pytest + Codecov + ESLint + Vitest + Vite
 - **SLO / SLA の明文化** — 法的拘束力のある相手がいない
 - **専任の人間レビュアー** — 物理的に不在、Claude が代替
 - **Performance monitoring (Datadog APM)** — 静的サイトに APM は不要
-- **有料 SaaS** — 月コスト 0 円維持 (Sentry / Codecov / Cloudflare は全て free tier)
+- **有料 SaaS** — 月コスト 0 円維持 (Codecov / Cloudflare は free tier、Sentry は v13.5.1 で取り下げ)
 
 「やらないこと」の明文化は完璧主義の罠を避けるため (DECISION v13.4-plan-01)。
 
@@ -256,9 +257,9 @@ PR を作ると CI で **Ruff + mypy + pytest + Codecov + ESLint + Vitest + Vite
 - 現在地は **Phase 1 全完了、Phase 2 = v16.0 (Japan Equities Layer 第一段) に着手するフェーズ** の状態
 - **PR を作ると CI で Ruff + mypy + pytest + Codecov + ESLint + Vitest + Vite build + Lighthouse CI が自動実行される**。push 前に `ruff check . && mypy && npm run lint && npm run test:ci` でローカル確認
 - **障害時は最初に [`docs/RUNBOOK.md`](docs/RUNBOOK.md) を見る**
-- **監視サービスのセットアップ**: [`docs/MONITORING.md`](docs/MONITORING.md) に Sentry / Codecov / Lighthouse CI / Cloudflare Pages の登録手順を集約
+- **監視サービスのセットアップ**: [`docs/MONITORING.md`](docs/MONITORING.md) に Codecov / Lighthouse CI / Cloudflare Pages の登録手順を集約 (Sentry は v13.5.1 で取り下げ)
 - **ブランチ保護の GitHub UI 設定**: [`docs/BRANCH_PROTECTION.md`](docs/BRANCH_PROTECTION.md)
-- **Sentry DSN**: GitHub Secrets の `VITE_SENTRY_DSN` に格納。未設定なら no-op で local dev に影響無し
+- **エラー監視**: v13.5.1 で Sentry を取り下げたため、現在は `src/ErrorBoundary.jsx` の fallback UI + 朝の目視 + Stale Data 警告で運用。将来再導入する場合の候補は `docs/MONITORING.md` の節 1 を参照
 - **共通 component の使い方** (v13.4.1 で抽出): セクション見出しは `<SectionHeader>`、グループ見出しは `<GroupHeader>`、外部リンクは `<ExternalLink>` (生の `<a target="_blank">` は禁止)
 - **統合テスト追加時** (v13.4.2 で 17 件追加): `tests/test_fetch_*.py` の mock パターンを参考。`yf.download` / `fred_observations` を mock、`OUTPUT_PATH` を `tmp_path` に差し替え
 - **Vitest スナップショット**: 新規セクション追加時は `src/__tests__/sections.test.jsx` に 1 件追加。意図的 UI 変更後は `npm run test:ci -- -u`

@@ -1,67 +1,64 @@
 # Monitoring Setup — Market Monitor
 
-v13.5 で導入された 4 つの監視・観測レイヤの設定手順。
+v13.5 で導入された監視・観測レイヤの設定手順。
 コードや CI workflow は zip で適用されるが、外部サービスの登録・連携は kk が GitHub UI / 各 SaaS の Web UI で行う必要がある。
 
-最終更新: 2026-05-12 (v13.5 で新設)
+最終更新: 2026-05-12 (v13.5.1 で Sentry を取り下げ、項目数を 4→3 に縮小)
 
 ---
 
 ## 目次
 
-1. [Sentry セットアップ](#1-sentry-セットアップ) — フロントエンドのエラー監視
+1. [エラー監視 — 採用見送り (v13.5.1)](#1-エラー監視--採用見送り-v1351) — Sentry を取り下げて ErrorBoundary のみで運用
 2. [Codecov セットアップ](#2-codecov-セットアップ) — Python テストカバレッジ可視化
 3. [Lighthouse CI](#3-lighthouse-ci) — パフォーマンス・アクセシビリティ計測
 4. [Cloudflare Pages PR preview](#4-cloudflare-pages-pr-preview) — PR ごとの実機確認環境
 
-すべて **free tier 内** で完結する設計 (DECISION v13.4-plan-06)。
+すべて **free tier 内 / 月コスト 0 円** で完結する設計 (DECISION v13.4-plan-06)。
 
 ---
 
-## 1. Sentry セットアップ
+## 1. エラー監視 — 採用見送り (v13.5.1)
 
-### Sentry 側で行うこと
+### 経緯
 
-1. https://sentry.io にアクセスし、無料アカウントを作成
-2. New Project → Platform: **React** → Name: `market-monitor`
-3. 表示される **DSN** (`https://xxx@oXXXX.ingest.sentry.io/XXXX` 形式) をコピー
+v13.5 で Sentry を導入したが、v13.5.1 で取り下げた。理由は DECISION v13.5.1-01 を参照。要点:
 
-### GitHub 側で行うこと
+- Sentry 公式ドキュメント上は **Developer plan が無料** (5K events/月、1 user、30 日 retention)
+- 実際の signup フローは **14 日 Business trial に強制 enroll** され、その間「trial 終了まで残り X 日」のリマインダーが続く
+- trial 終了後に Developer plan に自動降格するが、UX 上の friction が個人プロジェクト向きでない
+- DECISION v13.4-plan-06 の月コスト 0 円維持と、心理的負担ゼロ運用を優先
 
-`Settings → Secrets and variables → Actions → New repository secret`:
+### 現在の代替手段 (v13.5.1 以降)
 
-- Name: `VITE_SENTRY_DSN`
-- Value: コピーした DSN
+| 機能 | 現在の手段 |
+|---|---|
+| React render エラー検知 | `src/ErrorBoundary.jsx` (vanilla React) で fallback UI を表示 |
+| 未捕捉例外のローカル確認 | ブラウザ DevTools の `console.error` |
+| データ取得失敗 | UI 上部の **Stale Data 警告** (`generatedAt` が 36 時間以上古い時) |
+| Actions ワークフロー失敗 | GitHub の **自動通知メール** |
+| 動作確認 | kk の **朝の目視確認** (毎日 8 時更新) |
 
-これだけで OK。次の daily-update.yml run で Vite build に DSN が埋め込まれる。
+→ 9 割の障害ケースはカバーできる前提。残りの「UI は表示されているが内部状態が壊れている」ケースは見逃すが、毎日 1 回 kk が見るので発見遅延は 24 時間以内。
 
-### 動作確認
+### 将来再検討する場合の候補
 
-1. Pages デプロイ後、ブラウザのコンソールで意図的に例外を起こす:
-   ```js
-   throw new Error("Sentry test")
-   ```
-2. Sentry の Dashboard → Issues に数秒〜数分で表示される
-3. メール通知が設定されていれば翌朝までに届く
+`@sentry/react` の取り下げと vanilla `ErrorBoundary` の導入は意図的に「再導入しやすい構造」にしている (DSN-gated 設計の名残)。将来エラー監視が欲しくなったら以下を順に検討:
 
-### 何が捕捉されるか
+| 候補 | 月額 | 評価 |
+|---|---|---|
+| **GlitchTip (hosted)** | 0 円 | Sentry 互換 SDK、1K events/月の hosted free tier。Sentry より UX のしがらみが少ない |
+| **Rollbar** | 0 円 | 5K events/月、トラフィック想定にちょうど合う |
+| **Highlight.io** | 0 円 | 500 sessions + 1K errors。session replay 付き |
+| **GlitchTip (self-host)** | サーバー代 | Fly.io / Railway の free tier に乗せられるが運用負荷あり |
+| Sentry に課金 | $26/月 ≒ 約 4,000 円 | API コスト (約 1,200 円) の 3 倍、見合わない |
 
-- React の render エラー (ErrorBoundary 経由)
-- 未捕捉の Promise rejection (data 取得失敗など)
-- window 上の未捕捉例外
-- Recharts の内部エラー
-
-### 何が捕捉されないか (意図的に)
-
-- パフォーマンスメトリクス (`tracesSampleRate: 0`)
-- セッションリプレイ (free tier 節約)
-- PII (`sendDefaultPii: false`)
-
-free tier 5K events/月で十分足りる想定。
-
-### DSN を未設定にしたい場合 (例: 一時的にミュート)
-
-GitHub Secrets から `VITE_SENTRY_DSN` を削除すれば、次の build で `import.meta.env.VITE_SENTRY_DSN` が undefined となり、`initSentry()` は何もせず return する。`@sentry/react` パッケージは bundle に残るが、機能は完全 no-op。
+再導入する場合は:
+1. `@sentry/react` (または GlitchTip SDK) を `package.json` に追加
+2. `src/sentry.js` 相当を新設 (DSN-gated init)
+3. `src/main.jsx` の `import { ErrorBoundary } from "./ErrorBoundary"` を Sentry 系の ErrorBoundary に差し替え
+4. `daily-update.yml` の build に DSN env を追加
+5. このドキュメントを書き換え + DECISIONS に新エントリ
 
 ---
 
