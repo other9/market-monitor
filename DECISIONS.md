@@ -7,6 +7,61 @@
 
 ---
 
+## v13.4.2 で導入された決定 (2026-05-12)
+
+v13.4.0/.1 で整えた quality gate を土台に、統合テスト + 運用ドキュメント + ブランチ保護を一括導入し、v13.4 (Phase 1) を完了させる。
+
+### [DECISION v13.4.2-01] Python 統合テストは「外部 API mock + tmp_path 出力差し替え」で構築
+- **背景**: 既存の `tests/test_common.py` (18 件) は純関数のみで I/O テストがない。fetch スクリプトのリグレッション検知に弱かった
+- **判断**:
+  - `unittest.mock.patch` で `yf.download` / `fred_observations` を mock
+  - `pytest.monkeypatch` で `OUTPUT_PATH` を `tmp_path / "..."` に差し替え (実 `data/` を汚染しない)
+- **対象**:
+  - `tests/test_fetch_market_data.py` — 9 件 (pct_change ×5、fetch_daily/fetch_5y_daily mock ×3、main() e2e ×1)
+  - `tests/test_fetch_macro_indicators.py` — 8 件 (fetch_fred_series ×3、diff_at ×3、main() no-key path ×1、main() e2e ×1)
+- **総数**: 17 件追加、計 35 件
+- **不採用案**:
+  - `responses` / `requests-mock` で HTTP レイヤを mock: より忠実だが、fred_observations を直接 mock する方が test 意図が明確
+  - 実 API を 1 回だけ叩く e2e テスト: 不安定 + Secrets を CI で扱う複雑性
+
+### [DECISION v13.4.2-02] `docs/RUNBOOK.md` は README から拡充して新設
+- **背景**: ROADMAP の v13.4 スコープ。README のトラブルシュート章は手薄
+- **判断**: README の旧トラブルシュート章を 6 セクション構成に展開:
+  1. Quality gates が失敗した時 (Ruff / mypy / pytest / ESLint / Vitest / Vite build)
+  2. Actions ワークフローが失敗した時 (daily-update / ci)
+  3. 外部 API のトラブル (yfinance / FRED / Anthropic / Google News RSS)
+  4. UI に問題が出ている時
+  5. zip 適用後の症状
+  6. 過去のインシデント (時系列ログ、再発防止用)
+- **過去インシデント記録**: v13.4.1 の mypy/B023 教訓、v13.4.0 の formatter 不採用、2026 年早期の TOPIX delisting / 日銀金利系列ミス / Pages 設定リセットなど 7 件
+- **README 側はリンクと入り口だけ**: `docs/RUNBOOK.md` を見るよう誘導する短い節に圧縮
+
+### [DECISION v13.4.2-03] ブランチ保護は「sole reviewer + bypass 許可」のハイブリッド構成
+- **背景**: 業界標準のブランチ保護 (main 直 push 禁止 + PR + CI 必須 + reviewer approve) は個人プロジェクトには厳しすぎる。一方で何の保護もないと CI を回さない zip 直 push でリグレッションが入り込みうる
+- **判断**: ブランチ保護ルールを設定するが、kk アカウントと `github-actions[bot]` に bypass を許可
+  - **必須にする**: CI status check (`python` / `frontend` ジョブ両方)、Code Owner review、conversation resolution
+  - **必須にしない**: approve 数 (sole reviewer は自分を approve できないため必然的に 0)、signed commits、linear history
+  - **bypass 許可**: `@other9` (= kk、zip + 直 push フロー維持)、`github-actions[bot]` (= chore: update market data の自動 commit)
+- **副次効果**: PR を出した時だけ CI 必須、kk の zip 直 push は素通り。これで普段の小修正の速度を維持しつつ、PR フローでは品質ガードが効く
+- **CODEOWNERS**: `* @other9` で全パスを sole reviewer に。Dependabot PR で自動アサイン
+
+### [DECISION v13.4.2-04] `docs/BRANCH_PROTECTION.md` で UI 設定手順を文書化
+- **背景**: ブランチ保護は GitHub UI でしか設定できない。`.github/` 配下では完結しない
+- **判断**: `docs/BRANCH_PROTECTION.md` に Settings → Branches → Add rule の手順を画面項目レベルで文書化
+- **将来運用**: 設定変更時はこのファイルを更新。GitHub 側の UI 変更で項目名が変わった時の差分検知用
+- **落とし穴を明記**: sole reviewer で approve 必須にできないこと、`github-actions[bot]` の bypass 忘れで Actions が止まること、status check 名は CI を 1 回回さないとドロップダウンに出ないこと
+
+### [DECISION v13.4.2-05] 統合テスト件数は 17 件で v13.4 を完了とする (10 件超で十分)
+- **背景**: ROADMAP は「Python 統合テスト 5-10 件」を提示
+- **判断**: 17 件まで増やして v13.4 を確実に締めた
+  - 主要 fetch スクリプト 2 つ (market_data / macro_indicators) を選定。残りの fetch_*.py は v13.5 以降の段階展開
+  - 各スクリプトについて: 純関数 + 主要ヘルパー mock + main() e2e の 3 段で構成
+- **不採用案**:
+  - 全 9 fetch スクリプトに統合テスト追加: コスト過大、リターン逓減
+  - `fetch_news.py` (Claude API 4 分割呼び出し) のテスト: mock の複雑さ vs テスト価値が見合わない。fallback 機構自体は既にコードレベルで保証されている
+
+---
+
 ## v13.4.1 で導入された決定 (2026-05-12)
 
 v13.4.0 (linter インフラ) を土台に、共通 component 抽出 + テストインフラ + 型強化を一括導入。
