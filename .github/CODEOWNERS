@@ -1,0 +1,11 @@
+# CODEOWNERS — Market Monitor (v13.4.2 で導入)
+#
+# 全てのファイル変更について kk (= @other9) をレビュアー候補に指名する。
+# Dependabot などの自動 PR で必須レビュアーとして自動アサインされる。
+#
+# 個人プロジェクトなので sole reviewer 構成。
+# 将来 contributor が増えた時はパス別に細分化する。
+#
+# 参考: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @other9

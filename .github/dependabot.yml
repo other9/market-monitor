@@ -1,0 +1,55 @@
+# Dependabot 設定 — Market Monitor (v13.4.0 で導入)
+#
+# 方針:
+#   - 週次でセキュリティ + minor/patch 更新を PR 化
+#   - major バージョン更新は破壊的変更を含むので無視 (手動で確認・更新する)
+#   - npm / pip / actions の 3 つを監視
+#   - PR は kk 自身がレビュー (CODEOWNERS で sole reviewer 設定後)
+
+version: 2
+updates:
+  # npm パッケージ (フロントエンド)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "npm"
+    ignore:
+      # major バージョン更新は手動で確認 (React 19 など破壊的変更を含むため)
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # pip パッケージ (Python データ取得)
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "python"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "github-actions"

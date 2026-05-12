@@ -21,18 +21,17 @@ PE / PD / インフラ / 不動産 (米・日) を一覧で見れる「日次プ
 from __future__ import annotations
 
 import json
-from datetime import datetime, timedelta, timezone
+import sys
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
-import sys
 import pandas as pd
 import yfinance as yf
 
 # v13.3: common.py を使う
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from scripts.common import extract_close_series, log_ok, log_warn, log_info, utc_now_iso
-
+from scripts.common import extract_close_series, log_info, log_ok, log_warn, utc_now_iso
 
 OUTPUT_PATH = Path("data/listed_alts.json")
 
@@ -57,7 +56,7 @@ def pct_change(now: float, then: float) -> float | None:
 
 
 def main() -> None:
-    today = datetime.now(timezone.utc)
+    today = datetime.now(UTC)
     year_start = datetime(today.year, 1, 1)
 
     out: list[dict[str, Any]] = []
@@ -79,14 +78,17 @@ def main() -> None:
         last_date = close.index[-1].to_pydatetime()
         last_close = float(close.iloc[-1])
 
-        def _at(days_back: int) -> float | None:
+        # v13.4.1: ループ変数 (close, last_date) を default-arg binding で明示的に束縛
+        # することで Ruff B023 (function-uses-loop-variable) を回避する。
+        # 動作はループ内で即時消費されるため従来と完全に同一。
+        def _at(days_back: int, *, close=close, last_date=last_date) -> float | None:
             target = last_date - timedelta(days=days_back)
             if close.index.tz is not None and target.tzinfo is None:
                 target = target.replace(tzinfo=close.index.tz)
             sliced = close.loc[close.index <= target]
             return float(sliced.iloc[-1]) if not sliced.empty else None
 
-        def _at_date(target: datetime) -> float | None:
+        def _at_date(target: datetime, *, close=close) -> float | None:
             if close.index.tz is not None and target.tzinfo is None:
                 target = target.replace(tzinfo=close.index.tz)
             sliced = close.loc[close.index >= target]

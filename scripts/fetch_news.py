@@ -38,22 +38,24 @@ from __future__ import annotations
 import json
 import os
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
 import feedparser
 from anthropic import Anthropic
-
-from chart_universe import CHART_UNIVERSE, prompt_list as chart_prompt_list, get_by_key
+from chart_universe import get_by_key
+from chart_universe import prompt_list as chart_prompt_list
 
 # v13.3: common.py を使う
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from scripts.common import (
-    JST, jst_now, utc_now_iso,
-    log_ok, log_warn, log_info,
+    jst_now,
+    log_info,
+    log_ok,
+    log_warn,
+    utc_now_iso,
 )
-
 
 RSS_FEEDS: list[dict[str, str]] = [
     # ── 一般金融・マーケット ──
@@ -118,7 +120,7 @@ def determine_cadence() -> dict[str, Any]:
 # ============================================================
 
 def fetch_rss_items(max_per_feed: int = 25, hours_window: int = 36) -> list[dict[str, str]]:
-    cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_window)
+    cutoff = datetime.now(UTC) - timedelta(hours=hours_window)
     items: list[dict[str, str]] = []
 
     for feed in RSS_FEEDS:
@@ -131,7 +133,7 @@ def fetch_rss_items(max_per_feed: int = 25, hours_window: int = 36) -> list[dict
         for entry in parsed.entries[:max_per_feed]:
             pub = entry.get("published_parsed") or entry.get("updated_parsed")
             if pub:
-                pub_dt = datetime(*pub[:6], tzinfo=timezone.utc)
+                pub_dt = datetime(*pub[:6], tzinfo=UTC)
                 if pub_dt < cutoff:
                     continue
                 pub_iso = pub_dt.isoformat()

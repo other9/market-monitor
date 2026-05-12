@@ -14,7 +14,7 @@
 import React from "react";
 import { PALETTE, FONT_MONO } from "@/theme";
 import { fmt, fmtDate, fmtDay } from "@/utils";
-import { Signed } from "@/components/common";
+import { Signed, SectionHeader, GroupHeader} from "@/components/common";
 
 const GROUPS = ["金利・期待", "信用市場", "金融環境", "為替・実物"];
 
@@ -31,10 +31,7 @@ function MacroBarometerInner({ macro }) {
     <div>
       {byGroup.map((g, gi) => (
         <div key={gi} style={{ marginBottom: 22 }}>
-          <div className="mm-group-head">
-            <div className="mm-group-title">{g.title}</div>
-            <div className="mm-group-marker">▽ {g.rows.length} indicators</div>
-          </div>
+          <GroupHeader title={g.title} marker={`▽ ${g.rows.length} indicators`} />
           <div className="mm-macro-table">
             <div className="mm-macro-row mm-table-header">
               <div className="cell">Indicator</div>
@@ -97,7 +94,7 @@ function MacroBarometerInner({ macro }) {
 export function MacroBarometerSection({ macro }) {
   return (
     <div style={{ marginTop: 48, marginBottom: 24 }}>
-      <div className="mm-section-tag">3. マクロ・バロメーター</div>
+      <SectionHeader>3. マクロ・バロメーター</SectionHeader>
       <div className="mm-section-head"><em>FRED 18指標で読む、</em> 地合いの温度。</div>
       <div className="mm-section-lede">
         St. Louis Fed の FRED から取得した<strong>金利・期待</strong>、<strong>信用市場</strong> (HY / IG / EM 社債スプレッド)、

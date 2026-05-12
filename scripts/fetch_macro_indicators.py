@@ -23,10 +23,11 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from scripts.common import (
     fred_observations,
-    log_ok, log_warn, log_info,
+    log_info,
+    log_ok,
+    log_warn,
     utc_now_iso,
 )
-
 
 OUTPUT_PATH = Path("data/macro.json")
 
@@ -65,8 +66,9 @@ def fetch_fred_series(series_id: str, api_key: str) -> pd.Series:
 
     diff_at が pandas Timedelta arithmetic を使うため戻り値は pd.Series 維持。
     """
-    import pandas as pd  # local import to satisfy lint
     from datetime import datetime
+
+    import pandas as pd  # local import to satisfy lint
     try:
         obs = fred_observations(
             series_id,

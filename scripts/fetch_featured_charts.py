@@ -16,21 +16,24 @@ from __future__ import annotations
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
-import requests
 import yfinance as yf
 
 # v13.3: common.py を使う
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from scripts.common import (
-    fred_observations, extract_close_series,
-    log_ok, log_warn, log_skip, log_info, utc_now_iso,
+    extract_close_series,
+    fred_observations,
+    log_info,
+    log_ok,
+    log_skip,
+    log_warn,
+    utc_now_iso,
 )
-
 
 NEWS_PATH    = Path("data/news.json")
 OUTPUT_PATH  = Path("data/featured.json")

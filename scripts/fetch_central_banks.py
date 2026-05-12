@@ -14,17 +14,15 @@ from __future__ import annotations
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
-import requests
 
 # v13.3: common.py を使う
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from scripts.common import fred_observations, log_ok, log_warn, log_info, utc_now_iso
-
+from scripts.common import fred_observations, log_info, log_ok, log_warn, utc_now_iso
 
 OUTPUT_PATH = Path("data/central_banks.json")
 

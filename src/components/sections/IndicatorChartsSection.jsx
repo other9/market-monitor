@@ -13,7 +13,7 @@
 
 import React from "react";
 import { PALETTE } from "@/theme";
-import { MiniChart } from "@/components/common";
+import { MiniChart, SectionHeader} from "@/components/common";
 
 const HIGHLIGHT_DATE = "2026-02-27"; // 米・イラン紛争開始点
 
@@ -38,7 +38,7 @@ export function IndicatorChartsSection({ market }) {
 
   return (
     <div style={{ marginTop: 48, marginBottom: 24 }}>
-      <div className="mm-section-tag">7. 重要指標・5年チャート</div>
+      <SectionHeader>7. 重要指標・5年チャート</SectionHeader>
       <div className="mm-section-head"><em>俯瞰で見る、</em> 5年の地殻変動。</div>
       <div className="mm-section-lede">
         主要指標の月末値推移。<span style={{ color: PALETTE.accent, fontWeight: 600 }}>● 橙破線</span>

@@ -22,21 +22,22 @@ from __future__ import annotations
 import json
 import os
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
-import requests
 import yfinance as yf
 
 # v13.3: common.py を使う
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from scripts.common import (
-    fred_observations, extract_close_series,
-    log_ok, log_warn, log_info, utc_now_iso,
+    extract_close_series,
+    fred_observations,
+    log_info,
+    log_ok,
+    log_warn,
 )
-
 
 OUTPUT_PATH = Path("data/valuations.json")
 
@@ -166,7 +167,7 @@ def make_entry(name: str, group: str, freq: str, unit: str, desc: str,
 def main() -> None:
     fred_key = os.environ.get("FRED_API_KEY", "")
     out: list[dict[str, Any]] = []
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
 
     # ── 1. S&P 500 配当利回り ──
     if fred_key:
