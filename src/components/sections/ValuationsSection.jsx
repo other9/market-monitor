@@ -14,7 +14,7 @@
 import React from "react";
 import { PALETTE, FONT_MONO } from "@/theme";
 import { fmt, fmtSigned, fmtDate, fmtDay } from "@/utils";
-import { Signed, MiniChart } from "@/components/common";
+import { Signed, MiniChart, SectionHeader, GroupHeader} from "@/components/common";
 
 const GROUPS = ["米国バリュエーション", "ボラティリティ"];
 
@@ -32,7 +32,7 @@ export function ValuationsSection({ valuations }) {
 
   return (
     <div style={{ marginTop: 48, marginBottom: 24 }}>
-      <div className="mm-section-tag">5. バリュエーション・ゲージ</div>
+      <SectionHeader>5. バリュエーション・ゲージ</SectionHeader>
       <div className="mm-section-head"><em>5指標で測る、</em> 株式の高低。</div>
       <div className="mm-section-lede">
         Shiller CAPE / Buffett Indicator / Fed Model / 配当利回り / VVIX-VIX 比率。
@@ -43,10 +43,7 @@ export function ValuationsSection({ valuations }) {
       <div>
         {byGroup.map((g, gi) => (
           <div key={gi} style={{ marginBottom: 22 }}>
-            <div className="mm-group-head">
-              <div className="mm-group-title">{g.title}</div>
-              <div className="mm-group-marker">▽ {g.rows.length} indicators</div>
-            </div>
+            <GroupHeader title={g.title} marker={`▽ ${g.rows.length} indicators`} />
             <div className="mm-macro-table">
               <div className="mm-macro-row mm-table-header">
                 <div className="cell">Indicator</div>

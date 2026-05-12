@@ -11,7 +11,7 @@ v13.0 で新設。FRED API のような外部依存はモックせず、
 from __future__ import annotations
 
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -21,7 +21,7 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from scripts.common import (
+from scripts.common import (  # noqa: E402 — sys.path 操作後の意図的な import
     extract_close_series,
     jst_now,
     jst_today_iso,
@@ -32,7 +32,6 @@ from scripts.common import (
     utc_now,
     utc_now_iso,
 )
-
 
 # ─────────────────────────────────────────────────────────
 # extract_close_series: yfinance の MultiIndex 列吸収
@@ -117,7 +116,7 @@ class TestDateHelpers:
 
     def test_utc_now_has_utc_tz(self):
         d = utc_now()
-        assert d.tzinfo == timezone.utc
+        assert d.tzinfo == UTC
 
     def test_jst_is_9_hours_ahead_of_utc(self):
         u = utc_now()

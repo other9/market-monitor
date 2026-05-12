@@ -17,17 +17,14 @@
 import React from "react";
 import { PALETTE, FONT_MONO } from "@/theme";
 import { fmt, fmtDate, fmtDay } from "@/utils";
-import { Pct } from "@/components/common";
+import { Pct, SectionHeader, GroupHeader} from "@/components/common";
 
 const GROUPS = ["株式", "為替", "金利", "コモディティ", "ボラティリティ"];
 
 function IndicesGroup({ title, rows }) {
   return (
     <div style={{ marginBottom: 28 }}>
-      <div className="mm-group-head">
-        <div className="mm-group-title">{title}</div>
-        <div className="mm-group-marker">▽ Section</div>
-      </div>
+      <GroupHeader title={title} marker="▽ Section" />
       <div className="mm-table">
         <div className="mm-table-row mm-table-header">
           <div className="cell">Instrument</div>
@@ -108,7 +105,7 @@ export function MarketTableSection({ market, news }) {
   return (
     <>
       <div style={{ marginBottom: 12 }}>
-        <div className="mm-section-tag">2. 昨日の主要市場</div>
+        <SectionHeader>2. 昨日の主要市場</SectionHeader>
         <div className="mm-section-head"><em>{news.headline_of_the_day || "—"}</em></div>
         <div className="mm-section-lede">
           株式・為替・金利・コモディティ・ボラティリティの引値と、1日/1週/1ヶ月/6ヶ月のリターン。

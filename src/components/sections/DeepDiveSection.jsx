@@ -15,6 +15,7 @@
 //
 
 import React from "react";
+import { ExternalLink } from "@/components/common";
 
 export function DeepDiveSection({ article, chartUniverse, cadence }) {
   if (!article || !article.title) return null;
@@ -68,7 +69,7 @@ export function DeepDiveSection({ article, chartUniverse, cadence }) {
 
       {article.link && (
         <div className="mm-deepdive-source">
-          ソース: <a href={article.link} target="_blank" rel="noopener noreferrer">{article.source || "元記事"}</a>
+          ソース: <ExternalLink href={article.link}>{article.source || "元記事"}</ExternalLink>
         </div>
       )}
     </div>

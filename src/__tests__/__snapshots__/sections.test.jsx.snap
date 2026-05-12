@@ -1,0 +1,236 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DeepDiveSection > renders article with source link 1`] = `
+<div>
+  <div
+    class="mm-deepdive"
+  >
+    <div
+      class="mm-deepdive-kicker"
+    >
+      ▨ Deep Dive · 今日の深掘り
+    </div>
+    <h2
+      class="mm-deepdive-title"
+    >
+      Deep Dive タイトル
+    </h2>
+    <div
+      class="mm-deepdive-grid"
+    >
+      <div>
+        <div
+          class="mm-deepdive-section-head"
+        >
+          — 背景
+        </div>
+        <div
+          class="mm-deepdive-body"
+        />
+      </div>
+      <div>
+        <div
+          class="mm-deepdive-section-head"
+        >
+          — 市場への含意
+        </div>
+        <div
+          class="mm-deepdive-body"
+        />
+      </div>
+    </div>
+    <div
+      class="mm-deepdive-related"
+    >
+      <span
+        class="mm-deepdive-related-label"
+      >
+        関連指標
+      </span>
+      <span
+        class="mm-deepdive-related-chip"
+      >
+        nikkei
+      </span>
+      <span
+        class="mm-deepdive-related-chip"
+      >
+        sp500
+      </span>
+    </div>
+    <div
+      class="mm-deepdive-source"
+    >
+      ソース: 
+      <a
+        href="https://example.com/dd"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Test
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`FooterSection > renders default footer 1`] = `
+<div>
+  <footer
+    class="mm-footer"
+  >
+    <div>
+      Market Monitor · 東京版 · 
+      v13.0
+       · auto-updated 08:00 JST
+    </div>
+    <div>
+      Data: yfinance / FRED / Anthropic Claude API
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`MarketMuseSection > renders funny stories with source links 1`] = `
+<div>
+  <div>
+    <div
+      class="mm-muse-header"
+    >
+      <div
+        class="mm-section-tag"
+      >
+        ▨ Market Muse
+      </div>
+      <div
+        class="mm-section-head"
+      >
+        <em>
+          クスッと、
+        </em>
+         市場の小話 三題。
+      </div>
+      <div
+        class="mm-section-lede"
+      >
+        市場の小話・観察・人間味の三題。
+      </div>
+    </div>
+    <div
+      class="mm-muse-grid"
+    >
+      <div
+        class="mm-muse-card"
+      >
+        <div
+          class="mm-muse-kind"
+        >
+          — 
+          ジョーク
+        </div>
+        <div
+          class="mm-muse-title"
+        >
+          小話タイトル
+        </div>
+        <div
+          class="mm-muse-body"
+        >
+          本文。
+        </div>
+        <div>
+          <a
+            class="mm-muse-link"
+            href="https://example.com/joke"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Source
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NewsSection > renders headlines list with external links 1`] = `
+<div>
+  <div
+    style="margin-top: 56px;"
+  >
+    <div
+      class="mm-section-tag"
+    >
+      8. 市場を動かしたニュース
+    </div>
+    <div
+      class="mm-section-head"
+    >
+      <em>
+        Claude AIが選ぶ、
+      </em>
+       本日の7本。
+    </div>
+    <div
+      class="mm-section-lede"
+    >
+      直近24時間の主要メディアから AI が選定した、マーケットに影響を与えた / 与えうる重要ニュース。
+    </div>
+    <div
+      class="mm-news-grid"
+    >
+      <div
+        class="mm-news-cell"
+      >
+        <div
+          style="font-family: "JetBrains Mono", "Menlo", ui-monospace, monospace; font-size: 9.5px; color: rgb(26, 77, 122); letter-spacing: 0.2em; margin-bottom: 8px; font-weight: 600;"
+        >
+          — 
+        </div>
+        <div
+          style="font-family: var(--font-display); font-size: 19px; line-height: 1.25; color: rgb(26, 31, 46); font-weight: 500; margin-bottom: 10px;"
+        />
+        <div
+          style="font-size: 13px; line-height: 1.6; color: rgb(92, 99, 115); margin-bottom: 14px;"
+        />
+        <div>
+          <a
+            class="mm-news-link"
+            href="https://example.com/1"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Test Source
+          </a>
+        </div>
+      </div>
+      <div
+        class="mm-news-cell"
+      >
+        <div
+          style="font-family: "JetBrains Mono", "Menlo", ui-monospace, monospace; font-size: 9.5px; color: rgb(26, 77, 122); letter-spacing: 0.2em; margin-bottom: 8px; font-weight: 600;"
+        >
+          — 
+        </div>
+        <div
+          style="font-family: var(--font-display); font-size: 19px; line-height: 1.25; color: rgb(26, 31, 46); font-weight: 500; margin-bottom: 10px;"
+        />
+        <div
+          style="font-size: 13px; line-height: 1.6; color: rgb(92, 99, 115); margin-bottom: 14px;"
+        />
+        <div>
+          <a
+            class="mm-news-link"
+            href="https://example.com/2"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Other Source
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

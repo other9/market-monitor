@@ -23,12 +23,11 @@ from __future__ import annotations
 
 import os
 import sys
-from datetime import date, datetime, timedelta, timezone
-from typing import Any, Iterable
+from datetime import UTC, date, datetime, timedelta, timezone
+from typing import Any
 
 import pandas as pd
 import requests
-
 
 # ─────────────────────────────────────────────────────────
 # 1. FRED API client
@@ -144,8 +143,11 @@ def extract_close_series(df: pd.DataFrame) -> pd.Series:
 
     if "Close" in df.columns:
         s = df["Close"]
-        if isinstance(s, pd.DataFrame):
-            return s.iloc[:, 0].dropna() if s.shape[1] > 0 else pd.Series(dtype="float64")
+        # v13.4.1: pandas-stubs は df["Close"] を Series と型推論するが、yfinance の
+        # MultiIndex ケースでは DataFrame が返ることがある (test_close_column_with_dataframe_value
+        # でカバー済)。runtime 防御として残し、mypy には unreachable を抑制させる。
+        if isinstance(s, pd.DataFrame):  # type: ignore[unreachable]
+            return s.iloc[:, 0].dropna() if s.shape[1] > 0 else pd.Series(dtype="float64")  # type: ignore[unreachable]
         return s.dropna()
 
     # OHLC 形式のフォールバック (Close は 4 列目)
@@ -204,12 +206,12 @@ def utc_now_iso() -> str:
 
     data/*.json の generatedAt フィールドで使用。
     """
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def utc_now() -> datetime:
     """UTC タイムゾーン付きの datetime を返す。"""
-    return datetime.now(timezone.utc)
+    return datetime.now(UTC)
 
 
 # ─────────────────────────────────────────────────────────

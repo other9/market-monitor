@@ -9,7 +9,6 @@ chart_universe.py
 
 from __future__ import annotations
 
-
 # source: "yf" = yfinance / "fred" = FRED API
 # id    : データ取得に使うシンボル
 # key   : JSONキーとして使う識別子 (英数とアンダースコア)

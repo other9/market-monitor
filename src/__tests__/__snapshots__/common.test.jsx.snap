@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ExternalLink > always sets target=_blank and rel noopener noreferrer 1`] = `
+<div>
+  <a
+    class="mm-news-link"
+    href="https://example.com"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    記事タイトル
+  </a>
+</div>
+`;
+
+exports[`GroupHeader > accepts an inline style override 1`] = `
+<div>
+  <div
+    class="mm-group-head"
+    style="margin-top: 0px;"
+  >
+    <div
+      class="mm-group-title"
+    >
+      ボラティリティ・ファンディング
+    </div>
+    <div
+      class="mm-group-marker"
+    >
+      ▽ stress detectors
+    </div>
+  </div>
+</div>
+`;
+
+exports[`GroupHeader > renders title and marker 1`] = `
+<div>
+  <div
+    class="mm-group-head"
+  >
+    <div
+      class="mm-group-title"
+    >
+      株式
+    </div>
+    <div
+      class="mm-group-marker"
+    >
+      ▽ Section
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Pct (existing common) > formats negative percent with down color 1`] = `
+<div>
+  <span
+    style="font-family: "JetBrains Mono", "Menlo", ui-monospace, monospace; font-weight: 500; font-size: 12.5px; color: rgb(192, 57, 43); white-space: nowrap;"
+  >
+    -0.80%
+  </span>
+</div>
+`;
+
+exports[`Pct (existing common) > formats positive percent with up color 1`] = `
+<div>
+  <span
+    style="font-family: "JetBrains Mono", "Menlo", ui-monospace, monospace; font-weight: 500; font-size: 12.5px; color: rgb(45, 106, 79); white-space: nowrap;"
+  >
+    +1.25%
+  </span>
+</div>
+`;
+
+exports[`Pct (existing common) > shows em-dash for null 1`] = `
+<div>
+  <span
+    style="font-family: "JetBrains Mono", "Menlo", ui-monospace, monospace; font-weight: 500; font-size: 12.5px; color: rgb(92, 99, 115); white-space: nowrap;"
+  >
+    —
+  </span>
+</div>
+`;
+
+exports[`SectionHeader > renders a numbered section header 1`] = `
+<div>
+  <div
+    class="mm-section-tag"
+  >
+    1. 本日の注目チャート
+  </div>
+</div>
+`;
+
+exports[`SectionHeader > renders with a marker prop (Market Muse style) 1`] = `
+<div>
+  <div
+    class="mm-section-tag"
+  >
+    ▨ Market Muse
+  </div>
+</div>
+`;
+
+exports[`Signed (existing common) > prefixes + for positive values 1`] = `
+<div>
+  <span
+    style="font-family: "JetBrains Mono", "Menlo", ui-monospace, monospace; font-weight: 500; font-size: 12.5px; color: rgb(45, 106, 79);"
+  >
+    +0.123
+  </span>
+</div>
+`;

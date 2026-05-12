@@ -12,6 +12,7 @@
 //
 
 import React from "react";
+import { SectionHeader, ExternalLink } from "@/components/common";
 import { PALETTE, FONT_MONO } from "@/theme";
 
 export function NewsSection({ news }) {
@@ -20,7 +21,7 @@ export function NewsSection({ news }) {
 
   return (
     <div style={{ marginTop: 56 }}>
-      <div className="mm-section-tag">8. 市場を動かしたニュース</div>
+      <SectionHeader>8. 市場を動かしたニュース</SectionHeader>
       <div className="mm-section-head"><em>Claude AIが選ぶ、</em> 本日の7本。</div>
       <div className="mm-section-lede">
         直近24時間の主要メディアから AI が選定した、マーケットに影響を与えた / 与えうる重要ニュース。
@@ -57,9 +58,9 @@ export function NewsSection({ news }) {
             )}
             {n.link && (
               <div>
-                <a href={n.link} target="_blank" rel="noopener noreferrer" className="mm-news-link">
+                <ExternalLink href={n.link} className="mm-news-link">
                   {n.source || "記事元"}
-                </a>
+                </ExternalLink>
               </div>
             )}
           </div>

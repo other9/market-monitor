@@ -19,8 +19,7 @@ from pathlib import Path
 
 # v13.3: common.py を使う
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from scripts.common import jst_today_iso, utc_now_iso, log_ok, log_warn, log_skip, log_info
-
+from scripts.common import jst_today_iso, log_info, log_ok, log_skip, log_warn, utc_now_iso
 
 DATA_DIR    = Path("data")
 ARCHIVE_DIR = Path("data/archive")

@@ -1,0 +1,12 @@
+# Prettier 除外パス (v13.4.0 で導入)
+node_modules
+dist
+data
+coverage
+package-lock.json
+*.min.js
+*.min.css
+
+# Markdown / JSON は手書き整形を尊重 (テーブル整列を壊さないため)
+*.md
+data/*.json
