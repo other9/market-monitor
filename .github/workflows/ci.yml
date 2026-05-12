@@ -1,0 +1,63 @@
+name: CI
+
+# v13.4.0 で導入: PR と main 以外への push で lint + test + build を回す
+# main への push 時は daily-update.yml が走るので、ここでは触らない (重複回避)
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  # ───────────────────────────────────────────────
+  # Python: Ruff lint + pytest
+  # ───────────────────────────────────────────────
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Ruff lint
+        run: ruff check .
+
+      - name: Pytest
+        run: pytest tests/ --tb=short
+
+  # ───────────────────────────────────────────────
+  # Frontend: ESLint + Vite build
+  # ───────────────────────────────────────────────
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install npm deps
+        run: npm ci
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Build check
+        run: npm run build
+        env:
+          BASE_URL: "/market-monitor/"

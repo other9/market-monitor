@@ -32,7 +32,11 @@ jobs:
       - name: Install Python deps
         run: pip install -r requirements.txt
 
-      # ── 0. Python smoke test (import チェック + 単体テスト) ──
+      # ── 0a. Ruff lint (v13.4.0 で追加) ──
+      - name: Ruff lint
+        run: ruff check .
+
+      # ── 0b. Python smoke test (import チェック + 単体テスト) ──
       - name: Python smoke test
         run: |
           python -c "import scripts.common; print('common.py OK, version=', scripts.common.__version__)"

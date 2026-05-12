@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import json
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -25,8 +25,7 @@ import yfinance as yf
 
 # v13.3: common.py を使う
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from scripts.common import extract_close_series, log_ok, log_warn, log_info, utc_now_iso
-
+from scripts.common import extract_close_series, log_info, log_ok, log_warn, utc_now_iso
 
 # ─── メイン指標 ───
 INSTRUMENTS: list[dict[str, Any]] = [
@@ -108,7 +107,7 @@ def fetch_5y_daily(ticker: str) -> list[dict[str, Any]]:
 
 
 def main() -> None:
-    today = datetime.now(timezone.utc)
+    today = datetime.now(UTC)
 
     # ── メイン指標 ──
     indices_out: list[dict[str, Any]] = []
