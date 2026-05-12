@@ -123,6 +123,8 @@ jobs:
         run: npm run build
         env:
           BASE_URL: "/market-monitor/"
+          # v13.5: Sentry DSN (Secrets に未設定なら空文字 → no-op)
+          VITE_SENTRY_DSN: ${{ secrets.VITE_SENTRY_DSN }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

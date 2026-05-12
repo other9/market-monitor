@@ -71,3 +71,22 @@ ignore_missing_imports = true
 # feedparser も同様
 module = "feedparser.*"
 ignore_missing_imports = true
+
+# ─────────────────────────────────────────────────────────
+# Coverage 設定 (v13.5 で導入、Codecov 連携)
+# ─────────────────────────────────────────────────────────
+[tool.coverage.run]
+source = ["scripts"]
+omit = [
+    "scripts/__init__.py",
+    "tests/*",
+]
+
+[tool.coverage.report]
+# v13.5 時点では「可視化のみ、閾値 enforce 無し」(DECISION v13.4-plan-01)
+# 将来カバレッジが安定してきたら fail_under を導入する余地を残す
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+]

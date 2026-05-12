@@ -7,6 +7,95 @@
 
 ---
 
+## v13.5 で導入された決定 (2026-05-12)
+
+Phase 1 後半の監視・観測レイヤ。Tier 2 の中で個人プロジェクトでも価値が出るものに絞って導入。
+すべて free tier 内で完結 (DECISION v13.4-plan-06)。
+
+### [DECISION v13.5-01] Sentry は DSN-gated init で local dev に影響を与えない構造
+- **背景**: Sentry を導入する典型実装は `Sentry.init({ dsn: "..." })` をハードコードするが、これだと local dev でも DSN がコードに混入する/エラーが Sentry に流れる
+- **判断**: `import.meta.env.VITE_SENTRY_DSN` で DSN を取得し、未設定なら `initSentry()` は完全 no-op で return
+- **配信パス**: GitHub Secrets の `VITE_SENTRY_DSN` を `daily-update.yml` の build ステップに env として渡す。Vite が build 時に `import.meta.env.VITE_SENTRY_DSN` として埋め込む
+- **local dev**: `.env` に書かないので未設定 → no-op。kk が dev 時に Sentry に流すことはない
+- **DSN ミュート**: GitHub Secrets から `VITE_SENTRY_DSN` を削除すれば次の build から no-op に戻る。コード変更不要
+
+### [DECISION v13.5-02] Sentry のキャプチャ範囲は最小限 (tracing / replay / PII 全て無効)
+- **背景**: Sentry の features を全部有効化すると free tier (5K events/月) を簡単に超える
+- **判断**:
+  - `tracesSampleRate: 0` (パフォーマンス計測無効)
+  - `replaysSessionSampleRate: 0` / `replaysOnErrorSampleRate: 0` (セッションリプレイ無効)
+  - `sendDefaultPii: false` (IP / user-agent 等の PII 送信無効)
+  - `browserTracingIntegration` は明示的に `enabled: false`
+- **キャプチャされるもの**: 未捕捉例外 (window.onerror) + 未捕捉 Promise rejection + React ErrorBoundary 内のエラー
+- **十分性**: kk の用途 (data 取得失敗 / JSON parse エラー / Recharts 例外などの「UI が壊れた」検知) には必要十分
+- **将来**: 何か特定の問題を追う必要があれば、その時だけ tracing を有効化する
+
+### [DECISION v13.5-03] React ErrorBoundary を必ず噛ませる (Sentry 有無に関わらず)
+- **背景**: React の render 例外は default では真っ白画面になる。Sentry に飛ばないのも問題だが、ユーザー (= kk) が「何が起きたか」を見えない方が大問題
+- **判断**: `main.jsx` で `<App />` を `<Sentry.ErrorBoundary fallback={...}>` で wrap
+- **fallback UI 設計**:
+  - 「ページのレンダリング中に問題が発生しました」のメッセージ
+  - データは `data/*.json` に保存されている旨を明示 (data layer は無事だと伝えるため)
+  - `<details>` でエラー内容を折りたたみ表示 (展開しないと見えない)
+  - 既存のクリーム背景 + ネイビー文字の配色を継承 (突然の UI 崩壊感を緩和)
+- **Sentry DSN 未設定でも動く**: ErrorBoundary 自体は `@sentry/react` の export を使うが、Sentry.init() が no-op でも ErrorBoundary は機能する
+
+### [DECISION v13.5-04] Codecov は「可視化のみ、閾値 enforce 無し」で開始
+- **背景**: いきなり `fail_under = 80` のような閾値を入れると、v13.4.2 時点の 24% カバレッジでは何もできない
+- **判断**:
+  - `pytest --cov` で coverage.xml を生成
+  - `codecov/codecov-action@v4` で Codecov にアップロード (public repo は token 不要)
+  - `fail_ci_if_error: false` で Codecov 側障害でも CI を落とさない
+  - pyproject.toml の `[tool.coverage.report]` に `fail_under` は **書かない**
+- **ベースライン (v13.5 着地時点)**:
+  - scripts/fetch_macro_indicators.py: 92%
+  - scripts/fetch_market_data.py: 84%
+  - scripts/common.py: 53%
+  - その他 fetch スクリプト: 0%
+  - **TOTAL: 24%**
+- **将来**: カバレッジが上がってきたら `fail_under` を段階的に追加する (まず 30 → 50 → 70 など)
+
+### [DECISION v13.5-05] Lighthouse CI は temporary-public-storage を使う (Lighthouse CI Server 構築は不採用)
+- **背景**: Lighthouse CI には専用 server をホストする選択肢もあるが、運用コストが発生する
+- **判断**: `upload.target: "temporary-public-storage"` で Google が無料提供する一時 URL を使う
+  - PR ごとに `https://storage.googleapis.com/...` の形式で結果 URL がコメント or CI ログに出る
+  - 履歴蓄積はされない (kk が PR ごとに見るだけで十分)
+- **assertions の閾値**:
+  - performance: 0.5 (warn)
+  - accessibility / best-practices / seo: 0.85 (warn)
+  - すべて **warn** レベル、CI を落とさない
+  - `continue-on-error: true` で Lighthouse 自体の障害でも CI を通す
+- **将来**: パフォーマンス改善が PR で見えるようになる → 段階的に閾値を上げる
+
+### [DECISION v13.5-06] Cloudflare Pages PR preview は GitHub Pages と並走 (本番置き換えはしない)
+- **背景**: GitHub Pages は `main` のみデプロイで PR preview が無い。Cloudflare Pages は PR ごとに preview URL が自動生成される
+- **判断**:
+  - Cloudflare Pages を **副 production** + **PR preview** として並走運用
+  - GitHub Pages は本番 (`https://other9.github.io/market-monitor/`) のまま維持
+  - 本番 URL の変更 (Cloudflare に切り替え) はしない
+- **理由**:
+  - GitHub Pages の URL を変えると kk のブックマーク等が壊れる
+  - Cloudflare Pages 側が万一停止しても GitHub Pages は無事
+  - Cloudflare Pages は preview 用途と認識して、本番を頼らない
+- **BASE_URL の違い**:
+  - GitHub Pages: `/market-monitor/` (project page)
+  - Cloudflare Pages: `/` (カスタムドメイン or `*.pages.dev`)
+  - Cloudflare 側で `BASE_URL=/` を環境変数に入れる
+- **設定手順**: `docs/MONITORING.md` の「Cloudflare Pages PR preview」節
+- **不採用案**:
+  - Cloudflare Pages を本番に置き換え: 上記理由により非採用
+  - GitHub Pages の preview-mode を使う: 公式機能としては存在しない
+
+### [DECISION v13.5-07] `docs/MONITORING.md` で外部サービス設定手順を一元化
+- **背景**: 4 つの監視レイヤとも、コードや CI workflow は zip で適用されるが、外部 SaaS の登録・連携は kk が GitHub UI / 各 SaaS の Web UI で手動設定する必要がある
+- **判断**: 全 4 サービス分の設定手順を `docs/MONITORING.md` に集約 (`docs/BRANCH_PROTECTION.md` と同じ形式)
+- **構成**:
+  - 各サービスごとに「Sentry 側で行うこと」「GitHub 側で行うこと」「動作確認」「ベースライン / 閾値」を明記
+  - free tier 内で完結することを各節で再確認
+- **将来運用**: 設定変更時はこのファイルを更新。各 SaaS の UI 変更で項目名が変わった時の差分検知用
+
+---
+
 ## v13.4.2 で導入された決定 (2026-05-12)
 
 v13.4.0/.1 で整えた quality gate を土台に、統合テスト + 運用ドキュメント + ブランチ保護を一括導入し、v13.4 (Phase 1) を完了させる。

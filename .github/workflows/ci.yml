@@ -36,8 +36,16 @@ jobs:
       - name: Mypy strict (scripts/common.py)
         run: mypy
 
-      - name: Pytest
-        run: pytest tests/ --tb=short
+      - name: Pytest with coverage
+        run: pytest tests/ --cov=scripts --cov-report=xml --cov-report=term --tb=short
+
+      # v13.5: Codecov 連携 (public repo は token 不要)
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: ./coverage.xml
+          flags: python
+          fail_ci_if_error: false  # 可視化が目的、Codecov 側障害で CI を落とさない
 
   # ───────────────────────────────────────────────
   # Frontend: ESLint + Vite build
@@ -67,3 +75,13 @@ jobs:
         run: npm run build
         env:
           BASE_URL: "/market-monitor/"
+
+      # v13.5: Lighthouse CI (PR ごとにパフォーマンス・アクセシビリティを計測)
+      - name: Lighthouse CI
+        run: |
+          npm install --no-save @lhci/cli@^0.14
+          npx lhci autorun
+        env:
+          # Lighthouse の結果 URL (temporary-public-storage) を出力ログに表示
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        continue-on-error: true  # warn 段階、CI を落とさない
