@@ -21,18 +21,17 @@ PE / PD / インフラ / 不動産 (米・日) を一覧で見れる「日次プ
 from __future__ import annotations
 
 import json
-from datetime import datetime, timedelta, timezone
+import sys
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
-import sys
 import pandas as pd
 import yfinance as yf
 
 # v13.3: common.py を使う
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from scripts.common import extract_close_series, log_ok, log_warn, log_info, utc_now_iso
-
+from scripts.common import extract_close_series, log_info, log_ok, log_warn, utc_now_iso
 
 OUTPUT_PATH = Path("data/listed_alts.json")
 
@@ -57,7 +56,7 @@ def pct_change(now: float, then: float) -> float | None:
 
 
 def main() -> None:
-    today = datetime.now(timezone.utc)
+    today = datetime.now(UTC)
     year_start = datetime(today.year, 1, 1)
 
     out: list[dict[str, Any]] = []

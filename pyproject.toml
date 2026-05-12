@@ -1,0 +1,49 @@
+[tool.ruff]
+# Market Monitor — Ruff 設定 (v13.4.0 で導入)
+#
+# 設計方針:
+#   - lint のみ有効化。formatter は v13.4.0 では使わない
+#     (理由: scripts/chart_universe.py, fetch_market_data.py 等のテーブル状
+#      リテラルが新聞風に整列されており、Black 互換フォーマッタが多行展開
+#      してしまうため。フォーマッタ導入は v13.4.1 以降で `# fmt: off` ブロック
+#      付きの個別対応として検討する)
+#   - 既存コードに大量の修正が要らない範囲で開始し、段階的に強化する
+#   - v13.4.1 以降で mypy strict 化と合わせてさらに厳格化する余地を残す
+
+line-length = 100
+target-version = "py311"
+extend-exclude = ["data/archive", "dist", "node_modules", ".venv"]
+
+[tool.ruff.lint]
+# 有効ルール群:
+#   E, W   — pycodestyle (PEP 8)
+#   F      — pyflakes (未使用 import / 未定義変数など)
+#   I      — isort (import 順序)
+#   B      — flake8-bugbear (バグになりがちなパターン)
+#   UP     — pyupgrade (古い文法を新しく)
+#   SIM    — flake8-simplify (簡潔化)
+#   C4     — flake8-comprehensions (内包表記の改善)
+#   PIE    — flake8-pie (細かな改善)
+#   RUF    — Ruff 固有ルール
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "C4", "PIE", "RUF"]
+
+# 既存コードと合わない / 個人プロジェクトには過剰なルールは除外:
+#   E501   — 行長は formatter が処理する (line-length=100)
+#   B008   — Function call in default argument: 既存パターンとの衝突が多い
+#   B023   — Function uses loop variable: fetch_listed_alts.py の closure pattern で 23 件検出。
+#            内部関数がループ内で即時消費されるため動作上は問題ないが、防御的には警告される。
+#            v13.4.1 で default-arg binding (`*, close=close`) によって正しく fix し、
+#            ここから外す予定。
+#   SIM108 — Ternary を強制: 可読性を損なうケースあり
+#   RUF001/002/003 — 全角文字を疑うルール: 日本語コメント・ログで誤検出
+#   UP007  — Optional[X] → X | None: from __future__ import annotations 併用時は不要
+ignore = ["E501", "B008", "B023", "SIM108", "RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+# テストでは未使用 import 警告を緩める (fixture などで意図的な import あり)
+"tests/*" = ["F401"]
+# __init__.py は再エクスポート目的で未使用 import が許容される
+"**/__init__.py" = ["F401"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["scripts", "tests"]

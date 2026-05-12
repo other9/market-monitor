@@ -23,12 +23,11 @@ from __future__ import annotations
 
 import os
 import sys
-from datetime import date, datetime, timedelta, timezone
-from typing import Any, Iterable
+from datetime import UTC, date, datetime, timedelta, timezone
+from typing import Any
 
 import pandas as pd
 import requests
-
 
 # ─────────────────────────────────────────────────────────
 # 1. FRED API client
@@ -204,12 +203,12 @@ def utc_now_iso() -> str:
 
     data/*.json の generatedAt フィールドで使用。
     """
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def utc_now() -> datetime:
     """UTC タイムゾーン付きの datetime を返す。"""
-    return datetime.now(timezone.utc)
+    return datetime.now(UTC)
 
 
 # ─────────────────────────────────────────────────────────
